@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خارطة تطوير Full Stack - TipsHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .stack-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(75, 85, 99, 0.5);
+        }
+        
+        .stack-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .roadmap-step {
+            position: relative;
+            padding-right: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .roadmap-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: 15px;
+            height: calc(100% - 40px);
+            width: 2px;
+            background-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: rgb(59, 130, 246);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-weight: bold;
+            z-index: 2;
+            color: white;
+        }
+        
+        .skill-level {
+            height: 6px;
+            border-radius: 3px;
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-right: 30px;
+        }
+        
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: 10px;
+            height: calc(100% - 30px);
+            width: 2px;
+            background-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgb(59, 130, 246);
+            position: absolute;
+            right: 0;
+            top: 5px;
+        }
+        
+        .path-card {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .path-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-gray-800 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="index.html" class="text-2xl font-bold text-blue-400">
+                            <i class="fas fa-code mr-2"></i>TipsHub
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">الرئيسية</a>
+                        <a href="roadmaps.html" class="text-blue-400 px-3 py-2 rounded-md text-sm font-medium">خرائط التعلم</a>
+                        <a href="tips.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">نصائح</a>
+                        <a href="problems.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">المشاكل</a>
+                        <a href="interview.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">مقابلات العمل</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-br from-purple-900 via-blue-900 to-green-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="text-center md:text-right mb-6 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">خارطة تطوير Full Stack Developer</h1>
+                    <p class="text-xl text-gray-300 max-w-2xl">
+                        مسار شامل لتصبح مطوراً كاملاً تتقن الواجهات الأمامية والخلفية وقواعد البيانات والنشر
+                    </p>
+                </div>
+                <div class="bg-gradient-to-br from-purple-600 to-blue-600 w-20 h-20 rounded-full flex items-center justify-center">
+                    <i class="fas fa-layer-group text-3xl text-white"></i>
+                </div>
+            </div>
+            
+            <!-- Roadmap Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+                <div class="bg-purple-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">12-18</div>
+                    <div class="text-purple-300 text-sm">أشهر</div>
+                </div>
+                <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">6+</div>
+                    <div class="text-blue-300 text-sm">مسارات تقنية</div>
+                </div>
+                <div class="bg-green-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">25+</div>
+                    <div class="text-green-300 text-sm">مشروع عملي</div>
+                </div>
+                <div class="bg-yellow-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">50+</div>
+                    <div class="text-yellow-300 text-sm">مهارة تقنية</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Stacks -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center">أشهر Full Stack Stacks</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <!-- MERN Stack -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-green-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fab fa-node-js text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">MERN Stack</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">الحزمة الكاملة بتقنيات JavaScript</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">Frontend</span>
+                            <span class="tech-badge bg-green-900 text-green-300">React</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">Backend</span>
+                            <span class="tech-badge bg-green-800 text-green-200">Node.js</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">Database</span>
+                            <span class="tech-badge bg-green-700 text-green-100">MongoDB</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-green-400">مرتفع جداً</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-green-600 h-2 rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- MEAN Stack -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-red-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fab fa-angular text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">MEAN Stack</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">منصة JavaScript كاملة مع Angular</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">Frontend</span>
+                            <span class="tech-badge bg-red-900 text-red-300">Angular</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">Backend</span>
+                            <span class="tech-badge bg-red-800 text-red-200">Node.js</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">Database</span>
+                            <span class="tech-badge bg-red-700 text-red-100">MongoDB</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-red-400">متوسط</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-red-600 h-2 rounded-full" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- .NET Full Stack -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-blue-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fab fa-microsoft text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">.NET Full Stack</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">حزمة Microsoft المتكاملة</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">Frontend</span>
+                            <span class="tech-badge bg-blue-900 text-blue-300">Blazor/React</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">Backend</span>
+                            <span class="tech-badge bg-blue-800 text-blue-200">ASP.NET Core</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">Database</span>
+                            <span class="tech-badge bg-blue-700 text-blue-100">SQL Server</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-blue-400">مرتفع</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Python Django -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-yellow-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fab fa-python text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Python Django</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">تطوير سريع بإطار Django</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">Frontend</span>
+                            <span class="tech-badge bg-yellow-900 text-yellow-300">React/Vue</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">Backend</span>
+                            <span class="tech-badge bg-yellow-800 text-yellow-200">Django</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">Database</span>
+                            <span class="tech-badge bg-yellow-700 text-yellow-100">PostgreSQL</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-yellow-400">مرتفع</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-yellow-600 h-2 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Java Spring -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-orange-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-orange-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fab fa-java text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Java Spring</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">لتطبيقات Enterprise</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">Frontend</span>
+                            <span class="tech-badge bg-orange-900 text-orange-300">React/Thymeleaf</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">Backend</span>
+                            <span class="tech-badge bg-orange-800 text-orange-200">Spring Boot</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">Database</span>
+                            <span class="tech-badge bg-orange-700 text-orange-100">MySQL</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-orange-400">مرتفع</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-orange-600 h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PHP Laravel -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-indigo-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fab fa-php text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">PHP Laravel</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">لتطوير الويب التقليدي والسريع</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">Frontend</span>
+                            <span class="tech-badge bg-indigo-900 text-indigo-300">Vue.js/Blade</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">Backend</span>
+                            <span class="tech-badge bg-indigo-800 text-indigo-200">Laravel</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">Database</span>
+                            <span class="tech-badge bg-indigo-700 text-indigo-100">MySQL</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-indigo-400">متوسط</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-indigo-600 h-2 rounded-full" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Path -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center">مسار التعلم الشامل</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Frontend Path -->
+                <div class="path-card">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-palette text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Frontend Development</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-blue-300 mb-2">المرحلة 1: الأساسيات</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• HTML5 & Semantic Elements</li>
+                                <li>• CSS3 & Responsive Design</li>
+                                <li>• JavaScript Fundamentals</li>
+                                <li>• Git & GitHub</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-blue-300 mb-2">المرحلة 2: المتقدم</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• CSS Frameworks (Tailwind/Bootstrap)</li>
+                                <li>• JavaScript ES6+</li>
+                                <li>• Frontend Framework (React/Vue/Angular)</li>
+                                <li>• State Management</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-blue-300 mb-2">المرحلة 3: الإحتراف</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• TypeScript</li>
+                                <li>• Testing (Jest, Cypress)</li>
+                                <li>• PWA & Web Performance</li>
+                                <li>• SEO Optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Backend Path -->
+                <div class="path-card">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-server text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Backend Development</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-green-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-300 mb-2">المرحلة 1: الأساسيات</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• Programming Fundamentals</li>
+                                <li>• Database & SQL OR MongoDB OR Oracle </li>
+                                <li>• Backend Language (Node.js/Python/Java/C#)</li>
+                                <li>• RESTful APIs</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-300 mb-2">المرحلة 2: المتقدم</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• Framework (Express.js/Django/Spring/ ASP.Net Core)</li>
+                                <li>• Authentication & Authorization</li>
+                                <li>• Database ORM/ODM</li>
+                                <li>• API Documentation</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-300 mb-2">المرحلة 3: الإحتراف</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• Microservices Architecture</li>
+                                <li>• Docker & Containerization</li>
+                                <li>• Cloud Services (AWS/Azure)</li>
+                                <li>• CI/CD & DevOps</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Roadmap -->
+<section class="py-16 bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-3 gap-12">
+            <!-- Roadmap Steps -->
+            <div class="lg:col-span-2">
+                <h2 class="text-2xl font-bold text-white mb-8">الخارطة التفصيلية - Full Stack Developer</h2>
+                
+                <div class="roadmap-steps">
+                    <!-- Step 1 -->
+                    <div class="roadmap-step">
+                        <div class="step-number">1</div>
+                        <div class="mr-10">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-xl font-bold text-white">المرحلة الأولى: أساسيات الويب والبرمجة</h3>
+                                <span class="bg-green-900 text-green-300 text-xs px-3 py-1 rounded-full">2-3 أشهر</span>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <h4 class="font-semibold text-blue-400 mb-2">🛠️ الأدوات الأساسية</h4>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                            <span>VS Code + Extensions</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                            <span>Git & GitHub</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                            <span>Command Line Basics</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                            <span>Chrome DevTools</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <h4 class="font-semibold text-green-400 mb-2">💻 البرمجة الأساسية</h4>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                            <span>HTML5 & Semantic HTML</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                            <span>CSS3 & Flexbox/Grid</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                            <span>JavaScript Fundamentals</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                            <span>DOM Manipulation</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-900 bg-opacity-30 rounded-lg p-4">
+                                <h4 class="font-semibold text-blue-300 mb-2">🎯 المشاريع العملية</h4>
+                                <div class="grid grid-cols-2 gap-2 text-sm">
+                                    <span class="text-gray-300">• موقع شخصي بسيط</span>
+                                    <span class="text-gray-300">• صفحة Landing Page</span>
+                                    <span class="text-gray-300">• آلة حاسبة</span>
+                                    <span class="text-gray-300">• لعبة Memory Game</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="roadmap-step">
+                        <div class="step-number">2</div>
+                        <div class="mr-10">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-xl font-bold text-white">المرحلة الثانية: Frontend المتقدم</h3>
+                                <span class="bg-yellow-900 text-yellow-300 text-xs px-3 py-1 rounded-full">3-4 أشهر</span>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <h4 class="font-semibold text-purple-400 mb-2">⚛️ إطار Frontend (اختر واحداً)</h4>
+                                    <div class="space-y-3">
+                                        <div>
+                                            <h5 class="text-white text-sm font-semibold">React.js</h5>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-blue-900 text-blue-300">Components</span>
+                                                <span class="tech-badge bg-blue-800 text-blue-200">Hooks</span>
+                                                <span class="tech-badge bg-blue-700 text-blue-100">React Router</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-white text-sm font-semibold">Vue.js</h5>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-green-900 text-green-300">Vue CLI</span>
+                                                <span class="tech-badge bg-green-800 text-green-200">Vuex</span>
+                                                <span class="tech-badge bg-green-700 text-green-100">Vue Router</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-white text-sm font-semibold">Angular</h5>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-red-900 text-red-300">TypeScript</span>
+                                                <span class="tech-badge bg-red-800 text-red-200">RxJS</span>
+                                                <span class="tech-badge bg-red-700 text-red-100">NgRx</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <h4 class="font-semibold text-indigo-400 mb-2">🎨 أدوات التصميم والتطوير</h4>
+                                    <ul class="text-gray-300 text-sm space-y-2">
+                                        <li>
+                                            <span class="font-semibold text-white">CSS Frameworks:</span>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-cyan-900 text-cyan-300">Tailwind CSS</span>
+                                                <span class="tech-badge bg-blue-900 text-blue-300">Bootstrap</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="font-semibold text-white">State Management:</span>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-purple-900 text-purple-300">Redux</span>
+                                                <span class="tech-badge bg-green-900 text-green-300">Context API</span>
+                                                <span class="tech-badge bg-green-800 text-green-200">Zustand</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="font-semibold text-white">أدوات متقدمة:</span>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-gray-700 text-gray-300">TypeScript</span>
+                                                <span class="tech-badge bg-yellow-900 text-yellow-300">Testing (Jest)</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-purple-900 bg-opacity-30 rounded-lg p-4">
+                                <h4 class="font-semibold text-purple-300 mb-2">🎯 المشاريع العملية</h4>
+                                <div class="grid grid-cols-2 gap-2 text-sm">
+                                    <span class="text-gray-300">• تطبيق الطقس</span>
+                                    <span class="text-gray-300">• مدونة تفاعلية</span>
+                                    <span class="text-gray-300">• متجر إلكتروني بسيط</span>
+                                    <span class="text-gray-300">• لوحة تحكم</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="roadmap-step">
+                        <div class="step-number">3</div>
+                        <div class="mr-10">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-xl font-bold text-white">المرحلة الثالثة: Backend الأساسي</h3>
+                                <span class="bg-blue-900 text-blue-300 text-xs px-3 py-1 rounded-full">3-4 أشهر</span>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <h4 class="font-semibold text-orange-400 mb-2">🔧 لغة Backend (اختر واحدة)</h4>
+                                    <div class="space-y-3">
+                                        <div>
+                                            <h5 class="text-white text-sm font-semibold">Node.js + Express</h5>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-green-900 text-green-300">REST APIs</span>
+                                                <span class="tech-badge bg-green-800 text-green-200">Middleware</span>
+                                                <span class="tech-badge bg-green-700 text-green-100">JWT Auth</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-white text-sm font-semibold">ASP.NET Core</h5>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-blue-900 text-blue-300">C#</span>
+                                                <span class="tech-badge bg-blue-800 text-blue-200">Entity Framework</span>
+                                                <span class="tech-badge bg-blue-700 text-blue-100">LINQ</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-white text-sm font-semibold">Python Django/Flask</h5>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-yellow-900 text-yellow-300">Django REST</span>
+                                                <span class="tech-badge bg-yellow-800 text-yellow-200">SQLAlchemy</span>
+                                                <span class="tech-badge bg-yellow-700 text-yellow-100">FastAPI</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <h4 class="font-semibold text-red-400 mb-2">🗄️ قواعد البيانات</h4>
+                                    <div class="space-y-3">
+                                        <div>
+                                            <h5 class="text-white text-sm font-semibold">قواعد بيانات SQL</h5>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-blue-900 text-blue-300">MySQL</span>
+                                                <span class="tech-badge bg-green-900 text-green-300">PostgreSQL</span>
+                                                <span class="tech-badge bg-purple-900 text-purple-300">SQL Server</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-white text-sm font-semibold">قواعد بيانات NoSQL</h5>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-green-900 text-green-300">MongoDB</span>
+                                                <span class="tech-badge bg-red-900 text-red-300">Redis</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-white text-sm font-semibold">ORM/ODM</h5>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-indigo-900 text-indigo-300">Mongoose</span>
+                                                <span class="tech-badge bg-blue-900 text-blue-300">Sequelize</span>
+                                                <span class="tech-badge bg-gray-700 text-gray-300">Entity Framework</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-red-900 bg-opacity-30 rounded-lg p-4">
+                                <h4 class="font-semibold text-red-300 mb-2">🎯 المشاريع العملية</h4>
+                                <div class="grid grid-cols-2 gap-2 text-sm">
+                                    <span class="text-gray-300">• REST API للمنتجات</span>
+                                    <span class="text-gray-300">• نظام مصادقة كامل</span>
+                                    <span class="text-gray-300">• API للطلبات</span>
+                                    <span class="text-gray-300">• نظام المدونات</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="roadmap-step">
+                        <div class="step-number">4</div>
+                        <div class="mr-10">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-xl font-bold text-white">المرحلة الرابعة: Full Stack Integration</h3>
+                                <span class="bg-purple-900 text-purple-300 text-xs px-3 py-1 rounded-full">2-3 أشهر</span>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <h4 class="font-semibold text-pink-400 mb-2">🔗 التكامل والاتصال</h4>
+                                    <ul class="text-gray-300 text-sm space-y-2">
+                                        <li>
+                                            <span class="font-semibold text-white">API Integration:</span>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-blue-900 text-blue-300">Axios</span>
+                                                <span class="tech-badge bg-green-900 text-green-300">Fetch API</span>
+                                                <span class="tech-badge bg-purple-900 text-purple-300">React Query</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="font-semibold text-white">Real-time Communication:</span>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-red-900 text-red-300">WebSockets</span>
+                                                <span class="tech-badge bg-green-900 text-green-300">Socket.io</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="font-semibold text-white">State Management:</span>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-indigo-900 text-indigo-300">Server State</span>
+                                                <span class="tech-badge bg-gray-700 text-gray-300">Client State</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <h4 class="font-semibold text-teal-400 mb-2">🛡️ الأمان والأداء</h4>
+                                    <ul class="text-gray-300 text-sm space-y-2">
+                                        <li>
+                                            <span class="font-semibold text-white">المصادقة:</span>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-blue-900 text-blue-300">JWT</span>
+                                                <span class="tech-badge bg-green-900 text-green-300">OAuth 2.0</span>
+                                                <span class="tech-badge bg-red-900 text-red-300">Session-based</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="font-semibold text-white">الحماية:</span>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-purple-900 text-purple-300">CORS</span>
+                                                <span class="tech-badge bg-yellow-900 text-yellow-300">Helmet.js</span>
+                                                <span class="tech-badge bg-red-900 text-red-300">Input Validation</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="font-semibold text-white">تحسين الأداء:</span>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-green-900 text-green-300">Caching</span>
+                                                <span class="tech-badge bg-blue-900 text-blue-300">Compression</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-pink-900 bg-opacity-30 rounded-lg p-4">
+                                <h4 class="font-semibold text-pink-300 mb-2">🎯 المشاريع العملية</h4>
+                                <div class="grid grid-cols-2 gap-2 text-sm">
+                                    <span class="text-gray-300">• تطبيق دردشة حية</span>
+                                    <span class="text-gray-300">• منصة تعليمية</span>
+                                    <span class="text-gray-300">• نظام إدارة المحتوى</span>
+                                    <span class="text-gray-300">• تطبيق توصيل</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 5 -->
+                    <div class="roadmap-step">
+                        <div class="step-number">5</div>
+                        <div class="mr-10">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-xl font-bold text-white">المرحلة الخامسة: النشر والعمليات (DevOps)</h3>
+                                <span class="bg-indigo-900 text-indigo-300 text-xs px-3 py-1 rounded-full">2-3 أشهر</span>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <h4 class="font-semibold text-cyan-400 mb-2">🐳 Containerization</h4>
+                                    <ul class="text-gray-300 text-sm space-y-2">
+                                        <li>
+                                            <span class="font-semibold text-white">Docker:</span>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-blue-900 text-blue-300">Dockerfile</span>
+                                                <span class="tech-badge bg-blue-800 text-blue-200">Docker Compose</span>
+                                                <span class="tech-badge bg-blue-700 text-blue-100">Multi-stage Builds</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="font-semibold text-white">Container Orchestration:</span>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-purple-900 text-purple-300">Docker Swarm</span>
+                                                <span class="tech-badge bg-blue-900 text-blue-300">Kubernetes Basics</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <h4 class="font-semibold text-orange-400 mb-2">☁️ Cloud Platforms</h4>
+                                    <div class="space-y-3">
+                                        <div>
+                                            <h5 class="text-white text-sm font-semibold">AWS (Amazon)</h5>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-yellow-900 text-yellow-300">EC2</span>
+                                                <span class="tech-badge bg-blue-900 text-blue-300">S3</span>
+                                                <span class="tech-badge bg-green-900 text-green-300">RDS</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-white text-sm font-semibold">Microsoft Azure</h5>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-blue-900 text-blue-300">App Service</span>
+                                                <span class="tech-badge bg-green-900 text-green-300">SQL Database</span>
+                                                <span class="tech-badge bg-purple-900 text-purple-300">Blob Storage</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-white text-sm font-semibold">Google Cloud</h5>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-red-900 text-red-300">Compute Engine</span>
+                                                <span class="tech-badge bg-green-900 text-green-300">Cloud SQL</span>
+                                                <span class="tech-badge bg-blue-900 text-blue-300">Cloud Storage</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <h4 class="font-semibold text-green-400 mb-2">🔄 CI/CD</h4>
+                                    <ul class="text-gray-300 text-sm space-y-2">
+                                        <li>
+                                            <span class="font-semibold text-white">التكامل المستمر:</span>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-blue-900 text-blue-300">GitHub Actions</span>
+                                                <span class="tech-badge bg-yellow-900 text-yellow-300">Jenkins</span>
+                                                <span class="tech-badge bg-green-900 text-green-300">GitLab CI</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="font-semibold text-white">النشر المستمر:</span>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-purple-900 text-purple-300">Auto-deployment</span>
+                                                <span class="tech-badge bg-red-900 text-red-300">Rollback Strategies</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <h4 class="font-semibold text-red-400 mb-2">📊 المراقبة والتتبع</h4>
+                                    <ul class="text-gray-300 text-sm space-y-2">
+                                        <li>
+                                            <span class="font-semibold text-white">Logging:</span>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-gray-700 text-gray-300">Winston</span>
+                                                <span class="tech-badge bg-yellow-900 text-yellow-300">ELK Stack</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="font-semibold text-white">Monitoring:</span>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-red-900 text-red-300">Prometheus</span>
+                                                <span class="tech-badge bg-orange-900 text-orange-300">Grafana</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="font-semibold text-white">Performance:</span>
+                                            <div class="flex flex-wrap gap-1 mt-1">
+                                                <span class="tech-badge bg-blue-900 text-blue-300">New Relic</span>
+                                                <span class="tech-badge bg-green-900 text-green-300">DataDog</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-indigo-900 bg-opacity-30 rounded-lg p-4">
+                                <h4 class="font-semibold text-indigo-300 mb-2">🎯 المشاريع العملية</h4>
+                                <div class="grid grid-cols-2 gap-2 text-sm">
+                                    <span class="text-gray-300">• نشر تطبيق على AWS/Azure</span>
+                                    <span class="text-gray-300">• إعداد CI/CD Pipeline</span>
+                                    <span class="text-gray-300">• Containerize Application</span>
+                                    <span class="text-gray-300">• إعداد نظام مراقبة</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projects Section -->
+                <div class="mt-16">
+                    <h2 class="text-2xl font-bold text-white mb-8">مشاريع Full Stack متكاملة</h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-gray-800 rounded-xl p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-green-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-seedling text-white"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-white">مشاريع المبتدئين</h3>
+                            </div>
+                            <ul class="text-gray-300 space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <div>
+                                        <span class="font-semibold">تطبيق إدارة المهام</span>
+                                        <p class="text-xs text-gray-400 mt-1">React + Node.js + MongoDB - نظام كامل لإدارة المهام</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <div>
+                                        <span class="font-semibold">مدونة شخصية</span>
+                                        <p class="text-xs text-gray-400 mt-1">Next.js + Strapi - نظام مدونات مع لوحة تحكم</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <div>
+                                        <span class="font-semibold">منصة تعليقات</span>
+                                        <p class="text-xs text-gray-400 mt-1">Vue.js + Express - نظام تعليقات متقدم</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <div>
+                                        <span class="font-semibold">نظام مصادقة</span>
+                                        <p class="text-xs text-gray-400 mt-1">JWT + OAuth - نظام مصادقة آمن</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-800 rounded-xl p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-rocket text-white"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-white">مشاريع متوسطة</h3>
+                            </div>
+                            <ul class="text-gray-300 space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-spinner text-yellow-500 mt-1 ml-2"></i>
+                                    <div>
+                                        <span class="font-semibold">منصة تجارة إلكترونية</span>
+                                        <p class="text-xs text-gray-400 mt-1">React + Node.js + Stripe - متجر كامل مع دفع</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-spinner text-yellow-500 mt-1 ml-2"></i>
+                                    <div>
+                                        <span class="font-semibold">نظام حجز مواعيد</span>
+                                        <p class="text-xs text-gray-400 mt-1">Vue.js + Django - نظام حجز مع إشعارات</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-spinner text-yellow-500 mt-1 ml-2"></i>
+                                    <div>
+                                        <span class="font-semibold">تطبيق دردشة</span>
+                                        <p class="text-xs text-gray-400 mt-1">React + Socket.io - دردشة في الوقت الحقيقي</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-spinner text-yellow-500 mt-1 ml-2"></i>
+                                    <div>
+                                        <span class="font-semibold">منظمة المهام</span>
+                                        <p class="text-xs text-gray-400 mt-1">Angular + ASP.NET - نظام إدارة مشاريع</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-800 rounded-xl p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-purple-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-gem text-white"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-white">مشاريع متقدمة</h3>
+                            </div>
+                            <ul class="text-gray-300 space-y-3">
+                                <li class="flex items-start">
+                                    <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                    <div>
+                                        <span class="font-semibold">منصة بث فيديو</span>
+                                        <p class="text-xs text-gray-400 mt-1">React + Node.js + AWS S3 - نظام بث مع رفع ملفات</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                    <div>
+                                        <span class="font-semibold">تطبيق توصيل طعام</span>
+                                        <p class="text-xs text-gray-400 mt-1">React Native + Nest.js - تطبيق توصيل متكامل</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                    <div>
+                                        <span class="font-semibold">منصة تعلم إلكتروني</span>
+                                        <p class="text-xs text-gray-400 mt-1">Next.js + Strapi - نظام تعلم مع فيديوهات</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                    <div>
+                                        <span class="font-semibold">نظام محاسبة</span>
+                                        <p class="text-xs text-gray-400 mt-1">Vue.js + Laravel - نظام محاسبة للمؤسسات</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-800 rounded-xl p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-red-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-briefcase text-white"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-white">مشاريع احترافية</h3>
+                            </div>
+                            <ul class="text-gray-300 space-y-3">
+                                <li class="flex items-start">
+                                    <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                    <div>
+                                        <span class="font-semibold">نظام ميكروسيرفيس</span>
+                                        <p class="text-xs text-gray-400 mt-1">React + Microservices + Docker - نظام موزع</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                    <div>
+                                        <span class="font-semibold">منصة وسائل تواصل</span>
+                                        <p class="text-xs text-gray-400 mt-1">React + GraphQL - منصة شبكة اجتماعية</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                    <div>
+                                        <span class="font-semibold">تطبيق رحلات وسفر</span>
+                                        <p class="text-xs text-gray-400 mt-1">React Native + Node.js - تطبيق حجوزات سفر</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                    <div>
+                                        <span class="font-semibold">منصة تحليلات بيانات</span>
+                                        <p class="text-xs text-gray-400 mt-1">Vue.js + Python + D3.js - لوحة تحليلات</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="lg:col-span-1">
+                <!-- Skills Demand -->
+                <div class="bg-gray-800 rounded-xl p-6 mb-8">
+                    <h3 class="text-xl font-bold text-white mb-4">مستوى الطلب على المهارات</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">React + Node.js</span>
+                                <span class="text-green-400">مرتفع جداً</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-green-600 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">JavaScript/TypeScript</span>
+                                <span class="text-blue-400">مرتفع</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">Cloud & DevOps</span>
+                                <span class="text-purple-400">مرتفع</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-purple-600 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">C# & ASP.NET Core</span>
+                                <span class="text-blue-400">مرتفع</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-400">Python Django</span>
+                                <span class="text-yellow-400">متوسط</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-yellow-600 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Learning Resources -->
+                <div class="bg-gray-800 rounded-xl p-6 mb-8">
+                    <h3 class="text-xl font-bold text-white mb-4">موارد تعليمية مميزة</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start p-3 bg-gray-700 rounded-lg">
+                            <i class="fas fa-book text-blue-400 mt-1 ml-2"></i>
+                            <div>
+                                <h4 class="font-semibold text-white text-sm">The Odin Project</h4>
+                                <p class="text-xs text-gray-400">مسار تعلم Full Stack مجاني</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-3 bg-gray-700 rounded-lg">
+                            <i class="fas fa-graduation-cap text-green-400 mt-1 ml-2"></i>
+                            <div>
+                                <h4 class="font-semibold text-white text-sm">Full Stack Open</h4>
+                                <p class="text-xs text-gray-400">دورة من جامعة Helsinki</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-3 bg-gray-700 rounded-lg">
+                            <i class="fas fa-laptop-code text-purple-400 mt-1 ml-2"></i>
+                            <div>
+                                <h4 class="font-semibold text-white text-sm">freeCodeCamp</h4>
+                                <p class="text-xs text-gray-400">شهادات Full Stack مجانية</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-3 bg-gray-700 rounded-lg">
+                            <i class="fas fa-university text-yellow-400 mt-1 ml-2"></i>
+                            <div>
+                                <h4 class="font-semibold text-white text-sm">Microsoft Learn</h4>
+                                <p class="text-xs text-gray-400">للمطورين .NET</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Career Advice -->
+                <div class="bg-gray-800 rounded-xl p-6 mb-8">
+                    <h3 class="text-xl font-bold text-white mb-4">نصائح مهنية احترافية</h3>
+                    <div class="space-y-4">
+                        <div class="bg-blue-900 bg-opacity-30 rounded-lg p-4">
+                            <h4 class="font-semibold text-blue-300 mb-2">🚀 استراتيجية التعلم</h4>
+                            <p class="text-sm text-gray-300">ركز على مشروع واحد متكامل بدلاً من مشاريع متفرقة. التعلم بالممارسة هو الأكثر فعالية.</p>
+                        </div>
+                        <div class="bg-green-900 bg-opacity-30 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-300 mb-2">📚 بناء المعرفة العميقة</h4>
+                            <p class="text-sm text-gray-300">افهم الأساسيات جيداً قبل الانتقال إلى التقنيات المتقدمة. المعرفة العميقة تبني مطوراً قوياً.</p>
+                        </div>
+                        <div class="bg-purple-900 bg-opacity-30 rounded-lg p-4">
+                            <h4 class="font-semibold text-purple-300 mb-2">🤝 الشبكات المهنية</h4>
+                            <p class="text-sm text-gray-300">انضم لمجتمعات المطورين، شارك في مشاريع مفتوحة المصدر، وابنِ شبكة علاقات قوية.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Salary Ranges -->
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-white mb-4">المستويات الوظيفية والرواتب</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-300">مبتدئ (Junior)</span>
+                                <span class="text-green-400">$40K - $70K</span>
+                            </div>
+                            <div class="text-xs text-gray-400">0-2 سنوات خبرة - أساسيات Full Stack</div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-300">متوسط (Mid-level)</span>
+                                <span class="text-blue-400">$70K - $100K</span>
+                            </div>
+                            <div class="text-xs text-gray-400">2-5 سنوات خبرة - مشاريع متكاملة</div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-300">مستوى متقدم (Senior)</span>
+                                <span class="text-purple-400">$100K - $140K</span>
+                            </div>
+                            <div class="text-xs text-gray-400">5+ سنوات خبرة - قيادة فرق</div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-300">قائد (Lead/Architect)</span>
+                                <span class="text-red-400">$140K+</span>
+                            </div>
+                            <div class="text-xs text-gray-400">8+ سنوات خبرة - تصميم أنظمة</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="mb-4">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-2">
+                        <i class="fas fa-code ml-2"></i>TipsHub
+                    </h3>
+                    <p class="text-gray-400">منصة شاملة لكل ما يحتاجه المطورون</p>
+                </div>
+                <div class="border-t border-gray-700 pt-4">
+                    <p class="text-gray-500">© 2025 TipsHub. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

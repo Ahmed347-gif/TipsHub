@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خريطة تعلم علوم الحاسوب الشاملة - TipsHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --primary: #3b82f6;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        }
+        
+        .roadmap-step {
+            position: relative;
+            padding-right: 2rem;
+        }
+        
+        .roadmap-step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            right: 1.5rem;
+            height: 2rem;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: #1f2937;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        
+        .timeline-dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            position: absolute;
+            right: -12px;
+            top: 20px;
+            z-index: 10;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #4b5563;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+        }
+        
+        .tech-tag {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1);
+            color: #93c5fd;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin: 2px;
+        }
+        
+        .level-badge {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-progress {
+            height: 6px;
+            background: #374151;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .skill-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.8s ease;
+        }
+        
+        .topic-card {
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .topic-card:hover {
+            border-left-color: var(--primary);
+            background: rgba(59, 130, 246, 0.05);
+        }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 100;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+            background: var(--secondary);
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #1f2937;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-item {
+            padding: 12px 16px;
+            display: block;
+            transition: background 0.2s;
+        }
+        
+        .dropdown-item:hover {
+            background: rgba(59, 130, 246, 0.1);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .tab-button {
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .timeline-connector {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, var(--primary), transparent);
+        }
+        
+        .glow {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-gray-800 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="index.html" class="text-2xl font-bold text-blue-400 flex items-center">
+                            <i class="fas fa-code mr-2"></i>TipsHub
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4 space-x-reverse">
+                        <a href="index.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">الرئيسية</a>
+                        <a href="roadmaps.html" class="text-blue-400 bg-blue-900/20 px-3 py-2 rounded-md text-sm font-medium">خرائط التعلم</a>
+                        <a href="tips.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">نصائح برمجية</a>
+                        <a href="problems.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">المشاكل والحلول</a>
+                        <a href="interview.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">المقابلات</a>
+                        <a href="cv.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">السيرة الذاتية</a>
+                        <a href="projects.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">أفكار المشاريع</a>
+                        <div class="dropdown relative">
+                            <a href="#" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center">
+                                أكثر <i class="fas fa-chevron-down mr-1 text-xs"></i>
+                            </a>
+                            <div class="dropdown-content">
+                                <a href="community.html" class="dropdown-item">المجتمع</a>
+                                <a href="resources.html" class="dropdown-item">الموارد</a>
+                                <a href="certifications.html" class="dropdown-item">الشهادات</a>
+                                <a href="tools.html" class="dropdown-item">الأدوات</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none focus:text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">الرئيسية</a>
+                <a href="roadmaps.html" class="text-blue-400 bg-blue-900/20 block px-3 py-2 rounded-md text-base font-medium">خرائط التعلم</a>
+                <a href="tips.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">نصائح برمجية</a>
+                <a href="problems.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">المشاكل والحلول</a>
+                <a href="interview.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">المقابلات</a>
+                <a href="cv.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">السيرة الذاتية</a>
+                <a href="projects.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">أفكار المشاريع</a>
+                <a href="community.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">المجتمع</a>
+                <a href="resources.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">الموارد</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 py-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <div class="absolute top-0 left-0 w-full h-full">
+            <div class="absolute top-10 left-10 w-20 h-20 bg-blue-500 rounded-full opacity-20 animate-pulse"></div>
+            <div class="absolute top-40 right-20 w-16 h-16 bg-purple-500 rounded-full opacity-30 animate-pulse" style="animation-delay: 0.5s"></div>
+            <div class="absolute bottom-20 left-1/4 w-24 h-24 bg-indigo-500 rounded-full opacity-25 animate-pulse" style="animation-delay: 1s"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                    <i class="fas fa-map-marked-alt mr-4"></i>خريطة تعلم علوم الحاسوب
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8">
+                    دليل شامل ومنظم لتعلم علوم الحاسوب من الصفر إلى الاحتراف. اتبع هذه الخريطة لبناء أساس قوي في مجال البرمجة وتكنولوجيا المعلومات.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition-colors transform hover:scale-105 shadow-lg">
+                        ابدأ رحلتك الآن
+                    </button>
+                  
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Navigation -->
+    <section class="py-6 bg-gray-800 sticky top-16 z-40 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex overflow-x-auto pb-2 space-x-4 space-x-reverse hide-scrollbar">
+                <a href="#level0" class="bg-gray-700 hover:bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors">
+                    <i class="fas fa-puzzle-piece ml-2"></i> المستوى 0
+                </a>
+                <a href="#level1" class="bg-gray-700 hover:bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors">
+                    <i class="fas fa-laptop-code ml-2"></i> المستوى 1
+                </a>
+                <a href="#level2" class="bg-gray-700 hover:bg-yellow-600 text-white px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors">
+                    <i class="fas fa-calculator ml-2"></i> المستوى 2
+                </a>
+                <a href="#level3" class="bg-gray-700 hover:bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors">
+                    <i class="fas fa-brain ml-2"></i> المستوى 3
+                </a>
+                <a href="#level4" class="bg-gray-700 hover:bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors">
+                    <i class="fas fa-globe ml-2"></i> المستوى 4
+                </a>
+                <a href="#level5" class="bg-gray-700 hover:bg-indigo-600 text-white px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors">
+                    <i class="fas fa-robot ml-2"></i> المستوى 5
+                </a>
+                <a href="#level6" class="bg-gray-700 hover:bg-pink-600 text-white px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors">
+                    <i class="fas fa-graduation-cap ml-2"></i> المستوى 6
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Overview -->
+    <section class="py-12 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl p-8 glow">
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="bg-blue-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-lg">
+                            <i class="fas fa-clock text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">المدة الإجمالية</h3>
+                        <p class="text-gray-300">2-4 سنوات</p>
+                        <p class="text-blue-300 text-sm">حسب الالتزام والجهد</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-green-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-lg">
+                            <i class="fas fa-layer-group text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">المستويات</h3>
+                        <p class="text-gray-300">7 مستويات رئيسية</p>
+                        <p class="text-green-300 text-sm">من الأساسيات إلى التخصص</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-purple-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-lg">
+                            <i class="fas fa-project-diagram text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">المشاريع العملية</h3>
+                        <p class="text-gray-300">30+ مشروع تدريبي</p>
+                        <p class="text-purple-300 text-sm">لتطبيق المعرفة</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-yellow-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-lg">
+                            <i class="fas fa-tools text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">التقنيات المستخدمة</h3>
+                        <p class="text-gray-300">50+ لغة وتقنية</p>
+                        <p class="text-yellow-300 text-sm">من أحدث التقنيات</p>
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-bold text-white">تقدمك في الخريطة</h3>
+                        <span class="text-blue-300 font-medium" id="progress-percentage">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="global-progress" style="width: 0%"></div>
+                    </div>
+                    <div class="flex justify-between mt-2 text-sm text-gray-400">
+                        <span>المستوى 0</span>
+                        <span>المستوى 6</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Steps -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">خريطة التعلم التفصيلية</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    اتبع هذه الخريطة خطوة بخطوة لبناء معرفة شاملة في علوم الحاسوب
+                </p>
+            </div>
+            
+            <!-- Level 0 -->
+            <div id="level0" class="roadmap-step mb-16 scroll-mt-24">
+                <div class="timeline-dot bg-blue-500"></div>
+                <div class="bg-gray-800 rounded-2xl p-8 card-hover border-r-4 border-blue-500 relative overflow-hidden">
+                    <div class="level-badge bg-blue-500 text-white">المستوى التمهيدي</div>
+                    <div class="flex flex-wrap justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">🧩 المستوى 0 — التحضير والأساسيات</h3>
+                            <p class="text-blue-300 font-medium">المدة: 2–3 أشهر</p>
+                        </div>
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">مبتدئ</span>
+                    </div>
+                    
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-4 flex items-center">
+                                <i class="fas fa-book ml-2"></i>المواد الدراسية
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-blue-300 mb-2">مقدمة في الحاسوب والبرمجة</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• ما هو الكمبيوتر / CPU / الذاكرة / التخزين / نظام التشغيل</li>
+                                        <li>• منطق البرمجة (المتغيرات، الحلقات، الشروط، الدوال)</li>
+                                        <li>• مفهوم المترجمات وبيئات التطوير</li>
+                                        <li class="text-green-300 mt-2">ابدأ بلغة Python أو C++</li>
+                                    </ul>
+                                    <div class="mt-3 flex flex-wrap">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">C++</span>
+                                        <span class="tech-tag">VS Code</span>
+                                        <span class="tech-tag">Git</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-green-300 mb-2">الرياضيات لعلوم الحاسوب</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• الجبر الأساسي</li>
+                                        <li>• المنطق والجبر البولياني</li>
+                                        <li>• المجموعات، العلاقات، الدوال</li>
+                                        <li>• أساسيات البراهين والاستقراء</li>
+                                    </ul>
+                                    <div class="mt-3">
+                                        <div class="flex justify-between text-xs text-gray-400 mb-1">
+                                            <span>صعوبة المادة</span>
+                                            <span>40%</span>
+                                        </div>
+                                        <div class="skill-progress">
+                                            <div class="skill-fill bg-green-500" style="width: 40%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-purple-300 mb-2">مهارات الحاسوب والأدوات</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• استخدام Git / GitHub</li>
+                                        <li>• التعامل مع أنظمة التشغيل (Windows / Linux Basics)</li>
+                                        <li>• أدوات VS Code / Terminal</li>
+                                    </ul>
+                                    <div class="mt-3 flex flex-wrap">
+                                        <span class="tech-tag">Git</span>
+                                        <span class="tech-tag">GitHub</span>
+                                        <span class="tech-tag">Linux</span>
+                                        <span class="tech-tag">Terminal</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-4 flex items-center">
+                                <i class="fas fa-laptop-code ml-2"></i>المشاريع العملية
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="bg-gray-700 rounded-lg p-4">
+                                    <h5 class="font-bold text-yellow-300 mb-2">مشاريع المستوى</h5>
+                                    <ul class="text-gray-300 text-sm space-y-2">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-calculator text-yellow-400 mt-1 ml-2"></i>
+                                            <span>برنامج آلة حاسبة بسيط</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-exchange-alt text-yellow-400 mt-1 ml-2"></i>
+                                            <span>برنامج تحويل وحدات</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-tasks text-yellow-400 mt-1 ml-2"></i>
+                                            <span>مشروع CLI صغير (مثل To-Do List)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4">
+                                    <h5 class="font-bold text-green-300 mb-2">الموارد المقترحة</h5>
+                                    <ul class="text-gray-300 text-sm space-y-2">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-play-circle text-green-400 mt-1 ml-2"></i>
+                                            <span>CS50 - Harvard (مجاني عبر الإنترنت)</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-book text-green-400 mt-1 ml-2"></i>
+                                            <span>كتاب "Python Crash Course"</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-laptop text-green-400 mt-1 ml-2"></i>
+                                            <span>دورة Linux Basics على Udemy</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4">
+                                    <h5 class="font-bold text-blue-300 mb-2">نصائح المستوى</h5>
+                                    <div class="text-gray-300 text-sm space-y-2">
+                                        <p class="flex items-start">
+                                            <i class="fas fa-lightbulb text-yellow-400 mt-1 ml-2"></i>
+                                            <span>ركز على فهم أساسيات البرمجة قبل الانتقال للمستوى التالي</span>
+                                        </p>
+                                        <p class="flex items-start">
+                                            <i class="fas fa-lightbulb text-yellow-400 mt-1 ml-2"></i>
+                                            <span>مارس البرمجة يومياً حتى لو لدقائق قليلة</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Level 1 -->
+            <div id="level1" class="roadmap-step mb-16 scroll-mt-24">
+                <div class="timeline-dot bg-green-500"></div>
+                <div class="bg-gray-800 rounded-2xl p-8 card-hover border-r-4 border-green-500 relative overflow-hidden">
+                    <div class="level-badge bg-green-500 text-white">المستوى الأساسي</div>
+                    <div class="flex flex-wrap justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">💻 المستوى 1 — أساسيات البرمجة والمنطق</h3>
+                            <p class="text-green-300 font-medium">المدة: 3–4 أشهر</p>
+                        </div>
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">مبتدئ متقدم</span>
+                    </div>
+                    
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-4 flex items-center">
+                                <i class="fas fa-book ml-2"></i>المواد الدراسية
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-blue-300 mb-2">البرمجة 1 (البرمجة الهيكلية)</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• المصفوفات، الحلقات، الشروط، الدوال</li>
+                                        <li>• حل المشكلات</li>
+                                        <li>• تصحيح الأخطاء</li>
+                                    </ul>
+                                    <div class="mt-3 flex flex-wrap">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">Java</span>
+                                        <span class="tech-tag">C++</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-purple-300 mb-2">البرمجة كائنية التوجه (OOP)</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• الفئات، الكائنات، الوراثة</li>
+                                        <li>• تعدد الأشكال، التغليف</li>
+                                        <li class="text-green-300 mt-2">C++ / Java / Python</li>
+                                    </ul>
+                                    <div class="mt-3">
+                                        <div class="flex justify-between text-xs text-gray-400 mb-1">
+                                            <span>صعوبة المادة</span>
+                                            <span>60%</span>
+                                        </div>
+                                        <div class="skill-progress">
+                                            <div class="skill-fill bg-purple-500" style="width: 60%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-green-300 mb-2">الرياضيات المتقطعة</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• المجموعات، المنطق، نظرية المخططات</li>
+                                        <li>• التوافقيات، أنظمة الأعداد</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-yellow-300 mb-2">تصميم المنطق الرقمي</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• البوابات المنطقية، الدوائر</li>
+                                        <li>• قلابات، المسجلات، التعبيرات البولية</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-4 flex items-center">
+                                <i class="fas fa-laptop-code ml-2"></i>المشاريع العملية
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="bg-gray-700 rounded-lg p-4">
+                                    <h5 class="font-bold text-yellow-300 mb-2">مشاريع المستوى</h5>
+                                    <ul class="text-gray-300 text-sm space-y-2">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-book text-yellow-400 mt-1 ml-2"></i>
+                                            <span>نظام إدارة مكتبة بسيط</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-university text-yellow-400 mt-1 ml-2"></i>
+                                            <span>تطبيق Banking System</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-calculator text-yellow-400 mt-1 ml-2"></i>
+                                            <span>محاكي الآلة الحاسبة الرسومية</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4">
+                                    <h5 class="font-bold text-green-300 mb-2">الموارد المقترحة</h5>
+                                    <ul class="text-gray-300 text-sm space-y-2">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-play-circle text-green-400 mt-1 ml-2"></i>
+                                            <span>دورة "Java Programming" على Coursera</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-book text-green-400 mt-1 ml-2"></i>
+                                            <span>كتاب "Discrete Mathematics and Its Applications"</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-laptop text-green-400 mt-1 ml-2"></i>
+                                            <span>مشاريع OOP على GitHub</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4">
+                                    <h5 class="font-bold text-blue-300 mb-2">نصائح المستوى</h5>
+                                    <div class="text-gray-300 text-sm space-y-2">
+                                        <p class="flex items-start">
+                                            <i class="fas fa-lightbulb text-yellow-400 mt-1 ml-2"></i>
+                                            <span>افهم مفاهيم OOP جيداً فهي أساسية في البرمجة الحديثة</span>
+                                        </p>
+                                        <p class="flex items-start">
+                                            <i class="fas fa-lightbulb text-yellow-400 mt-1 ml-2"></i>
+                                            <span>تدرب على حل مشكلات برمجية متنوعة</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Level 2 -->
+            <div id="level2" class="roadmap-step mb-16 scroll-mt-24">
+                <div class="timeline-dot bg-yellow-500"></div>
+                <div class="bg-gray-800 rounded-2xl p-8 card-hover border-r-4 border-yellow-500 relative overflow-hidden">
+                    <div class="level-badge bg-yellow-500 text-white">المستوى المتوسط</div>
+                    <div class="flex flex-wrap justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">🧮 المستوى 2 — هياكل البيانات والخوارزميات</h3>
+                            <p class="text-yellow-300 font-medium">المدة: 4–5 أشهر</p>
+                        </div>
+                        <span class="bg-yellow-600 text-white px-3 py-1 rounded-full text-sm">متوسط</span>
+                    </div>
+                    
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-4 flex items-center">
+                                <i class="fas fa-book ml-2"></i>المواد الدراسية
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-blue-300 mb-2">هياكل البيانات</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• المصفوفات، القوائم المرتبطة، المكدسات، الطوابير</li>
+                                        <li>• الأشجار، المخططات، جداول التجزئة</li>
+                                    </ul>
+                                    <div class="mt-3 flex flex-wrap">
+                                        <span class="tech-tag">هياكل البيانات</span>
+                                        <span class="tech-tag">الخوارزميات</span>
+                                        <span class="tech-tag">Big-O</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-purple-300 mb-2">الخوارزميات</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• الفرز، البحث، العودية</li>
+                                        <li>• تحليل التعقيد الزمني وتحليل Big-O</li>
+                                        <li>• فرق تسد، الجشع، البرمجة الديناميكية</li>
+                                    </ul>
+                                    <div class="mt-3">
+                                        <div class="flex justify-between text-xs text-gray-400 mb-1">
+                                            <span>صعوبة المادة</span>
+                                            <span>75%</span>
+                                        </div>
+                                        <div class="skill-progress">
+                                            <div class="skill-fill bg-purple-500" style="width: 75%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-green-300 mb-2">تنظيم الحاسوب والمعمارية</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• معمارية CPU، التسلسل الهرمي للذاكرة</li>
+                                        <li>• أساسيات لغة التجميع</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-yellow-300 mb-2">الرياضيات 2 (الجبر الخطي + الاحتمالات)</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• المتجهات، المصفوفات</li>
+                                        <li>• الاحتمالات، الإحصاء</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-4 flex items-center">
+                                <i class="fas fa-laptop-code ml-2"></i>المشاريع العملية
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="bg-gray-700 rounded-lg p-4">
+                                    <h5 class="font-bold text-yellow-300 mb-2">مشاريع المستوى</h5>
+                                    <ul class="text-gray-300 text-sm space-y-2">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-sort text-yellow-400 mt-1 ml-2"></i>
+                                            <span>تطبيق Sorting Visualizer</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-search text-yellow-400 mt-1 ml-2"></i>
+                                            <span>خوارزمية بحث في ملفات</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-route text-yellow-400 mt-1 ml-2"></i>
+                                            <span>مشروع "Path Finder" (Graph-based)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4">
+                                    <h5 class="font-bold text-green-300 mb-2">الموارد المقترحة</h5>
+                                    <ul class="text-gray-300 text-sm space-y-2">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-play-circle text-green-400 mt-1 ml-2"></i>
+                                            <span>دورة "Algorithms" من Stanford على Coursera</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-book text-green-400 mt-1 ml-2"></i>
+                                            <span>كتاب "Introduction to Algorithms" (CLRS)</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-laptop text-green-400 mt-1 ml-2"></i>
+                                            <span>LeetCode للتدرب على حل المشكلات</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4">
+                                    <h5 class="font-bold text-blue-300 mb-2">نصائح المستوى</h5>
+                                    <div class="text-gray-300 text-sm space-y-2">
+                                        <p class="flex items-start">
+                                            <i class="fas fa-lightbulb text-yellow-400 mt-1 ml-2"></i>
+                                            <span>هياكل البيانات والخوارزميات هي أساس المقابلات التقنية</span>
+                                        </p>
+                                        <p class="flex items-start">
+                                            <i class="fas fa-lightbulb text-yellow-400 mt-1 ml-2"></i>
+                                            <span>حاول حل مشكلة برمجية واحدة على الأقل يومياً</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Level 3 -->
+            <div id="level3" class="roadmap-step mb-16 scroll-mt-24">
+                <div class="timeline-dot bg-purple-500"></div>
+                <div class="bg-gray-800 rounded-2xl p-8 card-hover border-r-4 border-purple-500 relative overflow-hidden">
+                    <div class="level-badge bg-purple-500 text-white">المستوى المتقدم</div>
+                    <div class="flex flex-wrap justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">🧠 المستوى 3 — أنظمة التشغيل وقواعد البيانات والشبكات</h3>
+                            <p class="text-purple-300 font-medium">المدة: 5–6 أشهر</p>
+                        </div>
+                        <span class="bg-purple-600 text-white px-3 py-1 rounded-full text-sm">متقدم</span>
+                    </div>
+                    
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-4 flex items-center">
+                                <i class="fas fa-book ml-2"></i>المواد الدراسية
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-blue-300 mb-2">أنظمة التشغيل</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• العمليات، الخيوط، الجدولة، التزامن</li>
+                                        <li>• إدارة الذاكرة، أنظمة الملفات</li>
+                                    </ul>
+                                    <div class="mt-3 flex flex-wrap">
+                                        <span class="tech-tag">Linux</span>
+                                        <span class="tech-tag">Windows</span>
+                                        <span class="tech-tag">Shell Scripting</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-green-300 mb-2">أنظمة قواعد البيانات</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• قواعد البيانات العلائقية، SQL</li>
+                                        <li>• التطبيع</li>
+                                        <li class="text-green-300 mt-2">MySQL / PostgreSQL / SQLite</li>
+                                    </ul>
+                                    <div class="mt-3">
+                                        <div class="flex justify-between text-xs text-gray-400 mb-1">
+                                            <span>صعوبة المادة</span>
+                                            <span>65%</span>
+                                        </div>
+                                        <div class="skill-progress">
+                                            <div class="skill-fill bg-green-500" style="width: 65%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-yellow-300 mb-2">شبكات الحاسوب</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• نموذج OSI، TCP/IP</li>
+                                        <li>• التوجيه، DNS، HTTP، APIs</li>
+                                    </ul>
+                                    <div class="mt-3 flex flex-wrap">
+                                        <span class="tech-tag">TCP/IP</span>
+                                        <span class="tech-tag">HTTP</span>
+                                        <span class="tech-tag">REST API</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-purple-300 mb-2">هندسة البرمجيات</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• دورة حياة تطوير البرمجيات (SDLC)</li>
+                                        <li>• مخططات UML، أنماط التصميم</li>
+                                        <li>• الاختبار</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-4 flex items-center">
+                                <i class="fas fa-laptop-code ml-2"></i>المشاريع العملية
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="bg-gray-700 rounded-lg p-4">
+                                    <h5 class="font-bold text-yellow-300 mb-2">مشاريع المستوى</h5>
+                                    <ul class="text-gray-300 text-sm space-y-2">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-database text-yellow-400 mt-1 ml-2"></i>
+                                            <span>إنشاء قاعدة بيانات لموقع إلكتروني</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-users text-yellow-400 mt-1 ml-2"></i>
+                                            <span>نظام إدارة المستخدمين بواجهة كاملة</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-desktop text-yellow-400 mt-1 ml-2"></i>
+                                            <span>Mini OS Simulation Project</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4">
+                                    <h5 class="font-bold text-green-300 mb-2">الموارد المقترحة</h5>
+                                    <ul class="text-gray-300 text-sm space-y-2">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-play-circle text-green-400 mt-1 ml-2"></i>
+                                            <span>دورة "Database Systems" على edX</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-book text-green-400 mt-1 ml-2"></i>
+                                            <span>كتاب "Operating System Concepts"</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-laptop text-green-400 mt-1 ml-2"></i>
+                                            <span>مشاريع أنظمة التشغيل على GitHub</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4">
+                                    <h5 class="font-bold text-blue-300 mb-2">نصائح المستوى</h5>
+                                    <div class="text-gray-300 text-sm space-y-2">
+                                        <p class="flex items-start">
+                                            <i class="fas fa-lightbulb text-yellow-400 mt-1 ml-2"></i>
+                                            <span>فهم أنظمة التشغيل يساعدك في تحسين أداء التطبيقات</span>
+                                        </p>
+                                        <p class="flex items-start">
+                                            <i class="fas fa-lightbulb text-yellow-400 mt-1 ml-2"></i>
+                                            <span>تعلم SQL جيداً فهو أساسي في معظم التطبيقات</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Level 4 -->
+            <div id="level4" class="roadmap-step mb-16 scroll-mt-24">
+                <div class="timeline-dot bg-red-500"></div>
+                <div class="bg-gray-800 rounded-2xl p-8 card-hover border-r-4 border-red-500 relative overflow-hidden">
+                    <div class="level-badge bg-red-500 text-white">المستوى التطبيقي</div>
+                    <div class="flex flex-wrap justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">🌐 المستوى 4 — تطوير البرمجيات والتطبيقات</h3>
+                            <p class="text-red-300 font-medium">المدة: 5–6 أشهر</p>
+                        </div>
+                        <span class="bg-red-600 text-white px-3 py-1 rounded-full text-sm">تطوير</span>
+                    </div>
+                    
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-4 flex items-center">
+                                <i class="fas fa-book ml-2"></i>المواد الدراسية
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-blue-300 mb-2">تطوير الويب</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• HTML, CSS, JavaScript</li>
+                                        <li>• Frontend: React.js / Vue.js</li>
+                                        <li>• Backend: Node.js / Django / ASP.NET</li>
+                                        <li>• RESTful APIs</li>
+                                    </ul>
+                                    <div class="mt-3 flex flex-wrap">
+                                        <span class="tech-tag">HTML/CSS</span>
+                                        <span class="tech-tag">JavaScript</span>
+                                        <span class="tech-tag">React</span>
+                                        <span class="tech-tag">Node.js</span>
+                                        <span class="tech-tag">Django</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-green-300 mb-2">تطوير تطبيقات الموبايل</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• Flutter / React Native</li>
+                                    </ul>
+                                    <div class="mt-3">
+                                        <div class="flex justify-between text-xs text-gray-400 mb-1">
+                                            <span>صعوبة المادة</span>
+                                            <span>70%</span>
+                                        </div>
+                                        <div class="skill-progress">
+                                            <div class="skill-fill bg-green-500" style="width: 70%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-yellow-300 mb-2">الحوسبة السحابية وأساسيات DevOps</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• الاستضافة، Docker</li>
+                                        <li>• CI/CD، GitHub Actions</li>
+                                    </ul>
+                                    <div class="mt-3 flex flex-wrap">
+                                        <span class="tech-tag">AWS</span>
+                                        <span class="tech-tag">Docker</span>
+                                        <span class="tech-tag">CI/CD</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-4 flex items-center">
+                                <i class="fas fa-laptop-code ml-2"></i>المشاريع العملية
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="bg-gray-700 rounded-lg p-4">
+                                    <h5 class="font-bold text-yellow-300 mb-2">مشاريع المستوى</h5>
+                                    <ul class="text-gray-300 text-sm space-y-2">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-globe text-yellow-400 mt-1 ml-2"></i>
+                                            <span>موقع كامل بإدارة مستخدمين</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-mobile-alt text-yellow-400 mt-1 ml-2"></i>
+                                            <span>تطبيق موبايل لعرض بيانات من API</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-server text-yellow-400 mt-1 ml-2"></i>
+                                            <span>RESTful API + Database Integration</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4">
+                                    <h5 class="font-bold text-green-300 mb-2">الموارد المقترحة</h5>
+                                    <ul class="text-gray-300 text-sm space-y-2">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-play-circle text-green-400 mt-1 ml-2"></i>
+                                            <span>دورة "The Web Developer Bootcamp" على Udemy</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-book text-green-400 mt-1 ml-2"></i>
+                                            <span>كتاب "Eloquent JavaScript"</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-laptop text-green-400 mt-1 ml-2"></i>
+                                            <span>مشاريع React على GitHub</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4">
+                                    <h5 class="font-bold text-blue-300 mb-2">نصائح المستوى</h5>
+                                    <div class="text-gray-300 text-sm space-y-2">
+                                        <p class="flex items-start">
+                                            <i class="fas fa-lightbulb text-yellow-400 mt-1 ml-2"></i>
+                                            <span>اختر تقنية واحدة للتركيز عليها بدلاً من تعلم كل شيء</span>
+                                        </p>
+                                        <p class="flex items-start">
+                                            <i class="fas fa-lightbulb text-yellow-400 mt-1 ml-2"></i>
+                                            <span>ابنِ مشروعاً حقيقياً يمكنك إضافته لملفك الشخصي</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Level 5 -->
+            <div id="level5" class="roadmap-step mb-16 scroll-mt-24">
+                <div class="timeline-dot bg-indigo-500"></div>
+                <div class="bg-gray-800 rounded-2xl p-8 card-hover border-r-4 border-indigo-500 relative overflow-hidden">
+                    <div class="level-badge bg-indigo-500 text-white">المستوى التخصصي</div>
+                    <div class="flex flex-wrap justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">🤖 المستوى 5 — التخصصات المتقدمة</h3>
+                            <p class="text-indigo-300 font-medium">المدة: 6–12 شهر</p>
+                        </div>
+                        <span class="bg-indigo-600 text-white px-3 py-1 rounded-full text-sm">متخصص</span>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <p class="text-gray-300 text-lg">اختر مساراً واحداً أو أكثر للتخصص فيه:</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- AI & ML -->
+                        <div class="bg-gray-700 rounded-xl p-6 card-hover">
+                            <div class="text-blue-400 text-3xl mb-4">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-3">الذكاء الاصطناعي وتعلم الآلة</h4>
+                            <ul class="text-gray-300 text-sm space-y-2 mb-4">
+                                <li>• الانحدار الخطي، أشجار القرار</li>
+                                <li>• الشبكات العصبية</li>
+                                <li>• NumPy, Pandas, Scikit-learn, TensorFlow</li>
+                            </ul>
+                            <div class="bg-blue-900/30 rounded-lg p-3">
+                                <h5 class="font-bold text-blue-300 mb-1 text-sm">المشروع:</h5>
+                                <p class="text-blue-200 text-sm">Chatbot بالذكاء الاصطناعي</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Cyber Security -->
+                        <div class="bg-gray-700 rounded-xl p-6 card-hover">
+                            <div class="text-green-400 text-3xl mb-4">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-3">الأمن السيبراني</h4>
+                            <ul class="text-gray-300 text-sm space-y-2 mb-4">
+                                <li>• التشفير</li>
+                                <li>• أساسيات الاختراق الأخلاقي</li>
+                                <li>• أمن الشبكات</li>
+                            </ul>
+                            <div class="bg-green-900/30 rounded-lg p-3">
+                                <h5 class="font-bold text-green-300 mb-1 text-sm">المشروع:</h5>
+                                <p class="text-green-200 text-sm">نظام كشف التسلل</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Data Science -->
+                        <div class="bg-gray-700 rounded-xl p-6 card-hover">
+                            <div class="text-purple-400 text-3xl mb-4">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-3">علم البيانات</h4>
+                            <ul class="text-gray-300 text-sm space-y-2 mb-4">
+                                <li>• تنظيف البيانات</li>
+                                <li>• التصور البياني</li>
+                                <li>• Python لتحليل البيانات</li>
+                            </ul>
+                            <div class="bg-purple-900/30 rounded-lg p-3">
+                                <h5 class="font-bold text-purple-300 mb-1 text-sm">المشروع:</h5>
+                                <p class="text-purple-200 text-sm">Dashboard لتحليل البيانات</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Game Development -->
+                        <div class="bg-gray-700 rounded-xl p-6 card-hover">
+                            <div class="text-yellow-400 text-3xl mb-4">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-3">تطوير الألعاب</h4>
+                            <ul class="text-gray-300 text-sm space-y-2 mb-4">
+                                <li>• Unity / Unreal Engine</li>
+                                <li>• فيزياء الألعاب</li>
+                            </ul>
+                            <div class="bg-yellow-900/30 rounded-lg p-3">
+                                <h5 class="font-bold text-yellow-300 mb-1 text-sm">المشروع:</h5>
+                                <p class="text-yellow-200 text-sm">لعبة 2D بسيطة</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Cloud & DevOps -->
+                        <div class="bg-gray-700 rounded-xl p-6 card-hover">
+                            <div class="text-red-400 text-3xl mb-4">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-3">السحابة و DevOps</h4>
+                            <ul class="text-gray-300 text-sm space-y-2 mb-4">
+                                <li>• AWS / Azure</li>
+                                <li>• Docker, Kubernetes</li>
+                            </ul>
+                            <div class="bg-red-900/30 rounded-lg p-3">
+                                <h5 class="font-bold text-red-300 mb-1 text-sm">المشروع:</h5>
+                                <p class="text-red-200 text-sm">نشر تطبيق على AWS</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Embedded Systems / IoT -->
+                        <div class="bg-gray-700 rounded-xl p-6 card-hover">
+                            <div class="text-teal-400 text-3xl mb-4">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-3">النظم المدمجة / إنترنت الأشياء</h4>
+                            <ul class="text-gray-300 text-sm space-y-2 mb-4">
+                                <li>• Arduino, Raspberry Pi</li>
+                                <li>• أجهزة الاستشعار</li>
+                                <li>• برمجة C</li>
+                            </ul>
+                            <div class="bg-teal-900/30 rounded-lg p-3">
+                                <h5 class="font-bold text-teal-300 mb-1 text-sm">المشروع:</h5>
+                                <p class="text-teal-200 text-sm">تطبيق إنترنت الأشياء لقياس درجة الحرارة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Level 6 -->
+            <div id="level6" class="roadmap-step scroll-mt-24">
+                <div class="timeline-dot bg-pink-500"></div>
+                <div class="bg-gray-800 rounded-2xl p-8 card-hover border-r-4 border-pink-500 relative overflow-hidden">
+                    <div class="level-badge bg-pink-500 text-white">المستوى الاحترافي</div>
+                    <div class="flex flex-wrap justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">🎓 المستوى 6 — مشروع التخرج + سوق العمل</h3>
+                            <p class="text-pink-300 font-medium">المدة: 2–3 أشهر</p>
+                        </div>
+                        <span class="bg-pink-600 text-white px-3 py-1 rounded-full text-sm">خريج</span>
+                    </div>
+                    
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-4 flex items-center">
+                                <i class="fas fa-tasks ml-2"></i>المهام الأساسية
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-blue-300 mb-2">مشروع نهائي متكامل</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• Frontend + Backend + Database</li>
+                                        <li>• توثيق كامل + واجهة مستخدم احترافية</li>
+                                        <li>• رفع المشروع على GitHub + Portfolio</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-green-300 mb-2">تحضير لسوق العمل</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• خريطة وظائف (Frontend, Backend, Full Stack, ML, Cyber, Cloud)</li>
+                                        <li>• إنشاء سيرة ذاتية تقنية</li>
+                                        <li>• حل تحديات على LeetCode / Codeforces / HackerRank</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4 topic-card">
+                                    <h5 class="font-bold text-yellow-300 mb-2">التدريب العملي</h5>
+                                    <ul class="text-gray-300 text-sm space-y-1">
+                                        <li>• تطبيق المفاهيم في بيئة عمل حقيقية</li>
+                                        <li>• البحث عن فرص تدريب أو تدريب داخلي</li>
+                                        <li>• بناء شبكة علاقات مهنية</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-4 flex items-center">
+                                <i class="fas fa-toolbox ml-2"></i>أدوات وموارد مساعدة
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="bg-gray-700 rounded-lg p-4">
+                                    <table class="w-full text-sm text-gray-300">
+                                        <thead>
+                                            <tr class="border-b border-gray-600">
+                                                <th class="text-right py-2">المجال</th>
+                                                <th class="text-right py-2">الأدوات المقترحة</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="border-b border-gray-700">
+                                                <td class="py-2">البرمجة</td>
+                                                <td class="py-2">VS Code, Git, GitHub</td>
+                                            </tr>
+                                            <tr class="border-b border-gray-700">
+                                                <td class="py-2">التصميم</td>
+                                                <td class="py-2">Figma, Canva</td>
+                                            </tr>
+                                            <tr class="border-b border-gray-700">
+                                                <td class="py-2">إدارة المشاريع</td>
+                                                <td class="py-2">Trello, Notion</td>
+                                            </tr>
+                                            <tr class="border-b border-gray-700">
+                                                <td class="py-2">قواعد البيانات</td>
+                                                <td class="py-2">MySQL, MongoDB</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2">الخوارزميات</td>
+                                                <td class="py-2">LeetCode, GeeksforGeeks</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <div class="bg-gray-700 rounded-lg p-4">
+                                    <h5 class="font-bold text-green-300 mb-2">نصائح للنجاح</h5>
+                                    <ul class="text-gray-300 text-sm space-y-2">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check text-green-400 mt-1 ml-2"></i>
+                                            <span>لا تتسرع - ركز على الفهم العميق للمفاهيم</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check text-green-400 mt-1 ml-2"></i>
+                                            <span>ابنِ مشاريع عملية لتطبيق ما تتعلمه</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check text-green-400 mt-1 ml-2"></i>
+                                            <span>انضم لمجتمعات البرمجة للحصول على الدعم</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">ابدأ رحلتك في تعلم علوم الحاسوب اليوم!</h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                هذه الخريطة الشاملة ستأخذك من الصفر إلى الاحتراف في مجال علوم الحاسوب. ابدأ بالمستوى الأول واتبع الخطوات بدقة.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition-colors transform hover:scale-105 shadow-lg">
+                    ابدأ بالمستوى الأول
+                </button>
+                <button class="bg-transparent border border-white text-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-lg transition-colors transform hover:scale-105">
+                    <i class="fas fa-download ml-2"></i> حمّل الخريطة كملف PDF
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="mb-4">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-2">
+                        <i class="fas fa-code mr-2"></i>TipsHub
+                    </h3>
+                    <p class="text-gray-400">منصة شاملة لكل ما يحتاجه المبرمج</p>
+                </div>
+                <div class="flex justify-center space-x-6 space-x-reverse mb-4">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+                <div class="border-t border-gray-700 pt-4">
+                    <p class="text-gray-500">© 2025 TipsHub. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Button -->
+    <div class="floating-btn" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Progress bar animation on scroll
+        function updateProgressBar() {
+            const progressBar = document.getElementById('global-progress');
+            const progressPercentage = document.getElementById('progress-percentage');
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = scrollTop / docHeight;
+            const progressWidth = Math.min(100, 10 + (scrollPercent * 90));
+            
+            progressBar.style.width = progressWidth + '%';
+            progressPercentage.textContent = Math.round(progressWidth) + '%';
+        }
+
+        window.addEventListener('scroll', updateProgressBar);
+        window.addEventListener('resize', updateProgressBar);
+
+        // Download buttons functionality
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('حمّل الخريطة كملف PDF')) {
+                button.addEventListener('click', function() {
+                    alert('سيبدأ تحميل ملف PDF قريباً. شكراً لاستخدامك TipsHub!');
+                });
+            }
+        });
+
+        // Scroll to top functionality
+        document.getElementById('scrollToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.display = 'flex';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        // Observe roadmap steps for animation
+        document.querySelectorAll('.roadmap-step').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Add interactive functionality to level cards
+        document.querySelectorAll('.topic-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.toggle('bg-gray-600');
+            });
+        });
+
+        // Initialize progress bar on load
+        window.addEventListener('load', updateProgressBar);
+    </script>
+</body>
+</html>

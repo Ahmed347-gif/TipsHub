@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إعداد المقابلات - TipsHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-gray-800 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="index.html" class="text-2xl font-bold text-blue-400">
+                            <i class="fas fa-code mr-2"></i>TipsHub
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4 space-x-reverse">
+                        <a href="index.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">الرئيسية</a>
+                        <a href="roadmaps.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">خرائط التعلم</a>
+                        <a href="tips.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">نصائح برمجية</a>
+                        <a href="problems.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">المشاكل والحلول</a>
+                        <a href="interview.html" class="text-blue-400 px-3 py-2 rounded-md text-sm font-medium">المقابلات</a>
+                        <a href="cv.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">السيرة الذاتية</a>
+                        <a href="projects.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">أفكار المشاريع</a>
+                        <a href="about.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">حول الموقع</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none focus:text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-700">
+                <a href="index.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">الرئيسية</a>
+                <a href="roadmaps.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">خرائط التعلم</a>
+                <a href="tips.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">نصائح برمجية</a>
+                <a href="problems.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">المشاكل والحلول</a>
+                <a href="interview.html" class="text-blue-400 block px-3 py-2 rounded-md text-base font-medium">المقابلات</a>
+                <a href="cv.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">السيرة الذاتية</a>
+                <a href="projects.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">أفكار المشاريع</a>
+                <a href="about.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">حول الموقع</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-br from-blue-900 to-indigo-900 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center fade-in">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    <i class="fas fa-user-tie mr-4"></i>أسئلة المقابلات التقنية
+                </h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                    دليلك الشامل للتحضير للمقابلات التقنية. استعد لأسئلة المقابلات في مجالات البرمجة المختلفة وتعرف على الإجابات النموذجية.
+                </p>
+                
+                <!-- Search Bar -->
+                <div class="max-w-2xl mx-auto">
+                    <div class="relative">
+                        <input type="text" id="search-input" placeholder="ابحث عن سؤال..." 
+                               class="w-full bg-gray-800 text-white rounded-lg px-6 py-4 pr-12 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg">
+                        <i class="fas fa-search absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+                    <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4 text-center">
+                        <div class="text-2xl font-bold text-white" id="total-questions">500+</div>
+                        <div class="text-blue-300 text-sm">سؤال شامل</div>
+                    </div>
+                    <div class="bg-green-800 bg-opacity-50 rounded-lg p-4 text-center">
+                        <div class="text-2xl font-bold text-white" id="total-categories">12</div>
+                        <div class="text-green-300 text-sm">تخصص تقني</div>
+                    </div>
+                    <div class="bg-purple-800 bg-opacity-50 rounded-lg p-4 text-center">
+                        <div class="text-2xl font-bold text-white">100%</div>
+                        <div class="text-purple-300 text-sm">إجابات نموذجية</div>
+                    </div>
+                    <div class="bg-red-800 bg-opacity-50 rounded-lg p-4 text-center">
+                        <div class="text-2xl font-bold text-white">50+</div>
+                        <div class="text-red-300 text-sm">سؤال برمجي</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specializations Section -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">التخصصات التقنية</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    اختر التخصص الذي تريد التحضير له واستعرض الأسئلة الشائعة في مقابلات العمل
+                </p>
+            </div>
+            
+            <!-- Category Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 mb-8" id="category-filters">
+                <button class="category-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white transition-colors active" data-category="all">
+                    جميع الأسئلة
+                </button>
+                <button class="category-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white transition-colors" data-category="frontend">
+                    <i class="fas fa-code ml-2"></i>Frontend
+                </button>
+                <button class="category-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-green-600 hover:text-white transition-colors" data-category="backend">
+                    <i class="fas fa-server ml-2"></i>Backend
+                </button>
+                <button class="category-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-purple-600 hover:text-white transition-colors" data-category="database">
+                    <i class="fas fa-database ml-2"></i>Database
+                </button>
+                <button class="category-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-red-600 hover:text-white transition-colors" data-category="algorithms">
+                    <i class="fas fa-cogs ml-2"></i>Algorithms
+                </button>
+                <button class="category-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-yellow-600 hover:text-white transition-colors" data-category="personal">
+                    <i class="fas fa-user ml-2"></i>شخصية
+                </button>
+                <button class="category-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-pink-600 hover:text-white transition-colors" data-category="javascript">
+                    <i class="fab fa-js ml-2"></i>JavaScript
+                </button>
+                <button class="category-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-cyan-600 hover:text-white transition-colors" data-category="python">
+                    <i class="fab fa-python ml-2"></i>Python
+                </button>
+                <button class="category-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-orange-600 hover:text-white transition-colors" data-category="java">
+                    <i class="fab fa-java ml-2"></i>Java
+                </button>
+                <button class="category-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-indigo-600 hover:text-white transition-colors" data-category="react">
+                    <i class="fab fa-react ml-2"></i>React
+                </button>
+                <button class="category-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-emerald-600 hover:text-white transition-colors" data-category="nodejs">
+                    <i class="fab fa-node-js ml-2"></i>Node.js
+                </button>
+                <button class="category-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-teal-600 hover:text-white transition-colors" data-category="system">
+                    <i class="fas fa-microchip ml-2"></i>System Design
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="specializations-grid">
+                <!-- سيتم ملؤها ديناميكياً -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Questions Section -->
+    <section class="py-16 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">الأسئلة التقنية</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto mb-6">
+                    مجموعة شاملة من الأسئلة التقنية مع إجابات نموذجية مفصلة
+                </p>
+                <div class="text-gray-500">
+                    عرض <span id="visible-questions">0</span> من <span id="total-questions-count">0</span> سؤال
+                </div>
+            </div>
+            
+            <div class="bg-gray-700 rounded-xl p-6 max-w-5xl mx-auto" id="questions-container">
+                <!-- سيتم ملؤها ديناميكياً -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Questions Section -->
+    <section id="personal-questions" class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">الأسئلة الشخصية والسلوكية</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    مجموعة من الأسئلة الشخصية والسلوكية التي تُطرح في مقابلات العمل لتقييم شخصية المرشح
+                </p>
+            </div>
+            
+            <div class="bg-gray-700 rounded-xl p-6 max-w-4xl mx-auto">
+                <div class="space-y-4">
+                    <!-- Personal Question 1 -->
+                    <div class="bg-gray-600 rounded-lg overflow-hidden">
+                        <button class="w-full text-right p-4 flex justify-between items-center focus:outline-none question-btn">
+                            <span class="font-semibold text-white">تحدث عن نفسك</span>
+                            <i class="fas fa-chevron-down text-yellow-400 transition-transform"></i>
+                        </button>
+                        <div class="collapsible-content">
+                            <div class="p-4 border-t border-gray-500 text-gray-300">
+                                <p class="mb-3">هذا السؤال يهدف إلى التعرف على خلفيتك وخبراتك. ينصح بتقديم إجابة موجزة ومنظمة:</p>
+                                <ul class="list-disc pr-5 space-y-2">
+                                    <li>ابدأ بخلفيتك التعليمية والمهنية الحالية</li>
+                                    <li>اذكر أهم إنجازاتك وخبراتك ذات الصلة بالوظيفة</li>
+                                    <li>تحدث عن اهتماماتك المهنية وكيف تتوافق مع الوظيفة المتقدم لها</li>
+                                    <li>اختم بذكر سبب اهتمامك بهذه الشركة والوظيفة تحديداً</li>
+                                </ul>
+                                <p class="mt-3 text-yellow-300">نصيحة: حضر إجابة مدتها 1-2 دقيقة، وركز على ما يهم صاحب العمل.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Personal Question 2 -->
+                    <div class="bg-gray-600 rounded-lg overflow-hidden">
+                        <button class="w-full text-right p-4 flex justify-between items-center focus:outline-none question-btn">
+                            <span class="font-semibold text-white">ما هي نقاط قوتك؟</span>
+                            <i class="fas fa-chevron-down text-yellow-400 transition-transform"></i>
+                        </button>
+                        <div class="collapsible-content">
+                            <div class="p-4 border-t border-gray-500 text-gray-300">
+                                <p class="mb-3">اختر 2-3 نقاط قوة تتوافق مع متطلبات الوظيفة:</p>
+                                <ul class="list-disc pr-5 space-y-2">
+                                    <li><strong>المهارات التقنية:</strong> ذكر المهارات التي تتوافق مع الوظيفة</li>
+                                    <li><strong>المهارات الشخصية:</strong> مثل العمل الجماعي، القيادة، التواصل</li>
+                                    <li><strong>الأمثلة:</strong> قدم أمثلة واقعية تثبت هذه النقاط</li>
+                                </ul>
+                                <div class="mt-3 bg-gray-500 p-3 rounded-lg">
+                                    <p class="text-yellow-300 mb-2">مثال للإجابة:</p>
+                                    <p>"من نقاط قوتي مهاراتي القوية في حل المشكلات. في مشروع سابق، واجهنا مشكلة في أداء التطبيق، فقمت بتحليل الشيفرة وتحديد المشكلة وقدمت حلاً أدى إلى تحسين الأداء بنسبة 40٪."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Personal Question 3 -->
+                    <div class="bg-gray-600 rounded-lg overflow-hidden">
+                        <button class="w-full text-right p-4 flex justify-between items-center focus:outline-none question-btn">
+                            <span class="font-semibold text-white">ما هي نقاط ضعفك؟</span>
+                            <i class="fas fa-chevron-down text-yellow-400 transition-transform"></i>
+                        </button>
+                        <div class="collapsible-content">
+                            <div class="p-4 border-t border-gray-500 text-gray-300">
+                                <p class="mb-3">اختر نقطة ضعف حقيقية ولكن ليست أساسية للوظيفة، ووضح كيف تعمل على تحسينها:</p>
+                                <ul class="list-disc pr-5 space-y-2">
+                                    <li>لا تذكر نقاط ضعف حقيقية قد تؤثر سلباً على فرصك</li>
+                                    <li>اختر نقطة ضعف يمكن تحسينها أو تحويلها إلى نقطة قوة</li>
+                                    <li>اذكر الخطوات التي تتخذها للتغلب على هذا الضعف</li>
+                                </ul>
+                                <div class="mt-3 bg-gray-500 p-3 rounded-lg">
+                                    <p class="text-yellow-300 mb-2">مثال للإجابة:</p>
+                                    <p>"كنت أجد صعوبة في رفض طلبات إضافية عندما أكون مشغولاً، مما يؤثر على إنتاجيتي. الآن أتعلم إدارة الأولويات والتواصل بوضوح حول الجدول الزمني realistic."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Personal Question 4 -->
+                    <div class="bg-gray-600 rounded-lg overflow-hidden">
+                        <button class="w-full text-right p-4 flex justify-between items-center focus:outline-none question-btn">
+                            <span class="font-semibold text-white">لماذا تريد العمل معنا؟</span>
+                            <i class="fas fa-chevron-down text-yellow-400 transition-transform"></i>
+                        </button>
+                        <div class="collapsible-content">
+                            <div class="p-4 border-t border-gray-500 text-gray-300">
+                                <p class="mb-3">أظهر أنك قمت بالبحث عن الشركة وأنك متحمس للانضمام إليها:</p>
+                                <ul class="list-disc pr-5 space-y-2">
+                                    <li><strong>الثقافة والقيم:</strong> اذكر ما يعجبك في ثقافة الشركة وقيمها</li>
+                                    <li><strong>المنتجات/الخدمات:</strong> عبر عن إعجابك بمنتجات الشركة أو خدماتها</li>
+                                    <li><strong>النمو المهني:</strong> اذكر كيف ترى أن الوظيفة تناسب مسارك المهني</li>
+                                    <li><strong>الإنجازات:</strong> أشر إلى إنجازات الشركة التي تثير إعجابك</li>
+                                </ul>
+                                <p class="mt-3 text-yellow-300">نصيحة: تجنب الإجابات العامة مثل "لأنها شركة رائعة"، كن محدداً ومفصلاً.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Personal Question 5 -->
+                    <div class="bg-gray-600 rounded-lg overflow-hidden">
+                        <button class="w-full text-right p-4 flex justify-between items-center focus:outline-none question-btn">
+                            <span class="font-semibold text-white">أين ترى نفسك بعد 5 سنوات؟</span>
+                            <i class="fas fa-chevron-down text-yellow-400 transition-transform"></i>
+                        </button>
+                        <div class="collapsible-content">
+                            <div class="p-4 border-t border-gray-500 text-gray-300">
+                                <p class="mb-3">أظهر أنك تفكر في مستقبلك المهني وتخطط للنمو مع الشركة:</p>
+                                <ul class="list-disc pr-5 space-y-2">
+                                    <li>تحدث عن رغبتك في تطوير مهاراتك وتولي مسؤوليات أكبر</li>
+                                    <li>اربط أهدافك مع مسار النمو في الشركة</li>
+                                    <li>أظهر أنك تركز على المساهمة في نجاح الشركة</li>
+                                    <li>تجنب التطلع إلى مناصب إدارية إن كنت تتقدم لوظيفة فنية بحتة</li>
+                                </ul>
+                                <div class="mt-3 bg-gray-500 p-3 rounded-lg">
+                                    <p class="text-yellow-300 mb-2">مثال للإجابة:</p>
+                                    <p>"أرى نفسي بعد 5 سنوات كخبير تقني راسخ في مجال [التخصص]، حيث أساهم بشكل كبير في نجاح المشاريع وتوجيه المطورين الأقل خبرة. آمل أن أكون قد طورت مهاراتي التقنية والقيادية بشكل يمكنني من تولي مسؤوليات أكبر."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Personal Question 6 -->
+                    <div class="bg-gray-600 rounded-lg overflow-hidden">
+                        <button class="w-full text-right p-4 flex justify-between items-center focus:outline-none question-btn">
+                            <span class="font-semibold text-white">كيف تتعامل مع الضغط ومواعيد التسليم؟</span>
+                            <i class="fas fa-chevron-down text-yellow-400 transition-transform"></i>
+                        </button>
+                        <div class="collapsible-content">
+                            <div class="p-4 border-t border-gray-500 text-gray-300">
+                                <p class="mb-3">أظهر مهاراتك في إدارة الضغوط والوقت:</p>
+                                <ul class="list-disc pr-5 space-y-2">
+                                    <li><strong>التخطيط:</strong> كيف تقسم المهام وتحدد الأولويات</li>
+                                    <li><strong>التواصل:</strong> كيف تتواصل مع الفريق حول التحديات والتوقعات</li>
+                                    <li><strong>المرونة:</strong> كيف تتكيف مع الظروف المتغيرة</li>
+                                    <li><strong>الحلول العملية:</strong> ذكر استراتيجيات محددة تستخدمها</li>
+                                </ul>
+                                <div class="mt-3 bg-gray-500 p-3 rounded-lg">
+                                    <p class="text-yellow-300 mb-2">مثال للإجابة:</p>
+                                    <p>"أتعامل مع الضغط من خلال التخطيط الجيد وتحديد الأولويات. أقسم المشاريع الكبيرة إلى مهام أصغر، وأحدد مواعيد نهائية واقعية لكل منها. عندما أواجه ضغطاً، أركز على الحلول بدلاً من المشكلة، وأتواصل بصراحة مع الفريق حول التحديات."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="mb-4">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-2">
+                        <i class="fas fa-code mr-2"></i>TipsHub
+                    </h3>
+                    <p class="text-gray-400">منصة شاملة لكل ما يحتاجه المبرمج</p>
+                </div>
+                <div class="flex justify-center space-x-6 space-x-reverse mb-4">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+                <div class="border-t border-gray-700 pt-4">
+                    <p class="text-gray-500">© 2025 TipsHub. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // قاعدة بيانات شاملة من أسئلة المقابلات
+        const interviewQuestions = {
+            frontend: [
+                {
+                    question: "ما الفرق بين var، let و const في JavaScript؟",
+                    answer: `<p class="mb-2"><strong>var:</strong> لديه نطاق الوظيفة (function scope)، ويمكن إعادة تعريفه، ويرفع إلى أعلى النطاق (hoisting) مع تهيئة بقيمة undefined.</p>
+                    <p class="mb-2"><strong>let:</strong> لديه نطاق الكتلة (block scope)، ولا يمكن إعادة تعريفه في نفس النطاق، ويرفع ولكن لا يتم تهيئته (Temporal Dead Zone).</p>
+                    <p><strong>const:</strong> يشبه let ولكن لا يمكن إعادة تعيينه بعد التصريح عنه، ويجب تهيئته عند التصريح.</p>
+                    <div class="mt-3 bg-gray-600 p-3 rounded">
+                        <p class="text-yellow-300 mb-1">مثال:</p>
+                        <code class="text-sm">var x = 1; var x = 2; // ✅ مسموح<br>
+                        let y = 1; let y = 2; // ❌ خطأ<br>
+                        const z = 1; z = 2; // ❌ خطأ</code>
+                    </div>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما هو Closure في JavaScript؟",
+                    answer: `<p class="mb-2">Closure هو دالة داخلية لها وصول للمتغيرات في النطاق الخارجي حتى بعد انتهاء تنفيذ الدالة الخارجية.</p>
+                    <div class="mt-3 bg-gray-600 p-3 rounded">
+                        <p class="text-yellow-300 mb-1">مثال:</p>
+                        <code class="text-sm">function outer() {<br>
+                        &nbsp;&nbsp;let name = 'TipsHub';<br>
+                        &nbsp;&nbsp;function inner() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;console.log(name); // الوصول لـ name من النطاق الخارجي<br>
+                        &nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;return inner;<br>
+                        }<br>
+                        const myFunc = outer();<br>
+                        myFunc(); // 'TipsHub'</code>
+                    </div>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما الفرق بين == و === في JavaScript؟",
+                    answer: `<p class="mb-2"><strong>== (Loose Equality):</strong> يقارن القيم بعد تحويل الأنواع (type coercion).</p>
+                    <p class="mb-2"><strong>=== (Strict Equality):</strong> يقارن القيم والأنواع بدون تحويل.</p>
+                    <div class="mt-3 bg-gray-600 p-3 rounded">
+                        <p class="text-yellow-300 mb-1">أمثلة:</p>
+                        <code class="text-sm">5 == '5' // true (تحويل نوع)<br>
+                        5 === '5' // false (أنواع مختلفة)<br>
+                        null == undefined // true<br>
+                        null === undefined // false</code>
+                    </div>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما هو Event Loop في JavaScript؟",
+                    answer: `<p class="mb-2">Event Loop هو آلية JavaScript لتنفيذ الكود غير المتزامن. يعمل على:</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li>Stack: ينفذ الكود المتزامن</li>
+                        <li>Queue: يخزن المهام غير المتزامنة (callbacks)</li>
+                        <li>Event Loop: ينقل المهام من Queue إلى Stack عندما يكون Stack فارغاً</li>
+                    </ul>
+                    <p class="mt-2">هذا يسمح لـ JavaScript بالتعامل مع العمليات غير المتزامنة بدون تجميد المتصفح.</p>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما الفرق بين null و undefined؟",
+                    answer: `<p class="mb-2"><strong>undefined:</strong> يعني أن المتغير تم التصريح عنه ولكن لم يتم تعيين قيمة له.</p>
+                    <p class="mb-2"><strong>null:</strong> قيمة متعمدة تعني "لا شيء" أو "فارغ".</p>
+                    <div class="mt-3 bg-gray-600 p-3 rounded">
+                        <p class="text-yellow-300 mb-1">أمثلة:</p>
+                        <code class="text-sm">let x; console.log(x); // undefined<br>
+                        let y = null; console.log(y); // null<br>
+                        typeof undefined // "undefined"<br>
+                        typeof null // "object" (خطأ في JavaScript)</code>
+                    </div>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما هو Promise في JavaScript؟",
+                    answer: `<p class="mb-2">Promise هو كائن يمثل عملية غير متزامنة قد تكتمل في المستقبل. له ثلاث حالات:</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li><strong>pending:</strong> في الانتظار</li>
+                        <li><strong>fulfilled:</strong> تم التنفيذ بنجاح</li>
+                        <li><strong>rejected:</strong> فشل التنفيذ</li>
+                    </ul>
+                    <div class="mt-3 bg-gray-600 p-3 rounded">
+                        <p class="text-yellow-300 mb-1">مثال:</p>
+                        <code class="text-sm">const promise = new Promise((resolve, reject) => {<br>
+                        &nbsp;&nbsp;setTimeout(() => resolve('نجح!'), 1000);<br>
+                        });<br>
+                        promise.then(result => console.log(result));</code>
+                    </div>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما الفرق بين async/await و Promise؟",
+                    answer: `<p class="mb-2">async/await هو syntactic sugar لـ Promises يجعل الكود غير المتزامن يبدو متزامناً.</p>
+                    <div class="mt-3 bg-gray-600 p-3 rounded">
+                        <p class="text-yellow-300 mb-1">مقارنة:</p>
+                        <p class="mb-2"><strong>Promise:</strong></p>
+                        <code class="text-sm">fetch('/api/data')<br>
+                        &nbsp;&nbsp;.then(res => res.json())<br>
+                        &nbsp;&nbsp;.then(data => console.log(data))<br>
+                        &nbsp;&nbsp;.catch(err => console.error(err));</code>
+                        <p class="mt-3 mb-2"><strong>async/await:</strong></p>
+                        <code class="text-sm">async function getData() {<br>
+                        &nbsp;&nbsp;try {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;const res = await fetch('/api/data');<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;const data = await res.json();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;console.log(data);<br>
+                        &nbsp;&nbsp;} catch (err) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;console.error(err);<br>
+                        &nbsp;&nbsp;}<br>
+                        }</code>
+                    </div>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما هو this في JavaScript؟",
+                    answer: `<p class="mb-2">this يشير إلى السياق (context) الذي يتم استدعاء الدالة فيه. قيمته تعتمد على كيفية استدعاء الدالة:</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li><strong>في دالة عادية:</strong> يشير إلى window (في strict mode: undefined)</li>
+                        <li><strong>في method:</strong> يشير إلى الكائن الذي يملك الـ method</li>
+                        <li><strong>في arrow function:</strong> يرث this من النطاق الخارجي</li>
+                        <li><strong>مع bind/call/apply:</strong> يمكن تحديد this يدوياً</li>
+                    </ul>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما هو Hoisting في JavaScript؟",
+                    answer: `<p class="mb-2">Hoisting هو رفع التصريحات (declarations) إلى أعلى النطاق قبل التنفيذ.</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li><strong>var:</strong> يتم رفعه وتهيئته بـ undefined</li>
+                        <li><strong>let/const:</strong> يتم رفعه ولكن لا يتم تهيئته (Temporal Dead Zone)</li>
+                        <li><strong>functions:</strong> يتم رفعها بالكامل</li>
+                    </ul>
+                    <div class="mt-3 bg-gray-600 p-3 rounded">
+                        <p class="text-yellow-300 mb-1">مثال:</p>
+                        <code class="text-sm">console.log(x); // undefined (ليس خطأ!)<br>
+                        var x = 5;<br>
+                        <br>
+                        console.log(y); // ReferenceError<br>
+                        let y = 5;</code>
+                    </div>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما الفرق بين map و forEach؟",
+                    answer: `<p class="mb-2"><strong>map:</strong> ينشئ مصفوفة جديدة بنتائج استدعاء الدالة على كل عنصر.</p>
+                    <p class="mb-2"><strong>forEach:</strong> ينفذ دالة على كل عنصر ولكن لا يرجع قيمة.</p>
+                    <div class="mt-3 bg-gray-600 p-3 rounded">
+                        <p class="text-yellow-300 mb-1">مثال:</p>
+                        <code class="text-sm">const arr = [1, 2, 3];<br>
+                        const doubled = arr.map(x => x * 2); // [2, 4, 6]<br>
+                        arr.forEach(x => console.log(x)); // لا يرجع قيمة</code>
+                    </div>`,
+                    type: "technical"
+                }
+            ],
+            backend: [
+                {
+                    question: "ما هو REST API وما مبادئه؟",
+                    answer: `<p class="mb-2">REST (Representational State Transfer) هو نمط معماري لتطوير واجهات برمجة تطبيقات الويب.</p>
+                    <p class="mb-2">مبادئ REST الأساسية:</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li><strong>الموارد (Resources):</strong> كل شيء هو مورد يتم التعرف عليه بـ URI</li>
+                        <li><strong>التمثيل (Representation):</strong> البيانات المرسلة والمستقبلة (JSON، XML)</li>
+                        <li><strong>العمليات (HTTP Methods):</strong> GET (قراءة)، POST (إنشاء)، PUT (تحديث)، DELETE (حذف)</li>
+                        <li><strong>عدم الحالة (Stateless):</strong> لا يحتفظ الخادم بأي حالة للعميل</li>
+                        <li><strong>Cacheable:</strong> يمكن تخزين الاستجابات مؤقتاً</li>
+                    </ul>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما الفرق بين PUT و PATCH؟",
+                    answer: `<p class="mb-2"><strong>PUT:</strong> يستخدم لتحديث مورد كامل. يجب إرسال جميع الحقول حتى لو لم تتغير.</p>
+                    <p class="mb-2"><strong>PATCH:</strong> يستخدم لتحديث جزئي. يمكن إرسال الحقول المتغيرة فقط.</p>
+                    <div class="mt-3 bg-gray-600 p-3 rounded">
+                        <p class="text-yellow-300 mb-1">مثال:</p>
+                        <p class="mb-1"><strong>PUT /users/1:</strong> تحديث جميع الحقول</p>
+                        <p><strong>PATCH /users/1:</strong> تحديث حقل واحد فقط</p>
+                    </div>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما هو JWT (JSON Web Token)؟",
+                    answer: `<p class="mb-2">JWT هو معيار مفتوح لإنشاء tokens آمنة لنقل المعلومات بين الأطراف.</p>
+                    <p class="mb-2">يتكون من ثلاثة أجزاء:</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li><strong>Header:</strong> نوع الـ token وخوارزمية التوقيع</li>
+                        <li><strong>Payload:</strong> البيانات (claims) مثل user ID، permissions</li>
+                        <li><strong>Signature:</strong> للتأكد من أن الـ token لم يتم تعديله</li>
+                    </ul>
+                    <p class="mt-2">المميزات: Stateless، قابل للتوسع، آمن عند استخدام HTTPS.</p>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما هو الـ Middleware؟",
+                    answer: `<p class="mb-2">Middleware هي دوال يتم تنفيذها بين استلام الطلب وإرسال الاستجابة.</p>
+                    <p class="mb-2">الاستخدامات الشائعة:</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li>Authentication والتحقق من الصلاحيات</li>
+                        <li>Logging وتسجيل الطلبات</li>
+                        <li>معالجة الأخطاء</li>
+                        <li>تحويل البيانات (parsing)</li>
+                        <li>Rate limiting</li>
+                    </ul>
+                    <div class="mt-3 bg-gray-600 p-3 rounded">
+                        <p class="text-yellow-300 mb-1">مثال (Express.js):</p>
+                        <code class="text-sm">app.use((req, res, next) => {<br>
+                        &nbsp;&nbsp;console.log('Request:', req.method, req.path);<br>
+                        &nbsp;&nbsp;next(); // الانتقال للـ middleware التالي<br>
+                        });</code>
+                    </div>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما الفرق بين Authentication و Authorization؟",
+                    answer: `<p class="mb-2"><strong>Authentication (المصادقة):</strong> التحقق من هوية المستخدم (من أنت؟)</p>
+                    <ul class="list-disc pr-5 mb-3 space-y-1">
+                        <li>تسجيل الدخول</li>
+                        <li>التحقق من اسم المستخدم وكلمة المرور</li>
+                        <li>إصدار tokens</li>
+                    </ul>
+                    <p class="mb-2"><strong>Authorization (الصلاحيات):</strong> تحديد ما يمكن للمستخدم فعله (ماذا يمكنك أن تفعل؟)</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li>التحقق من الصلاحيات</li>
+                        <li>التحكم في الوصول للموارد</li>
+                        <li>Roles و Permissions</li>
+                    </ul>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما هو CORS وكيف يعمل؟",
+                    answer: `<p class="mb-2">CORS (Cross-Origin Resource Sharing) هو آلية تسمح للمتصفح بطلب موارد من domain مختلف.</p>
+                    <p class="mb-2">المشكلة: Same-Origin Policy تمنع الطلبات من domains مختلفة.</p>
+                    <p class="mb-2">الحل: الخادم يرسل headers خاصة:</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li><strong>Access-Control-Allow-Origin:</strong> يحدد الـ domains المسموحة</li>
+                        <li><strong>Access-Control-Allow-Methods:</strong> HTTP methods المسموحة</li>
+                        <li><strong>Access-Control-Allow-Headers:</strong> Headers المسموحة</li>
+                    </ul>
+                    <div class="mt-3 bg-gray-600 p-3 rounded">
+                        <p class="text-yellow-300 mb-1">مثال:</p>
+                        <code class="text-sm">Access-Control-Allow-Origin: https://example.com<br>
+                        Access-Control-Allow-Methods: GET, POST, PUT</code>
+                    </div>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما هو Rate Limiting؟",
+                    answer: `<p class="mb-2">Rate Limiting هو تقنية للتحكم في عدد الطلبات التي يمكن للمستخدم إرسالها في فترة زمنية معينة.</p>
+                    <p class="mb-2">الفوائد:</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li>منع Abuse والهجمات</li>
+                        <li>حماية الخادم من Overload</li>
+                        <li>ضمان الاستخدام العادل للموارد</li>
+                    </ul>
+                    <p class="mt-2">الأنواع: Fixed Window، Sliding Window، Token Bucket</p>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما الفرق بين Session و Token-based Authentication؟",
+                    answer: `<p class="mb-2"><strong>Session-based:</strong></p>
+                    <ul class="list-disc pr-5 mb-3 space-y-1">
+                        <li>الخادم يحفظ حالة المستخدم</li>
+                        <li>يستخدم cookies لتخزين session ID</li>
+                        <li>Stateful (الخادم يحتفظ بالبيانات)</li>
+                        <li>أفضل للأمان في بعض الحالات</li>
+                    </ul>
+                    <p class="mb-2"><strong>Token-based:</strong></p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li>Stateless (لا يحتفظ الخادم بحالة)</li>
+                        <li>الـ token يحتوي على جميع المعلومات</li>
+                        <li>قابل للتوسع بسهولة</li>
+                        <li>يعمل جيداً مع APIs و Microservices</li>
+                    </ul>`,
+                    type: "technical"
+                }
+            ],
+            database: [
+                {
+                    question: "ما الفرق بين SQL و NoSQL؟",
+                    answer: `<p class="mb-2"><strong>SQL (قواعد البيانات العلائقية):</strong></p>
+                    <ul class="list-disc pr-5 mb-4 space-y-1">
+                        <li>تستخدم جداول مترابطة (relational tables)</li>
+                        <li>مخطط ثابت ومحدد مسبقاً (schema)</li>
+                        <li>تتبع مبدأ ACID (Atomicity, Consistency, Isolation, Durability)</li>
+                        <li>أمثلة: MySQL، PostgreSQL، SQL Server</li>
+                        <li>مناسبة للبيانات المنظمة والعلاقات المعقدة</li>
+                    </ul>
+                    <p class="mb-2"><strong>NoSQL (قواعد البيانات غير العلائقية):</strong></p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li>تستخدم مستندات، مفتاح-قيمة، رسوم بيانية، إلخ</li>
+                        <li>مخطط ديناميكي ومرن (schema-less)</li>
+                        <li>تتبع مبدأ CAP (Consistency, Availability, Partition tolerance)</li>
+                        <li>أمثلة: MongoDB، Redis، Cassandra</li>
+                        <li>مناسبة للبيانات غير المنظمة والتوسع الأفقي</li>
+                    </ul>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما هو ACID في قواعد البيانات؟",
+                    answer: `<p class="mb-2">ACID هي خصائص تضمن موثوقية المعاملات في قواعد البيانات:</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li><strong>Atomicity (الذرية):</strong> إما تنفذ المعاملة بالكامل أو لا تنفذ إطلاقاً</li>
+                        <li><strong>Consistency (الاتساق):</strong> البيانات تبقى متسقة قبل وبعد المعاملة</li>
+                        <li><strong>Isolation (العزل):</strong> المعاملات المتزامنة لا تتداخل</li>
+                        <li><strong>Durability (الدوام):</strong> التغييرات تبقى دائمة حتى بعد الأعطال</li>
+                    </ul>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما هو Index في قاعدة البيانات؟",
+                    answer: `<p class="mb-2">Index هو بنية بيانات تحسن سرعة استعلامات قاعدة البيانات.</p>
+                    <p class="mb-2">كيف يعمل:</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li>ينشئ بنية بيانات منظمة (مثل B-tree) للبحث السريع</li>
+                        <li>بدون index: البحث الخطي O(n)</li>
+                        <li>مع index: البحث اللوغاريتمي O(log n)</li>
+                    </ul>
+                    <p class="mt-2 mb-2">الفوائد:</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li>تحسين سرعة SELECT queries</li>
+                        <li>تسريع JOIN operations</li>
+                    </ul>
+                    <p class="mt-2 mb-2">السلبيات:</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li>يستهلك مساحة تخزين إضافية</li>
+                        <li>يبطئ INSERT/UPDATE/DELETE</li>
+                    </ul>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما الفرق بين INNER JOIN و LEFT JOIN؟",
+                    answer: `<p class="mb-2"><strong>INNER JOIN:</strong> يرجع فقط الصفوف التي لها تطابق في كلا الجدولين.</p>
+                    <p class="mb-2"><strong>LEFT JOIN:</strong> يرجع جميع الصفوف من الجدول الأيسر والصفوف المطابقة من الجدول الأيمن (NULL إذا لم يوجد تطابق).</p>
+                    <div class="mt-3 bg-gray-600 p-3 rounded">
+                        <p class="text-yellow-300 mb-1">مثال:</p>
+                        <code class="text-sm">-- INNER JOIN: فقط المستخدمين الذين لديهم طلبات<br>
+                        SELECT * FROM users u<br>
+                        INNER JOIN orders o ON u.id = o.user_id;<br>
+                        <br>
+                        -- LEFT JOIN: جميع المستخدمين حتى بدون طلبات<br>
+                        SELECT * FROM users u<br>
+                        LEFT JOIN orders o ON u.id = o.user_id;</code>
+                    </div>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما هو Normalization في قواعد البيانات؟",
+                    answer: `<p class="mb-2">Normalization هو عملية تنظيم البيانات في قاعدة البيانات لتقليل التكرار وتحسين التكامل.</p>
+                    <p class="mb-2">الأشكال الطبيعية (Normal Forms):</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li><strong>1NF:</strong> كل عمود يحتوي على قيمة واحدة فقط</li>
+                        <li><strong>2NF:</strong> 1NF + جميع الأعمدة غير الأساسية تعتمد على المفتاح الأساسي بالكامل</li>
+                        <li><strong>3NF:</strong> 2NF + لا توجد تبعيات متعدية (transitive dependencies)</li>
+                    </ul>
+                    <p class="mt-2">الفوائد: تقليل التكرار، تحسين التكامل، توفير المساحة.</p>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما هو SQL Injection وكيف نمنعه؟",
+                    answer: `<p class="mb-2">SQL Injection هي ثغرة أمنية تسمح بتنفيذ استعلامات SQL خبيثة.</p>
+                    <p class="mb-2">الطريقة الخاطئة:</p>
+                    <div class="bg-red-900 p-2 rounded mb-2">
+                        <code class="text-sm">query = "SELECT * FROM users WHERE username = '" + username + "'";</code>
+                    </div>
+                    <p class="mb-2">الطريقة الصحيحة (Prepared Statements):</p>
+                    <div class="bg-green-900 p-2 rounded mb-2">
+                        <code class="text-sm">query = "SELECT * FROM users WHERE username = ?";<br>
+                        stmt.setString(1, username);</code>
+                    </div>
+                    <p class="mt-2">الحماية: استخدام Prepared Statements، Input Validation، Parameterized Queries.</p>`,
+                    type: "security"
+                }
+            ],
+            algorithms: [
+                {
+                    question: "ما الفرق بين Time Complexity و Space Complexity؟",
+                    answer: `<p class="mb-2"><strong>Time Complexity:</strong> مقدار الوقت الذي يستغرقه الخوارزمية للتنفيذ.</p>
+                    <p class="mb-2"><strong>Space Complexity:</strong> مقدار الذاكرة التي تستخدمها الخوارزمية.</p>
+                    <p class="mb-2">الأشكال الشائعة (Big O Notation):</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li><strong>O(1):</strong> Constant - ثابت</li>
+                        <li><strong>O(log n):</strong> Logarithmic - لوغاريتمي</li>
+                        <li><strong>O(n):</strong> Linear - خطي</li>
+                        <li><strong>O(n log n):</strong> Linearithmic</li>
+                        <li><strong>O(n²):</strong> Quadratic - تربيعي</li>
+                        <li><strong>O(2ⁿ):</strong> Exponential - أسي</li>
+                    </ul>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما الفرق بين Array و Linked List؟",
+                    answer: `<p class="mb-2"><strong>Array:</strong></p>
+                    <ul class="list-disc pr-5 mb-3 space-y-1">
+                        <li>عناصر متجاورة في الذاكرة</li>
+                        <li>الوصول: O(1)</li>
+                        <li>الإدراج/الحذف: O(n)</li>
+                        <li>حجم ثابت (في معظم اللغات)</li>
+                    </ul>
+                    <p class="mb-2"><strong>Linked List:</strong></p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li>عناصر غير متجاورة، مرتبطة بمؤشرات</li>
+                        <li>الوصول: O(n)</li>
+                        <li>الإدراج/الحذف: O(1) إذا كان المؤشر معروف</li>
+                        <li>حجم ديناميكي</li>
+                    </ul>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما هو Binary Search وكيف يعمل؟",
+                    answer: `<p class="mb-2">Binary Search هي خوارزمية بحث في مصفوفة مرتبة.</p>
+                    <p class="mb-2">كيف تعمل:</p>
+                    <ol class="list-decimal pr-5 space-y-1">
+                        <li>ابدأ من منتصف المصفوفة</li>
+                        <li>قارن العنصر الوسطي مع القيمة المطلوبة</li>
+                        <li>إذا كانت أكبر، ابحث في النصف الأيمن</li>
+                        <li>إذا كانت أصغر، ابحث في النصف الأيسر</li>
+                        <li>كرر حتى تجد العنصر أو تنتهي المصفوفة</li>
+                    </ol>
+                    <p class="mt-2">Time Complexity: O(log n)</p>
+                    <p>Space Complexity: O(1) (iterative) أو O(log n) (recursive)</p>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما الفرق بين Stack و Queue؟",
+                    answer: `<p class="mb-2"><strong>Stack (LIFO - Last In First Out):</strong></p>
+                    <ul class="list-disc pr-5 mb-3 space-y-1">
+                        <li>آخر عنصر يدخل هو أول عنصر يخرج</li>
+                        <li>Operations: push (إضافة)، pop (إزالة)</li>
+                        <li>مثال: مكدس الأطباق، undo/redo</li>
+                    </ul>
+                    <p class="mb-2"><strong>Queue (FIFO - First In First Out):</strong></p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li>أول عنصر يدخل هو أول عنصر يخرج</li>
+                        <li>Operations: enqueue (إضافة)، dequeue (إزالة)</li>
+                        <li>مثال: طابور الانتظار، معالجة الطلبات</li>
+                    </ul>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما هو Hash Table وكيف يعمل؟",
+                    answer: `<p class="mb-2">Hash Table هي بنية بيانات تخزن البيانات في أزواج key-value.</p>
+                    <p class="mb-2">كيف يعمل:</p>
+                    <ol class="list-decimal pr-5 space-y-1">
+                        <li>Hash function يحول الـ key إلى index</li>
+                        <li>يتم تخزين القيمة في هذا الـ index</li>
+                        <li>عند البحث، نفس الـ hash function يعطي نفس الـ index</li>
+                    </ol>
+                    <p class="mt-2 mb-2">Time Complexity (متوسط):</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li>Insert: O(1)</li>
+                        <li>Search: O(1)</li>
+                        <li>Delete: O(1)</li>
+                    </ul>
+                    <p class="mt-2">Collision Handling: Chaining، Open Addressing</p>`,
+                    type: "technical"
+                }
+            ],
+            javascript: [
+                {
+                    question: "ما هو Prototype في JavaScript؟",
+                    answer: `<p class="mb-2">Prototype هو آلية JavaScript للوراثة. كل كائن له prototype يمكن أن يحتوي على properties و methods.</p>
+                    <div class="mt-3 bg-gray-600 p-3 rounded">
+                        <p class="text-yellow-300 mb-1">مثال:</p>
+                        <code class="text-sm">function Person(name) {<br>
+                        &nbsp;&nbsp;this.name = name;<br>
+                        }<br>
+                        Person.prototype.greet = function() {<br>
+                        &nbsp;&nbsp;return 'Hello, ' + this.name;<br>
+                        };</code>
+                    </div>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما الفرق بين call و apply و bind؟",
+                    answer: `<p class="mb-2">جميعها طرق لتحديد قيمة this في دالة:</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li><strong>call:</strong> يستدعي الدالة مع this محدد ومعاملات منفصلة</li>
+                        <li><strong>apply:</strong> مثل call ولكن المعاملات في مصفوفة</li>
+                        <li><strong>bind:</strong> يرجع دالة جديدة مع this محدد (لا يستدعي الدالة)</li>
+                    </ul>
+                    <div class="mt-3 bg-gray-600 p-3 rounded">
+                        <p class="text-yellow-300 mb-1">مثال:</p>
+                        <code class="text-sm">func.call(obj, arg1, arg2);<br>
+                        func.apply(obj, [arg1, arg2]);<br>
+                        const boundFunc = func.bind(obj);</code>
+                    </div>`,
+                    type: "technical"
+                }
+            ],
+            python: [
+                {
+                    question: "ما الفرق بين list و tuple في Python؟",
+                    answer: `<p class="mb-2"><strong>List:</strong></p>
+                    <ul class="list-disc pr-5 mb-3 space-y-1">
+                        <li>قابل للتعديل (mutable)</li>
+                        <li>يستخدم أقواس مربعة []</li>
+                        <li>يمكن إضافة، حذف، تعديل العناصر</li>
+                        <li>أبطأ قليلاً من tuple</li>
+                    </ul>
+                    <p class="mb-2"><strong>Tuple:</strong></p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li>غير قابل للتعديل (immutable)</li>
+                        <li>يستخدم أقواس عادية ()</li>
+                        <li>لا يمكن تعديله بعد الإنشاء</li>
+                        <li>أسرع من list</li>
+                        <li>يمكن استخدامه كـ key في dictionary</li>
+                    </ul>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما هو List Comprehension في Python؟",
+                    answer: `<p class="mb-2">List Comprehension هي طريقة مختصرة لإنشاء lists.</p>
+                    <div class="mt-3 bg-gray-600 p-3 rounded">
+                        <p class="text-yellow-300 mb-1">مثال:</p>
+                        <code class="text-sm"># طريقة عادية<br>
+                        squares = []<br>
+                        for x in range(10):<br>
+                        &nbsp;&nbsp;squares.append(x**2)<br>
+                        <br>
+                        # List Comprehension<br>
+                        squares = [x**2 for x in range(10)]</code>
+                    </div>`,
+                    type: "technical"
+                }
+            ],
+            java: [
+                {
+                    question: "ما الفرق بين == و equals() في Java؟",
+                    answer: `<p class="mb-2"><strong>==:</strong> يقارن المراجع (references) - هل يشيران لنفس الكائن؟</p>
+                    <p class="mb-2"><strong>equals():</strong> يقارن المحتوى - هل القيم متساوية؟</p>
+                    <div class="mt-3 bg-gray-600 p-3 rounded">
+                        <p class="text-yellow-300 mb-1">مثال:</p>
+                        <code class="text-sm">String s1 = new String("Hello");<br>
+                        String s2 = new String("Hello");<br>
+                        s1 == s2; // false (مراجع مختلفة)<br>
+                        s1.equals(s2); // true (محتوى متساوي)</code>
+                    </div>`,
+                    type: "technical"
+                }
+            ],
+            react: [
+                {
+                    question: "ما الفرق بين State و Props في React؟",
+                    answer: `<p class="mb-2"><strong>Props:</strong></p>
+                    <ul class="list-disc pr-5 mb-3 space-y-1">
+                        <li>بيانات تمرر من component أب إلى component ابن</li>
+                        <li>غير قابلة للتعديل (immutable)</li>
+                        <li>قراءة فقط (read-only)</li>
+                    </ul>
+                    <p class="mb-2"><strong>State:</strong></p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li>بيانات محلية للـ component</li>
+                        <li>قابلة للتعديل باستخدام setState</li>
+                        <li>عند التغيير، يتم re-render الـ component</li>
+                    </ul>`,
+                    type: "technical"
+                },
+                {
+                    question: "ما هو Virtual DOM في React؟",
+                    answer: `<p class="mb-2">Virtual DOM هو تمثيل JavaScript للـ DOM الحقيقي.</p>
+                    <p class="mb-2">كيف يعمل:</p>
+                    <ol class="list-decimal pr-5 space-y-1">
+                        <li>عند تغيير state، React ينشئ Virtual DOM جديد</li>
+                        <li>يقارن Virtual DOM الجديد مع القديم (Diffing)</li>
+                        <li>يحدد التغييرات فقط (Reconciliation)</li>
+                        <li>يحدث DOM الحقيقي فقط بالعناصر المتغيرة</li>
+                    </ol>
+                    <p class="mt-2">الفوائد: أداء أفضل، تحديثات فعالة، تجربة مستخدم أفضل.</p>`,
+                    type: "technical"
+                }
+            ],
+            nodejs: [
+                {
+                    question: "ما هو Event-Driven Programming في Node.js؟",
+                    answer: `<p class="mb-2">Node.js يستخدم Event-Driven Programming حيث الكود يستجيب للأحداث.</p>
+                    <p class="mb-2">المكونات:</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li><strong>Event Emitter:</strong> يرسل الأحداث</li>
+                        <li><strong>Event Listener:</strong> يستمع للأحداث</li>
+                        <li><strong>Callback:</strong> دالة تنفذ عند حدوث الحدث</li>
+                    </ul>
+                    <p class="mt-2">المميزات: Non-blocking، Scalable، مناسب للتطبيقات I/O كثيفة.</p>`,
+                    type: "technical"
+                }
+            ],
+            system: [
+                {
+                    question: "كيف تصمم نظام URL Shortener مثل bit.ly؟",
+                    answer: `<p class="mb-2">المتطلبات:</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li>تقصير URLs طويلة</li>
+                        <li>إحصائيات (عدد النقرات)</li>
+                        <li>Expiration للروابط</li>
+                    </ul>
+                    <p class="mt-2 mb-2">التصميم:</p>
+                    <ul class="list-disc pr-5 space-y-1">
+                        <li><strong>API Server:</strong> لإنشاء وإدارة الروابط</li>
+                        <li><strong>Database:</strong> لتخزين الروابط (SQL أو NoSQL)</li>
+                        <li><strong>Cache:</strong> Redis للوصول السريع</li>
+                        <li><strong>Load Balancer:</strong> لتوزيع الطلبات</li>
+                    </ul>`,
+                    type: "design"
+                }
+            ],
+            personal: [
+                {
+                    question: "تحدث عن نفسك",
+                    answer: `<p class="mb-3">هذا السؤال يهدف إلى التعرف على خلفيتك وخبراتك. ينصح بتقديم إجابة موجزة ومنظمة:</p>
+                    <ul class="list-disc pr-5 space-y-2">
+                        <li>ابدأ بخلفيتك التعليمية والمهنية الحالية</li>
+                        <li>اذكر أهم إنجازاتك وخبراتك ذات الصلة بالوظيفة</li>
+                        <li>تحدث عن اهتماماتك المهنية وكيف تتوافق مع الوظيفة المتقدم لها</li>
+                        <li>اختم بذكر سبب اهتمامك بهذه الشركة والوظيفة تحديداً</li>
+                    </ul>
+                    <p class="mt-3 text-yellow-300">نصيحة: حضر إجابة مدتها 1-2 دقيقة، وركز على ما يهم صاحب العمل.</p>`,
+                    type: "behavioral"
+                },
+                {
+                    question: "ما هي نقاط قوتك؟",
+                    answer: `<p class="mb-3">اختر 2-3 نقاط قوة تتوافق مع متطلبات الوظيفة:</p>
+                    <ul class="list-disc pr-5 space-y-2">
+                        <li><strong>المهارات التقنية:</strong> ذكر المهارات التي تتوافق مع الوظيفة</li>
+                        <li><strong>المهارات الشخصية:</strong> مثل العمل الجماعي، القيادة، التواصل</li>
+                        <li><strong>الأمثلة:</strong> قدم أمثلة واقعية تثبت هذه النقاط</li>
+                    </ul>
+                    <div class="mt-3 bg-gray-600 p-3 rounded-lg">
+                        <p class="text-yellow-300 mb-2">مثال للإجابة:</p>
+                        <p>"من نقاط قوتي مهاراتي القوية في حل المشكلات. في مشروع سابق، واجهنا مشكلة في أداء التطبيق، فقمت بتحليل الشيفرة وتحديد المشكلة وقدمت حلاً أدى إلى تحسين الأداء بنسبة 40٪."</p>
+                    </div>`,
+                    type: "behavioral"
+                },
+                {
+                    question: "ما هي نقاط ضعفك؟",
+                    answer: `<p class="mb-3">اختر نقطة ضعف حقيقية ولكن ليست أساسية للوظيفة، ووضح كيف تعمل على تحسينها:</p>
+                    <ul class="list-disc pr-5 space-y-2">
+                        <li>لا تذكر نقاط ضعف حقيقية قد تؤثر سلباً على فرصك</li>
+                        <li>اختر نقطة ضعف يمكن تحسينها أو تحويلها إلى نقطة قوة</li>
+                        <li>اذكر الخطوات التي تتخذها للتغلب على هذا الضعف</li>
+                    </ul>
+                    <div class="mt-3 bg-gray-600 p-3 rounded-lg">
+                        <p class="text-yellow-300 mb-2">مثال للإجابة:</p>
+                        <p>"كنت أجد صعوبة في رفض طلبات إضافية عندما أكون مشغولاً، مما يؤثر على إنتاجيتي. الآن أتعلم إدارة الأولويات والتواصل بوضوح حول الجدول الزمني realistic."</p>
+                    </div>`,
+                    type: "behavioral"
+                },
+                {
+                    question: "لماذا تريد العمل معنا؟",
+                    answer: `<p class="mb-3">أظهر أنك قمت بالبحث عن الشركة وأنك متحمس للانضمام إليها:</p>
+                    <ul class="list-disc pr-5 space-y-2">
+                        <li><strong>الثقافة والقيم:</strong> اذكر ما يعجبك في ثقافة الشركة وقيمها</li>
+                        <li><strong>المنتجات/الخدمات:</strong> عبر عن إعجابك بمنتجات الشركة أو خدماتها</li>
+                        <li><strong>النمو المهني:</strong> اذكر كيف ترى أن الوظيفة تناسب مسارك المهني</li>
+                        <li><strong>الإنجازات:</strong> أشر إلى إنجازات الشركة التي تثير إعجابك</li>
+                    </ul>
+                    <p class="mt-3 text-yellow-300">نصيحة: تجنب الإجابات العامة مثل "لأنها شركة رائعة"، كن محدداً ومفصلاً.</p>`,
+                    type: "behavioral"
+                },
+                {
+                    question: "أين ترى نفسك بعد 5 سنوات؟",
+                    answer: `<p class="mb-3">أظهر أنك تفكر في مستقبلك المهني وتخطط للنمو مع الشركة:</p>
+                    <ul class="list-disc pr-5 space-y-2">
+                        <li>تحدث عن رغبتك في تطوير مهاراتك وتولي مسؤوليات أكبر</li>
+                        <li>اربط أهدافك مع مسار النمو في الشركة</li>
+                        <li>أظهر أنك تركز على المساهمة في نجاح الشركة</li>
+                        <li>تجنب التطلع إلى مناصب إدارية إن كنت تتقدم لوظيفة فنية بحتة</li>
+                    </ul>`,
+                    type: "behavioral"
+                },
+                {
+                    question: "كيف تتعامل مع الضغط ومواعيد التسليم؟",
+                    answer: `<p class="mb-3">أظهر مهاراتك في إدارة الضغوط والوقت:</p>
+                    <ul class="list-disc pr-5 space-y-2">
+                        <li><strong>التخطيط:</strong> كيف تقسم المهام وتحدد الأولويات</li>
+                        <li><strong>التواصل:</strong> كيف تتواصل مع الفريق حول التحديات والتوقعات</li>
+                        <li><strong>المرونة:</strong> كيف تتكيف مع الظروف المتغيرة</li>
+                        <li><strong>الحلول العملية:</strong> ذكر استراتيجيات محددة تستخدمها</li>
+                    </ul>`,
+                    type: "behavioral"
+                }
+            ]
+        };
+
+        // متغيرات عامة
+        let currentCategory = 'all';
+        let searchQuery = '';
+        let filteredQuestions = [];
+
+        // تهيئة الصفحة
+        function init() {
+            renderSpecializations();
+            renderQuestions();
+            setupEventListeners();
+            updateStats();
+        }
+
+        // عرض التخصصات
+        function renderSpecializations() {
+            const grid = document.getElementById('specializations-grid');
+            const specializations = [
+                { id: 'frontend', name: 'Frontend Development', icon: 'fa-code', color: 'blue', count: interviewQuestions.frontend.length },
+                { id: 'backend', name: 'Backend Development', icon: 'fa-server', color: 'green', count: interviewQuestions.backend.length },
+                { id: 'database', name: 'Database', icon: 'fa-database', color: 'purple', count: interviewQuestions.database.length },
+                { id: 'algorithms', name: 'Algorithms', icon: 'fa-cogs', color: 'red', count: interviewQuestions.algorithms.length },
+                { id: 'javascript', name: 'JavaScript', icon: 'fab fa-js', color: 'yellow', count: interviewQuestions.javascript.length },
+                { id: 'python', name: 'Python', icon: 'fab fa-python', color: 'cyan', count: interviewQuestions.python.length },
+                { id: 'java', name: 'Java', icon: 'fab fa-java', color: 'orange', count: interviewQuestions.java.length },
+                { id: 'react', name: 'React', icon: 'fab fa-react', color: 'indigo', count: interviewQuestions.react.length },
+                { id: 'nodejs', name: 'Node.js', icon: 'fab fa-node-js', color: 'emerald', count: interviewQuestions.nodejs.length },
+                { id: 'system', name: 'System Design', icon: 'fa-microchip', color: 'teal', count: interviewQuestions.system.length },
+                { id: 'personal', name: 'الأسئلة الشخصية', icon: 'fa-user', color: 'yellow', count: interviewQuestions.personal.length }
+            ];
+
+            grid.innerHTML = specializations.map(spec => `
+                <div class="bg-gray-800 rounded-xl p-6 card-hover cursor-pointer" data-category="${spec.id}" onclick="filterByCategory('${spec.id}')">
+                    <div class="text-center mb-4">
+                        <div class="bg-${spec.color}-500 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="${spec.icon} text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">${spec.name}</h3>
+                        <p class="text-gray-400 text-sm">${spec.count} سؤال</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // عرض الأسئلة
+        function renderQuestions() {
+            const container = document.getElementById('questions-container');
+            
+            // جمع جميع الأسئلة
+            let allQuestions = [];
+            Object.keys(interviewQuestions).forEach(category => {
+                interviewQuestions[category].forEach(q => {
+                    allQuestions.push({ ...q, category });
+                });
+            });
+
+            // فلترة الأسئلة
+            filteredQuestions = allQuestions.filter(q => {
+                const matchesCategory = currentCategory === 'all' || q.category === currentCategory;
+                const matchesSearch = searchQuery === '' || 
+                    q.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    q.answer.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filteredQuestions.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12">
+                        <i class="fas fa-search text-6xl text-gray-600 mb-4"></i>
+                        <p class="text-gray-400 text-xl">لم يتم العثور على أسئلة</p>
+                        <p class="text-gray-500 mt-2">جرب تغيير الفلاتر أو البحث</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filteredQuestions.map((q, index) => `
+                <div class="bg-gray-600 rounded-lg overflow-hidden mb-4">
+                    <button class="w-full text-right p-4 flex justify-between items-center focus:outline-none question-btn" data-index="${index}">
+                        <span class="font-semibold text-white">${q.question}</span>
+                        <i class="fas fa-chevron-down text-blue-400 transition-transform"></i>
+                    </button>
+                    <div class="collapsible-content">
+                        <div class="p-4 border-t border-gray-500 text-gray-300">
+                            ${q.answer}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // إضافة مستمعي الأحداث للأسئلة الجديدة
+            document.querySelectorAll('.question-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    const icon = button.querySelector('i');
+                    
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            updateQuestionCount();
+        }
+
+        // فلترة حسب التصنيف
+        function filterByCategory(category) {
+            currentCategory = category;
+            document.querySelectorAll('.category-filter').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-category') === category) {
+                    btn.classList.add('active');
+                }
+            });
+            renderQuestions();
+        }
+
+        // تحديث عدد الأسئلة
+        function updateQuestionCount() {
+            document.getElementById('visible-questions').textContent = filteredQuestions.length;
+            let total = 0;
+            Object.values(interviewQuestions).forEach(qs => total += qs.length);
+            document.getElementById('total-questions-count').textContent = total;
+        }
+
+        // تحديث الإحصائيات
+        function updateStats() {
+            let total = 0;
+            Object.values(interviewQuestions).forEach(qs => total += qs.length);
+            document.getElementById('total-questions').textContent = total + '+';
+        }
+
+        // إعداد مستمعي الأحداث
+        function setupEventListeners() {
+            // Mobile menu
+            document.getElementById('mobile-menu-button').addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Category filters
+            document.querySelectorAll('.category-filter').forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelectorAll('.category-filter').forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    currentCategory = button.getAttribute('data-category');
+                    renderQuestions();
+                });
+            });
+
+            // Search
+            const searchInput = document.getElementById('search-input');
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value;
+                renderQuestions();
+            });
+        }
+
+        // جعل filterByCategory متاحاً عالمياً
+        window.filterByCategory = filterByCategory;
+
+        // بدء التطبيق
+        init();
+    </script>
+</body>
+</html>

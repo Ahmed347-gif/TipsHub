@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خارطة تطوير Android Developer - TipsHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .stack-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(75, 85, 99, 0.5);
+        }
+        
+        .stack-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .roadmap-step {
+            position: relative;
+            padding-right: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .roadmap-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: 15px;
+            height: calc(100% - 40px);
+            width: 2px;
+            background-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: rgb(59, 130, 246);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-weight: bold;
+            z-index: 2;
+            color: white;
+        }
+        
+        .skill-level {
+            height: 6px;
+            border-radius: 3px;
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-right: 30px;
+        }
+        
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: 10px;
+            height: calc(100% - 30px);
+            width: 2px;
+            background-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgb(59, 130, 246);
+            position: absolute;
+            right: 0;
+            top: 5px;
+        }
+        
+        .path-card {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .path-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 100%);
+        }
+        
+        .kotlin-gradient {
+            background: linear-gradient(135deg, #7F52FF 0%, #5E35B1 100%);
+        }
+        
+        .java-gradient {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .architecture-gradient {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .ui-gradient {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+        
+        .testing-gradient {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        .deployment-gradient {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-gray-800 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="index.html" class="text-2xl font-bold text-green-400">
+                            <i class="fab fa-android mr-2"></i>TipsHub
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-gray-300 hover:text-green-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">الرئيسية</a>
+                        <a href="roadmaps.html" class="text-green-400 px-3 py-2 rounded-md text-sm font-medium">خرائط التعلم</a>
+                        <a href="tips.html" class="text-gray-300 hover:text-green-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">نصائح</a>
+                        <a href="problems.html" class="text-gray-300 hover:text-green-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">المشاكل</a>
+                        <a href="interview.html" class="text-gray-300 hover:text-green-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">مقابلات العمل</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-br from-green-900 via-blue-900 to-purple-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="text-center md:text-right mb-6 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">خارطة تطوير Android Developer</h1>
+                    <p class="text-xl text-gray-300 max-w-2xl">
+                        مسار شامل لتصبح مطور تطبيقات Android محترف تتقن Kotlin، Java، Android Architecture، UI/UX، والنشر على المتاجر
+                    </p>
+                </div>
+                <div class="bg-gradient-to-br from-green-600 to-blue-600 w-20 h-20 rounded-full flex items-center justify-center">
+                    <i class="fab fa-android text-3xl text-white"></i>
+                </div>
+            </div>
+            
+            <!-- Roadmap Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+                <div class="bg-green-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">9-15</div>
+                    <div class="text-green-300 text-sm">أشهر</div>
+                </div>
+                <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">6+</div>
+                    <div class="text-blue-300 text-sm">مجالات تقنية</div>
+                </div>
+                <div class="bg-purple-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">15+</div>
+                    <div class="text-purple-300 text-sm">مشروع عملي</div>
+                </div>
+                <div class="bg-yellow-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">40+</div>
+                    <div class="text-yellow-300 text-sm">مهارة تقنية</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Android Specializations -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center">تخصصات تطوير Android الرئيسية</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <!-- Kotlin Development -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-purple-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fab fa-kickstarter-k text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Kotlin Development</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">لغة Kotlin الحديثة لتطوير Android</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المفاهيم</span>
+                            <span class="tech-badge bg-purple-900 text-purple-300">Coroutines</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">الميزات</span>
+                            <span class="tech-badge bg-purple-800 text-purple-200">Extension Functions</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">الأدوات</span>
+                            <span class="tech-badge bg-purple-700 text-purple-100">Kotlin DSL</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-purple-400">مرتفع جداً</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-purple-600 h-2 rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Android Architecture -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-blue-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-sitemap text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Android Architecture</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">هندسة التطبيقات وأنماط التصميم</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">النماذج</span>
+                            <span class="tech-badge bg-blue-900 text-blue-300">MVVM, MVI, Clean Arch</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المكتبات</span>
+                            <span class="tech-badge bg-blue-800 text-blue-200">Jetpack Components</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التطبيقات</span>
+                            <span class="tech-badge bg-blue-700 text-blue-100">Scalable Apps</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-blue-400">مرتفع جداً</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- UI/UX Design -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-green-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-palette text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">UI/UX Design</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">تصميم واجهات المستخدم وتجربة المستخدم</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">الأدوات</span>
+                            <span class="tech-badge bg-green-900 text-green-300">Jetpack Compose</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المهام</span>
+                            <span class="tech-badge bg-green-800 text-green-200">Material Design</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التطبيقات</span>
+                            <span class="tech-badge bg-green-700 text-green-100">Responsive UI</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-green-400">مرتفع</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-green-600 h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testing & QA -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-red-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-vial text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Testing & QA</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">اختبار التطبيقات وضمان الجودة</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">الأنواع</span>
+                            <span class="tech-badge bg-red-900 text-red-300">Unit, UI, Integration</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">الأدوات</span>
+                            <span class="tech-badge bg-red-800 text-red-200">Espresso, MockK</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التطبيقات</span>
+                            <span class="tech-badge bg-red-700 text-red-100">CI/CD Testing</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-red-400">مرتفع</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-red-600 h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Deployment & Publishing -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-yellow-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-cloud-upload-alt text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Deployment & Publishing</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">نشر التطبيقات وإدارتها على المتاجر</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">النشر</span>
+                            <span class="tech-badge bg-yellow-900 text-yellow-300">Google Play Store</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المراقبة</span>
+                            <span class="tech-badge bg-yellow-800 text-yellow-200">Play Console</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التكامل</span>
+                            <span class="tech-badge bg-yellow-700 text-yellow-100">CI/CD</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-yellow-400">متزايد</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-yellow-600 h-2 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Performance Optimization -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-indigo-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-tachometer-alt text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Performance Optimization</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">تحسين أداء التطبيقات واستهلاك الموارد</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المجالات</span>
+                            <span class="tech-badge bg-indigo-900 text-indigo-300">Memory Management</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">الأدوات</span>
+                            <span class="tech-badge bg-indigo-800 text-indigo-200">Profiler, LeakCanary</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التطبيقات</span>
+                            <span class="tech-badge bg-indigo-700 text-indigo-100">Battery Optimization</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-indigo-400">متخصص</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-indigo-600 h-2 rounded-full" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Path -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center">مسار التعلم الشامل</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Technical Foundation -->
+                <div class="path-card">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-laptop-code text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">الأساسيات التقنية</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-blue-300 mb-2">المرحلة 1: أساسيات البرمجة وAndroid</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• Kotlin أو Java للبرمجة</li>
+                                <li>• أساسيات Android Studio</li>
+                                <li>• Git والتحكم بالإصدارات</li>
+                                <li>• XML لتصميم الواجهات</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-blue-300 mb-2">المرحلة 2: Android الأساسي</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• Activities و Fragments</li>
+                                <li>• Layouts و Views</li>
+                                <li>• Intents و Navigation</li>
+                                <li>• RecyclerView و Adapters</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-blue-300 mb-2">المرحلة 3: البيانات والتخزين</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• Room Database</li>
+                                <li>• SharedPreferences</li>
+                                <li>• Networking مع Retrofit</li>
+                                <li>• WorkManager للمهام الخلفية</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Advanced Specializations -->
+                <div class="path-card">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-rocket text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">التخصصات المتقدمة</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-green-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-300 mb-2">المرحلة 4: الهندسة المعمارية</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• MVVM و MVI Architecture</li>
+                                <li>• Clean Architecture</li>
+                                <li>• Dependency Injection مع Dagger/Hilt</li>
+                                <li>• Jetpack Components</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-300 mb-2">المرحلة 5: UI/UX المتقدم</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• Jetpack Compose</li>
+                                <li>• Material Design 3</li>
+                                <li>• Custom Views</li>
+                                <li>• Animation و MotionLayout</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-300 mb-2">المرحلة 6: النشر والتحسين</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• نشر على Google Play</li>
+                                <li>• تحسين الأداء</li>
+                                <li>• CI/CD Pipelines</li>
+                                <li>• مراقبة وتحليل التطبيق</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Roadmap -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <!-- Roadmap Steps -->
+                <div class="lg:col-span-2">
+                    <h2 class="text-2xl font-bold text-white mb-8">الخارطة التفصيلية - Android Developer</h2>
+                    
+                    <div class="roadmap-steps">
+                        <!-- Step 1 -->
+                        <div class="roadmap-step">
+                            <div class="step-number">1</div>
+                            <div class="mr-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-bold text-white">المرحلة الأولى: أساسيات البرمجة ولغة Kotlin</h3>
+                                    <span class="bg-green-900 text-green-300 text-xs px-3 py-1 rounded-full">1-2 أشهر</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-blue-400 mb-2">🧮 أساسيات البرمجة</h4>
+                                        <ul class="text-gray-300 text-sm space-y-1">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>المتغيرات وأنواع البيانات</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>الشروط والحلقات</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>الدوال والكلاسات</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>مبادئ OOP</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-green-400 mb-2">🐍 لغة Kotlin</h4>
+                                        <ul class="text-gray-300 text-sm space-y-1">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>التركيب اللغوي الأساسي</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>Null Safety</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>Extension Functions</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>Data Classes و Sealed Classes</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-blue-900 bg-opacity-30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-blue-300 mb-2">🎯 المشاريع العملية</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <span class="text-gray-300">• تطبيق آلة حاسبة</span>
+                                        <span class="text-gray-300">• تطبيق قائمة مهام</span>
+                                        <span class="text-gray-300">• تطبيق تحويل الوحدات</span>
+                                        <span class="text-gray-300">• لعبة تخمين الأرقام</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="roadmap-step">
+                            <div class="step-number">2</div>
+                            <div class="mr-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-bold text-white">المرحلة الثانية: Android الأساسي</h3>
+                                    <span class="bg-yellow-900 text-yellow-300 text-xs px-3 py-1 rounded-full">2-3 أشهر</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-purple-400 mb-2">📱 أساسيات Android</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">المكونات الأساسية</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Activities</span>
+                                                    <span class="tech-badge bg-blue-800 text-blue-200">Fragments</span>
+                                                    <span class="tech-badge bg-blue-700 text-blue-100">Intents</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">واجهات المستخدم</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">XML Layouts</span>
+                                                    <span class="tech-badge bg-green-800 text-green-200">Views</span>
+                                                    <span class="tech-badge bg-green-700 text-green-100">RecyclerView</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">دورة الحياة</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-red-900 text-red-300">Lifecycle</span>
+                                                    <span class="tech-badge bg-red-800 text-red-200">ViewModels</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-indigo-400 mb-2">🔧 الأدوات والبيئة</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">بيئة التطوير:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-cyan-900 text-cyan-300">Android Studio</span>
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Gradle</span>
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">Emulator</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">مكتبات أساسية:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">Android KTX</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Material Design</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">إدارة المشاريع:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">Git</span>
+                                                    <span class="tech-badge bg-red-900 text-red-300">GitHub</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-purple-900 bg-opacity-30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-purple-300 mb-2">🎯 المشاريع العملية</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <span class="text-gray-300">• تطبيق مفكرة يومية</span>
+                                        <span class="text-gray-300">• تطبيق قائمة تسوق</span>
+                                        <span class="text-gray-300">• تطبيق الطقس</span>
+                                        <span class="text-gray-300">• تطبيق الأخبار</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3 -->
+                        <div class="roadmap-step">
+                            <div class="step-number">3</div>
+                            <div class="mr-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-bold text-white">المرحلة الثالثة: البيانات والتخزين</h3>
+                                    <span class="bg-blue-900 text-blue-300 text-xs px-3 py-1 rounded-full">2-3 أشهر</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-orange-400 mb-2">💾 التخزين المحلي</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">قواعد البيانات</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">Room</span>
+                                                    <span class="tech-badge bg-green-800 text-green-200">SQLite</span>
+                                                    <span class="tech-badge bg-green-700 text-green-100">Migrations</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">التخزين البسيط</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">SharedPreferences</span>
+                                                    <span class="tech-badge bg-blue-800 text-blue-200">DataStore</span>
+                                                    <span class="tech-badge bg-blue-700 text-blue-100">Files</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">إدارة البيانات</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">LiveData</span>
+                                                    <span class="tech-badge bg-yellow-800 text-yellow-200">Flow</span>
+                                                    <span class="tech-badge bg-yellow-700 text-yellow-100">StateFlow</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-red-400 mb-2">🌐 الشبكات والاتصال</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">مكتبات الشبكات</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Retrofit</span>
+                                                    <span class="tech-badge bg-blue-800 text-blue-200">OkHttp</span>
+                                                    <span class="tech-badge bg-blue-700 text-blue-100">Volley</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">تنسيقات البيانات</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">JSON</span>
+                                                    <span class="tech-badge bg-green-800 text-green-200">Gson</span>
+                                                    <span class="tech-badge bg-green-700 text-green-100">Moshi</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">المهام الخلفية</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-indigo-900 text-indigo-300">Coroutines</span>
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">WorkManager</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-red-900 bg-opacity-30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-red-300 mb-2">🎯 المشاريع العملية</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <span class="text-gray-300">• تطبيق مدونة شخصية</span>
+                                        <span class="text-gray-300">• تطبيق متابعة المصاريف</span>
+                                        <span class="text-gray-300">• تطبيق قائمة أفلام</span>
+                                        <span class="text-gray-300">• تطبيق متابعة الرياضة</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 4 -->
+                        <div class="roadmap-step">
+                            <div class="step-number">4</div>
+                            <div class="mr-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-bold text-white">المرحلة الرابعة: الهندسة المعمارية والأنماط</h3>
+                                    <span class="bg-purple-900 text-purple-300 text-xs px-3 py-1 rounded-full">2-3 أشهر</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-pink-400 mb-2">🏗️ أنماط التصميم</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">MVVM:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">ViewModel</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">LiveData</span>
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">DataBinding</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">MVI:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-red-900 text-red-300">State</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Intent</span>
+                                                    <span class="tech-badge bg-indigo-900 text-indigo-300">Reducer</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">Clean Architecture:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-indigo-900 text-indigo-300">Layers</span>
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">Use Cases</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-teal-400 mb-2">🔌 Dependency Injection</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">الأدوات:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Dagger</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">Hilt</span>
+                                                    <span class="tech-badge bg-red-900 text-red-300">Koin</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">المفاهيم:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">Modules</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Components</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">التطبيقات:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">Testing</span>
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Maintainability</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-orange-400 mb-2">🧩 Jetpack Components</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">الملاحة:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Navigation</span>
+                                                    <span class="tech-badge bg-blue-800 text-blue-200">Deep Links</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">دورة الحياة:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">Lifecycle</span>
+                                                    <span class="tech-badge bg-green-800 text-green-200">SavedState</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-red-400 mb-2">🧪 الاختبار</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">Unit Testing:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">JUnit</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">MockK</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">UI Testing:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-red-900 text-red-300">Espresso</span>
+                                                    <span class="tech-badge bg-orange-900 text-orange-300">UI Automator</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-pink-900 bg-opacity-30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-pink-300 mb-2">🎯 المشاريع العملية</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <span class="text-gray-300">• تطبيق مدفوعات</span>
+                                        <span class="text-gray-300">• تطبيق طلبات طعام</span>
+                                        <span class="text-gray-300">• تطبيق محادثات</span>
+                                        <span class="text-gray-300">• تطبيق متابعة مشاريع</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 5 -->
+                        <div class="roadmap-step">
+                            <div class="step-number">5</div>
+                            <div class="mr-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-bold text-white">المرحلة الخامسة: UI/UX المتقدم والنشر</h3>
+                                    <span class="bg-indigo-900 text-indigo-300 text-xs px-3 py-1 rounded-full">2-3 أشهر</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-cyan-400 mb-2">🎨 Jetpack Compose</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">الأساسيات:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Composable</span>
+                                                    <span class="tech-badge bg-blue-800 text-blue-200">State</span>
+                                                    <span class="tech-badge bg-blue-700 text-blue-100">Recomposition</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">التخطيط:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">Column</span>
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Row</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">Box</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-orange-400 mb-2">☁️ النشر والتوزيع</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">Google Play</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Play Console</span>
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">App Bundle</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">In-app Billing</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">التوقيع</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Signing</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">Keystore</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">التحديثات</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-indigo-900 text-indigo-300">In-app Updates</span>
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">Dynamic Delivery</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-green-400 mb-2">⚡ تحسين الأداء</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">الأدوات:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Profiler</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Benchmark</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">LeakCanary</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">المجالات:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">Memory</span>
+                                                    <span class="tech-badge bg-red-900 text-red-300">Battery</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-red-400 mb-2">🔄 CI/CD</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">الأدوات:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">GitHub Actions</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Fastlane</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">التتبع والأداء:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-red-900 text-red-300">Crashlytics</span>
+                                                    <span class="tech-badge bg-orange-900 text-orange-300">Analytics</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-indigo-900 bg-opacity-30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-indigo-300 mb-2">🎯 المشاريع العملية</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <span class="text-gray-300">• تطبيق اجتماعي كامل</span>
+                                        <span class="text-gray-300">• تطبيق تجارة إلكترونية</span>
+                                        <span class="text-gray-300">• تطبيق موسيقى</span>
+                                        <span class="text-gray-300">• تطبيق تعليمي تفاعلي</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Projects Section -->
+                    <div class="mt-16">
+                        <h2 class="text-2xl font-bold text-white mb-8">مشاريع Android Development متكاملة</h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-gray-800 rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-green-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-seedling text-white"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-white">مشاريع المبتدئين</h3>
+                                </div>
+                                <ul class="text-gray-300 space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق آلة حاسبة</span>
+                                            <p class="text-xs text-gray-400 mt-1">XML Layouts - تطبيق آلة حاسبة مع واجهة بسيطة</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق قائمة مهام</span>
+                                            <p class="text-xs text-gray-400 mt-1">Room Database - إدارة المهام مع تخزين محلي</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق الطقس</span>
+                                            <p class="text-xs text-gray-400 mt-1">Retrofit - عرض بيانات الطقس من API</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق مفكرة</span>
+                                            <p class="text-xs text-gray-400 mt-1">Fragments - تطبيق مفكرة مع واجهات متعددة</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-800 rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-rocket text-white"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-white">مشاريع متوسطة</h3>
+                                </div>
+                                <ul class="text-gray-300 space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-spinner text-yellow-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق مدونة</span>
+                                            <p class="text-xs text-gray-400 mt-1">MVVM - تطبيق مدونة مع Clean Architecture</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-spinner text-yellow-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق متابعة مصاريف</span>
+                                            <p class="text-xs text-gray-400 mt-1">Charts - تطبيق مالي مع رسوم بيانية</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-spinner text-yellow-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق أفلام</span>
+                                            <p class="text-xs text-gray-400 mt-1">Paging - تطبيق أفلام مع التمرير اللانهائي</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-spinner text-yellow-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق رياضة</span>
+                                            <p class="text-xs text-gray-400 mt-1">WorkManager - تطبيق رياضة مع مزامنة خلفية</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-800 rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-purple-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-gem text-white"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-white">مشاريع متقدمة</h3>
+                                </div>
+                                <ul class="text-gray-300 space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق وسائل تواصل</span>
+                                            <p class="text-xs text-gray-400 mt-1">WebSockets - تطبيق محادثات في الوقت الحقيقي</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق طلبات طعام</span>
+                                            <p class="text-xs text-gray-400 mt-1">Maps - تطبيق توصيل مع خرائط وتتبع</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق مدفوعات</span>
+                                            <p class="text-xs text-gray-400 mt-1">Security - تطبيق مدفوعات مع تشفير متقدم</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق موسيقى</span>
+                                            <p class="text-xs text-gray-400 mt-1">MediaPlayer - تطبيق موسيقى مع تشغيل محلي</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-800 rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-red-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-briefcase text-white"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-white">مشاريع احترافية</h3>
+                                </div>
+                                <ul class="text-gray-300 space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق تجارة إلكترونية</span>
+                                            <p class="text-xs text-gray-400 mt-1">Microservices - تطبيق متكامل مع نظام متعدد</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق اجتماعي</span>
+                                            <p class="text-xs text-gray-400 mt-1">Real-time - تطبيق اجتماعي مع تفاعل فوري</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق تعليمي</span>
+                                            <p class="text-xs text-gray-400 mt-1">Offline-first - تطبيق تعليمي يعمل بدون إنترنت</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">منصة متكاملة</span>
+                                            <p class="text-xs text-gray-400 mt-1">Multi-module - تطبيق كبير مع وحدات متعددة</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    <!-- Skills Demand -->
+                    <div class="bg-gray-800 rounded-xl p-6 mb-8">
+                        <h3 class="text-xl font-bold text-white mb-4">مستوى الطلب على المهارات</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">Kotlin للAndroid</span>
+                                    <span class="text-green-400">مرتفع جداً</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-green-600 h-2 rounded-full" style="width: 98%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">Jetpack Compose</span>
+                                    <span class="text-blue-400">مرتفع جداً</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">Android Architecture</span>
+                                    <span class="text-purple-400">مرتفع</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-purple-600 h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">Testing & QA</span>
+                                    <span class="text-blue-400">مرتفع</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">Performance Optimization</span>
+                                    <span class="text-yellow-400">متوسط</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-yellow-600 h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Learning Resources -->
+                    <div class="bg-gray-800 rounded-xl p-6 mb-8">
+                        <h3 class="text-xl font-bold text-white mb-4">موارد تعليمية مميزة</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start p-3 bg-gray-700 rounded-lg">
+                                <i class="fas fa-book text-blue-400 mt-1 ml-2"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Android Developers</h4>
+                                    <p class="text-xs text-gray-400">الموقع الرسمي مع أحدث المستندات</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start p-3 bg-gray-700 rounded-lg">
+                                <i class="fas fa-graduation-cap text-green-400 mt-1 ml-2"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Udacity</h4>
+                                    <p class="text-xs text-gray-400">دورات Android المتقدمة</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start p-3 bg-gray-700 rounded-lg">
+                                <i class="fas fa-laptop-code text-purple-400 mt-1 ml-2"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Raywenderlich</h4>
+                                    <p class="text-xs text-gray-400">دروس عملية ومشاريع</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start p-3 bg-gray-700 rounded-lg">
+                                <i class="fas fa-university text-yellow-400 mt-1 ml-2"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Codelabs</h4>
+                                    <p class="text-xs text-gray-400">مختبرات تعليمية من Google</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Career Advice -->
+                    <div class="bg-gray-800 rounded-xl p-6 mb-8">
+                        <h3 class="text-xl font-bold text-white mb-4">نصائح مهنية احترافية</h3>
+                        <div class="space-y-4">
+                            <div class="bg-blue-900 bg-opacity-30 rounded-lg p-4">
+                                <h4 class="font-semibold text-blue-300 mb-2">🚀 بناء المحفظة التقنية</h4>
+                                <p class="text-sm text-gray-300">ركز على مشاريع عملية تعكس مهاراتك في Android. التطبيقات المنشورة على المتجر تزيد من فرصك الوظيفية.</p>
+                            </div>
+                            <div class="bg-green-900 bg-opacity-30 rounded-lg p-4">
+                                <h4 class="font-semibold text-green-300 mb-2">📚 متابعة التحديثات</h4>
+                                <p class="text-sm text-gray-300">Android يتطور بسرعة، حافظ على متابعة أحدث التقنيات مثل Jetpack Compose و Kotlin Multiplatform.</p>
+                            </div>
+                            <div class="bg-purple-900 bg-opacity-30 rounded-lg p-4">
+                                <h4 class="font-semibold text-purple-300 mb-2">🤝 العمل الجماعي</h4>
+                                <p class="text-sm text-gray-300">انضم لمشاريع مفتوحة المصدر وتعاون مع المطورين. بناء الشبكات المهنية يفتح أبواباً كثيرة.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Salary Ranges -->
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">المستويات الوظيفية والرواتب</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">مبتدئ (Junior)</span>
+                                    <span class="text-green-400">$50K - $80K</span>
+                                </div>
+                                <div class="text-xs text-gray-400">0-2 سنوات خبرة - Kotlin، Android أساسي، مشاريع بسيطة</div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">متوسط (Mid-level)</span>
+                                    <span class="text-blue-400">$80K - $120K</span>
+                                </div>
+                                <div class="text-xs text-gray-400">2-5 سنوات خبرة - Architecture، Jetpack، Testing</div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">مستوى متقدم (Senior)</span>
+                                    <span class="text-purple-400">$120K - $180K</span>
+                                </div>
+                                <div class="text-xs text-gray-400">5+ سنوات خبرة - Performance، Leadership، Architecture</div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">قائد (Lead/Staff)</span>
+                                    <span class="text-red-400">$180K+</span>
+                                </div>
+                                <div class="text-xs text-gray-400">8+ سنوات خبرة - استراتيجية، إدارة فرق، تخطيط</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="mb-4">
+                    <h3 class="text-2xl font-bold text-green-400 mb-2">
+                        <i class="fab fa-android ml-2"></i>TipsHub
+                    </h3>
+                    <p class="text-gray-400">منصة شاملة لكل ما يحتاجه المطورون</p>
+                </div>
+                <div class="border-t border-gray-700 pt-4">
+                    <p class="text-gray-500">© 2025 TipsHub. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

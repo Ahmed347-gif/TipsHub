@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خارطة Game Development - TipsHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .stack-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(75, 85, 99, 0.5);
+        }
+        
+        .stack-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .roadmap-step {
+            position: relative;
+            padding-right: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .roadmap-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: 15px;
+            height: calc(100% - 40px);
+            width: 2px;
+            background-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: rgb(59, 130, 246);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-weight: bold;
+            z-index: 2;
+            color: white;
+        }
+        
+        .skill-level {
+            height: 6px;
+            border-radius: 3px;
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-right: 30px;
+        }
+        
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: 10px;
+            height: calc(100% - 30px);
+            width: 2px;
+            background-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgb(59, 130, 246);
+            position: absolute;
+            right: 0;
+            top: 5px;
+        }
+        
+        .path-card {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .path-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 100%);
+        }
+        
+        .programming-gradient {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+        }
+        
+        .engine-gradient {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+        }
+        
+        .design-gradient {
+            background: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 100%);
+        }
+        
+        .art-gradient {
+            background: linear-gradient(135deg, #A1C4FD 0%, #C2E9FB 100%);
+        }
+        
+        .audio-gradient {
+            background: linear-gradient(135deg, #FFD1FF 0%, #FAD0C4 100%);
+        }
+        
+        .production-gradient {
+            background: linear-gradient(135deg, #D4FC79 0%, #96E6A1 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-gray-800 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="index.html" class="text-2xl font-bold text-blue-400">
+                            <i class="fas fa-gamepad mr-2"></i>TipsHub
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">الرئيسية</a>
+                        <a href="roadmaps.html" class="text-blue-400 px-3 py-2 rounded-md text-sm font-medium">خرائط التعلم</a>
+                        <a href="tips.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">نصائح</a>
+                        <a href="problems.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">المشاكل</a>
+                        <a href="interview.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">مقابلات العمل</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-br from-blue-900 via-gray-900 to-purple-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="text-center md:text-right mb-6 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">خارطة Game Development الشاملة</h1>
+                    <p class="text-xl text-gray-300 max-w-2xl">
+                        مسار شامل لتصبح مطور ألعاب محترف تتقن البرمجة، المحركات، التصميم، الفن، الصوتيات، والإنتاج والنشر
+                    </p>
+                </div>
+                <div class="bg-gradient-to-br from-blue-600 to-gray-600 w-20 h-20 rounded-full flex items-center justify-center">
+                    <i class="fas fa-gamepad text-3xl text-white"></i>
+                </div>
+            </div>
+            
+            <!-- Roadmap Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+                <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">12-24</div>
+                    <div class="text-blue-300 text-sm">أشهر</div>
+                </div>
+                <div class="bg-gray-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">6+</div>
+                    <div class="text-gray-300 text-sm">مجالات تقنية</div>
+                </div>
+                <div class="bg-purple-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">20+</div>
+                    <div class="text-purple-300 text-sm">مشروع عملي</div>
+                </div>
+                <div class="bg-yellow-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">50+</div>
+                    <div class="text-yellow-300 text-sm">مهارة تقنية</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Development Specializations -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center">تخصصات Game Development الرئيسية</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <!-- Game Programming -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-blue-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-code text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Game Programming</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">برمجة اللعبة والميكانيكيات الأساسية</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">اللغات</span>
+                            <span class="tech-badge bg-blue-900 text-blue-300">C++</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المفاهيم</span>
+                            <span class="tech-badge bg-blue-800 text-blue-200">Game Loop</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التقنيات</span>
+                            <span class="tech-badge bg-blue-700 text-blue-100">AI</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-blue-400">مرتفع جداً</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game Engines -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-purple-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-cogs text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Game Engines</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">محركات الألعاب والأدوات الأساسية</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المحركات</span>
+                            <span class="tech-badge bg-purple-900 text-purple-300">Unity</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التقنيات</span>
+                            <span class="tech-badge bg-purple-800 text-purple-200">Unreal</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التطبيقات</span>
+                            <span class="tech-badge bg-purple-700 text-purple-100">Godot</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-purple-400">مرتفع جداً</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-purple-600 h-2 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game Design -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-green-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-pencil-ruler text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Game Design</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">تصميم اللعبة والميكانيكيات والتوازن</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المفاهيم</span>
+                            <span class="tech-badge bg-green-900 text-green-300">Mechanics</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المهارات</span>
+                            <span class="tech-badge bg-green-800 text-green-200">Balancing</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التطبيقات</span>
+                            <span class="tech-badge bg-green-700 text-green-100">Level Design</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-green-400">مرتفع</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-green-600 h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game Art -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-red-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-palette text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Game Art</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">الرسومات والفنون البصرية للألعاب</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التقنيات</span>
+                            <span class="tech-badge bg-red-900 text-red-300">3D Modeling</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المهارات</span>
+                            <span class="tech-badge bg-red-800 text-red-200">Texturing</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التطبيقات</span>
+                            <span class="tech-badge bg-red-700 text-red-100">Animation</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-red-400">مرتفع</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-red-600 h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game Audio -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-yellow-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-music text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Game Audio</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">الموسيقى والمؤثرات الصوتية للألعاب</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التقنيات</span>
+                            <span class="tech-badge bg-yellow-900 text-yellow-300">Sound Design</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المهارات</span>
+                            <span class="tech-badge bg-yellow-800 text-yellow-200">Composition</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التطبيقات</span>
+                            <span class="tech-badge bg-yellow-700 text-yellow-100">Implementation</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-yellow-400">متزايد</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-yellow-600 h-2 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game Production -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-indigo-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-rocket text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Game Production</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">إدارة المشاريع والنشر والتسويق</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">الإدارة</span>
+                            <span class="tech-badge bg-indigo-900 text-indigo-300">Project Management</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">النشر</span>
+                            <span class="tech-badge bg-indigo-800 text-indigo-200">Publishing</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التطبيقات</span>
+                            <span class="tech-badge bg-indigo-700 text-indigo-100">Marketing</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-indigo-400">متخصص</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-indigo-600 h-2 rounded-full" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Path -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center">مسار التعلم الشامل</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Technical Foundation -->
+                <div class="path-card">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-laptop-code text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">الأساسيات التقنية</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-blue-300 mb-2">المرحلة 1: أساسيات البرمجة</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• لغات البرمجة (C#, C++, Python)</li>
+                                <li>• البرمجة كائنية التوجه OOP</li>
+                                <li>• هياكل البيانات والخوارزميات</li>
+                                <li>• الرياضيات للألعاب</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-blue-300 mb-2">المرحلة 2: محركات الألعاب</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• Unity Engine الأساسي</li>
+                                <li>• Unreal Engine الأساسي</li>
+                                <li>• Godot Engine</li>
+                                <li>• أدوات التطوير</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-blue-300 mb-2">المرحلة 3: تصميم الألعاب</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• مبادئ تصميم الألعاب</li>
+                                <li>• تصميم الميكانيكيات</li>
+                                <li>• توازن اللعبة</li>
+                                <li>• تصميم المستويات</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Advanced Specializations -->
+                <div class="path-card">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-rocket text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">التخصصات المتقدمة</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-green-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-300 mb-2">المرحلة 4: الفنون والرسومات</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• النمذجة ثلاثية الأبعاد</li>
+                                <li>• التحريك والأنيميشن</li>
+                                <li>• تصميم المواد والتركيبات</li>
+                                <li>• الإضاءة والتظليل</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-300 mb-2">المرحلة 5: البرمجة المتقدمة</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• الذكاء الاصطناعي للألعاب</li>
+                                <li>• الشبكات والألعاب متعددة اللاعبين</li>
+                                <li>• تحسين الأداء</li>
+                                <li>• المحركات المخصصة</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-300 mb-2">المرحلة 6: الإنتاج والنشر</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• إدارة مشاريع الألعاب</li>
+                                <li>• التسويق والنشر</li>
+                                <li>• التوطين والترجمة</li>
+                                <li>• تحليل البيانات والتحسين</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Roadmap -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <!-- Roadmap Steps -->
+                <div class="lg:col-span-2">
+                    <h2 class="text-2xl font-bold text-white mb-8">الخارطة التفصيلية - Game Development</h2>
+                    
+                    <div class="roadmap-steps">
+                        <!-- Step 1 -->
+                        <div class="roadmap-step">
+                            <div class="step-number">1</div>
+                            <div class="mr-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-bold text-white">المرحلة الأولى: أساسيات البرمجة والرياضيات</h3>
+                                    <span class="bg-green-900 text-green-300 text-xs px-3 py-1 rounded-full">3-4 أشهر</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-blue-400 mb-2">💻 لغات البرمجة</h4>
+                                        <ul class="text-gray-300 text-sm space-y-1">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>C# لـ Unity</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>C++ لـ Unreal</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>Python للأدوات</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>البرمجة كائنية التوجه</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-green-400 mb-2">🧮 الرياضيات للألعاب</h4>
+                                        <ul class="text-gray-300 text-sm space-y-1">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>الجبر الخطي والمتجهات</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>الهندسة التحليلية</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>علم المثلثات</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>الفيزياء الأساسية</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-blue-900 bg-opacity-30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-blue-300 mb-2">🎯 المشاريع العملية</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <span class="text-gray-300">• آلة حاسبة رياضية</span>
+                                        <span class="text-gray-300">• محاكاة فيزيائية بسيطة</span>
+                                        <span class="text-gray-300">• نظام إحداثيات</span>
+                                        <span class="text-gray-300">• محول وحدات</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="roadmap-step">
+                            <div class="step-number">2</div>
+                            <div class="mr-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-bold text-white">المرحلة الثانية: محركات الألعاب الأساسية</h3>
+                                    <span class="bg-yellow-900 text-yellow-300 text-xs px-3 py-1 rounded-full">4-5 أشهر</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-purple-400 mb-2">🎮 Unity Engine</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">المكونات الأساسية</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">GameObjects</span>
+                                                    <span class="tech-badge bg-blue-800 text-blue-200">Components</span>
+                                                    <span class="tech-badge bg-blue-700 text-blue-100">Prefabs</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">البرمجة</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">MonoBehaviour</span>
+                                                    <span class="tech-badge bg-green-800 text-green-200">Coroutines</span>
+                                                    <span class="tech-badge bg-green-700 text-green-100">Events</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">الفيزياء</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-red-900 text-red-300">Rigidbody</span>
+                                                    <span class="tech-badge bg-red-800 text-red-200">Colliders</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-indigo-400 mb-2">⚡ Unreal Engine</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">المكونات:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-cyan-900 text-cyan-300">Actors</span>
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Components</span>
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">Blueprints</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">البرمجة:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">C++ Classes</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">UObject</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">الرسومات:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">Materials</span>
+                                                    <span class="tech-badge bg-red-900 text-red-300">Particles</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-purple-900 bg-opacity-30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-purple-300 mb-2">🎯 المشاريع العملية</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <span class="text-gray-300">• لعبة منصة 2D</span>
+                                        <span class="text-gray-300">• لعبة ألغاز بسيطة</span>
+                                        <span class="text-gray-300">• محاكاة فيزيائية</span>
+                                        <span class="text-gray-300">• مشهد تفاعلي 3D</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3 -->
+                        <div class="roadmap-step">
+                            <div class="step-number">3</div>
+                            <div class="mr-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-bold text-white">المرحلة الثالثة: تصميم الألعاب والميكانيكيات</h3>
+                                    <span class="bg-blue-900 text-blue-300 text-xs px-3 py-1 rounded-full">3-4 أشهر</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-orange-400 mb-2">🎯 تصميم الألعاب</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">المفاهيم الأساسية</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">Gameplay Loop</span>
+                                                    <span class="tech-badge bg-green-800 text-green-200">Player Experience</span>
+                                                    <span class="tech-badge bg-green-700 text-green-100">Core Mechanics</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">التوازن</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Difficulty</span>
+                                                    <span class="tech-badge bg-blue-800 text-blue-200">Progression</span>
+                                                    <span class="tech-badge bg-blue-700 text-blue-100">Rewards</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">التصميم</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Level Design</span>
+                                                    <span class="tech-badge bg-yellow-800 text-yellow-200">Narrative</span>
+                                                    <span class="tech-badge bg-yellow-700 text-yellow-100">Characters</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-red-400 mb-2">🔄 أنظمة الألعاب</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">أنظمة اللعبة</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Inventory</span>
+                                                    <span class="tech-badge bg-blue-800 text-blue-200">Quest</span>
+                                                    <span class="tech-badge bg-blue-700 text-blue-100">Economy</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">واجهة المستخدم</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">HUD</span>
+                                                    <span class="tech-badge bg-green-800 text-green-200">Menus</span>
+                                                    <span class="tech-badge bg-green-700 text-green-100">UX/UI</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">الحفظ والتخزين</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-indigo-900 text-indigo-300">Save System</span>
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">Data Management</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-red-900 bg-opacity-30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-red-300 mb-2">🎯 المشاريع العملية</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <span class="text-gray-300">• لعبة منصة متقدمة</span>
+                                        <span class="text-gray-300">• لعبة ألغاز معقدة</span>
+                                        <span class="text-gray-300">• لعبة تقمص أدوار بسيطة</span>
+                                        <span class="text-gray-300">• لعبة سباق</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 4 -->
+                        <div class="roadmap-step">
+                            <div class="step-number">4</div>
+                            <div class="mr-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-bold text-white">المرحلة الرابعة: الفنون والرسومات</h3>
+                                    <span class="bg-purple-900 text-purple-300 text-xs px-3 py-1 rounded-full">4-5 أشهر</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-pink-400 mb-2">🎨 الفنون ثنائية الأبعاد</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">الرسم:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Sprites</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">Textures</span>
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">UI Art</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">الأدوات:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-red-900 text-red-300">Photoshop</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Aseprite</span>
+                                                    <span class="tech-badge bg-indigo-900 text-indigo-300">Krita</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">التقنيات:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-indigo-900 text-indigo-300">Pixel Art</span>
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">Vector Art</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-teal-400 mb-2">🔄 الفنون ثلاثية الأبعاد</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">النمذجة:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Modeling</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">Sculpting</span>
+                                                    <span class="tech-badge bg-red-900 text-red-300">Retopology</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">التحريك:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">Rigging</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Animation</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">المواد:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">Texturing</span>
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Shaders</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-orange-400 mb-2">🛠️ أدوات الفنون</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">النمذجة 3D:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Blender</span>
+                                                    <span class="tech-badge bg-blue-800 text-blue-200">Maya</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">النحت:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">ZBrush</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">Mudbox</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-red-400 mb-2">🎵 الصوتيات</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">التصميم:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">Sound Design</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Foley</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">التأليف:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-red-900 text-red-300">DAW</span>
+                                                    <span class="tech-badge bg-orange-900 text-orange-300">MIDI</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-pink-900 bg-opacity-30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-pink-300 mb-2">🎯 المشاريع العملية</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <span class="text-gray-300">• شخصية 3D كاملة</span>
+                                        <span class="text-gray-300">• بيئة تفاعلية</span>
+                                        <span class="text-gray-300">• واجهة مستخدم كاملة</span>
+                                        <span class="text-gray-300">• مؤثرات صوتية</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 5 -->
+                        <div class="roadmap-step">
+                            <div class="step-number">5</div>
+                            <div class="mr-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-bold text-white">المرحلة الخامسة: البرمجة المتقدمة والإنتاج</h3>
+                                    <span class="bg-indigo-900 text-indigo-300 text-xs px-3 py-1 rounded-full">3-4 أشهر</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-cyan-400 mb-2">🤖 الذكاء الاصطناعي</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">الأعداء:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">FSM</span>
+                                                    <span class="tech-badge bg-blue-800 text-blue-200">Behavior Trees</span>
+                                                    <span class="tech-badge bg-blue-700 text-blue-100">Pathfinding</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">التعلم:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">Machine Learning</span>
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Neural Networks</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-orange-400 mb-2">🌐 الألعاب متعددة اللاعبين</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">الشبكات</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Client-Server</span>
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">P2P</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">Authoritative</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">المزامنة</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">State Sync</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">Input Sync</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">الأمان</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-indigo-900 text-indigo-300">Anti-Cheat</span>
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">Encryption</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-green-400 mb-2">🚀 التحسين والأداء</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">التحسين:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Profiling</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Optimization</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">Memory Management</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">النشر:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Build Pipeline</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">Cross-Platform</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-red-400 mb-2">📊 الإنتاج والنشر</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">الإدارة:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">Agile</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Scrum</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">النشر:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-red-900 text-red-300">Steam</span>
+                                                    <span class="tech-badge bg-orange-900 text-orange-300">App Stores</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-indigo-900 bg-opacity-30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-indigo-300 mb-2">🎯 المشاريع العملية</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <span class="text-gray-300">• لعبة متعددة اللاعبين</span>
+                                        <span class="text-gray-300">• لعبة ذكاء اصطناعي متقدمة</span>
+                                        <span class="text-gray-300">• لعبة محسنة للأداء</span>
+                                        <span class="text-gray-300">• لعبة منشورة على منصة</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Projects Section -->
+                    <div class="mt-16">
+                        <h2 class="text-2xl font-bold text-white mb-8">مشاريع Game Development متكاملة</h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-gray-800 rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-green-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-seedling text-white"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-white">مشاريع المبتدئين</h3>
+                                </div>
+                                <ul class="text-gray-300 space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">لعبة Pong</span>
+                                            <p class="text-xs text-gray-400 mt-1">أساسيات الفيزياء والتحكم</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">لعبة Breakout</span>
+                                            <p class="text-xs text-gray-400 mt-1">الكوليجن والفيزياء الأساسية</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">لعبة منصة 2D</span>
+                                            <p class="text-xs text-gray-400 mt-1">الحركة والتحكم الأساسي</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">لعبة ألغاز بسيطة</span>
+                                            <p class="text-xs text-gray-400 mt-1">المنطق وتصميم الألغاز</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-800 rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-rocket text-white"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-white">مشاريع متوسطة</h3>
+                                </div>
+                                <ul class="text-gray-300 space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-spinner text-yellow-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">لعبة تقمص أدوار</span>
+                                            <p class="text-xs text-gray-400 mt-1">أنظمة الجرد والمهام</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-spinner text-yellow-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">لعبة سباق</span>
+                                            <p class="text-xs text-gray-400 mt-1">الفيزياء المتقدمة والتحكم</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-spinner text-yellow-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">لعبة ألغاز ثلاثية الأبعاد</span>
+                                            <p class="text-xs text-gray-400 mt-1">التفاعل مع البيئة 3D</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-spinner text-yellow-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">لعبة منصات ثلاثية الأبعاد</span>
+                                            <p class="text-xs text-gray-400 mt-1">الحركة والكاميرا في 3D</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-800 rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-purple-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-gem text-white"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-white">مشاريع متقدمة</h3>
+                                </div>
+                                <ul class="text-gray-300 space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">لعبة متعددة اللاعبين</span>
+                                            <p class="text-xs text-gray-400 mt-1">الشبكات والمزامنة</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">لعبة ذكاء اصطناعي متقدمة</span>
+                                            <p class="text-xs text-gray-400 mt-1">أشجار السلوك والتعلم</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">لعبة مفتوحة العالم</span>
+                                            <p class="text-xs text-gray-400 mt-1">إدارة الذاكرة والأداء</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">لعبة واقع افتراضي</span>
+                                            <p class="text-xs text-gray-400 mt-1">التفاعل والواقع الافتراضي</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-800 rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-red-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-briefcase text-white"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-white">مشاريع احترافية</h3>
+                                </div>
+                                <ul class="text-gray-300 space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">لعبة مستقلة كاملة</span>
+                                            <p class="text-xs text-gray-400 mt-1">التصميم والفنون والبرمجة</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">لعبة للهواتف المحمولة</span>
+                                            <p class="text-xs text-gray-400 mt-1">التحسين للنقال والتسويق</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">لعبة واقع معزز</span>
+                                            <p class="text-xs text-gray-400 mt-1">التفاعل مع العالم الحقيقي</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">لعبة متعددة المنصات</span>
+                                            <p class="text-xs text-gray-400 mt-1">النشر على عدة منصات</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    <!-- Skills Demand -->
+                    <div class="bg-gray-800 rounded-xl p-6 mb-8">
+                        <h3 class="text-xl font-bold text-white mb-4">مستوى الطلب على المهارات</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">Unity Development</span>
+                                    <span class="text-green-400">مرتفع جداً</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-green-600 h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">Unreal Development</span>
+                                    <span class="text-blue-400">مرتفع جداً</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">Game Design</span>
+                                    <span class="text-purple-400">مرتفع</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-purple-600 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">3D Art & Animation</span>
+                                    <span class="text-blue-400">مرتفع</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">Game Audio</span>
+                                    <span class="text-yellow-400">متوسط</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-yellow-600 h-2 rounded-full" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Learning Resources -->
+                    <div class="bg-gray-800 rounded-xl p-6 mb-8">
+                        <h3 class="text-xl font-bold text-white mb-4">موارد تعليمية مميزة</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start p-3 bg-gray-700 rounded-lg">
+                                <i class="fas fa-book text-blue-400 mt-1 ml-2"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Unity Learn</h4>
+                                    <p class="text-xs text-gray-400">المنصة الرسمية لتعليم Unity</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start p-3 bg-gray-700 rounded-lg">
+                                <i class="fas fa-graduation-cap text-green-400 mt-1 ml-2"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Unreal Online Learning</h4>
+                                    <p class="text-xs text-gray-400">دروس Unreal الرسمية</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start p-3 bg-gray-700 rounded-lg">
+                                <i class="fas fa-laptop-code text-purple-400 mt-1 ml-2"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">GameDev.tv</h4>
+                                    <p class="text-xs text-gray-400">دروس شاملة لتطوير الألعاب</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start p-3 bg-gray-700 rounded-lg">
+                                <i class="fas fa-university text-yellow-400 mt-1 ml-2"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Brackeys</h4>
+                                    <p class="text-xs text-gray-400">قناة يوتيوب رائدة في تعليم Unity</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Career Advice -->
+                    <div class="bg-gray-800 rounded-xl p-6 mb-8">
+                        <h3 class="text-xl font-bold text-white mb-4">نصائح مهنية احترافية</h3>
+                        <div class="space-y-4">
+                            <div class="bg-blue-900 bg-opacity-30 rounded-lg p-4">
+                                <h4 class="font-semibold text-blue-300 mb-2">🚀 بناء المحفظة</h4>
+                                <p class="text-sm text-gray-300">ركز على مشاريع عملية تعكس مهاراتك في تطوير الألعاب. الألعاب المنشورة تزيد من فرصك الوظيفية.</p>
+                            </div>
+                            <div class="bg-green-900 bg-opacity-30 rounded-lg p-4">
+                                <h4 class="font-semibold text-green-300 mb-2">📚 متابعة التطورات</h4>
+                                <p class="text-sm text-gray-300">مجال تطوير الألعاب يتطور بسرعة، حافظ على متابعة أحدث التقنيات والمحركات.</p>
+                            </div>
+                            <div class="bg-purple-900 bg-opacity-30 rounded-lg p-4">
+                                <h4 class="font-semibold text-purple-300 mb-2">🤝 المشاركة في المجتمع</h4>
+                                <p class="text-sm text-gray-300">انضم لمشاريع مفتوحة المصدر وشارك في Game Jams. بناء الشبكات المهنية يفتح أبواباً كثيرة.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Salary Ranges -->
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">المستويات الوظيفية والرواتب</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">مبتدئ (Junior)</span>
+                                    <span class="text-green-400">$50K - $70K</span>
+                                </div>
+                                <div class="text-xs text-gray-400">0-2 سنوات خبرة - Unity/Unreal أساسي، مشاريع بسيطة</div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">متوسط (Mid-level)</span>
+                                    <span class="text-blue-400">$70K - $100K</span>
+                                </div>
+                                <div class="text-xs text-gray-400">2-5 سنوات خبرة - تصميم ألعاب، أنظمة متقدمة</div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">مستوى متقدم (Senior)</span>
+                                    <span class="text-purple-400">$100K - $140K</span>
+                                </div>
+                                <div class="text-xs text-gray-400">5+ سنوات خبرة - قيادة فرق، هندسة معمارية</div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">قائد (Lead/Tech Director)</span>
+                                    <span class="text-red-400">$140K+</span>
+                                </div>
+                                <div class="text-xs text-gray-400">8+ سنوات خبرة - إدارة، استراتيجية، تخطيط</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="mb-4">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-2">
+                        <i class="fas fa-gamepad ml-2"></i>TipsHub
+                    </h3>
+                    <p class="text-gray-400">منصة شاملة لكل ما يحتاجه المطورون</p>
+                </div>
+                <div class="border-t border-gray-700 pt-4">
+                    <p class="text-gray-500">© 2025 TipsHub. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

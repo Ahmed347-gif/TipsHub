@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>40 مشكلة برمجية Java - TipsHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+        body { font-family: 'Cairo', sans-serif; }
+        pre { background-color: #1f2937; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; color: #f8fafc; }
+        code { font-family: 'Courier New', monospace; }
+        .fade-in { animation: fadeIn 0.8s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .problem-card { transition: all 0.3s ease; }
+        .problem-card:hover { transform: translateY(-5px); }
+        .difficulty-badge { font-size: 0.75rem; padding: 0.25rem 0.75rem; border-radius: 1rem; }
+        .copy-btn { transition: all 0.2s ease; }
+        .copy-btn:hover { transform: scale(1.05); }
+        .active-category { background-color: #3b82f6 !important; color: white !important; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="bg-gray-800 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="index.html" class="text-2xl font-bold text-blue-400">
+                            <i class="fas fa-code mr-2"></i>TipsHub
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4 space-x-reverse">
+                        <a href="index.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">الرئيسية</a>
+                        <a href="roadmaps.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">خرائط التعلم</a>
+                        <a href="tips.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">نصائح برمجية</a>
+                        <a href="problems.html" class="text-blue-400 px-3 py-2 rounded-md text-sm font-medium">المشاكل والحلول</a>
+                        <a href="interview.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">المقابلات</a>
+                        <a href="cv.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">السيرة الذاتية</a>
+                        <a href="projects.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">أفكار المشاريع</a>
+                        <a href="about.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">حول الموقع</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none focus:text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-700">
+                <a href="index.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">الرئيسية</a>
+                <a href="roadmaps.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">خرائط التعلم</a>
+                <a href="tips.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">نصائح برمجية</a>
+                <a href="problems.html" class="text-blue-400 block px-3 py-2 rounded-md text-base font-medium">المشاكل والحلول</a>
+                <a href="interview.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">المقابلات</a>
+                <a href="cv.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">السيرة الذاتية</a>
+                <a href="projects.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">أفكار المشاريع</a>
+                <a href="about.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">حول الموقع</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="bg-gradient-to-br from-red-900 to-orange-900 py-16 text-center fade-in">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-6"><i class="fab fa-java mr-4"></i>40 مشكلة برمجية Java</h1>
+            <p class="text-xl text-gray-200 max-w-3xl mx-auto mb-6">
+                مجموعة تمارين برمجية مع الحلول لتطوير مهارات Problem Solving بلغة Java
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+                <div class="bg-red-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">40+</div>
+                    <div class="text-red-300 text-sm">مشكلة متنوعة</div>
+                </div>
+                <div class="bg-green-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">3</div>
+                    <div class="text-green-300 text-sm">مستويات صعوبة</div>
+                </div>
+                <div class="bg-yellow-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">10</div>
+                    <div class="text-yellow-300 text-sm">فئات مختلفة</div>
+                </div>
+                <div class="bg-purple-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">100%</div>
+                    <div class="text-purple-300 text-sm">حلول كاملة</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Filter -->
+    <section class="py-8 bg-gray-800 sticky top-16 z-40 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-2">
+                <button class="category-btn active-category bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all" data-category="all">
+                    الكل
+                </button>
+                <button class="category-btn bg-gray-700 text-gray-300 hover:bg-gray-600 px-4 py-2 rounded-lg text-sm font-medium transition-all" data-category="math">
+                    الرياضيات
+                </button>
+                <button class="category-btn bg-gray-700 text-gray-300 hover:bg-gray-600 px-4 py-2 rounded-lg text-sm font-medium transition-all" data-category="arrays">
+                    المصفوفات
+                </button>
+                <button class="category-btn bg-gray-700 text-gray-300 hover:bg-gray-600 px-4 py-2 rounded-lg text-sm font-medium transition-all" data-category="strings">
+                    النصوص
+                </button>
+                <button class="category-btn bg-gray-700 text-gray-300 hover:bg-gray-600 px-4 py-2 rounded-lg text-sm font-medium transition-all" data-category="methods">
+                    الدوال
+                </button>
+                <button class="category-btn bg-gray-700 text-gray-300 hover:bg-gray-600 px-4 py-2 rounded-lg text-sm font-medium transition-all" data-category="oop">
+                    البرمجة كائنية
+                </button>
+                <button class="category-btn bg-gray-700 text-gray-300 hover:bg-gray-600 px-4 py-2 rounded-lg text-sm font-medium transition-all" data-category="collections">
+                    المجموعات
+                </button>
+                <button class="category-btn bg-gray-700 text-gray-300 hover:bg-gray-600 px-4 py-2 rounded-lg text-sm font-medium transition-all" data-category="files">
+                    الملفات
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8" id="problems-container">
+                
+                <!-- Problem 1 -->
+                <div class="problem-card bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-green-500" data-category="math" data-difficulty="easy">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white">1. جمع رقمين</h2>
+                        <div class="flex gap-2">
+                            <span class="difficulty-badge bg-green-500 text-white">سهل</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" onclick="copyCode('code1')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">اكتب برنامج يقرأ رقمين ويطبع مجموعهم.</p>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                        <h3 class="text-yellow-400 font-semibold mb-2">المدخلات والمخرجات:</h3>
+                        <p class="text-gray-300 text-sm">المدخل: 5, 3</p>
+                        <p class="text-gray-300 text-sm">المخرج: 8</p>
+                    </div>
+                    <pre id="code1"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+        System.out.println(a + b);
+    }
+}</code></pre>
+                </div>
+
+                <!-- Problem 2 -->
+                <div class="problem-card bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-green-500" data-category="math" data-difficulty="easy">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white">2. أكبر ثلاثة أرقام</h2>
+                        <div class="flex gap-2">
+                            <span class="difficulty-badge bg-green-500 text-white">سهل</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" onclick="copyCode('code2')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">ابحث عن أكبر رقم من ثلاثة أرقام.</p>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                        <h3 class="text-yellow-400 font-semibold mb-2">المدخلات والمخرجات:</h3>
+                        <p class="text-gray-300 text-sm">المدخل: 5, 9, 2</p>
+                        <p class="text-gray-300 text-sm">المخرج: 9</p>
+                    </div>
+                    <pre id="code2"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+        int c = scanner.nextInt();
+        
+        int max = Math.max(a, Math.max(b, c));
+        System.out.println(max);
+    }
+}</code></pre>
+                </div>
+
+                <!-- Problem 3 -->
+                <div class="problem-card bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-green-500" data-category="math" data-difficulty="easy">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white">3. زوجي أم فردي</h2>
+                        <div class="flex gap-2">
+                            <span class="difficulty-badge bg-green-500 text-white">سهل</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" onclick="copyCode('code3')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">تحديد إذا كان الرقم زوجي أو فردي.</p>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                        <h3 class="text-yellow-400 font-semibold mb-2">المدخلات والمخرجات:</h3>
+                        <p class="text-gray-300 text-sm">المدخل: 7</p>
+                        <p class="text-gray-300 text-sm">المخرج: "فردي"</p>
+                    </div>
+                    <pre id="code3"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
+        
+        if (num % 2 == 0) {
+            System.out.println("زوجي");
+        } else {
+            System.out.println("فردي");
+        }
+    }
+}</code></pre>
+                </div>
+
+                <!-- Problem 4 -->
+                <div class="problem-card bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-yellow-500" data-category="math" data-difficulty="medium">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white">4. المضروب</h2>
+                        <div class="flex gap-2">
+                            <span class="difficulty-badge bg-yellow-500 text-white">متوسط</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" onclick="copyCode('code4')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">حساب مضروب رقم n.</p>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                        <h3 class="text-yellow-400 font-semibold mb-2">المدخلات والمخرجات:</h3>
+                        <p class="text-gray-300 text-sm">المدخل: 5</p>
+                        <p class="text-gray-300 text-sm">المخرج: 120</p>
+                    </div>
+                    <pre id="code4"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        
+        long factorial = 1;
+        for (int i = 1; i <= n; i++) {
+            factorial *= i;
+        }
+        
+        System.out.println(factorial);
+    }
+}</code></pre>
+                </div>
+
+                <!-- Problem 5 -->
+                <div class="problem-card bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-yellow-500" data-category="math" data-difficulty="medium">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white">5. عكس الرقم</h2>
+                        <div class="flex gap-2">
+                            <span class="difficulty-badge bg-yellow-500 text-white">متوسط</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" onclick="copyCode('code5')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">اقلب رقمًا صحيحًا.</p>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                        <h3 class="text-yellow-400 font-semibold mb-2">المدخلات والمخرجات:</h3>
+                        <p class="text-gray-300 text-sm">المدخل: 12345</p>
+                        <p class="text-gray-300 text-sm">المخرج: 54321</p>
+                    </div>
+                    <pre id="code5"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
+        
+        int reversed = 0;
+        while (num != 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+        
+        System.out.println(reversed);
+    }
+}</code></pre>
+                </div>
+
+                <!-- Problem 6 -->
+                <div class="problem-card bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-yellow-500" data-category="math" data-difficulty="medium">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white">6. التحقق من العدد الأولي</h2>
+                        <div class="flex gap-2">
+                            <span class="difficulty-badge bg-yellow-500 text-white">متوسط</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" onclick="copyCode('code6')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">هل الرقم أولي؟</p>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                        <h3 class="text-yellow-400 font-semibold mb-2">المدخلات والمخرجات:</h3>
+                        <p class="text-gray-300 text-sm">المدخل: 17</p>
+                        <p class="text-gray-300 text-sm">المخرج: true</p>
+                    </div>
+                    <pre id="code6"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
+        
+        boolean isPrime = true;
+        if (num <= 1) {
+            isPrime = false;
+        } else {
+            for (int i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+        
+        System.out.println(isPrime);
+    }
+}</code></pre>
+                </div>
+
+                <!-- Problem 7 -->
+                <div class="problem-card bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-green-500" data-category="math" data-difficulty="easy">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white">7. مجموع الأرقام</h2>
+                        <div class="flex gap-2">
+                            <span class="difficulty-badge bg-green-500 text-white">سهل</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" onclick="copyCode('code7')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">احسب مجموع أرقام الرقم.</p>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                        <h3 class="text-yellow-400 font-semibold mb-2">المدخلات والمخرجات:</h3>
+                        <p class="text-gray-300 text-sm">المدخل: 1234</p>
+                        <p class="text-gray-300 text-sm">المخرج: 10</p>
+                    </div>
+                    <pre id="code7"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
+        
+        int sum = 0;
+        while (num != 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+        
+        System.out.println(sum);
+    }
+}</code></pre>
+                </div>
+
+                <!-- Problem 8 -->
+                <div class="problem-card bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-yellow-500" data-category="math" data-difficulty="medium">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white">8. الرقم المتناظر</h2>
+                        <div class="flex gap-2">
+                            <span class="difficulty-badge bg-yellow-500 text-white">متوسط</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" onclick="copyCode('code8')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">تحقق إذا الرقم متماثل (Palindrome).</p>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                        <h3 class="text-yellow-400 font-semibold mb-2">المدخلات والمخرجات:</h3>
+                        <p class="text-gray-300 text-sm">المدخل: 12321</p>
+                        <p class="text-gray-300 text-sm">المخرج: true</p>
+                    </div>
+                    <pre id="code8"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
+        
+        int original = num;
+        int reversed = 0;
+        
+        while (num != 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+        
+        System.out.println(original == reversed);
+    }
+}</code></pre>
+                </div>
+
+                <!-- Problem 9 -->
+                <div class="problem-card bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-yellow-500" data-category="math" data-difficulty="medium">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white">9. متسلسلة فيبوناتشي</h2>
+                        <div class="flex gap-2">
+                            <span class="difficulty-badge bg-yellow-500 text-white">متوسط</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" onclick="copyCode('code9')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">اطبع أول n أعداد في سلسة فيبوناتشي.</p>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                        <h3 class="text-yellow-400 font-semibold mb-2">المدخلات والمخرجات:</h3>
+                        <p class="text-gray-300 text-sm">المدخل: 7</p>
+                        <p class="text-gray-300 text-sm">المخرج: 0 1 1 2 3 5 8</p>
+                    </div>
+                    <pre id="code9"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        
+        long a = 0, b = 1;
+        
+        System.out.print("Fibonacci Series: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(a + " ");
+            long temp = a + b;
+            a = b;
+            b = temp;
+        }
+        System.out.println();
+    }
+}</code></pre>
+                </div>
+
+                <!-- Problem 10 -->
+                <div class="problem-card bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-yellow-500" data-category="math" data-difficulty="medium">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white">10. القاسم المشترك الأكبر</h2>
+                        <div class="flex gap-2">
+                            <span class="difficulty-badge bg-yellow-500 text-white">متوسط</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" onclick="copyCode('code10')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">احسب القاسم المشترك الأكبر.</p>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                        <h3 class="text-yellow-400 font-semibold mb-2">المدخلات والمخرجات:</h3>
+                        <p class="text-gray-300 text-sm">المدخل: 56, 98</p>
+                        <p class="text-gray-300 text-sm">المخرج: 14</p>
+                    </div>
+                    <pre id="code10"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+        
+        // Using Euclidean Algorithm
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        
+        System.out.println(a);
+    }
+}</code></pre>
+                </div>
+
+                <!-- Problem 11 -->
+                <div class="problem-card bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-yellow-500" data-category="math" data-difficulty="medium">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white">11. المضاعف المشترك الأصغر</h2>
+                        <div class="flex gap-2">
+                            <span class="difficulty-badge bg-yellow-500 text-white">متوسط</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" onclick="copyCode('code11')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">احسب المضاعف المشترك الأصغر.</p>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                        <h3 class="text-yellow-400 font-semibold mb-2">المدخلات والمخرجات:</h3>
+                        <p class="text-gray-300 text-sm">المدخل: 12, 18</p>
+                        <p class="text-gray-300 text-sm">المخرج: 36</p>
+                    </div>
+                    <pre id="code11"><code>import java.util.Scanner;
+
+public class Main {
+    public static int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+        
+        int lcm = (a * b) / gcd(a, b);
+        System.out.println(lcm);
+    }
+}</code></pre>
+                </div>
+
+                <!-- Problem 12 -->
+                <div class="problem-card bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-green-500" data-category="strings" data-difficulty="easy">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white">12. عد الحروف الصوتية</h2>
+                        <div class="flex gap-2">
+                            <span class="difficulty-badge bg-green-500 text-white">سهل</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" onclick="copyCode('code12')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">احسب عدد الحروف الصوتية في نص.</p>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                        <h3 class="text-yellow-400 font-semibold mb-2">المدخلات والمخرجات:</h3>
+                        <p class="text-gray-300 text-sm">المدخل: "Hello World"</p>
+                        <p class="text-gray-300 text-sm">المخرج: 3</p>
+                    </div>
+                    <pre id="code12"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String text = scanner.nextLine();
+        
+        int count = 0;
+        String vowels = "aeiouAEIOU";
+        
+        for (char c : text.toCharArray()) {
+            if (vowels.indexOf(c) != -1) {
+                count++;
+            }
+        }
+        
+        System.out.println(count);
+    }
+}</code></pre>
+                </div>
+
+                <!-- Problem 13 -->
+                <div class="problem-card bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-green-500" data-category="arrays" data-difficulty="easy">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white">13. مجموع المصفوفة</h2>
+                        <div class="flex gap-2">
+                            <span class="difficulty-badge bg-green-500 text-white">سهل</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" onclick="copyCode('code13')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">احسب مجموع عناصر مصفوفة.</p>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                        <h3 class="text-yellow-400 font-semibold mb-2">المدخلات والمخرجات:</h3>
+                        <p class="text-gray-300 text-sm">المدخل: [1, 2, 3, 4, 5]</p>
+                        <p class="text-gray-300 text-sm">المخرج: 15</p>
+                    </div>
+                    <pre id="code13"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+            sum += arr[i];
+        }
+        
+        System.out.println(sum);
+    }
+}</code></pre>
+                </div>
+
+                <!-- Problem 14 -->
+                <div class="problem-card bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-green-500" data-category="arrays" data-difficulty="easy">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white">14. أكبر عنصر في المصفوفة</h2>
+                        <div class="flex gap-2">
+                            <span class="difficulty-badge bg-green-500 text-white">سهل</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" onclick="copyCode('code14')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">اطبع أكبر عنصر في مصفوفة.</p>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                        <h3 class="text-yellow-400 font-semibold mb-2">المدخلات والمخرجات:</h3>
+                        <p class="text-gray-300 text-sm">المدخل: [3, 7, 2, 9, 1]</p>
+                        <p class="text-gray-300 text-sm">المخرج: 9</p>
+                    </div>
+                    <pre id="code14"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        
+        int max = arr[0];
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        
+        System.out.println(max);
+    }
+}</code></pre>
+                </div>
+
+                <!-- Problem 15 -->
+                <div class="problem-card bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-yellow-500" data-category="arrays" data-difficulty="medium">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white">15. عكس المصفوفة</h2>
+                        <div class="flex gap-2">
+                            <span class="difficulty-badge bg-yellow-500 text-white">متوسط</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" onclick="copyCode('code15')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">اقلب عناصر مصفوفة.</p>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                        <h3 class="text-yellow-400 font-semibold mb-2">المدخلات والمخرجات:</h3>
+                        <p class="text-gray-300 text-sm">المدخل: [1, 2, 3, 4, 5]</p>
+                        <p class="text-gray-300 text-sm">المخرج: [5, 4, 3, 2, 1]</p>
+                    </div>
+                    <pre id="code15"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        
+        System.out.print("Reversed array: ");
+        for (int i = n - 1; i >= 0; i--) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+}</code></pre>
+                </div>
+
+                <!-- Problem 16 -->
+                <div class="problem-card bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-yellow-500" data-category="arrays" data-difficulty="medium">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white">16. البحث في المصفوفة</h2>
+                        <div class="flex gap-2">
+                            <span class="difficulty-badge bg-yellow-500 text-white">متوسط</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" onclick="copyCode('code16')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">ابحث عن عنصر في مصفوفة.</p>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                        <h3 class="text-yellow-400 font-semibold mb-2">المدخلات والمخرجات:</h3>
+                        <p class="text-gray-300 text-sm">المدخل: [1, 2, 3, 4, 5], 3</p>
+                        <p class="text-gray-300 text-sm">المخرج: 2 (المؤشر)</p>
+                    </div>
+                    <pre id="code16"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        
+        int target = scanner.nextInt();
+        int position = -1;
+        
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == target) {
+                position = i;
+                break;
+            }
+        }
+        
+        System.out.println(position);
+    }
+}</code></pre>
+                </div>
+
+                <!-- Problem 17 -->
+                <div class="problem-card bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-red-500" data-category="arrays" data-difficulty="hard">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white">17. ترتيب المصفوفة</h2>
+                        <div class="flex gap-2">
+                            <span class="difficulty-badge bg-red-500 text-white">صعب</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" onclick="copyCode('code17')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">رتب مصفوفة باستخدام Bubble Sort.</p>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                        <h3 class="text-yellow-400 font-semibold mb-2">المدخلات والمخرجات:</h3>
+                        <p class="text-gray-300 text-sm">المدخل: [5, 2, 8, 1, 9]</p>
+                        <p class="text-gray-300 text-sm">المخرج: [1, 2, 5, 8, 9]</p>
+                    </div>
+                    <pre id="code17"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        
+        // Bubble Sort
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // Swap elements
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        
+        System.out.print("Sorted array: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+}</code></pre>
+                </div>
+
+                <!-- Problem 18 -->
+                <div class="problem-card bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-yellow-500" data-category="strings" data-difficulty="medium">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white">18. عد الكلمات في النص</h2>
+                        <div class="flex gap-2">
+                            <span class="difficulty-badge bg-yellow-500 text-white">متوسط</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" onclick="copyCode('code18')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">احسب عدد الكلمات في نص.</p>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                        <h3 class="text-yellow-400 font-semibold mb-2">المدخلات والمخرجات:</h3>
+                        <p class="text-gray-300 text-sm">المدخل: "Hello World from Java"</p>
+                        <p class="text-gray-300 text-sm">المخرج: 4</p>
+                    </div>
+                    <pre id="code18"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String text = scanner.nextLine();
+        
+        String[] words = text.trim().split("\\s+");
+        System.out.println(words.length);
+    }
+}</code></pre>
+                </div>
+
+                <!-- Problem 19 -->
+                <div class="problem-card bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-green-500" data-category="strings" data-difficulty="easy">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white">19. عد الأحرف في النص</h2>
+                        <div class="flex gap-2">
+                            <span class="difficulty-badge bg-green-500 text-white">سهل</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" onclick="copyCode('code19')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">احسب عدد الأحرف في نص.</p>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                        <h3 class="text-yellow-400 font-semibold mb-2">المدخلات والمخرجات:</h3>
+                        <p class="text-gray-300 text-sm">المدخل: "Hello"</p>
+                        <p class="text-gray-300 text-sm">المخرج: 5</p>
+                    </div>
+                    <pre id="code19"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String text = scanner.nextLine();
+        
+        System.out.println(text.length());
+    }
+}</code></pre>
+                </div>
+
+                <!-- Problem 20 -->
+                <div class="problem-card bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-yellow-500" data-category="strings" data-difficulty="medium">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white">20. عد تكرار حرف</h2>
+                        <div class="flex gap-2">
+                            <span class="difficulty-badge bg-yellow-500 text-white">متوسط</span>
+                            <button class="copy-btn text-gray-400 hover:text-white" onclick="copyCode('code20')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">احسب عدد مرات ظهور حرف معين في نص.</p>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                        <h3 class="text-yellow-400 font-semibold mb-2">المدخلات والمخرجات:</h3>
+                        <p class="text-gray-300 text-sm">المدخل: "programming", "g"</p>
+                        <p class="text-gray-300 text-sm">المخرج: 2</p>
+                    </div>
+                    <pre id="code20"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String text = scanner.nextLine();
+        char target = scanner.next().charAt(0);
+        
+        int count = 0;
+        for (char c : text.toCharArray()) {
+            if (c == target) {
+                count++;
+            }
+        }
+        
+        System.out.println(count);
+    }
+}</code></pre>
+                </div>
+
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button id="load-more" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all">
+                    <i class="fas fa-sync-alt ml-2"></i>تحميل المزيد من المشاكل
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Section -->
+    <section class="py-16 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white text-center mb-12">منصة التمرين التفاعلي</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-700 rounded-xl p-6 text-center">
+                    <div class="bg-blue-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-code text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">محرر الكود</h3>
+                    <p class="text-gray-300">جرب الحلول مباشرة في المتصفح</p>
+                </div>
+                
+                <div class="bg-gray-700 rounded-xl p-6 text-center">
+                    <div class="bg-green-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-check-circle text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">التحقق من الحلول</h3>
+                    <p class="text-gray-300">اختبر صحة كودك مع حالات اختبار متعددة</p>
+                </div>
+                
+                <div class="bg-gray-700 rounded-xl p-6 text-center">
+                    <div class="bg-purple-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">تتبع التقدم</h3>
+                    <p class="text-gray-300">راقب تطور مهاراتك مع مرور الوقت</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-2xl font-bold text-blue-400 mb-2">
+                <i class="fas fa-code mr-2"></i>TipsHub
+            </h3>
+            <p class="text-gray-400">منصة شاملة لكل ما يحتاجه المبرمج</p>
+            <div class="border-t border-gray-700 pt-4 mt-4">
+                <p class="text-gray-500">© 2025 TipsHub. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Category Filter
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const problemCards = document.querySelectorAll('.problem-card');
+        
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                categoryButtons.forEach(btn => btn.classList.remove('active-category'));
+                
+                // Add active class to clicked button
+                button.classList.add('active-category');
+                
+                const category = button.getAttribute('data-category');
+                
+                // Filter problems
+                problemCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Copy Code Function
+        function copyCode(elementId) {
+            const codeElement = document.getElementById(elementId);
+            const codeText = codeElement.textContent;
+            
+            navigator.clipboard.writeText(codeText).then(() => {
+                // Show success message
+                const button = event.target.closest('button');
+                const originalIcon = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check text-green-500"></i>';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalIcon;
+                }, 2000);
+            });
+        }
+
+        // Load More Problems
+        document.getElementById('load-more').addEventListener('click', function() {
+            alert('سيتم إضافة المزيد من المشاكل قريباً!');
+            // In a real implementation, this would load more problems via AJAX
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

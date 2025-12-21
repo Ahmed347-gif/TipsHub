@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TipsHub - Everything a developer needs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .hero-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .search-glow:focus {
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+        
+        .stats-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            margin: 0 auto 1.5rem;
+        }
+    </style>
+      <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- 🌐 Title & Description -->
+  <title>TipsHub - Programming Tips, Roadmaps & Developer Resources</title>
+  <meta name="description" content="TipsHub is a global platform for programmers. Find coding tips, learning roadmaps, solved problems, project ideas, and professional CV templates.">
+  <meta name="keywords" content="programming, developer tips, coding roadmaps, C++, C#, JavaScript, Python, web development, software engineering, projects, CV, roadmap, interview questions, tech careers">
+  <meta name="author" content="TipsHub Team">
+
+  <!-- 🌍 Arabic Meta -->
+  <meta name="description" lang="ar" content="TipsHub - منصة عالمية للمبرمجين تضم نصائح برمجية، خرائط تعلم، مشاكل وحلول بلغات C++ وC#، أفكار مشاريع وسير ذاتية احترافية.">
+  <meta name="keywords" lang="ar" content="برمجة, نصائح برمجية, خرائط تعلم, مشاريع برمجية, تعلم البرمجة, تطوير الويب, C++, C#, جافاسكربت, بايثون, مهندس برمجيات, وظائف تقنية">
+
+  <!-- 📱 Open Graph / Facebook -->
+  <meta property="og:title" content="TipsHub - Your All-in-One Programming Guide">
+  <meta property="og:description" content="Explore programming tips, roadmaps, solved problems, and developer resources.">
+  <meta property="og:image" content="https://yourwebsite.com/banner.jpg">
+  <meta property="og:url" content="https://yourwebsite.com">
+  <meta property="og:type" content="website">
+
+  <!-- 🐦 Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TipsHub - Learn, Build, and Grow as a Developer">
+  <meta name="twitter:description" content="Programming tips, developer roadmaps, project ideas, and interview guidance all in one place.">
+  <meta name="twitter:image" content="https://yourwebsite.com/banner.jpg">
+
+  <!-- 🌎 Language and Region -->
+  <meta name="robots" content="index, follow">
+  <link rel="alternate" hreflang="en" href="https://yourwebsite.com/en/" />
+  <link rel="alternate" hreflang="ar" href="https://yourwebsite.com/ar/" />
+
+  <!-- 🧠 Security -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta name="X-XSS-Protection" content="1; mode=block">
+
+  <!-- 🎨 Favicon -->
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  
+  <!-- 📱 PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#3b82f6">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- 📈 Google Analytics (استبدل YOUR_ID_HERE بمعرّفك الحقيقي) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_ID_HERE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'YOUR_ID_HERE');
+  </script>
+
+</head>
+    <body class="bg-gray-900 text-gray-100 min-h-screen">
+        <!-- Navigation -->
+    <nav class="backdrop-blur-md bg-gray-900/60 fixed top-0 w-full z-50 border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <h1 class="text-2xl font-bold text-blue-400 tracking-wide flex items-center gap-2">
+            <i class="fas fa-code"></i> TipsHub
+            </h1>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6 space-x-reverse">
+            <a href="index.html" class="hover:text-blue-400 transition">الرئيسية</a>
+            <a href="roadmaps.html" class="hover:text-blue-400 transition">خرائط التعلم</a>
+            <a href="tips.html" class="hover:text-blue-400 transition">نصائح برمجيه</a>
+            <a href="problems.html" class="hover:text-blue-400 transition">حل المشكلات</a>
+            <a href="interview.html" class="hover:text-blue-400 transition">اسئلة المقابلات</a>
+            <a href="cv.html" class="hover:text-blue-400 transition">السيره الذاتيه</a>
+            <a href="projects.html" class="hover:text-blue-400 transition">افكار مشاريع</a>
+            <a href="about.html" class="hover:text-blue-400 transition">عن موقعنا</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-gray-300 focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden bg-gray-800/90 md:hidden flex flex-col text-center py-3 space-y-2">
+        <a href="index.html" class="hover:text-blue-400">الرئيسية</a>
+        <a href="roadmaps.html" class="hover:text-blue-400">خرائط التعلم</a>
+        <a href="tips.html" class="hover:text-blue-400">نصائح برمجية</a>
+        <a href="problems.html" class="hover:text-blue-400">المشاكل والحلول</a>
+        <a href="interview.html" class="hover:text-blue-400">المقابلات</a>
+        <a href="cv.html" class="hover:text-blue-400">السيرة الذاتية</a>
+        <a href="projects.html" class="hover:text-blue-400">أفكار المشاريع</a>
+        <a href="about.html" class="hover:text-blue-400">حول الموقع</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-24 text-center relative overflow-hidden">
+        <!-- Background Animation -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-indigo-900/20"></div>
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+        
+        <div class="relative z-10">
+            <div class="mb-8">
+                <span class="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2 rounded-full text-sm font-semibold mb-6 animate-bounce">
+                    🚀 منصة المطورين العرب الأولى
+                </span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse">
+                TipsHub
+            </h1>
+            
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            From Zero To Hero
+            </h2>
+            
+            <p class="text-gray-300 text-lg mb-10 max-w-4xl mx-auto leading-relaxed">
+                🎯 منصة شاملة تجمع كل ما يحتاجه المبرمج العربي لتطوير مهاراته — 
+                <span class="text-blue-400 font-semibold">خرائط تعلم تفاعلية</span>، 
+                <span class="text-purple-400 font-semibold">نصائح برمجية متقدمة</span>، 
+                <span class="text-green-400 font-semibold">حلول للمشاكل الشائعة</span>، 
+                <span class="text-orange-400 font-semibold">تحضير المقابلات</span>، 
+                <span class="text-pink-400 font-semibold">أفكار مشاريع إبداعية</span> والمزيد!
+            </p>
+
+            <!-- Enhanced Search Bar -->
+            <!-- <div class="max-w-3xl mx-auto relative mb-12">
+                <div class="relative">
+                    <input type="text" id="mainSearch" placeholder="ابحث في النصائح، المشاكل، أو المواضيع..." 
+                           class="w-full px-8 py-5 bg-gray-800/80 backdrop-blur-sm border-2 border-gray-600 rounded-2xl text-right text-white text-lg focus:ring-4 focus:ring-blue-500/50 focus:border-blue-400 outline-none transition-all duration-300 hover:border-gray-500">
+                    <button class="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-blue-400 transition-all duration-300 hover:scale-110">
+                        <i class="fas fa-search text-xl"></i>
+                    </button>
+                    <div class="absolute right-6 top-1/2 transform -translate-y-1/2">
+                        <kbd class="px-2 py-1 bg-gray-700 text-gray-300 text-sm rounded">Ctrl + K</kbd>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- Enhanced Quick Links -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <a href="roadmaps.html" class="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 px-6 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25">
+                    <div class="flex items-center justify-center mb-2">
+                        <i class="fas fa-map text-2xl group-hover:rotate-12 transition-transform duration-300"></i>
+                    </div>
+                    <div class="text-sm font-semibold">خرائط التعلم</div>
+                </a>
+                
+                <a href="tips.html" class="group bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 px-6 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25">
+                    <div class="flex items-center justify-center mb-2">
+                        <i class="fas fa-lightbulb text-2xl group-hover:rotate-12 transition-transform duration-300"></i>
+                    </div>
+                    <div class="text-sm font-semibold">نصائح برمجية</div>
+                </a>
+                
+                <a href="problems.html" class="group bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 px-6 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25">
+                    <div class="flex items-center justify-center mb-2">
+                        <i class="fas fa-bug text-2xl group-hover:rotate-12 transition-transform duration-300"></i>
+                    </div>
+                    <div class="text-sm font-semibold">المشاكل والحلول</div>
+                </a>
+                
+                <a href="interview.html" class="group bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-500 hover:to-orange-600 px-6 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/25">
+                    <div class="flex items-center justify-center mb-2">
+                        <i class="fas fa-user-tie text-2xl group-hover:rotate-12 transition-transform duration-300"></i>
+                    </div>
+                    <div class="text-sm font-semibold">المقابلات</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore Sections -->
+    <section class="py-20 bg-gray-900/40 border-t border-gray-700">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold mb-10 text-blue-400">استكشف أقسام TipsHub</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <div class="bg-gray-800/60 backdrop-blur-md rounded-2xl p-6 hover:scale-105 transition transform hover:shadow-lg border border-gray-700">
+            <i class="fas fa-map text-blue-400 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">خرائط التعلم</h3>
+            <p class="text-gray-400 mb-4">ابدأ رحلتك خطوة بخطوة في كل مجال برمجي.</p>
+            <a href="roadmaps.html" class="text-blue-400 hover:underline">استكشف الآن →</a>
+            </div>
+
+            <div class="bg-gray-800/60 backdrop-blur-md rounded-2xl p-6 hover:scale-105 transition transform hover:shadow-lg border border-gray-700">
+            <i class="fas fa-lightbulb text-purple-400 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">نصائح برمجية</h3>
+            <p class="text-gray-400 mb-4">احصل على نصائح عملية من مطورين محترفين.</p>
+            <a href="tips.html" class="text-purple-400 hover:underline">اقرأ المزيد →</a>
+            </div>
+
+            <div class="bg-gray-800/60 backdrop-blur-md rounded-2xl p-6 hover:scale-105 transition transform hover:shadow-lg border border-gray-700">
+            <i class="fas fa-bug text-green-400 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">المشاكل والحلول</h3>
+            <p class="text-gray-400 mb-4">واجهت مشكلة؟ ابحث عن حل جاهز ومجرب.</p>
+            <a href="problems.html" class="text-green-400 hover:underline">اكتشف الآن →</a>
+            </div>
+
+            <div class="bg-gray-800/60 backdrop-blur-md rounded-2xl p-6 hover:scale-105 transition transform hover:shadow-lg border border-gray-700">
+            <i class="fas fa-user-tie text-orange-400 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">أسئلة المقابلات</h3>
+            <p class="text-gray-400 mb-4">استعد لأي مقابلة عمل برمجية بأفضل الأسئلة.</p>
+            <a href="interview.html" class="text-orange-400 hover:underline">ابدأ التحضير →</a>
+            </div>
+
+            <div class="bg-gray-800/60 backdrop-blur-md rounded-2xl p-6 hover:scale-105 transition transform hover:shadow-lg border border-gray-700">
+            <i class="fas fa-file-alt text-pink-400 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">السيرة الذاتية</h3>
+            <p class="text-gray-400 mb-4">أنشئ سيرتك الذاتية البرمجية باحتراف.</p>
+            <a href="cv.html" class="text-pink-400 hover:underline">ابدأ الآن →</a>
+            </div>
+
+            <div class="bg-gray-800/60 backdrop-blur-md rounded-2xl p-6 hover:scale-105 transition transform hover:shadow-lg border border-gray-700">
+            <i class="fas fa-lightbulb text-yellow-400 text-4xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">أفكار المشاريع</h3>
+            <p class="text-gray-400 mb-4">ابحث عن أفكار لتطبيقات ومشاريع ملهمة.</p>
+            <a href="projects.html" class="text-yellow-400 hover:underline">اعرف المزيد →</a>
+            </div>
+
+        </div>
+        </div>
+    </section>
+
+    
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    </script>
+        <!-- Enhanced Stats Section -->
+        <section class="py-20 bg-gradient-to-r from-gray-800 via-gray-900 to-gray-800 relative overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 opacity-5">
+                <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-white mb-4">أرقام تتحدث عن نفسها</h2>
+                    <p class="text-gray-400 text-lg">إحصائيات حقيقية من مجتمع TipsHub</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="stats-card rounded-2xl p-8 text-center group hover:scale-105 transition-all duration-300">
+                        <div class="mb-4">
+                            <i class="fas fa-lightbulb text-4xl text-blue-400 group-hover:rotate-12 transition-transform duration-300"></i>
+                        </div>
+                        <div class="text-4xl font-bold text-blue-400 mb-2 counter" data-target="500">200</div>
+                        <div class="text-gray-400 text-lg">نصيحة برمجية</div>
+                        <div class="text-blue-300 text-sm mt-2">+50 هذا الشهر</div>
+                    </div>
+                    
+                    <div class="stats-card rounded-2xl p-8 text-center group hover:scale-105 transition-all duration-300">
+                        <div class="mb-4">
+                            <i class="fas fa-bug text-4xl text-green-400 group-hover:rotate-12 transition-transform duration-300"></i>
+                        </div>
+                        <div class="text-4xl font-bold text-green-400 mb-2 counter" data-target="2400">200</div>
+                        <div class="text-gray-400 text-lg">مشكلة محلولة</div>
+                        <div class="text-green-300 text-sm mt-2">+200 هذا الشهر</div>
+                    </div>
+                    
+                    <div class="stats-card rounded-2xl p-8 text-center group hover:scale-105 transition-all duration-300">
+                        <div class="mb-4">
+                            <i class="fas fa-map text-4xl text-purple-400 group-hover:rotate-12 transition-transform duration-300"></i>
+                        </div>
+                        <div class="text-4xl font-bold text-purple-400 mb-2 counter" data-target="12">18</div>
+                        <div class="text-gray-400 text-lg">خريطة تعلم</div>
+                        <div class="text-purple-300 text-sm mt-2">12 لغة برمجة</div>
+                    </div>
+                    
+                    <div class="stats-card rounded-2xl p-8 text-center group hover:scale-105 transition-all duration-300">
+                        <div class="mb-4">
+                            <i class="fas fa-user-tie text-4xl text-orange-400 group-hover:rotate-12 transition-transform duration-300"></i>
+                        </div>
+                        <div class="text-4xl font-bold text-orange-400 mb-2 counter" data-target="1000">100</div>
+                        <div class="text-gray-400 text-lg">سؤال مقابلة</div>
+                        <div class="text-orange-300 text-sm mt-2">+100 هذا الشهر</div>
+                    </div>
+                </div>
+                
+                <!-- Additional Stats Row -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                    <div class="bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl p-6 text-center">
+                        <div class="text-3xl font-bold text-white mb-2">15,000+</div>
+                        <div class="text-cyan-100">مطور نشط</div>
+                    </div>
+                    <div class="bg-gradient-to-r from-pink-600 to-purple-600 rounded-2xl p-6 text-center">
+                        <div class="text-3xl font-bold text-white mb-2">50+</div>
+                        <div class="text-pink-100">مشروع مكتمل</div>
+                    </div>
+                    <div class="bg-gradient-to-r from-yellow-600 to-orange-600 rounded-2xl p-6 text-center">
+                        <div class="text-3xl font-bold text-white mb-2">99%</div>
+                        <div class="text-yellow-100">معدل النجاح</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Developers Library Section -->
+    <section class="py-20 bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-16 section-title">📚 مكتبة المطور</h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Article 1 -->
+        <div class="bg-gray-800 rounded-xl overflow-hidden card-hover">
+            <img src="assets/images/ChatGPT Image Oct 23, 2025, 07_44_26 PM.png " alt="AI" class="w-full h-48 object-cover opacity-90 hover:opacity-100 transition duration-300">
+            <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-3">الذكاء الاصطناعي في تطوير البرمجيات</h3>
+            <p class="text-gray-400 mb-4">كيف غيّر الذكاء الاصطناعي طريقة كتابة الكود واختبار البرامج؟</p>
+            <div class="flex justify-between items-center">
+                <span class="text-blue-400 text-sm"><i class="fas fa-calendar ml-1"></i> أكتوبر 2025</span>
+                <a href="article-ai.html" class="text-blue-400 hover:text-blue-300 text-sm">اقرأ المزيد <i class="fas fa-arrow-left mr-1"></i></a>
+            </div>
+            </div>
+        </div>
+
+        <!-- Article 2 -->
+        <div class="bg-gray-800 rounded-xl overflow-hidden card-hover">
+            <img src="assets/images/websecurity.png" loading="lazy" alt="Web Security" class="w-full h-48 object-cover opacity-90 hover:opacity-100 transition duration-300">
+            <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-3">10 نصائح لتعزيز أمان تطبيقات الويب</h3>
+            <p class="text-gray-400 mb-4">تعرف على أهم الممارسات لحماية تطبيقاتك من الثغرات الأمنية.</p>
+            <div class="flex justify-between items-center">
+                <span class="text-green-400 text-sm"><i class="fas fa-shield-alt ml-1"></i> أمان</span>
+                <a href="article-security.html" class="text-green-400 hover:text-green-300 text-sm">اقرأ المزيد <i class="fas fa-arrow-left mr-1"></i></a>
+            </div>
+            </div>
+        </div>
+
+        <!-- Article 3 -->
+        <div class="bg-gray-800 rounded-xl overflow-hidden card-hover">
+            <img src="assets/images/freelancing(1).png" alt="Freelancing" class="w-full h-48 object-cover opacity-90 hover:opacity-100 transition duration-300">
+            <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-3">كيف تبدأ مسيرتك كمطور مستقل</h3>
+            <p class="text-gray-400 mb-4">خطوات عملية لدخول عالم العمل الحر وتحقيق أول أرباحك كمبرمج.</p>
+            <div class="flex justify-between items-center">
+                <span class="text-yellow-400 text-sm"><i class="fas fa-laptop-code ml-1"></i> عمل حر</span>
+                <a href="article-freelance.html" class="text-yellow-400 hover:text-yellow-300 text-sm">اقرأ المزيد <i class="fas fa-arrow-left mr-1"></i></a>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+
+        <!-- Main Content Sections -->
+    
+
+        <!-- Featured Content Section -->
+      <section class="py-20 bg-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center mb-16 section-title">المحتوى المميز</h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Featured Roadmap -->
+      <div class="bg-gray-900 rounded-xl overflow-hidden card-hover">
+        <div class="h-48 relative bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center">
+          <!-- Image Placeholder -->
+          <img src="assets/images/20251109_2321_Web Development Journey_simple_compose_01k9n7v70zf7dadfv0vc2n2rz2.png" alt="Roadmap" class="absolute inset-0 w-full h-full object-cover opacity-90">
+          <div class="absolute inset-0 bg-black/30"></div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-3">خريطة تعلم تطوير الويب</h3>
+          <p class="text-gray-400 mb-4">مسار شامل لتعلم تطوير الويب من البداية إلى الاحتراف</p>
+          <div class="flex justify-between items-center">
+            <span class="text-blue-400 text-sm"><i class="fas fa-clock ml-1"></i> 6 أشهر</span>
+            <a href="roadmaps.html" class="text-blue-400 hover:text-blue-300 text-sm">استكشف <i class="fas fa-arrow-left mr-1"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Problem -->
+      <div class="bg-gray-900 rounded-xl overflow-hidden card-hover">
+        <div class="h-48 relative bg-gradient-to-r from-green-600 to-blue-600 flex items-center justify-center">
+          <img src="assets/images/tips.png" alt="JavaScript Tips" class="absolute inset-0 w-full h-full object-cover opacity-90">
+          <div class="absolute inset-0 bg-black/30"></div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-3">اهم النصائح البرمجيه</h3>
+          <p class="text-gray-400 mb-4">اهم النصائح في مجال البرمجه </p>
+          <div class="flex justify-between items-center">
+            <span class="text-green-400 text-sm"><i class="fas fa-star ml-1"></i> 4.9/5</span>
+            <a href="tips.html" class="text-green-400 hover:text-green-300 text-sm">استكشف <i class="fas fa-arrow-left mr-1"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Interview -->
+      <div class="bg-gray-900 rounded-xl overflow-hidden card-hover">
+        <div class="h-48 relative bg-gradient-to-r from-orange-600 to-red-600 flex items-center justify-center">
+          <img src="assets/images/interviewimage.png" alt="Interview Questions" class="absolute inset-0 w-full h-full object-cover opacity-90">
+          <div class="absolute inset-0 bg-black/30"></div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white mb-3">أهم اسئلة المقابلات</h3>
+          <p class="text-gray-400 mb-4">مجموعه من اسئلة المقابلات الشائعه</p>
+          <div class="flex justify-between items-center">
+            <span class="text-orange-400 text-sm"><i class="fas fa-file-alt ml-1"></i> 50+ سؤال</span>
+            <a href="interview.html" class="text-orange-400 hover:text-orange-300 text-sm">استكشف <i class="fas fa-arrow-left mr-1"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-12 bg-gray-900 text-white">
+  <div class="max-w-4xl mx-auto text-center px-6">
+    <h2 class="text-2xl font-bold mb-6 text-blue-400">💡 نصيحة برمجية</h2>
+    <p class="text-gray-300 leading-relaxed text-lg">
+      هذه المنصة ترشدك إلى الطريق الصحيح في مجالك، لكن تذكر أن كل مفهوم برمجي تراه أو تسمع عنه يجب أن تبحث عنه جيدًا وتفهمه بعمق.  
+      إذا كنت تنوي البدء في مجال البرمجة والوصول إلى مستوى احترافي في المستقبل، فابنِ أساسًا قويًا برمجيًا.  
+      ليس المهم لغة البرمجة بقدر ما هو مهم أن <span class="text-blue-400 font-semibold">تفهم البرمجة صح</span> وتطبّق بيدك، وتحل مشاكل برمجية — على الأقل <span class="text-blue-400 font-semibold">400 مسألة</span> خلال فترة تعلمك.  
+      لا تتشتت من كثرة المصادر، امشِ في طريق واضح وصريح، وأنصحك بمشاهدة خارطة الطريق الخاصة بـ
+      <a href="Computer-science.html" class="text-blue-400 hover:text-blue-300 font-semibold underline">Computer Science</a>  
+      فهي الأساس لكل التخصصات الأخرى.  
+      عندما تبني أساسًا قويًا، يمكنك الانتقال لأي تخصص بسهولة.  
+      وخلال فترة التعلم، تذكّر دائمًا: لا تيأس!  
+      أنت لا تتعلم مجالًا بسيطًا، بل مجالًا مليئًا بالمعلومات والمعرفة.  
+      لكي تصبح مبرمجًا احترافيًا، عليك إتقان الأساسيات، تنفيذ مشاريع تطبّق ما تعلمته، ثم الدخول إلى سوق العمل بثقة.
+    </p>
+  </div>
+</section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">ابدأ رحلتك البرمجية اليوم</h2>
+                <p class="text-xl text-gray-300 mb-8">انضم إلى آلاف المطورين الذين يستفيدون من محتوى TipsHub لتحسين مهاراتهم البرمجية</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="roadmaps.html" class="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105">
+                        ابدأ التعلم الآن
+                    </a>
+                    <a href="about.html" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300">
+                        تعرف على المزيد
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-4 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-blue-400 mb-4">
+                            <i class="fas fa-code ml-2"></i>TipsHub
+                        </h3>
+                        <p class="text-gray-400 mb-4">منصة شاملة لكل ما يحتاجه المبرمج في رحلته التعليمية والمهنية.</p>
+                        <div class="flex space-x-4 space-x-reverse">
+                            <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold text-white mb-4">الأقسام الرئيسية</h4>
+                        <ul class="space-y-2">
+                            <li><a href="roadmaps.html" class="text-gray-400 hover:text-blue-400 transition-colors">خرائط التعلم</a></li>
+                            <li><a href="tips.html" class="text-gray-400 hover:text-blue-400 transition-colors">نصائح برمجية</a></li>
+                            <li><a href="problems.html" class="text-gray-400 hover:text-blue-400 transition-colors">المشاكل والحلول</a></li>
+                            <li><a href="interview.html" class="text-gray-400 hover:text-blue-400 transition-colors">المقابلات</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold text-white mb-4">موارد إضافية</h4>
+                        <ul class="space-y-2">
+                            <li><a href="cv.html" class="text-gray-400 hover:text-blue-400 transition-colors">السيرة الذاتية</a></li>
+                            <li><a href="projects.html" class="text-gray-400 hover:text-blue-400 transition-colors">أفكار المشاريع</a></li>
+                            <li><a href="about.html" class="text-gray-400 hover:text-blue-400 transition-colors">حول الموقع</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">المدونة</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold text-white mb-4">النشرة البريدية</h4>
+                        <p class="text-gray-400 mb-4">اشترك لتصلك آخر النصائح والمحتوى الجديد</p>
+                        <div class="flex">
+                            <input type="email" placeholder="بريدك الإلكتروني" class="bg-gray-700 text-white px-4 py-2 rounded-r-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-l-lg transition-colors">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-700 pt-8 text-center">
+                    <p class="text-gray-500">© 2025 TipsHub. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Mobile menu toggle
+            document.getElementById('mobile-menu-button').addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Animated Counter
+            function animateCounter(element, target, duration = 2000) {
+                let start = 0;
+                const increment = target / (duration / 16);
+                
+                function updateCounter() {
+                    start += increment;
+                    if (start < target) {
+                        element.textContent = Math.floor(start);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        element.textContent = target;
+                    }
+                }
+                updateCounter();
+            }
+
+            // Intersection Observer for counters
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        animateCounter(counter, target);
+                        observer.unobserve(counter);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all counters
+            document.querySelectorAll('.counter').forEach(counter => {
+                observer.observe(counter);
+            });
+
+            // Enhanced Search functionality
+            document.getElementById('mainSearch').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const searchTerm = this.value.trim();
+                    if (searchTerm) {
+                        // Redirect to problems page with search
+                        window.location.href = `problems.html?search=${encodeURIComponent(searchTerm)}`;
+                    }
+                }
+            });
+
+            // Keyboard shortcut for search
+            document.addEventListener('keydown', function(e) {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                    e.preventDefault();
+                    document.getElementById('mainSearch').focus();
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Newsletter form submission
+            document.querySelector('button.bg-blue-600').addEventListener('click', function() {
+                const emailInput = document.querySelector('input[type="email"]');
+                if (emailInput.value) {
+                    // Show success message with animation
+                    const button = this;
+                    const originalText = button.innerHTML;
+                    button.innerHTML = '<i class="fas fa-check"></i> تم الاشتراك!';
+                    button.classList.add('bg-green-600', 'hover:bg-green-700');
+                    button.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+                    
+                    setTimeout(() => {
+                        button.innerHTML = originalText;
+                        button.classList.remove('bg-green-600', 'hover:bg-green-700');
+                        button.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                        emailInput.value = '';
+                    }, 3000);
+                } else {
+                    alert('يرجى إدخال بريدك الإلكتروني.');
+                }
+            });
+
+            // Add loading animation to page
+            window.addEventListener('load', function() {
+                document.body.classList.add('loaded');
+            });
+        </script>
+    </body>
+    </html>
+
+
+    

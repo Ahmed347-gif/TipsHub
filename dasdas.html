@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أسئلة وأجوبة مقابلة React - TipsHub</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .intro {
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .intro h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .intro ul {
+            margin: 1rem 0;
+            padding-right: 1.5rem;
+        }
+
+        .intro li {
+            margin-bottom: 0.5rem;
+        }
+
+        .category {
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .category-title:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .category-title h2 {
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .questions-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .question-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid #e0e0e0;
+        }
+
+        .question-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .question-header {
+            background-color: var(--light-color);
+            padding: 1.2rem;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .question-header h3 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .question-number {
+            background-color: var(--secondary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-left: 10px;
+            flex-shrink: 0;
+        }
+
+        .answer-content {
+            padding: 1.5rem;
+            display: block;
+        }
+
+        .answer-content h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .answer-content p {
+            margin-bottom: 1rem;
+        }
+
+        .answer-content ul, .answer-content ol {
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .answer-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 0.8rem;
+            text-align: right;
+        }
+
+        .comparison-table th {
+            background-color: var(--light-color);
+            color: var(--primary-color);
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .questions-container {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .intro {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>أسئلة وأجوبة مقابلة React</h1>
+            <p>تاريخ آخر تحديث: 19 سبتمبر 2025</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="intro">
+            <h2>مقدمة عن React</h2>
+            <p>ReactJS هي مكتبة جافا سكريبت قائمة على المكونات تستخدم لبناء واجهات مستخدم ديناميكية وتفاعلية. إنها تبسط إنشاء تطبيقات الصفحة الواحدة (SPAs) مع التركيز على الأداء وسهولة الصيانة. تستخدم على نطاق واسع من قبل شركات مثل Facebook و Instagram و Netflix و Airbnb بسبب مرونتها وأدائها.</p>
+            
+            <h3>الجوانب الرئيسية لـ React:</h3>
+            <ul>
+                <li><strong>مكونات قابلة لإعادة الاستخدام:</strong> تسريع التطوير من خلال إعادة استخدام الكود.</li>
+                <li><strong>واجهة مستخدم تصريحية:</strong> تجعل وصف شكل واجهة المستخدم أسهل بناءً على الحالة الحالية.</li>
+                <li><strong>دعم عبر المنصات:</strong> يدعم تطبيقات الويب (React.js) وتطبيقات الجوال (React Native).</li>
+            </ul>
+        </section>
+
+        <section class="category">
+            <div class="category-title">
+                <h2>أسئلة أساسية في React</h2>
+            </div>
+            <div class="questions-container">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>كيف تعمل React.js؟</h3>
+                        <div class="question-number">1</div>
+                    </div>
+                    <div class="answer-content">
+                        <p>تعمل React.js على أساس بنية قائمة على المكونات وتستخدم DOM افتراضيًا لتحديث وعرض واجهات المستخدم بكفاءة.</p>
+                        <h4>المكونات الرئيسية:</h4>
+                        <ul>
+                            <li><strong>المكونات:</strong> يتم تقسيم واجهة المستخدم إلى قطع قابلة لإعادة الاستخدام ومستقلة.</li>
+                            <li><strong>JSX:</strong> يسمح بكتابة كود يشبه HTML داخل JavaScript لتسهيل تطوير واجهة المستخدم.</li>
+                            <li><strong>DOM الظاهري:</strong> نسخة خفيفة الوزن من DOM الحقيقي الذي يتتبع التغييرات.</li>
+                            <li><strong>المصالحة:</strong> يقارن بين DOM الظاهري القديم والجديد ويحدث فقط الأجزاء المتغيرة في DOM الحقيقي.</li>
+                            <li><strong>تدفق البيانات أحادي الاتجاه:</strong> يضمن تحديثات واجهة مستخدم متوقعة عن طريق تمرير البيانات من الأب إلى الابن عبر props.</li>
+                            <li><strong>إدارة الحالة:</strong> تقوم React بإعادة عرض المكونات تلقائيًا عندما تتغير حالتها.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>ما هو JSX وكيف يتم تحويله إلى JavaScript؟</h3>
+                        <div class="question-number">2</div>
+                    </div>
+                    <div class="answer-content">
+                        <p><strong>JSX:</strong> هو امتداد للبناء النحوي لـ JavaScript، يستخدم بشكل رئيسي مع React.</p>
+                        <ul>
+                            <li><strong>HTML في JS:</strong> يسمح بكتابة كود يشبه HTML داخل JavaScript لتسهيل القراءة والصيانة.</li>
+                            <li><strong>التعبيرات:</strong> تضمين تعبيرات JavaScript في JSX باستخدام {}.</li>
+                        </ul>
+                        <h4>مثال على JSX:</h4>
+                        <div class="code-block">
+                            const name = "Learner";<br>
+                            const element = (<br>
+                            &nbsp;&nbsp;&lt;h1&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;Hello, {name}.Welcome to GeeksforGeeks.<br>
+                            &nbsp;&nbsp;&lt;/h1&gt;<br>
+                            );
+                        </div>
+                        <p>لا يمكن للمتصفحات فهم JSX مباشرة. بدلاً من ذلك، تقوم أدوات مثل Babel بتحويله إلى JavaScript عادي باستخدام React.createElement().</p>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>ما هو مكون React؟</h3>
+                        <div class="question-number">3</div>
+                    </div>
+                    <div class="answer-content">
+                        <p>المكون هو أحد اللبنات الأساسية لـ React. بمعنى آخر، يمكننا القول أن كل تطبيق ستطوره في React سيتكون من قطع تسمى مكونات. تجعل المكونات مهمة بناء واجهات المستخدم أسهل بكثير.</p>
+                        <p>في React، لدينا بشكل أساسي نوعان من المكونات:</p>
+                        <ul>
+                            <li><strong>المكونات الوظيفية:</strong> المكونات الوظيفية هي ببساطة دوال JavaScript. في البداية، كانت محدودة من حيث الميزات مثل الحالة وطرق دورة الحياة. ومع ذلك، مع إدخال Hooks، يمكن للمكونات الوظيفية الآن استخدام الحالة وإدارة التأثيرات الجانبية والوصول إلى الميزات الأخرى التي كانت حصرية في السابق لمكونات الفئة.</li>
+                            <li><strong>مكونات الفئة:</strong> مكونات الفئة أكثر تعقيدًا من المكونات الوظيفية. يمكنها إدارة الحالة والتعامل مع طرق دورة الحياة ويمكنها أيضًا التفاعل مع المكونات الأخرى. يمكن لمكونات الفئة تمرير البيانات بين بعضها البعض عبر props، على غرار المكونات الوظيفية.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>الفرق بين المكون الوظيفي ومكون الفئة في React</h3>
+                        <div class="question-number">4</div>
+                    </div>
+                    <div class="answer-content">
+                        <table class="comparison-table">
+                            <tr>
+                                <th>المكونات الوظيفية</th>
+                                <th>مكونات الفئة</th>
+                            </tr>
+                            <tr>
+                                <td>المكون الوظيفي هو مجرد دالة JavaScript عادية تقبل props كمعامل</td>
+                                <td>يتطلب مكون الفئة منك التمديد من React.Component وإنشاء دالة render</td>
+                            </tr>
+                            <tr>
+                                <td>لا يتم استخدام طريقة render</td>
+                                <td>يجب أن تحتوي على دالة render() التي ترجع JSX</td>
+                            </tr>
+                            <tr>
+                                <td>تُعرف أيضًا باسم المكونات عديمة الحالة</td>
+                                <td>تُعرف أيضًا باسم المكونات ذات الحالة</td>
+                            </tr>
+                            <tr>
+                                <td>لا يمكن استخدام طرق دورة حياة React (على سبيل المثال، componentDidMount) في المكونات الوظيفية</td>
+                                <td>يمكن استخدام طرق دورة حياة React داخل مكونات الفئة (على سبيل المثال، componentDidMount)</td>
+                            </tr>
+                            <tr>
+                                <td>لا يتم استخدام المنشئات</td>
+                                <td>يتم استخدام المنشئ لأنه يحتاج إلى تخزين الحالة</td>
+                            </tr>
+                            <tr>
+                                <td>يستخدم hooks مثل useState لإدارة الحالة</td>
+                                <td>يستخدم this.state و this.setState لإدارة الحالة</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>ما هي props و default props في React؟</h3>
+                        <div class="question-number">5</div>
+                    </div>
+                    <div class="answer-content">
+                        <p>تسمح لنا React بتمرير المعلومات إلى مكون باستخدام شيء يسمى props (الذي يعني خصائص). props هي كائنات يمكن استخدامها داخل المكون. يمكننا الوصول إلى أي props داخل من فئة المكون الذي تم تمرير props إليه. يمكن الوصول إلى props كما هو موضح أدناه:</p>
+                        <div class="code-block">this.props.propName;</div>
+                        <p>Default props هي قيم افتراضية يتم تعيينها لـ props المكون عندما لا يوفرها الأب. تساعد في منع أخطاء undefined وتجعل المكونات أكثر قوة.</p>
+                        <p>يمكن تعريف Default props باستخدام:</p>
+                        <ul>
+                            <li><strong>مكونات الفئة:</strong> ComponentName.defaultProps = { propName: defaultValue }</li>
+                            <li><strong>المكونات الوظيفية:</strong> تعيين القيم الافتراضية في معاملات الدالة</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>ما هي الحالة في React وكيف تقوم بتحديثها؟</h3>
+                        <div class="question-number">6</div>
+                    </div>
+                    <div class="answer-content">
+                        <p>الحالة هي البيانات الداخلية القابلة للتغيير لمكون React التي تتحكم في سلوكه وعرضه. عندما تتغير الحالة، تقوم React بإعادة عرض المكون لتحديث واجهة المستخدم.</p>
+                        <p>يتم تحديث الحالة باستخدام setState() في مكونات الفئة أو دالة setter من useState في المكونات الوظيفية. التحديثات غير متزامنة ويمكن أن تسببها الأحداث أو تفاعلات المستخدم أو استجابات API. عندما تعتمد الحالة الجديدة على الحالة السابقة، يجب استخدام النموذج الوظيفي (setState(prev => ...)).</p>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>الفرق بين Props و State في React</h3>
+                        <div class="question-number">7</div>
+                    </div>
+                    <div class="answer-content">
+                        <table class="comparison-table">
+                            <tr>
+                                <th>PROPS</th>
+                                <th>STATE</th>
+                            </tr>
+                            <tr>
+                                <td>يتم تمرير البيانات من مكون إلى آخر</td>
+                                <td>يتم تمرير البيانات داخل المكون فقط</td>
+                            </tr>
+                            <tr>
+                                <td>غير قابلة للتغيير (لا يمكن تعديلها)</td>
+                                <td>قابلة للتغيير (يمكن تعديلها)</td>
+                            </tr>
+                            <tr>
+                                <td>يمكن استخدام Props مع الحالة والمكونات الوظيفية</td>
+                                <td>يمكن استخدام الحالة فقط مع مكونات الحالة/مكونات الفئة (قبل 16.0)</td>
+                            </tr>
+                            <tr>
+                                <td>Props للقراءة فقط</td>
+                                <td>الحالة قابلة للقراءة والكتابة</td>
+                            </tr>
+                            <tr>
+                                <td>مثال: تمرير عنوان أو معالج onClick إلى مكون زر</td>
+                                <td>مثال: قيمة عداد تزداد عند النقر على زر</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>ما هي Fragments في React؟</h3>
+                        <div class="question-number">8</div>
+                    </div>
+                    <div class="answer-content">
+                        <p>في React، تسمح لك Fragments بتجميع عناصر متعددة دون إضافة عقد إضافية إلى DOM. عادةً، يتطلب إرجاع عناصر متعددة غلافًا مثل &lt;div&gt;، مما يمكن أن ينشئ عناصر DOM غير ضرورية. تحل Fragments هذه المشكلة من خلال السماح لك بإرجاع عناصر متعددة دون أغلفة إضافية.</p>
+                        <ul>
+                            <li>تتجنب Fragments عقد DOM إضافية</li>
+                            <li>بناء جملة مختصر: &lt;&gt; &lt;/&gt; (لا يمكن استخدام السمات)</li>
+                            <li>بناء جملة كامل: &lt;React.Fragment&gt; &lt;/React.Fragment&gt; (يمكن استخدام key)</li>
+                            <li>مفيد في القوائم والجداول وتجميع عناصر متعددة</li>
+                            <li>يساعد في الحفاظ على DOM نظيفًا وخفيف الوزن</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>ما الفرق بين المكونات المسيطر عليها وغير المسيطر عليها؟</h3>
+                        <div class="question-number">9</div>
+                    </div>
+                    <div class="answer-content">
+                        <table class="comparison-table">
+                            <tr>
+                                <th>المكونات المسيطر عليها</th>
+                                <th>المكونات غير المسيطر عليها</th>
+                            </tr>
+                            <tr>
+                                <td>تحكم حالة React في قيمة إدخال النموذج</td>
+                                <td>يدير DOM قيمة الإدخال</td>
+                            </tr>
+                            <tr>
+                                <td>كل تغيير في الإدخال يقوم بتحديث الحالة عبر onChange</td>
+                                <td>يستخدم React المرجع للوصول إلى القيمة الحالية عند الحاجة</td>
+                            </tr>
+                            <tr>
+                                <td>يوفر تحكمًا كاملاً في بيانات الإدخال</td>
+                                <td>كود أقل، أبسط للنماذج الأساسية</td>
+                            </tr>
+                            <tr>
+                                <td>مفيد للتحقق من الصحة، العرض الشرطي، أو النماذج المعقدة</td>
+                                <td>تحكم أقل في التحقق من الصحة وإدارة الحالة</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>كيف يدير DOM قيمة الإدخال في المكونات غير المسيطر عليها؟</h3>
+                        <div class="question-number">10</div>
+                    </div>
+                    <div class="answer-content">
+                        <p>لا تدير React حالة إدخال النموذج. بدلاً من ذلك، يتتبع DOM نفسه قيمة الإدخال. يمكنك الوصول إلى القيمة عند الحاجة باستخدام المراجع (refs).</p>
+                        <ul>
+                            <li>يتم تخزين قيم الإدخال في DOM، وليس في حالة React</li>
+                            <li>استخدم React.createRef() أو useRef() للوصول إلى القيمة الحالية</li>
+                            <li>مفيد عندما لا تحتاج إلى التفاعل مع كل تغيير أو للنماذج البسيطة</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="category">
+            <div class="category-title">
+                <h2>أسئلة Hooks في React</h2>
+            </div>
+            <div class="questions-container">
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>ما هي Hooks في React ولماذا تم تقديمها؟</h3>
+                        <div class="question-number">11</div>
+                    </div>
+                    <div class="answer-content">
+                        <p>Hooks هي دوال خاصة في React تتيح لك استخدام الحالة وطرق دورة الحياة وميزات React الأخرى في المكونات الوظيفية، والتي كانت متاحة سابقًا فقط في مكونات الفئة.</p>
+                        <h4>لماذا تم تقديمها:</h4>
+                        <ul>
+                            <li>قبل Hooks، يمكن استخدام الحالة وطرق دورة الحياة فقط في مكونات الفئة، مما أدى إلى مزيد من التعليمات البرمجية المتكررة والأنماط المعقدة.</li>
+                            <li>تسمح Hooks بتعليمات برمجية أبسط وأنظف باستخدام المكونات الوظيفية.</li>
+                            <li>إنها تعزز إعادة استخدام وتكوين المنطق بين المكونات.</li>
+                        </ul>
+                        <h4>مثال:</h4>
+                        <div class="code-block">
+                            import React, { useState } from 'react';<br><br>
+                            
+                            function Counter() {<br>
+                            &nbsp;&nbsp;const [count, setCount] = useState(0);<br>
+                            &nbsp;&nbsp;return (<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;{count}&lt;/p&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button onClick={() =&gt; setCount(count + 1)}&gt;Increment&lt;/button&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                            &nbsp;&nbsp;);<br>
+                            }
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>كيف يعمل useState hook؟</h3>
+                        <div class="question-number">12</div>
+                    </div>
+                    <div class="answer-content">
+                        <p>يسمح لك useState hook بإضافة الحالة إلى المكونات الوظيفية. يعيد متغير حالة ودالة setter لتحديث تلك الحالة. عندما تتغير الحالة، تقوم React بإعادة عرض المكون بالقيمة المحدثة.</p>
+                        <h4>مثال:</h4>
+                        <div class="code-block">
+                            import { useState } from 'react';<br><br>
+
+                            function Counter() {<br>
+                            &nbsp;&nbsp;const [count, setCount] = useState(0);<br><br>
+
+                            &nbsp;&nbsp;return (<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Count: {count}&lt;/p&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button onClick={() =&gt; setCount(count + 1)}&gt;Increment&lt;/button&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                            &nbsp;&nbsp;);<br>
+                            }
+                        </div>
+                        <p>في هذا المثال:</p>
+                        <ul>
+                            <li><strong>count</strong> هي قيمة الحالة الحالية</li>
+                            <li><strong>setCount</strong> هي الدالة المستخدمة لتحديث الحالة</li>
+                            <li><strong>0</strong> هي القيمة الأولية عند تحميل المكون</li>
+                        </ul>
+                        <p>عند استدعاء setCount، تقوم React بإعادة عرض Counter بقيمة count الجديدة.</p>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>ما هو useEffect في React وما هو دور مصفوفة التبعيات الخاصة به؟</h3>
+                        <div class="question-number">13</div>
+                    </div>
+                    <div class="answer-content">
+                        <p>useEffect هو React hook يسمح للمكونات الوظيفية بتنفيذ تأثيرات جانبية مثل جلب البيانات، وإعداد الاشتراكات، أو التلاعب مباشرة في DOM. يعمل بعد عرض المكون، مما يضمن تحديث واجهة المستخدم أولاً.</p>
+                        <p>تتحكم مصفوفة التبعيات في وقت تشغيل التأثير:</p>
+                        <ul>
+                            <li><strong>[]</strong>: يعمل مرة واحدة بعد تحميل المكون (مثل componentDidMount)</li>
+                            <li><strong>[dep1, dep2]</strong>: يعمل فقط عندما يتغير تبعية</li>
+                            <li><strong>مُحذف (بدون مصفوفة)</strong>: يعمل بعد كل عرض</li>
+                        </ul>
+                        <p>يمكن لـ useEffect أيضًا إرجاع دالة تنظيف تعمل عند إلغاء التحميل أو قبل التأثير التالي، مما يساعد في منع تسرب الذاكرة.</p>
+                        <h4>مثال:</h4>
+                        <div class="code-block">
+                            useEffect(() =&gt; {<br>
+                            &nbsp;&nbsp;console.log('Effect runs');<br>
+                            &nbsp;&nbsp;return () =&gt; console.log('Cleanup runs');<br>
+                            }, [dependency]);
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>ما الفرق بين useEffect و useLayoutEffect؟</h3>
+                        <div class="question-number">14</div>
+                    </div>
+                    <div class="answer-content">
+                        <table class="comparison-table">
+                            <tr>
+                                <th>useEffect</th>
+                                <th>useLayoutEffect</th>
+                            </tr>
+                            <tr>
+                                <td>يعمل بعد العرض والرسم</td>
+                                <td>يعمل قبل الرسم، بعد تحديثات DOM</td>
+                            </tr>
+                            <tr>
+                                <td>غير محظور</td>
+                                <td>محظور</td>
+                            </tr>
+                            <tr>
+                                <td>يستخدم لجلب البيانات، الاشتراكات، المؤقتات</td>
+                                <td>يستخدم لقراءة التخطيط، قياس DOM، أو تحديثات DOM المتزامنة</td>
+                            </tr>
+                            <tr>
+                                <td>أكثر أمانًا لمعظم التأثيرات الجانبية</td>
+                                <td>يمكن أن يبطئ العرض إذا تم استخدام منطق ثقيل</td>
+                            </tr>
+                            <tr>
+                                <td>يعمل بعد كل عرض افتراضيًا (أو بناءً على مصفوفة التبعيات)</td>
+                                <td>استخدم عندما تكون قياسات DOM مطلوبة قبل الرسم</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>ما هو useContext hook ومتى يجب استخدامه؟</h3>
+                        <div class="question-number">15</div>
+                    </div>
+                    <div class="answer-content">
+                        <p>يسمح useContext hook للمكونات الوظيفية باستهلاك القيم من React Context دون تمرير props عبر كل مستوى من شجرة المكونات (تجنب "prop drilling").</p>
+                        <h4>متى تستخدمه:</h4>
+                        <ul>
+                            <li>مشاركة البيانات العالمية مثل السمة، معلومات المستخدم، أو حالة المصادقة</li>
+                            <li>تجنب prop drilling عبر العديد من مستويات المكونات</li>
+                            <li>عندما تحتاج عدة مكونات إلى الوصول إلى نفس الحالة أو البيانات</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>ما هو useReducer hook ومتى يُفضل على useState؟</h3>
+                        <div class="question-number">16</div>
+                    </div>
+                    <div class="answer-content">
+                        <p>useReducer هو React hook يستخدم لإدارة منطق الحالة المعقد في المكونات الوظيفية. يعمل بشكل مشابه لـ Redux: تقوم بتعريف دالة reducer تأخذ الحالة الحالية وإجراء، وتعيد حالة جديدة.</p>
+                        <h4>مثال:</h4>
+                        <div class="code-block">
+                            const [state, dispatch] = useReducer(reducer, initialState);<br><br>
+
+                            // مثال للاستخدام:<br>
+                            dispatch({ type: 'increment' });
+                        </div>
+                        <p>في هذا المثال:</p>
+                        <ul>
+                            <li><strong>state</strong> هي الحالة الحالية</li>
+                            <li><strong>dispatch</strong> يستخدم لإرسال إجراءات لتحديث الحالة</li>
+                        </ul>
+                        <h4>يُفضل على useState عندما:</h4>
+                        <ul>
+                            <li>منطق الحالة معقد أو له قيم فرعية متعددة</li>
+                            <li>تعتمد الحالة التالية على الحالة السابقة</li>
+                            <li>تريد إدارة حالة مركزية في مكون</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>ما هو useRef hook وما هي حالات استخدامه الشائعة؟</h3>
+                        <div class="question-number">17</div>
+                    </div>
+                    <div class="answer-content">
+                        <p>ينشئ useRef hook كائنًا قابلًا للتغيير يستمر عبر عمليات العرض دون التسبب في إعادة العرض. يُستخدم عادةً للوصول إلى عناصر DOM أو تخزين القيم القابلة للتغيير.</p>
+                        <h4>مثال:</h4>
+                        <div class="code-block">
+                            import { useRef } from 'react';<br><br>
+
+                            function App() {<br>
+                            &nbsp;&nbsp;const inputRef = useRef();<br><br>
+
+                            &nbsp;&nbsp;const focusInput = () =&gt; {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;inputRef.current.focus();<br>
+                            &nbsp;&nbsp;};<br><br>
+
+                            &nbsp;&nbsp;return (<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input ref={inputRef} type="text" /&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button onClick={focusInput}&gt;Focus&lt;/button&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                            &nbsp;&nbsp;);<br>
+                            }
+                        </div>
+                        <p>في هذا المثال:</p>
+                        <ul>
+                            <li>يخزن inputRef مرجعًا لعقدة DOM للإدخال</li>
+                            <li>استدعاء inputRef.current.focus() يركز على الإدخال دون إعادة عرض المكون</li>
+                        </ul>
+                        <h4>حالات الاستخدام الشائعة:</h4>
+                        <ul>
+                            <li>الوصول إلى عقد DOM مباشرة (التركيز، التمرير، القياس)</li>
+                            <li>تخزين القيم القابلة للتغيير التي لا تسبب إعادة العرض</li>
+                            <li>الاحتفاظ بقيم الحالة السابقة للمقارنة</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>اشرح الفرق بين useMemo و useCallback؟</h3>
+                        <div class="question-number">18</div>
+                    </div>
+                    <div class="answer-content">
+                        <table class="comparison-table">
+                            <tr>
+                                <th>useMemo</th>
+                                <th>useCallback</th>
+                            </tr>
+                            <tr>
+                                <td>يخزن القيم المحسوبة مؤقتًا</td>
+                                <td>يخزن الدوال مؤقتًا</td>
+                            </tr>
+                            <tr>
+                                <td>يعيد نتيجة دالة</td>
+                                <td>يعيد الدالة نفسها</td>
+                            </tr>
+                            <tr>
+                                <td>يتجنب إعادة الحسابات المكلفة عند إعادة العرض</td>
+                                <td>يمنع إعادة إنشاء الدوال عند إعادة العرض</td>
+                            </tr>
+                            <tr>
+                                <td>يحسن الأداء عن طريق تخزين القيم مؤقتًا</td>
+                                <td>يحسن الأداء عن طريق تجنب عمليات العرض غير الضرورية</td>
+                            </tr>
+                            <tr>
+                                <td>الفكرة الأساسية: تخزين القيمة مؤقتًا</td>
+                                <td>الفكرة الأساسية: تخزين الدالة مؤقتًا</td>
+                            </tr>
+                            <tr>
+                                <td>بناء الجملة: useMemo(() =&gt; computeValue(a, b), [a, b])</td>
+                                <td>بناء الجملة: useCallback(() =&gt; handleClick(id), [id])</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-header">
+                        <h3>ما هي الـ Custom hooks في React وكيف تنشئ واحدة؟</h3>
+                        <div class="question-number">19</div>
+                    </div>
+                    <div class="answer-content">
+                        <p>Custom hooks هي دوال قابلة لإعادة الاستخدام تتيح لك استخراج ومشاركة المنطق بين المكونات الوظيفية. وهي دوال JavaScript تبدأ أسماؤها بـ use ويمكنها استدعاء hooks أخرى مثل useState أو useEffect.</p>
+                        <h4>مثال:</h4>
+                        <div class="code-block">
+                            import { useState, useEffect } from 'react';<br><br>
+
+                            function useFetch(url) {<br>
+                            &nbsp;&nbsp;const [data, setData] = useState(null);<br>
+                            &nbsp;&nbsp;const [loading, setLoading] = useState(true);<br><br>
+
+                            &nbsp;&nbsp;useEffect(() =&gt; {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;fetch(url)<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.then(res =&gt; res.json())<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.then(data =&gt; {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setData(data);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setLoading(false);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+                            &nbsp;&nbsp;}, [url]);<br><br>
+
+                            &nbsp;&nbsp;return { data, loading };<br>
+                            }<br><br>
+
+                            // الاستخدام في مكون<br>
+                            function App() {<br>
+                            &nbsp;&nbsp;const { data, loading } = useFetch('https://api.example.com/data');<br><br>
+
+                            &nbsp;&nbsp;if (loading) return &lt;p&gt;Loading...&lt;/p&gt;;<br>
+                            &nbsp;&nbsp;return &lt;div&gt;{JSON.stringify(data)}&lt;/div&gt;;<br>
+                            }
+                        </div>
+                        <p>في هذا المثال، useFetch هو custom hook يجلب البيانات من API ويدير حالة التحميل. يتم إعادة استخدام الـ hook في App للحفاظ على نظافة المكون وفصل منطق جلب البيانات.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <a href="#" class="back-to-top">↑</a>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 TipsHub - جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript للتحكم في زر العودة إلى الأعلى فقط
+        document.addEventListener('DOMContentLoaded', function() {
+            // زر العودة إلى الأعلى
+            const backToTopButton = document.querySelector('.back-to-top');
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'flex';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

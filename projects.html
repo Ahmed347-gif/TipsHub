@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أفكار المشاريع - TipsHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(75, 85, 99, 0.5);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: 2px;
+        }
+        
+        .difficulty-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .category-filter {
+            transition: all 0.3s ease;
+        }
+        
+        .category-filter.active {
+            background-color: rgb(59, 130, 246);
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-gray-800 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="index.html" class="text-2xl font-bold text-blue-400">
+                            <i class="fas fa-code mr-2"></i>TipsHub
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4 space-x-reverse">
+                        <a href="index.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">الرئيسية</a>
+                        <a href="roadmaps.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">خرائط التعلم</a>
+                        <a href="tips.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">نصائح برمجية</a>
+                        <a href="problems.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">المشاكل والحلول</a>
+                        <a href="interview.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">المقابلات</a>
+                        <a href="cv.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">السيرة الذاتية</a>
+                        <a href="projects.html" class="text-blue-400 px-3 py-2 rounded-md text-sm font-medium">أفكار المشاريع</a>
+                        <a href="about.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">حول الموقع</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none focus:text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-700">
+                <a href="index.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">الرئيسية</a>
+                <a href="roadmaps.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">خرائط التعلم</a>
+                <a href="tips.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">نصائح برمجية</a>
+                <a href="problems.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">المشاكل والحلول</a>
+                <a href="interview.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">المقابلات</a>
+                <a href="cv.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">السيرة الذاتية</a>
+                <a href="projects.html" class="text-blue-400 block px-3 py-2 rounded-md text-base font-medium">أفكار المشاريع</a>
+                <a href="about.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium">حول الموقع</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-br from-red-900 to-pink-900 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center fade-in">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    <i class="fas fa-project-diagram mr-4"></i>أفكار المشاريع
+                </h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    اكتشف مجموعة شاملة من أفكار المشاريع البرمجية لبناء محفظة أعمال قوية وتطوير مهاراتك
+                </p>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="max-w-2xl mx-auto mt-8">
+                <div class="relative">
+                    <input type="text" id="search-input" placeholder="ابحث عن مشروع..." 
+                           class="w-full bg-gray-800 text-white rounded-lg px-6 py-4 pr-12 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg">
+                    <i class="fas fa-search absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+                <div class="bg-red-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white" id="total-projects">50+</div>
+                    <div class="text-red-300 text-sm">فكرة مشروع</div>
+                </div>
+                <div class="bg-pink-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">8</div>
+                    <div class="text-pink-300 text-sm">تصنيفات رئيسية</div>
+                </div>
+                <div class="bg-purple-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">4</div>
+                    <div class="text-purple-300 text-sm">مستويات صعوبة</div>
+                </div>
+                <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">30+</div>
+                    <div class="text-blue-300 text-sm">تقنية مختلفة</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Filter -->
+    <section class="py-8 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-xl font-bold text-white mb-6 text-center">تصفية حسب التصنيف</h2>
+            <div class="flex flex-wrap justify-center gap-4" id="category-filters">
+                <button class="category-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white transition-colors active" data-category="all">
+                    جميع المشاريع
+                </button>
+                <button class="category-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-green-600 hover:text-white transition-colors" data-category="web">
+                    <i class="fas fa-globe ml-2"></i>تطبيقات الويب
+                </button>
+                <button class="category-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-purple-600 hover:text-white transition-colors" data-category="mobile">
+                    <i class="fas fa-mobile-alt ml-2"></i>تطبيقات الجوال
+                </button>
+                <button class="category-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-yellow-600 hover:text-white transition-colors" data-category="desktop">
+                    <i class="fas fa-desktop ml-2"></i>تطبيقات سطح المكتب
+                </button>
+                <button class="category-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-red-600 hover:text-white transition-colors" data-category="games">
+                    <i class="fas fa-gamepad ml-2"></i>الألعاب
+                </button>
+                <button class="category-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-indigo-600 hover:text-white transition-colors" data-category="ai">
+                    <i class="fas fa-robot ml-2"></i>الذكاء الاصطناعي
+                </button>
+                <button class="category-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-teal-600 hover:text-white transition-colors" data-category="tools">
+                    <i class="fas fa-tools ml-2"></i>أدوات المطورين
+                </button>
+                <button class="category-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-orange-600 hover:text-white transition-colors" data-category="data">
+                    <i class="fas fa-chart-bar ml-2"></i>البيانات والتحليلات
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Difficulty Filter -->
+    <section class="py-4 bg-gray-800 border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-3" id="difficulty-filters">
+                <button class="difficulty-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-green-600 hover:text-white transition-colors active" data-difficulty="all">
+                    جميع المستويات
+                </button>
+                <button class="difficulty-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-green-600 hover:text-white transition-colors" data-difficulty="beginner">
+                    <i class="fas fa-seedling ml-2"></i>مبتدئ
+                </button>
+                <button class="difficulty-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-yellow-600 hover:text-white transition-colors" data-difficulty="intermediate">
+                    <i class="fas fa-chart-line ml-2"></i>متوسط
+                </button>
+                <button class="difficulty-filter bg-gray-700 text-gray-300 px-4 py-2 rounded-lg hover:bg-red-600 hover:text-white transition-colors" data-difficulty="advanced">
+                    <i class="fas fa-rocket ml-2"></i>متقدم
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                
+                <!-- Projects will be rendered here by JavaScript -->
+
+            </div>
+
+            <!-- Results Count -->
+            <div class="text-center mt-8 mb-4">
+                <p class="text-gray-400" id="results-count">عرض <span id="visible-count">0</span> من <span id="total-count">0</span> مشروع</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Submission -->
+    <section class="py-16 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-purple-900 to-blue-900 rounded-2xl p-8 text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">هل لديك فكرة مشروع رائعة؟</h2>
+                <p class="text-gray-300 text-lg mb-6">شارك أفكارك مع المجتمع وساعد الآخرين في تطوير مهاراتهم</p>
+                <button class="bg-white text-purple-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-colors">
+                    <i class="fas fa-plus ml-2"></i>اقترح فكرة مشروع
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">موارد مفيدة للمشاريع</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-xl p-6 text-center">
+                    <div class="bg-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-book text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">أدوات التطوير</h3>
+                    <p class="text-gray-400 mb-4">مجموعة من الأدوات والمكتبات المفيدة لتطوير المشاريع</p>
+                    <button class="text-green-400 hover:text-green-300 text-sm">
+                        استكشاف الأدوات <i class="fas fa-arrow-left mr-1"></i>
+                    </button>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-6 text-center">
+                    <div class="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-video text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">دروس تعليمية</h3>
+                    <p class="text-gray-400 mb-4">فيديوهات ودروس لمساعدتك في تنفيذ المشاريع</p>
+                    <button class="text-blue-400 hover:text-blue-300 text-sm">
+                        مشاهدة الدروس <i class="fas fa-arrow-left mr-1"></i>
+                    </button>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-6 text-center">
+                    <div class="bg-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">مجتمع المطورين</h3>
+                    <p class="text-gray-400 mb-4">انضم لمجتمع المطورين وشارك مشاريعك</p>
+                    <button class="text-purple-400 hover:text-purple-300 text-sm">
+                        الانضمام للمجتمع <i class="fas fa-arrow-left mr-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="mb-4">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-2">
+                        <i class="fas fa-code mr-2"></i>TipsHub
+                    </h3>
+                    <p class="text-gray-400">منصة شاملة لكل ما يحتاجه المبرمج</p>
+                </div>
+                <div class="border-t border-gray-700 pt-4">
+                    <p class="text-gray-500">© 2025 TipsHub. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Detail Modal -->
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-gray-800 border-b border-gray-700 p-6 flex justify-between items-center">
+                <h2 id="modal-title" class="text-2xl font-bold text-white"></h2>
+                <button id="close-modal" class="text-gray-400 hover:text-white text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <div id="modal-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // قاعدة بيانات المشاريع الشاملة - 50+ مشروع احترافي
+        const projectsData = [
+            // === تطبيقات الويب ===
+            {
+                id: 1,
+                title: "منصة مدونات شخصية",
+                category: "web",
+                difficulty: "beginner",
+                description: "منصة للكتابة والنشر مع نظام تعليقات وإدارة محتوى كامل",
+                duration: "2-3 أسابيع",
+                technologies: ["HTML/CSS", "JavaScript", "Node.js", "MongoDB", "Express"],
+                features: ["نشر المقالات", "نظام تعليقات", "إدارة المستخدمين", "بحث في المحتوى", "تصنيفات ووسوم"],
+                requirements: ["معرفة أساسية بـ HTML/CSS/JS", "فهم أساسي لـ Node.js", "معرفة MongoDB"],
+                steps: ["تصميم الواجهة", "إعداد Backend", "ربط قاعدة البيانات", "إضافة نظام التعليقات", "اختبار وتنشر"]
+            },
+            {
+                id: 2,
+                title: "منصة تجارة إلكترونية",
+                category: "web",
+                difficulty: "intermediate",
+                description: "متجر إلكتروني كامل مع نظام دفع وإدارة طلبات متقدم",
+                duration: "4-6 أسابيع",
+                technologies: ["React", "Node.js", "PostgreSQL", "Stripe API", "Redux"],
+                features: ["عرض المنتجات", "سلة التسوق", "نظام دفع آمن", "إدارة الطلبات", "لوحة تحكم للمدير"],
+                requirements: ["React متقدم", "Node.js و Express", "معرفة APIs", "PostgreSQL"],
+                steps: ["تصميم قاعدة البيانات", "بناء Frontend", "ربط نظام الدفع", "إضافة لوحة التحكم", "اختبار شامل"]
+            },
+            {
+                id: 3,
+                title: "منصة فيديو تعليمية",
+                category: "web",
+                difficulty: "advanced",
+                description: "منصة بث فيديو مع نظام اشتراكات وتقييم المحتوى",
+                duration: "8-12 أسبوع",
+                technologies: ["Vue.js", "Django", "AWS S3", "WebRTC", "Redis"],
+                features: ["بث الفيديو", "نظام اشتراكات", "تقييم المحتوى", "شهادات إتمام", "منتدى مناقشات"],
+                requirements: ["Vue.js متقدم", "Django/Python", "معرفة AWS", "WebRTC"],
+                steps: ["إعداد البنية التحتية", "نظام البث", "نظام الاشتراكات", "لوحة التحكم", "تحسين الأداء"]
+            },
+            {
+                id: 4,
+                title: "منصة اجتماعية للمطورين",
+                category: "web",
+                difficulty: "intermediate",
+                description: "منصة للتواصل بين المطورين ومشاركة المشاريع",
+                duration: "5-7 أسابيع",
+                technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Socket.io"],
+                features: ["ملفات شخصية", "مشاركة المشاريع", "نظام متابعة", "رسائل مباشرة", "إشعارات"],
+                requirements: ["Next.js", "TypeScript", "Prisma ORM", "WebSockets"],
+                steps: ["تصميم النظام", "بناء Authentication", "نظام الملفات الشخصية", "الرسائل المباشرة", "التنفيذ"]
+            },
+            {
+                id: 5,
+                title: "نظام إدارة المهام (Kanban)",
+                category: "web",
+                difficulty: "intermediate",
+                description: "لوحة Kanban متقدمة لإدارة المشاريع والمهام",
+                duration: "3-4 أسابيع",
+                technologies: ["React", "DnD Kit", "Node.js", "MongoDB", "JWT"],
+                features: ["لوحة Kanban", "سحب وإفلات", "فلاتر متقدمة", "تعاون في الوقت الفعلي", "تقارير"],
+                requirements: ["React", "Drag & Drop", "WebSockets", "JWT Auth"],
+                steps: ["تصميم UI", "إضافة Drag & Drop", "Backend API", "التعاون الفعلي", "الاختبار"]
+            },
+            {
+                id: 6,
+                title: "منصة حجز مواعيد",
+                category: "web",
+                difficulty: "beginner",
+                description: "نظام حجز مواعيد مع إشعارات وتذكيرات",
+                duration: "2-3 أسابيع",
+                technologies: ["HTML/CSS", "JavaScript", "PHP", "MySQL", "Email API"],
+                features: ["حجز المواعيد", "تقويم تفاعلي", "إشعارات بريدية", "لوحة تحكم", "تقارير"],
+                requirements: ["PHP أساسي", "MySQL", "JavaScript"],
+                steps: ["تصميم التقويم", "نظام الحجز", "الإشعارات", "لوحة التحكم", "النشر"]
+            },
+            {
+                id: 7,
+                title: "منصة استطلاعات رأي",
+                category: "web",
+                difficulty: "beginner",
+                description: "إنشاء وإدارة استطلاعات الرأي مع تحليلات",
+                duration: "2 أسابيع",
+                technologies: ["React", "Node.js", "MongoDB", "Chart.js"],
+                features: ["إنشاء استطلاعات", "أنواع أسئلة متعددة", "تحليلات مرئية", "مشاركة الاستطلاعات"],
+                requirements: ["React أساسي", "Node.js", "Chart.js"],
+                steps: ["تصميم النموذج", "Backend API", "التحليلات", "التصميم", "النشر"]
+            },
+            {
+                id: 8,
+                title: "منصة تعلم لغات",
+                category: "web",
+                difficulty: "intermediate",
+                description: "منصة تفاعلية لتعلم اللغات مع تمارين واختبارات",
+                duration: "5-6 أسابيع",
+                technologies: ["Vue.js", "Laravel", "MySQL", "Web Speech API"],
+                features: ["دروس تفاعلية", "تمارين صوتية", "تتبع التقدم", "نظام نقاط", "شهادات"],
+                requirements: ["Vue.js", "Laravel/PHP", "Web APIs"],
+                steps: ["تصميم الدروس", "نظام التمارين", "تتبع التقدم", "الاختبارات", "التنفيذ"]
+            },
+            {
+                id: 9,
+                title: "منصة تبرع خيرية",
+                category: "web",
+                difficulty: "intermediate",
+                description: "منصة لجمع التبرعات مع شفافية كاملة",
+                duration: "4-5 أسابيع",
+                technologies: ["React", "Node.js", "Stripe", "PostgreSQL", "Blockchain"],
+                features: ["تبرع آمن", "تتبع التبرعات", "شفافية كاملة", "تقارير مالية", "إشعارات"],
+                requirements: ["React", "Payment APIs", "Blockchain أساسي"],
+                steps: ["تصميم النظام", "ربط الدفع", "نظام التتبع", "الشفافية", "الأمان"]
+            },
+            {
+                id: 10,
+                title: "منصة عقارات",
+                category: "web",
+                difficulty: "advanced",
+                description: "منصة شاملة للعقارات مع خرائط وفلترة متقدمة",
+                duration: "8-10 أسابيع",
+                technologies: ["Next.js", "TypeScript", "PostgreSQL", "Google Maps API", "Elasticsearch"],
+                features: ["قائمة العقارات", "خرائط تفاعلية", "فلترة متقدمة", "مقارنة العقارات", "حجز زيارات"],
+                requirements: ["Next.js متقدم", "APIs متعددة", "Elasticsearch"],
+                steps: ["قاعدة البيانات", "الخرائط", "نظام البحث", "الفلترة", "التنفيذ"]
+            },
+            // === تطبيقات الجوال ===
+            {
+                id: 11,
+                title: "تطبيق قائمة المهام",
+                category: "mobile",
+                difficulty: "beginner",
+                description: "تطبيق لإدارة المهام اليومية مع إشعارات وتذكيرات",
+                duration: "2-3 أسابيع",
+                technologies: ["React Native", "Firebase", "AsyncStorage", "Push Notifications"],
+                features: ["إضافة/حذف المهام", "إشعارات", "تصنيف المهام", "مزامنة سحابية", "وضع مظلم"],
+                requirements: ["React Native أساسي", "Firebase"],
+                steps: ["تصميم UI", "إدارة الحالة", "الإشعارات", "المزامنة", "النشر"]
+            },
+            {
+                id: 12,
+                title: "تطبيق الطقس",
+                category: "mobile",
+                difficulty: "intermediate",
+                description: "تطبيق يعرض حالة الطقس مع خرائط وتنبيهات",
+                duration: "3-4 أسابيع",
+                technologies: ["Flutter", "Dart", "Weather API", "Google Maps", "Location Services"],
+                features: ["طقس دقيق", "خرائط تفاعلية", "تنبيهات", "تنبؤات طويلة", "واجهة جميلة"],
+                requirements: ["Flutter", "APIs", "Location Services"],
+                steps: ["تصميم UI", "ربط API", "الخرائط", "الإشعارات", "التحسين"]
+            },
+            {
+                id: 13,
+                title: "تطبيق لياقة بدنية",
+                category: "mobile",
+                difficulty: "intermediate",
+                description: "تطبيق لمتابعة التمارين واللياقة البدنية",
+                duration: "4-5 أسابيع",
+                technologies: ["React Native", "HealthKit", "Charts", "Firebase"],
+                features: ["تتبع التمارين", "خطط تدريب", "إحصائيات", "مقاطع فيديو", "تحديات"],
+                requirements: ["React Native", "Health APIs", "Charts"],
+                steps: ["تصميم التطبيق", "تتبع البيانات", "الخطط", "الإحصائيات", "النشر"]
+            },
+            {
+                id: 14,
+                title: "تطبيق توصيل طعام",
+                category: "mobile",
+                difficulty: "advanced",
+                description: "تطبيق كامل لتوصيل الطعام مع تتبع الطلبات",
+                duration: "8-10 أسابيع",
+                technologies: ["Flutter", "Firebase", "Google Maps", "Payment Gateway", "Push Notifications"],
+                features: ["قائمة المطاعم", "تتبع الطلبات", "دفع آمن", "تقييمات", "عروض"],
+                requirements: ["Flutter متقدم", "Maps APIs", "Payment APIs"],
+                steps: ["تصميم النظام", "تتبع GPS", "نظام الدفع", "الإشعارات", "التنفيذ"]
+            },
+            {
+                id: 15,
+                title: "تطبيق ميزانية شخصية",
+                category: "mobile",
+                difficulty: "beginner",
+                description: "تطبيق لإدارة الميزانية الشخصية والمصروفات",
+                duration: "2-3 أسابيع",
+                technologies: ["React Native", "AsyncStorage", "Charts", "Realm"],
+                features: ["تتبع المصروفات", "ميزانيات", "تقارير", "إشعارات", "تصدير البيانات"],
+                requirements: ["React Native", "Local Storage", "Charts"],
+                steps: ["تصميم UI", "إدارة البيانات", "الرسوم البيانية", "الإشعارات", "النشر"]
+            },
+            {
+                id: 16,
+                title: "تطبيق مدونة صوتية",
+                category: "mobile",
+                difficulty: "intermediate",
+                description: "تطبيق للاستماع للمدونات الصوتية",
+                duration: "4-5 أسابيع",
+                technologies: ["Flutter", "Audio Player", "Firebase", "Podcast APIs"],
+                features: ["تشغيل الصوت", "قوائم تشغيل", "تحميل للاستماع بدون إنترنت", "مشاركة", "إشعارات"],
+                requirements: ["Flutter", "Audio APIs", "Background Tasks"],
+                steps: ["مشغل الصوت", "قوائم التشغيل", "التحميل", "الخلفية", "التنفيذ"]
+            },
+            // === الذكاء الاصطناعي ===
+            {
+                id: 17,
+                title: "مساعد ذكي للمذاكرة",
+                category: "ai",
+                difficulty: "intermediate",
+                description: "مساعد ذكي يساعد في تنظيم المذاكرة وإنشاء اختبارات",
+                duration: "4-6 أسابيع",
+                technologies: ["Python", "TensorFlow", "Flask", "OpenAI API", "NLP"],
+                features: ["تنظيم المذاكرة", "إنشاء اختبارات", "تحليل الأداء", "توصيات", "ذكاء اصطناعي"],
+                requirements: ["Python", "ML أساسي", "APIs"],
+                steps: ["نموذج ML", "Backend API", "واجهة المستخدم", "التكامل", "التحسين"]
+            },
+            {
+                id: 18,
+                title: "نظام توصيات أفلام",
+                category: "ai",
+                difficulty: "intermediate",
+                description: "نظام توصيات ذكي للأفلام بناءً على التفضيلات",
+                duration: "3-4 أسابيع",
+                technologies: ["Python", "Scikit-learn", "Flask", "Movie Database API"],
+                features: ["توصيات ذكية", "تحليل المشاعر", "تصنيف تلقائي", "واجهة ويب"],
+                requirements: ["Python", "ML", "APIs"],
+                steps: ["جمع البيانات", "بناء النموذج", "API", "الواجهة", "التحسين"]
+            },
+            {
+                id: 19,
+                title: "محلل صور ذكي",
+                category: "ai",
+                difficulty: "advanced",
+                description: "تطبيق لتحليل الصور والتعرف على الأشياء",
+                duration: "6-8 أسابيع",
+                technologies: ["Python", "TensorFlow", "OpenCV", "Flask", "React"],
+                features: ["تعرف على الأشياء", "تحليل المشاعر", "وصف تلقائي", "بحث بالصورة"],
+                requirements: ["Deep Learning", "Computer Vision", "APIs"],
+                steps: ["تدريب النموذج", "API", "واجهة المستخدم", "التكامل", "التحسين"]
+            },
+            {
+                id: 20,
+                title: "روبوت محادثة ذكي",
+                category: "ai",
+                difficulty: "advanced",
+                description: "روبوت محادثة ذكي للدعم الفني",
+                duration: "6-8 أسابيع",
+                technologies: ["Python", "GPT API", "Flask", "WebSocket", "NLP"],
+                features: ["محادثة طبيعية", "فهم السياق", "تعلم من المحادثات", "دعم متعدد اللغات"],
+                requirements: ["NLP", "APIs", "WebSockets"],
+                steps: ["نموذج المحادثة", "Backend", "واجهة المستخدم", "التعلم", "التحسين"]
+            },
+            // === الألعاب ===
+            {
+                id: 21,
+                title: "لعبة الذاكرة",
+                category: "games",
+                difficulty: "beginner",
+                description: "لعبة تركيز وتذكر الصور مع نظام نقاط",
+                duration: "2-3 أسابيع",
+                technologies: ["HTML/CSS", "JavaScript", "Canvas API"],
+                features: ["مستويات متعددة", "نظام نقاط", "توقيت", "موسيقى", "تسجيل النتائج"],
+                requirements: ["JavaScript", "Canvas API"],
+                steps: ["تصميم اللعبة", "المنطق", "النقاط", "التصميم", "النشر"]
+            },
+            {
+                id: 22,
+                title: "لعبة Snake",
+                category: "games",
+                difficulty: "beginner",
+                description: "لعبة الأفعى الكلاسيكية مع تحسينات",
+                duration: "1-2 أسبوع",
+                technologies: ["HTML/CSS", "JavaScript", "Canvas"],
+                features: ["مستويات", "نقاط", "صعوبة متزايدة", "تسجيل النتائج"],
+                requirements: ["JavaScript أساسي"],
+                steps: ["منطق اللعبة", "التحكم", "النقاط", "التصميم", "النشر"]
+            },
+            {
+                id: 23,
+                title: "لعبة منصات 2D",
+                category: "games",
+                difficulty: "intermediate",
+                description: "لعبة منصات ثنائية الأبعاد مع فيزياء واقعية",
+                duration: "4-5 أسابيع",
+                technologies: ["Unity", "C#", "2D Physics"],
+                features: ["فيزياء واقعية", "مستويات متعددة", "أصوات", "تحسينات", "قادة"],
+                requirements: ["Unity", "C#", "Game Design"],
+                steps: ["تصميم المستويات", "الفيزياء", "التحكم", "الأصوات", "النشر"]
+            },
+            {
+                id: 24,
+                title: "لعبة ألغاز",
+                category: "games",
+                difficulty: "beginner",
+                description: "لعبة ألغاز تفاعلية مع مستويات متعددة",
+                duration: "2-3 أسابيع",
+                technologies: ["HTML/CSS", "JavaScript", "Canvas"],
+                features: ["ألغاز متنوعة", "مستويات", "تلميحات", "نقاط", "تسجيل"],
+                requirements: ["JavaScript"],
+                steps: ["تصميم الألغاز", "المنطق", "التلميحات", "التصميم", "النشر"]
+            },
+            // === أدوات المطورين ===
+            {
+                id: 25,
+                title: "أداة تحويل الصيغ",
+                category: "tools",
+                difficulty: "beginner",
+                description: "أداة لتحويل الصيغ بين أنظمة القياس المختلفة",
+                duration: "1-2 أسبوع",
+                technologies: ["HTML/CSS", "JavaScript", "Bootstrap"],
+                features: ["تحويلات متعددة", "واجهة سهلة", "حفظ النتائج", "تصدير"],
+                requirements: ["JavaScript أساسي"],
+                steps: ["تصميم الواجهة", "منطق التحويل", "التصميم", "النشر"]
+            },
+            {
+                id: 26,
+                title: "مولد كلمات مرور",
+                category: "tools",
+                difficulty: "beginner",
+                description: "أداة لتوليد كلمات مرور قوية وآمنة",
+                duration: "1 أسبوع",
+                technologies: ["HTML/CSS", "JavaScript"],
+                features: ["توليد قوي", "خيارات متعددة", "نسخ سريع", "فحص القوة"],
+                requirements: ["JavaScript"],
+                steps: ["الخوارزمية", "الواجهة", "النسخ", "النشر"]
+            },
+            {
+                id: 27,
+                title: "محرر كود متقدم",
+                category: "tools",
+                difficulty: "advanced",
+                description: "محرر كود متقدم مع syntax highlighting",
+                duration: "8-10 أسابيع",
+                technologies: ["React", "Monaco Editor", "Node.js", "WebSocket"],
+                features: ["Syntax highlighting", "Auto-complete", "Debugging", "Git integration", "Themes"],
+                requirements: ["React متقدم", "Editor APIs", "Git"],
+                steps: ["المحرر", "Syntax", "Auto-complete", "Git", "التنفيذ"]
+            },
+            {
+                id: 28,
+                title: "أداة تحليل API",
+                category: "tools",
+                difficulty: "intermediate",
+                description: "أداة لاختبار وتحليل APIs",
+                duration: "3-4 أسابيع",
+                technologies: ["React", "Axios", "Node.js", "GraphQL"],
+                features: ["اختبار APIs", "تحليل الاستجابات", "توثيق تلقائي", "مشاركة"],
+                requirements: ["React", "REST/GraphQL"],
+                steps: ["واجهة الاختبار", "التحليل", "التوثيق", "المشاركة", "النشر"]
+            },
+            // === البيانات والتحليلات ===
+            {
+                id: 29,
+                title: "لوحة تحليلات البيانات",
+                category: "data",
+                difficulty: "advanced",
+                description: "لوحة تحكم تفاعلية لتحليل وعرض البيانات",
+                duration: "6-8 أسابيع",
+                technologies: ["React", "D3.js", "Python", "FastAPI", "PostgreSQL"],
+                features: ["رسوم بيانية تفاعلية", "فلترة متقدمة", "تقارير", "تصدير", "Real-time"],
+                requirements: ["React", "D3.js", "Python", "APIs"],
+                steps: ["قاعدة البيانات", "Backend API", "الرسوم", "الفلترة", "التنفيذ"]
+            },
+            {
+                id: 30,
+                title: "نظام تتبع المبيعات",
+                category: "data",
+                difficulty: "intermediate",
+                description: "نظام لتتبع المبيعات مع تحليلات متقدمة",
+                duration: "5-6 أسابيع",
+                technologies: ["Vue.js", "Laravel", "MySQL", "Chart.js"],
+                features: ["تتبع المبيعات", "تقارير", "تنبؤات", "تصدير", "لوحة تحكم"],
+                requirements: ["Vue.js", "Laravel", "Charts"],
+                steps: ["قاعدة البيانات", "Backend", "التحليلات", "الواجهة", "التنفيذ"]
+            },
+            {
+                id: 31,
+                title: "منصة تحليل وسائل التواصل",
+                category: "data",
+                difficulty: "advanced",
+                description: "تحليل بيانات وسائل التواصل الاجتماعي",
+                duration: "8-10 أسابيع",
+                technologies: ["Python", "Pandas", "React", "Twitter API", "NLP"],
+                features: ["جمع البيانات", "تحليل المشاعر", "إحصائيات", "تقارير", "تنبؤات"],
+                requirements: ["Python متقدم", "APIs", "NLP", "React"],
+                steps: ["جمع البيانات", "المعالجة", "التحليل", "الواجهة", "التنفيذ"]
+            },
+            // === تطبيقات سطح المكتب ===
+            {
+                id: 32,
+                title: "مشغل موسيقى",
+                category: "desktop",
+                difficulty: "intermediate",
+                description: "تطبيق مشغل موسيقى مع واجهة جميلة",
+                duration: "3-4 أسابيع",
+                technologies: ["Electron", "React", "Node.js"],
+                features: ["تشغيل الموسيقى", "قوائم تشغيل", "Equalizer", "Themes", "Lyrics"],
+                requirements: ["Electron", "React", "Audio APIs"],
+                steps: ["مشغل الصوت", "الواجهة", "قوائم التشغيل", "الميزات", "النشر"]
+            },
+            {
+                id: 33,
+                title: "مدير ملفات متقدم",
+                category: "desktop",
+                difficulty: "intermediate",
+                description: "مدير ملفات مع ميزات متقدمة",
+                duration: "4-5 أسابيع",
+                technologies: ["Electron", "Vue.js", "Node.js"],
+                features: ["إدارة الملفات", "بحث متقدم", "معاينة", "مزامنة", "تشفير"],
+                requirements: ["Electron", "Vue.js", "File System"],
+                steps: ["إدارة الملفات", "البحث", "المعاينة", "الميزات", "النشر"]
+            },
+            {
+                id: 34,
+                title: "محرر صور",
+                category: "desktop",
+                difficulty: "advanced",
+                description: "محرر صور بسيط مع فلاتر وأدوات",
+                duration: "6-8 أسابيع",
+                technologies: ["Electron", "React", "Canvas API", "Image Processing"],
+                features: ["تحرير الصور", "فلاتر", "أدوات رسم", "حفظ متعدد", "معاينة"],
+                requirements: ["Electron", "Canvas", "Image Processing"],
+                steps: ["معالجة الصور", "الأدوات", "الفلاتر", "الحفظ", "النشر"]
+            },
+            // === مشاريع إضافية ===
+            {
+                id: 35,
+                title: "منصة تعليمية تفاعلية",
+                category: "web",
+                difficulty: "advanced",
+                description: "منصة تعليمية كاملة مع فيديو واختبارات تفاعلية",
+                duration: "10-12 أسبوع",
+                technologies: ["Next.js", "TypeScript", "PostgreSQL", "WebRTC", "Stripe"],
+                features: ["دروس فيديو", "اختبارات تفاعلية", "شهادات", "منتدى", "دفع"],
+                requirements: ["Next.js متقدم", "WebRTC", "Payment APIs"],
+                steps: ["البنية التحتية", "نظام الفيديو", "الاختبارات", "الشهادات", "التنفيذ"]
+            },
+            {
+                id: 36,
+                title: "تطبيق تتبع اللياقة",
+                category: "mobile",
+                difficulty: "intermediate",
+                description: "تطبيق شامل لتتبع اللياقة البدنية والصحة",
+                duration: "5-6 أسابيع",
+                technologies: ["React Native", "HealthKit", "Charts", "Firebase"],
+                features: ["تتبع الخطوات", "سجلات التمارين", "تحليل التغذية", "أهداف", "إحصائيات"],
+                requirements: ["React Native", "Health APIs"],
+                steps: ["تتبع البيانات", "التمارين", "التغذية", "الإحصائيات", "النشر"]
+            },
+            {
+                id: 37,
+                title: "نظام إدارة مكتبة",
+                category: "web",
+                difficulty: "intermediate",
+                description: "نظام لإدارة المكتبات مع إعارة الكتب",
+                duration: "4-5 أسابيع",
+                technologies: ["Laravel", "Vue.js", "MySQL", "PDF Generator"],
+                features: ["إدارة الكتب", "نظام الإعارة", "تقارير", "بحث متقدم", "إشعارات"],
+                requirements: ["Laravel", "Vue.js", "MySQL"],
+                steps: ["قاعدة البيانات", "Backend", "Frontend", "التقارير", "التنفيذ"]
+            },
+            {
+                id: 38,
+                title: "منصة عمل حر",
+                category: "web",
+                difficulty: "advanced",
+                description: "منصة للربط بين العملاء والمستقلين",
+                duration: "10-12 أسبوع",
+                technologies: ["MERN Stack", "Socket.io", "Stripe", "Redis"],
+                features: ["ملفات شخصية", "نشر مشاريع", "عروض أسعار", "نظام دفع", "تقييمات"],
+                requirements: ["MERN Stack", "Payment APIs", "Real-time"],
+                steps: ["البنية التحتية", "نظام المشاريع", "الدفع", "التقييمات", "التنفيذ"]
+            },
+            {
+                id: 39,
+                title: "تطبيق طقس متقدم",
+                category: "mobile",
+                difficulty: "intermediate",
+                description: "تطبيق طقس مع تنبؤات دقيقة وخرائط",
+                duration: "3-4 أسابيع",
+                technologies: ["Flutter", "Weather APIs", "Maps", "Charts"],
+                features: ["تنبؤات دقيقة", "خرائط", "إشعارات", "مخططات", "مواقع متعددة"],
+                requirements: ["Flutter", "Weather APIs", "Maps"],
+                steps: ["ربط APIs", "الخرائط", "الإشعارات", "المخططات", "النشر"]
+            },
+            {
+                id: 40,
+                title: "لعبة ألغاز متقدمة",
+                category: "games",
+                difficulty: "intermediate",
+                description: "لعبة ألغاز مع مستويات متعددة وتحديات",
+                duration: "4-5 أسابيع",
+                technologies: ["Unity", "C#", "2D Graphics"],
+                features: ["مستويات متعددة", "تحديات", "قادة", "إنجازات", "موسيقى"],
+                requirements: ["Unity", "C#", "Game Design"],
+                steps: ["تصميم المستويات", "المنطق", "التحديات", "الأصوات", "النشر"]
+            },
+            {
+                id: 41,
+                title: "أداة تحسين SEO",
+                category: "tools",
+                difficulty: "intermediate",
+                description: "أداة لتحليل وتحسين SEO للمواقع",
+                duration: "4-5 أسابيع",
+                technologies: ["React", "Node.js", "SEO APIs", "Charts"],
+                features: ["تحليل SEO", "توصيات", "تقارير", "تتبع", "مقارنات"],
+                requirements: ["React", "SEO Knowledge", "APIs"],
+                steps: ["التحليل", "التوصيات", "التقارير", "التتبع", "النشر"]
+            },
+            {
+                id: 42,
+                title: "منصة استثمار",
+                category: "web",
+                difficulty: "advanced",
+                description: "منصة للاستثمار مع تتبع المحافظ",
+                duration: "10-12 أسبوع",
+                technologies: ["Next.js", "TypeScript", "Financial APIs", "Charts"],
+                features: ["تتبع المحافظ", "تحليلات", "أخبار", "تنبؤات", "تداول"],
+                requirements: ["Next.js", "Financial APIs", "Charts"],
+                steps: ["البنية التحتية", "APIs", "التحليلات", "التداول", "التنفيذ"]
+            },
+            {
+                id: 43,
+                title: "تطبيق طلبات طعام",
+                category: "mobile",
+                difficulty: "advanced",
+                description: "تطبيق كامل لطلب الطعام مع تتبع",
+                duration: "8-10 أسابيع",
+                technologies: ["React Native", "Firebase", "Maps", "Payment"],
+                features: ["قائمة المطاعم", "تتبع الطلبات", "دفع", "تقييمات", "عروض"],
+                requirements: ["React Native", "Maps", "Payment"],
+                steps: ["التصميم", "التتبع", "الدفع", "التقييمات", "النشر"]
+            },
+            {
+                id: 44,
+                title: "نظام إدارة مستشفى",
+                category: "web",
+                difficulty: "advanced",
+                description: "نظام شامل لإدارة المستشفيات",
+                duration: "12-16 أسبوع",
+                technologies: ["Laravel", "Vue.js", "MySQL", "PDF", "Charts"],
+                features: ["إدارة المرضى", "المواعيد", "السجلات", "تقارير", "إشعارات"],
+                requirements: ["Laravel متقدم", "Vue.js", "Complex Logic"],
+                steps: ["التحليل", "قاعدة البيانات", "Backend", "Frontend", "التنفيذ"]
+            },
+            {
+                id: 45,
+                title: "منصة بث مباشر",
+                category: "web",
+                difficulty: "advanced",
+                description: "منصة للبث المباشر مع تفاعل",
+                duration: "10-12 أسبوع",
+                technologies: ["React", "Node.js", "WebRTC", "Socket.io", "AWS"],
+                features: ["بث مباشر", "دردشة", "تسجيل", "مشاركة", "إشعارات"],
+                requirements: ["WebRTC", "Real-time", "AWS"],
+                steps: ["البث", "التفاعل", "التسجيل", "المشاركة", "التنفيذ"]
+            },
+            {
+                id: 46,
+                title: "تطبيق ملاحظات متقدم",
+                category: "mobile",
+                difficulty: "intermediate",
+                description: "تطبيق ملاحظات مع ميزات متقدمة",
+                duration: "3-4 أسابيع",
+                technologies: ["Flutter", "SQLite", "Markdown", "Sync"],
+                features: ["ملاحظات", "Markdown", "مزامنة", "بحث", "تصنيف"],
+                requirements: ["Flutter", "Local DB", "Sync"],
+                steps: ["الواجهة", "قاعدة البيانات", "المزامنة", "البحث", "النشر"]
+            },
+            {
+                id: 47,
+                title: "لعبة RPG بسيطة",
+                category: "games",
+                difficulty: "intermediate",
+                description: "لعبة RPG ثنائية الأبعاد",
+                duration: "6-8 أسابيع",
+                technologies: ["Unity", "C#", "2D Graphics"],
+                features: ["شخصيات", "مهام", "قتال", "مستويات", "مخزون"],
+                requirements: ["Unity", "C#", "Game Design"],
+                steps: ["الشخصيات", "النظام", "المهام", "القتال", "النشر"]
+            },
+            {
+                id: 48,
+                title: "أداة تحليل أداء الموقع",
+                category: "tools",
+                difficulty: "advanced",
+                description: "أداة لتحليل أداء المواقع",
+                duration: "5-6 أسابيع",
+                technologies: ["React", "Node.js", "Performance APIs", "Charts"],
+                features: ["تحليل الأداء", "توصيات", "تقارير", "مقارنات", "تتبع"],
+                requirements: ["React", "Performance APIs"],
+                steps: ["التحليل", "التوصيات", "التقارير", "التتبع", "النشر"]
+            },
+            {
+                id: 49,
+                title: "منصة تعليم برمجي",
+                category: "web",
+                difficulty: "advanced",
+                description: "منصة تعليمية متخصصة في البرمجة",
+                duration: "12-16 أسبوع",
+                technologies: ["Next.js", "TypeScript", "Docker", "Code Execution"],
+                features: ["دروس", "محرر كود", "تنفيذ", "تقييم", "شهادات"],
+                requirements: ["Next.js", "Docker", "Code Execution"],
+                steps: ["البنية", "المحرر", "التنفيذ", "التقييم", "التنفيذ"]
+            },
+            {
+                id: 50,
+                title: "تطبيق إدارة الوقت",
+                category: "mobile",
+                difficulty: "beginner",
+                description: "تطبيق لإدارة الوقت والإنتاجية",
+                duration: "2-3 أسابيع",
+                technologies: ["React Native", "AsyncStorage", "Charts"],
+                features: ["Pomodoro", "تتبع الوقت", "إحصائيات", "أهداف", "إشعارات"],
+                requirements: ["React Native", "Local Storage"],
+                steps: ["الواجهة", "المنطق", "الإحصائيات", "الإشعارات", "النشر"]
+            }
+        ];
+
+        // متغيرات عامة
+        let filteredProjects = [...projectsData];
+        let currentCategory = 'all';
+        let currentDifficulty = 'all';
+        let searchQuery = '';
+
+        // تحديث العدد الإجمالي
+        document.getElementById('total-projects').textContent = projectsData.length + '+';
+
+        // تهيئة الصفحة
+        function init() {
+            renderProjects();
+            setupEventListeners();
+            updateResultsCount();
+        }
+
+        // عرض المشاريع
+        function renderProjects() {
+            const grid = document.getElementById('projects-grid');
+            grid.innerHTML = '';
+
+            if (filteredProjects.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <i class="fas fa-search text-6xl text-gray-600 mb-4"></i>
+                        <p class="text-gray-400 text-xl">لم يتم العثور على مشاريع</p>
+                        <p class="text-gray-500 mt-2">جرب تغيير الفلاتر أو البحث</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filteredProjects.forEach(project => {
+                const difficultyColors = {
+                    'beginner': 'bg-green-900 text-green-300',
+                    'intermediate': 'bg-yellow-900 text-yellow-300',
+                    'advanced': 'bg-red-900 text-red-300'
+                };
+
+                const difficultyText = {
+                    'beginner': 'مبتدئ',
+                    'intermediate': 'متوسط',
+                    'advanced': 'متقدم'
+                };
+
+                const card = document.createElement('div');
+                card.className = 'project-card bg-gray-800 rounded-xl p-6 fade-in';
+                card.setAttribute('data-category', project.category);
+                card.setAttribute('data-difficulty', project.difficulty);
+                
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-lg font-bold text-white">${project.title}</h3>
+                        <span class="difficulty-badge ${difficultyColors[project.difficulty]}">${difficultyText[project.difficulty]}</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">${project.description}</p>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-sm font-semibold text-blue-400 mb-2">التقنيات المقترحة:</h4>
+                        <div class="flex flex-wrap">
+                            ${project.technologies.map(tech => 
+                                `<span class="tech-badge bg-blue-900 text-blue-300">${tech}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">⏱️ ${project.duration}</span>
+                        <button class="view-details text-blue-400 hover:text-blue-300 text-sm" data-id="${project.id}">
+                            التفاصيل <i class="fas fa-arrow-left mr-1"></i>
+                        </button>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+
+            // إضافة مستمعي الأحداث لأزرار التفاصيل
+            document.querySelectorAll('.view-details').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const projectId = parseInt(btn.getAttribute('data-id'));
+                    showProjectDetails(projectId);
+                });
+            });
+        }
+
+        // عرض تفاصيل المشروع
+        function showProjectDetails(projectId) {
+            const project = projectsData.find(p => p.id === projectId);
+            if (!project) return;
+
+            const modal = document.getElementById('project-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+
+            modalTitle.textContent = project.title;
+
+            const difficultyColors = {
+                'beginner': 'bg-green-900 text-green-300',
+                'intermediate': 'bg-yellow-900 text-yellow-300',
+                'advanced': 'bg-red-900 text-red-300'
+            };
+
+            const difficultyText = {
+                'beginner': 'مبتدئ',
+                'intermediate': 'متوسط',
+                'advanced': 'متقدم'
+            };
+
+            modalContent.innerHTML = `
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <span class="difficulty-badge ${difficultyColors[project.difficulty]} px-4 py-2">${difficultyText[project.difficulty]}</span>
+                        <span class="text-gray-400"><i class="fas fa-clock ml-2"></i>${project.duration}</span>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-3">الوصف</h3>
+                        <p class="text-gray-300">${project.description}</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-3">التقنيات المستخدمة</h3>
+                        <div class="flex flex-wrap gap-2">
+                            ${project.technologies.map(tech => 
+                                `<span class="tech-badge bg-blue-900 text-blue-300">${tech}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-3">الميزات الرئيسية</h3>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-3">المتطلبات الأساسية</h3>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            ${project.requirements.map(req => `<li>${req}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-3">خطوات التنفيذ</h3>
+                        <ol class="list-decimal list-inside text-gray-300 space-y-2">
+                            ${project.steps.map((step, index) => `<li>${step}</li>`).join('')}
+                        </ol>
+                    </div>
+
+                    <div class="pt-4 border-t border-gray-700">
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors w-full">
+                            <i class="fas fa-rocket ml-2"></i>ابدأ المشروع الآن
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // إغلاق Modal
+        function closeModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // فلترة المشاريع
+        function filterProjects() {
+            filteredProjects = projectsData.filter(project => {
+                const matchesCategory = currentCategory === 'all' || project.category === currentCategory;
+                const matchesDifficulty = currentDifficulty === 'all' || project.difficulty === currentDifficulty;
+                const matchesSearch = searchQuery === '' || 
+                    project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    project.technologies.some(tech => tech.toLowerCase().includes(searchQuery.toLowerCase()));
+
+                return matchesCategory && matchesDifficulty && matchesSearch;
+            });
+
+            renderProjects();
+            updateResultsCount();
+        }
+
+        // تحديث عدد النتائج
+        function updateResultsCount() {
+            document.getElementById('visible-count').textContent = filteredProjects.length;
+            document.getElementById('total-count').textContent = projectsData.length;
+        }
+
+        // إعداد مستمعي الأحداث
+        function setupEventListeners() {
+            // Mobile menu
+            document.getElementById('mobile-menu-button').addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Category filters
+            document.querySelectorAll('.category-filter').forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelectorAll('.category-filter').forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    currentCategory = button.getAttribute('data-category');
+                    filterProjects();
+                });
+            });
+
+            // Difficulty filters
+            document.querySelectorAll('.difficulty-filter').forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelectorAll('.difficulty-filter').forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    currentDifficulty = button.getAttribute('data-difficulty');
+                    filterProjects();
+                });
+            });
+
+            // Search
+            const searchInput = document.getElementById('search-input');
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value;
+                filterProjects();
+            });
+
+            // Close modal
+            document.getElementById('close-modal').addEventListener('click', closeModal);
+            document.getElementById('project-modal').addEventListener('click', (e) => {
+                if (e.target.id === 'project-modal') {
+                    closeModal();
+                }
+            });
+
+            // ESC to close modal
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        }
+
+        // بدء التطبيق
+        init();
+    </script>
+</body>
+</html>

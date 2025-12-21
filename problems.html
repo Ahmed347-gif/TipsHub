@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مركز حل المشاكل البرمجية | TipsHub Problem Solver</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Prism for code highlighting -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-rust.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-swift.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-kotlin.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+    body { font-family: 'Cairo', sans-serif; }
+    .fade-in { animation: fadeIn .7s ease-in; }
+    @keyframes fadeIn { from {opacity:0; transform: translateY(12px);} to {opacity:1; transform:none;} }
+    /* override prism direction for rtl modal */
+    pre[class*="language-"] { direction: ltr; text-align: left; }
+    .tag { font-size: 0.75rem; }
+    .language-card { transition: all 0.3s ease; }
+    .language-card:hover { transform: translateY(-5px); }
+    .problem-card { transition: all 0.3s ease; }
+    .problem-card:hover { transform: translateY(-3px); }
+    .active-language { border-color: #3b82f6; box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3); }
+    .filter-section { transition: all 0.3s ease; }
+    .mobile-filter-btn { display: none; }
+    .floating-action-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 100;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .floating-action-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4);
+    }
+    .progress-ring {
+      transform: rotate(-90deg);
+    }
+    .difficulty-badge {
+      position: relative;
+      overflow: hidden;
+    }
+    .difficulty-badge::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      transform: translateX(-100%);
+    }
+    .difficulty-badge:hover::after {
+      animation: shimmer 1.5s infinite;
+    }
+    @keyframes shimmer {
+      100% { transform: translateX(100%); }
+    }
+    .search-highlight {
+      background-color: rgba(255, 255, 0, 0.3);
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+    .loading-spinner {
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #3b82f6;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @media (max-width: 768px) {
+      .mobile-filter-btn { display: flex; }
+      .desktop-filters { display: none; }
+      .floating-action-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 70px;
+        left: 20px;
+      }
+    }
+  </style>
+</head>
+<body class="bg-[#0f172a] text-gray-100 min-h-screen">
+
+  <!-- NAV -->
+  <nav class="bg-gray-800 shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="index.html" class="flex items-center text-2xl font-bold text-blue-400">
+          <i class="fas fa-code ml-3"></i>
+          <span>TipsHub</span>
+        </a>
+
+        <div class="hidden md:flex items-center space-x-6 space-x-reverse">
+          <a href="index.html" class="text-gray-300 hover:text-blue-300 transition-colors">الرئيسية</a>
+          <a href="roadmaps.html" class="text-gray-300 hover:text-blue-300 transition-colors">خرائط التعلم</a>
+          <a href="problems.html" class="text-blue-400 font-semibold border-b-2 border-blue-400 pb-1">حل المشاكل</a>
+          <a href="projects.html" class="text-gray-300 hover:text-blue-300 transition-colors">المشاريع</a>
+          <a href="interview.html" class="text-gray-300 hover:text-blue-300 transition-colors">المقابلات</a>
+        </div>
+
+        <div class="flex items-center space-x-4 space-x-reverse">
+          <div class="relative hidden md:block">
+            <input type="text" id="globalSearch" placeholder="ابحث عن مشكلة..." class="bg-gray-700 text-white rounded-lg px-4 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500 w-40 md:w-64 transition-all">
+            <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
+          </div>
+          
+          <div class="md:hidden">
+            <button id="mobile-btn" class="text-gray-300 p-2 rounded-lg hover:bg-gray-700 transition-colors">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-700 border-t border-gray-600">
+      <div class="px-4 py-3">
+        <div class="relative mb-4">
+          <input type="text" placeholder="ابحث عن مشكلة..." class="bg-gray-600 text-white rounded-lg px-4 py-2 pr-10 w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
+        </div>
+        <a href="index.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-600 rounded-lg transition-colors">الرئيسية</a>
+        <a href="roadmaps.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-600 rounded-lg transition-colors">خرائط التعلم</a>
+        <a href="problems.html" class="block px-4 py-2 text-blue-300 bg-blue-900/20 rounded-lg">حل المشاكل</a>
+        <a href="projects.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-600 rounded-lg transition-colors">المشاريع</a>
+        <a href="interview.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-600 rounded-lg transition-colors">المقابلات</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 py-16 relative overflow-hidden">
+    <div class="absolute inset-0 bg-black opacity-20"></div>
+    <div class="absolute top-0 left-0 w-full h-full">
+      <div class="absolute top-10 left-10 w-20 h-20 bg-blue-500 rounded-full opacity-20 animate-pulse"></div>
+      <div class="absolute top-40 right-20 w-16 h-16 bg-purple-500 rounded-full opacity-30 animate-pulse" style="animation-delay: 0.5s"></div>
+      <div class="absolute bottom-20 left-1/4 w-24 h-24 bg-indigo-500 rounded-full opacity-25 animate-pulse" style="animation-delay: 1s"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 text-center relative z-10 fade-in">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">مركز حل المشاكل البرمجية</h1>
+      <p class="text-gray-300 max-w-3xl mx-auto text-lg leading-relaxed">
+        في TipsHub ستجد حلولًا مفصلة لأكثر من 200 مشكلة في 12 لغة برمجة مختلفة،
+        مُرتبة حسب اللغة مع كود قبل وبعد الحل وشرح السبب خطوة بخطوة.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <button id="viewAllProblems" class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg flex items-center">
+          <i class="fas fa-list ml-2"></i>عرض جميع المشاكل
+        </button>
+        <button id="viewFavorites" class="bg-transparent border border-white text-white hover:bg-white hover:text-blue-600 px-6 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 flex items-center">
+          <i class="fas fa-heart ml-2"></i>المشاكل المفضلة
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Statistics Section -->
+      <section class="mb-12 fade-in">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
+          <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-4 md:p-6 text-center shadow-lg">
+            <div class="text-2xl md:text-3xl font-bold text-white mb-2" id="totalLanguages">12</div>
+            <div class="text-blue-100 text-sm md:text-base">لغة برمجة</div>
+          </div>
+          <div class="bg-gradient-to-r from-green-600 to-green-700 rounded-xl p-4 md:p-6 text-center shadow-lg">
+            <div class="text-2xl md:text-3xl font-bold text-white mb-2" id="totalProblems">200+</div>
+            <div class="text-green-100 text-sm md:text-base">مشكلة لكل لغة</div>
+          </div>
+          <div class="bg-gradient-to-r from-purple-600 to-purple-700 rounded-xl p-4 md:p-6 text-center shadow-lg">
+            <div class="text-2xl md:text-3xl font-bold text-white mb-2" id="totalCategories">30+</div>
+            <div class="text-purple-100 text-sm md:text-base">تصنيف مختلف</div>
+          </div>
+          <div class="bg-gradient-to-r from-orange-600 to-orange-700 rounded-xl p-4 md:p-6 text-center shadow-lg">
+            <div class="text-2xl md:text-3xl font-bold text-white mb-2" id="totalSolutions">2400+</div>
+            <div class="text-orange-100 text-sm md:text-base">حل شامل</div>
+          </div>
+        </div>
+        
+        <!-- Progress Section -->
+        <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+          <h3 class="text-lg font-bold text-white mb-4 text-center">تقدمك في حل المشاكل</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="flex flex-col items-center">
+              <div class="relative w-24 h-24 mb-2">
+                <svg class="w-24 h-24" viewBox="0 0 36 36">
+                  <path class="text-gray-700" d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none" stroke="currentColor" stroke-width="3"/>
+                  <path class="text-blue-500" d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="25, 100"/>
+                  <text x="18" y="20.5" class="text-sm font-bold fill-white text-center" text-anchor="middle">40%</text>
+                </svg>
+              </div>
+              <p class="text-gray-300 text-sm">المشاكل المحلولة</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="relative w-24 h-24 mb-2">
+                <svg class="w-24 h-24" viewBox="0 0 36 36">
+                  <path class="text-gray-700" d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none" stroke="currentColor" stroke-width="3"/>
+                  <path class="text-green-500" d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="60, 100"/>
+                  <text x="18" y="20.5" class="text-sm font-bold fill-white text-center" text-anchor="middle">80%</text>
+                </svg>
+              </div>
+              <p class="text-gray-300 text-sm">مستوى الفهم</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="relative w-24 h-24 mb-2">
+                <svg class="w-24 h-24" viewBox="0 0 36 36">
+                  <path class="text-gray-700" d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none" stroke="currentColor" stroke-width="3"/>
+                  <path class="text-purple-500" d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="40, 100"/>
+                  <text x="18" y="20.5" class="text-sm font-bold fill-white text-center" text-anchor="middle">60%</text>
+                </svg>
+              </div>
+              <p class="text-gray-300 text-sm">التقدم العام</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Languages Section -->
+      <section id="languagesSection" class="mb-12 fade-in">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-2xl font-bold">اختر لغة البرمجة</h2>
+          <div class="flex items-center space-x-2 space-x-reverse">
+            <button id="sortLanguages" class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-2 rounded-lg transition-colors text-sm flex items-center">
+              <i class="fas fa-sort ml-1"></i>ترتيب
+            </button>
+            <button id="viewMode" class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-2 rounded-lg transition-colors text-sm flex items-center">
+              <i class="fas fa-th-large ml-1"></i>عرض الشبكة
+            </button>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4" id="languagesGrid">
+          <!-- سيتم ملء كروت اللغات ديناميكيًا -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Floating Action Button -->
+  <div class="floating-action-btn" id="scrollToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- Suggestion Form -->
+  <section class="py-12 bg-gray-800 mt-8">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-2xl font-bold mb-6 text-center">اقتراح مشكلة جديدة</h2>
+      <form id="suggestionForm" class="bg-gray-700 rounded-xl p-6 shadow-lg">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label for="problemTitle" class="block text-gray-300 mb-2">عنوان المشكلة</label>
+            <input type="text" id="problemTitle" class="w-full bg-gray-800 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" required>
+          </div>
+          <div>
+            <label for="problemLanguage" class="block text-gray-300 mb-2">لغة البرمجة</label>
+            <select id="problemLanguage" class="w-full bg-gray-800 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" required>
+              <option value="">اختر اللغة</option>
+              <option value="JavaScript">JavaScript</option>
+              <option value="Python">Python</option>
+              <option value="Java">Java</option>
+              <option value="C++">C++</option>
+              <option value="PHP">PHP</option>
+              <option value="SQL">SQL</option>
+           
+            </select>
+          </div>
+        </div>
+        
+        <div class="mb-4">
+          <label for="problemDescription" class="block text-gray-300 mb-2">وصف المشكلة</label>
+          <textarea id="problemDescription" rows="3" class="w-full bg-gray-800 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" required></textarea>
+        </div>
+        
+        <div class="mb-4">
+          <label for="problemSolution" class="block text-gray-300 mb-2">الحل المقترح</label>
+          <textarea id="problemSolution" rows="3" class="w-full bg-gray-800 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" required></textarea>
+        </div>
+        
+        <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition-all transform hover:scale-[1.02] flex items-center justify-center">
+          <i class="fas fa-paper-plane ml-2"></i>إرسال الاقتراح
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 py-8 mt-8">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h4 class="text-blue-400 text-xl font-semibold mb-2"><i class="fas fa-code ml-2"></i>TipsHub Problem Solver</h4>
+      <p class="text-gray-400">مركز متكامل لحل المشاكل البرمجية • أكثر من 200 مشكلة لكل لغة • © 2025</p>
+      <div class="flex justify-center space-x-4 space-x-reverse mt-4">
+        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // قاعدة بيانات شاملة للمشاكل البرمجية
+    const problemsData = {
+      "JavaScript": [
+        {
+          id: 1,
+          title: "Cannot read property 'x' of undefined",
+          category: "Runtime Error",
+          difficulty: "Beginner",
+          description: "هذا الخطأ يحدث عند محاولة الوصول إلى خاصية لمتغير غير معرف.",
+          cause: "المتغير غير معرف أو لم يتم تهيئته بشكل صحيح.",
+          solution: {
+            before: "console.log(user.name);",
+            after: "console.log(user?.name || 'Guest');"
+          }
+        },
+        {
+          id: 2,
+          title: "SyntaxError: Unexpected token",
+          category: "Syntax",
+          difficulty: "Beginner",
+          description: "يحدث هذا الخطأ عندما يكون هناك خطأ في بناء الجملة، مثل الأقواس غير المغلقة أو الفواصل المنقوطة الناقصة.",
+          cause: "بناء الجملة غير صحيح أو هناك خطأ مطبعي.",
+          solution: {
+            before: "function myFunction() {\n  console.log('Hello World')\n}",
+            after: "function myFunction() {\n  console.log('Hello World');\n}"
+          }
+        },
+        {
+          id: 3,
+          title: "TypeError: undefined is not a function",
+          category: "Runtime Error",
+          difficulty: "Intermediate",
+          description: "يحدث هذا الخطأ عند محاولة استدعاء دالة غير معرفة.",
+          cause: "الدالة غير معرفة أو تم تعريفها بشكل غير صحيح.",
+          solution: {
+            before: "let myFunc = undefined;\nmyFunc();",
+            after: "let myFunc = function() {\n  console.log('Function called');\n};\nmyFunc();"
+          }
+        },
+        {
+          id: 4,
+          title: "ReferenceError: variable is not defined",
+          category: "Runtime Error",
+          difficulty: "Beginner",
+          description: "يحدث عند محاولة استخدام متغير غير معرف.",
+          cause: "المتغير لم يتم تعريفه باستخدام var, let, أو const.",
+          solution: {
+            before: "console.log(myVar);",
+            after: "let myVar = 'Hello';\nconsole.log(myVar);"
+          }
+        },
+        {
+          id: 5,
+          title: "Uncaught TypeError: Cannot read property 'length' of null",
+          category: "Runtime Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند محاولة الوصول إلى خاصية كائن null.",
+          cause: "الكائن يساوي null بدلاً من undefined.",
+          solution: {
+            before: "let arr = null;\nconsole.log(arr.length);",
+            after: "let arr = null;\nconsole.log(arr?.length || 0);"
+          }
+        },
+        {
+          id: 6,
+          title: "Uncaught RangeError: Maximum call stack size exceeded",
+          category: "Runtime Error",
+          difficulty: "Advanced",
+          description: "يحدث عند وجود دالة تستدعي نفسها بشكل لا نهائي.",
+          cause: "عدم وجود شرط لإيقاف الاستدعاء الذاتي.",
+          solution: {
+            before: "function countdown(n) {\n  console.log(n);\n  countdown(n - 1);\n}",
+            after: "function countdown(n) {\n  if (n <= 0) return;\n  console.log(n);\n  countdown(n - 1);\n}"
+          }
+        },
+        {
+          id: 7,
+          title: "Promise rejection not handled",
+          category: "Async",
+          difficulty: "Intermediate",
+          description: "يحدث عند رفض Promise دون معالجة الخطأ.",
+          cause: "عدم استخدام catch() أو try-catch مع async/await.",
+          solution: {
+            before: "fetch('/api/data').then(res => res.json());",
+            after: "fetch('/api/data')\n  .then(res => res.json())\n  .catch(err => console.error('Error:', err));"
+          }
+        },
+        {
+          id: 8,
+          title: "this is undefined in arrow function",
+          category: "Scope",
+          difficulty: "Intermediate",
+          description: "this لا يشير إلى الكائن المتوقع في arrow function.",
+          cause: "Arrow functions لا تربط this الخاص بها.",
+          solution: {
+            before: "const obj = {\n  name: 'Test',\n  getName: () => this.name\n};",
+            after: "const obj = {\n  name: 'Test',\n  getName() { return this.name; }\n};"
+          }
+        },
+        {
+          id: 9,
+          title: "Closure variable issue in loop",
+          category: "Scope",
+          difficulty: "Advanced",
+          description: "المتغير في الحلقة يحتفظ بقيمة التكرار الأخير.",
+          cause: "جميع الدوال تشير إلى نفس المتغير في scope الخارجي.",
+          solution: {
+            before: "for (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 100);\n}",
+            after: "for (let i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 100);\n}"
+          }
+        },
+        {
+          id: 10,
+          title: "NaN comparison issues",
+          category: "Logic",
+          difficulty: "Intermediate",
+          description: "NaN لا يساوي نفسه عند المقارنة.",
+          cause: "NaN !== NaN دائماً صحيح في JavaScript.",
+          solution: {
+            before: "if (result === NaN) { console.log('Not a number'); }",
+            after: "if (isNaN(result)) { console.log('Not a number'); }"
+          }
+        },
+        {
+          id: 11,
+          title: "Array mutation in React",
+          category: "React",
+          difficulty: "Intermediate",
+          description: "تعديل المصفوفة مباشرة لا يحدث re-render.",
+          cause: "React لا يكتشف التغييرات في المصفوفات المعدلة مباشرة.",
+          solution: {
+            before: "const [items, setItems] = useState([1,2,3]);\nitems.push(4);",
+            after: "const [items, setItems] = useState([1,2,3]);\nsetItems([...items, 4]);"
+          }
+        },
+        {
+          id: 12,
+          title: "Event listener memory leak",
+          category: "Memory",
+          difficulty: "Advanced",
+          description: "عدم إزالة event listeners يسبب تسرب الذاكرة.",
+          cause: "عدم استخدام removeEventListener عند تنظيف المكون.",
+          solution: {
+            before: "window.addEventListener('scroll', handleScroll);",
+            after: "window.addEventListener('scroll', handleScroll);\n// في cleanup:\nwindow.removeEventListener('scroll', handleScroll);"
+          }
+        },
+        {
+          id: 13,
+          title: "JSON.parse error handling",
+          category: "Error Handling",
+          difficulty: "Beginner",
+          description: "JSON.parse يرمي خطأ عند بيانات JSON غير صحيحة.",
+          cause: "عدم استخدام try-catch عند تحليل JSON.",
+          solution: {
+            before: "const data = JSON.parse(jsonString);",
+            after: "try {\n  const data = JSON.parse(jsonString);\n} catch (e) {\n  console.error('Invalid JSON:', e);\n}"
+          }
+        },
+        {
+          id: 14,
+          title: "Strict equality vs loose equality",
+          category: "Logic",
+          difficulty: "Beginner",
+          description: "== قد يعطي نتائج غير متوقعة بسبب type coercion.",
+          cause: "استخدام == بدلاً من ===.",
+          solution: {
+            before: "if (x == 5) { console.log('Equal'); }",
+            after: "if (x === 5) { console.log('Equal'); }"
+          }
+        },
+        {
+          id: 15,
+          title: "Async function not awaiting",
+          category: "Async",
+          difficulty: "Intermediate",
+          description: "الدالة async لا تنتظر Promise قبل المتابعة.",
+          cause: "نسيان استخدام await.",
+          solution: {
+            before: "async function getData() {\n  fetch('/api/data');\n}",
+            after: "async function getData() {\n  const response = await fetch('/api/data');\n  return response.json();\n}"
+          }
+        },
+        {
+          id: 16,
+          title: "Object.assign shallow copy",
+          category: "Objects",
+          difficulty: "Intermediate",
+          description: "Object.assign يقوم بنسخ سطحية فقط.",
+          cause: "الكائنات المتداخلة لا تُنسخ بشكل عميق.",
+          solution: {
+            before: "const copy = Object.assign({}, original);",
+            after: "const copy = JSON.parse(JSON.stringify(original));\n// أو استخدام structuredClone() في المتصفحات الحديثة"
+          }
+        },
+        {
+          id: 17,
+          title: "setTimeout/setInterval not cleared",
+          category: "Memory",
+          difficulty: "Intermediate",
+          description: "عدم مسح timers يسبب استمرار التنفيذ.",
+          cause: "عدم استخدام clearTimeout/clearInterval.",
+          solution: {
+            before: "setTimeout(() => {}, 1000);",
+            after: "const timer = setTimeout(() => {}, 1000);\n// لاحقاً:\nclearTimeout(timer);"
+          }
+        },
+        {
+          id: 18,
+          title: "Module not found error",
+          category: "Modules",
+          difficulty: "Beginner",
+          description: "لا يمكن العثور على الوحدة المستوردة.",
+          cause: "مسار خاطئ أو اسم ملف غير صحيح.",
+          solution: {
+            before: "import { func } from './utils';",
+            after: "import { func } from './utils.js';\n// تأكد من المسار الصحيح وامتداد الملف"
+          }
+        },
+        {
+          id: 19,
+          title: "CORS error in fetch",
+          category: "Network",
+          difficulty: "Intermediate",
+          description: "خطأ CORS عند طلب API من domain مختلف.",
+          cause: "الخادم لا يسمح بطلبات من origin مختلف.",
+          solution: {
+            before: "fetch('https://api.example.com/data');",
+            after: "// على الخادم: إضافة CORS headers\n// Access-Control-Allow-Origin: *\n// أو استخدام proxy"
+          }
+        },
+        {
+          id: 20,
+          title: "Hoisting confusion with let/const",
+          category: "Scope",
+          difficulty: "Intermediate",
+          description: "محاولة استخدام متغير قبل تعريفه مع let/const.",
+          cause: "let/const لا يتم hoisting بنفس طريقة var.",
+          solution: {
+            before: "console.log(x);\nlet x = 5;",
+            after: "let x = 5;\nconsole.log(x);"
+          }
+        }
+      ],
+      "Python": [
+        {
+          id: 1,
+          title: "IndentationError: expected an indented block",
+          category: "Syntax",
+          difficulty: "Beginner",
+          description: "يحدث هذا الخطأ في بايثون عندما يكون هناك خطأ في المسافات البادئة.",
+          cause: "استخدام عدد غير صحيح من المسافات أو التبويبات.",
+          solution: {
+            before: "def my_function():\nprint('Hello World')",
+            after: "def my_function():\n    print('Hello World')"
+          }
+        },
+        {
+          id: 2,
+          title: "NameError: name 'x' is not defined",
+          category: "Runtime Error",
+          difficulty: "Beginner",
+          description: "يحدث هذا الخطأ عند استخدام متغير غير معرف.",
+          cause: "المتغير لم يتم تعريفه أو تمت الإشارة إليه قبل تعريفه.",
+          solution: {
+            before: "print(x)",
+            after: "x = 5\nprint(x)"
+          }
+        },
+        {
+          id: 3,
+          title: "TypeError: unsupported operand type(s)",
+          category: "Type Error",
+          difficulty: "Beginner",
+          description: "يحدث عند محاولة إجراء عملية على أنواع بيانات غير متوافقة.",
+          cause: "محاولة جمع أو ضرب أنواع مختلفة مثل string و int.",
+          solution: {
+            before: "result = '5' + 3",
+            after: "result = int('5') + 3\n# أو\nresult = '5' + str(3)"
+          }
+        },
+        {
+          id: 4,
+          title: "IndexError: list index out of range",
+          category: "Runtime Error",
+          difficulty: "Beginner",
+          description: "يحدث عند محاولة الوصول إلى فهرس غير موجود في القائمة.",
+          cause: "الفهرس أكبر من طول القائمة أو سالب.",
+          solution: {
+            before: "my_list = [1, 2, 3]\nprint(my_list[5])",
+            after: "my_list = [1, 2, 3]\nif len(my_list) > 5:\n    print(my_list[5])\nelse:\n    print('Index out of range')"
+          }
+        },
+        {
+          id: 5,
+          title: "KeyError when accessing dictionary",
+          category: "Runtime Error",
+          difficulty: "Beginner",
+          description: "يحدث عند محاولة الوصول إلى مفتاح غير موجود في القاموس.",
+          cause: "المفتاح غير موجود في القاموس.",
+          solution: {
+            before: "my_dict = {'a': 1}\nprint(my_dict['b'])",
+            after: "my_dict = {'a': 1}\nprint(my_dict.get('b', 'Not found'))\n# أو\nif 'b' in my_dict:\n    print(my_dict['b'])"
+          }
+        },
+        {
+          id: 6,
+          title: "AttributeError: object has no attribute",
+          category: "Runtime Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند محاولة الوصول إلى خاصية غير موجودة في الكائن.",
+          cause: "الكائن لا يحتوي على الخاصية المطلوبة.",
+          solution: {
+            before: "obj = {}\nprint(obj.name)",
+            after: "obj = {}\nprint(getattr(obj, 'name', 'Default'))\n# أو\nif hasattr(obj, 'name'):\n    print(obj.name)"
+          }
+        },
+        {
+          id: 7,
+          title: "ValueError: invalid literal for int()",
+          category: "Value Error",
+          difficulty: "Beginner",
+          description: "يحدث عند محاولة تحويل قيمة لا يمكن تحويلها إلى int.",
+          cause: "القيمة تحتوي على أحرف أو رموز غير رقمية.",
+          solution: {
+            before: "num = int('abc')",
+            after: "try:\n    num = int('abc')\nexcept ValueError:\n    print('Cannot convert to int')\n    num = 0"
+          }
+        },
+        {
+          id: 8,
+          title: "ZeroDivisionError: division by zero",
+          category: "Runtime Error",
+          difficulty: "Beginner",
+          description: "يحدث عند محاولة القسمة على صفر.",
+          cause: "المقسوم عليه يساوي صفر.",
+          solution: {
+            before: "result = 10 / 0",
+            after: "divisor = 0\nif divisor != 0:\n    result = 10 / divisor\nelse:\n    result = 0\n    print('Cannot divide by zero')"
+          }
+        },
+        {
+          id: 9,
+          title: "FileNotFoundError when opening file",
+          category: "File Error",
+          difficulty: "Beginner",
+          description: "يحدث عند محاولة فتح ملف غير موجود.",
+          cause: "مسار الملف خاطئ أو الملف غير موجود.",
+          solution: {
+            before: "with open('file.txt', 'r') as f:\n    content = f.read()",
+            after: "import os\nif os.path.exists('file.txt'):\n    with open('file.txt', 'r') as f:\n        content = f.read()\nelse:\n    print('File not found')"
+          }
+        },
+        {
+          id: 10,
+          title: "Mutable default arguments",
+          category: "Logic",
+          difficulty: "Advanced",
+          description: "القيم الافتراضية القابلة للتغيير تُشارك بين الاستدعاءات.",
+          cause: "استخدام list أو dict كقيمة افتراضية.",
+          solution: {
+            before: "def add_item(item, my_list=[]):\n    my_list.append(item)\n    return my_list",
+            after: "def add_item(item, my_list=None):\n    if my_list is None:\n        my_list = []\n    my_list.append(item)\n    return my_list"
+          }
+        },
+        {
+          id: 11,
+          title: "ImportError: No module named",
+          category: "Import Error",
+          difficulty: "Beginner",
+          description: "يحدث عند محاولة استيراد وحدة غير موجودة.",
+          cause: "الوحدة غير مثبتة أو المسار خاطئ.",
+          solution: {
+            before: "import non_existent_module",
+            after: "# تأكد من تثبيت الوحدة:\n# pip install module_name\n# أو تحقق من المسار الصحيح"
+          }
+        },
+        {
+          id: 12,
+          title: "UnboundLocalError: local variable referenced before assignment",
+          category: "Scope",
+          difficulty: "Intermediate",
+          description: "يحدث عند محاولة استخدام متغير محلي قبل تعيينه.",
+          cause: "المتغير معرّف محلياً لكن يُستخدم قبل التعيين.",
+          solution: {
+            before: "x = 5\ndef func():\n    print(x)\n    x = 10",
+            after: "x = 5\ndef func():\n    global x\n    print(x)\n    x = 10\n# أو\nx = 5\ndef func():\n    local_x = x\n    print(local_x)\n    local_x = 10"
+          }
+        },
+        {
+          id: 13,
+          title: "TypeError: 'NoneType' object is not iterable",
+          category: "Type Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند محاولة التكرار على قيمة None.",
+          cause: "الدالة ترجع None بدلاً من قائمة أو tuple.",
+          solution: {
+            before: "def get_items():\n    return None\nfor item in get_items():\n    print(item)",
+            after: "def get_items():\n    return []\nfor item in get_items():\n    print(item)\n# أو\nitems = get_items() or []\nfor item in items:\n    print(item)"
+          }
+        },
+        {
+          id: 14,
+          title: "RecursionError: maximum recursion depth exceeded",
+          category: "Runtime Error",
+          difficulty: "Advanced",
+          description: "يحدث عند تجاوز عمق الاستدعاء الذاتي المسموح.",
+          cause: "دالة تستدعي نفسها بدون شرط إيقاف.",
+          solution: {
+            before: "def factorial(n):\n    return n * factorial(n - 1)",
+            after: "def factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)"
+          }
+        },
+        {
+          id: 15,
+          title: "TypeError: 'int' object is not subscriptable",
+          category: "Type Error",
+          difficulty: "Beginner",
+          description: "يحدث عند محاولة استخدام فهرس على نوع غير قابل للفهرسة.",
+          cause: "محاولة استخدام [] على int أو float.",
+          solution: {
+            before: "num = 123\nprint(num[0])",
+            after: "num = 123\nprint(str(num)[0])\n# أو\nnum_list = [1, 2, 3]\nprint(num_list[0])"
+          }
+        },
+        {
+          id: 16,
+          title: "PermissionError when writing file",
+          category: "File Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند محاولة الكتابة في ملف بدون صلاحيات.",
+          cause: "عدم وجود صلاحيات الكتابة على الملف أو المجلد.",
+          solution: {
+            before: "with open('/root/file.txt', 'w') as f:\n    f.write('test')",
+            after: "import os\nfile_path = 'file.txt'\nif os.access(os.path.dirname(file_path), os.W_OK):\n    with open(file_path, 'w') as f:\n        f.write('test')\nelse:\n    print('Permission denied')"
+          }
+        },
+        {
+          id: 17,
+          title: "StopIteration exception in generator",
+          category: "Iterator",
+          difficulty: "Intermediate",
+          description: "يحدث عند محاولة الحصول على العنصر التالي بعد انتهاء المولد.",
+          cause: "عدم التحقق من نهاية المولد قبل next().",
+          solution: {
+            before: "gen = (x for x in range(3))\nfor i in range(5):\n    print(next(gen))",
+            after: "gen = (x for x in range(3))\nfor item in gen:\n    print(item)\n# أو\nfor i in range(5):\n    try:\n        print(next(gen))\n    except StopIteration:\n        break"
+          }
+        },
+        {
+          id: 18,
+          title: "TypeError: can't multiply sequence by non-int",
+          category: "Type Error",
+          difficulty: "Beginner",
+          description: "يحدث عند محاولة ضرب string بعدد غير صحيح.",
+          cause: "استخدام float أو string كمعامل ضرب.",
+          solution: {
+            before: "result = 'hello' * 2.5",
+            after: "result = 'hello' * int(2.5)\n# أو\nresult = 'hello' * 2"
+          }
+        },
+        {
+          id: 19,
+          title: "ModuleNotFoundError in virtual environment",
+          category: "Import Error",
+          difficulty: "Intermediate",
+          description: "الوحدة غير موجودة في البيئة الافتراضية.",
+          cause: "عدم تفعيل البيئة الافتراضية أو عدم تثبيت الوحدة فيها.",
+          solution: {
+            before: "# تشغيل بدون تفعيل venv\nimport requests",
+            after: "# تفعيل البيئة الافتراضية:\n# Windows: venv\\Scripts\\activate\n# Linux/Mac: source venv/bin/activate\n# ثم تثبيت: pip install requests"
+          }
+        },
+        {
+          id: 20,
+          title: "TypeError: 'str' object does not support item assignment",
+          category: "Type Error",
+          difficulty: "Beginner",
+          description: "يحدث عند محاولة تعديل حرف في string.",
+          cause: "Strings غير قابلة للتغيير في Python.",
+          solution: {
+            before: "text = 'hello'\ntext[0] = 'H'",
+            after: "text = 'hello'\ntext = 'H' + text[1:]\n# أو\ntext_list = list(text)\ntext_list[0] = 'H'\ntext = ''.join(text_list)"
+          }
+        }
+      ],
+      "Java": [
+        {
+          id: 1,
+          title: "NullPointerException",
+          category: "Runtime Error",
+          difficulty: "Intermediate",
+          description: "يحدث هذا الخطأ عند محاولة استخدام كائن غير مهيئ (null).",
+          cause: "الكائن لم يتم تهيئته قبل استخدامه.",
+          solution: {
+            before: "String str = null;\nSystem.out.println(str.length());",
+            after: "String str = \"Hello\";\nif (str != null) {\n    System.out.println(str.length());\n}"
+          }
+        },
+        {
+          id: 2,
+          title: "ArrayIndexOutOfBoundsException",
+          category: "Runtime Error",
+          difficulty: "Beginner",
+          description: "يحدث عند محاولة الوصول إلى فهرس خارج حدود المصفوفة.",
+          cause: "الفهرس أكبر من أو يساوي طول المصفوفة أو سالب.",
+          solution: {
+            before: "int[] arr = {1, 2, 3};\nSystem.out.println(arr[5]);",
+            after: "int[] arr = {1, 2, 3};\nif (5 < arr.length && 5 >= 0) {\n    System.out.println(arr[5]);\n}"
+          }
+        },
+        {
+          id: 3,
+          title: "ClassNotFoundException",
+          category: "Class Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند محاولة تحميل class غير موجود.",
+          cause: "الكلاس غير موجود في classpath أو اسمه خاطئ.",
+          solution: {
+            before: "Class.forName(\"NonExistentClass\");",
+            after: "try {\n    Class.forName(\"ExistingClass\");\n} catch (ClassNotFoundException e) {\n    System.out.println(\"Class not found: \" + e.getMessage());\n}"
+          }
+        },
+        {
+          id: 4,
+          title: "IllegalArgumentException",
+          category: "Runtime Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند تمرير معامل غير صحيح للدالة.",
+          cause: "القيمة الممررة لا تتوافق مع المتوقع.",
+          solution: {
+            before: "public void setAge(int age) {\n    this.age = age;\n}\nsetAge(-5);",
+            after: "public void setAge(int age) {\n    if (age < 0) {\n        throw new IllegalArgumentException(\"Age cannot be negative\");\n    }\n    this.age = age;\n}"
+          }
+        },
+        {
+          id: 5,
+          title: "NumberFormatException",
+          category: "Runtime Error",
+          difficulty: "Beginner",
+          description: "يحدث عند محاولة تحويل string إلى رقم غير صحيح.",
+          cause: "السلسلة تحتوي على أحرف غير رقمية.",
+          solution: {
+            before: "int num = Integer.parseInt(\"abc\");",
+            after: "try {\n    int num = Integer.parseInt(\"123\");\n} catch (NumberFormatException e) {\n    System.out.println(\"Invalid number format\");\n}"
+          }
+        },
+        {
+          id: 6,
+          title: "StackOverflowError",
+          category: "Runtime Error",
+          difficulty: "Advanced",
+          description: "يحدث عند تجاوز حجم الـ stack بسبب استدعاءات متكررة.",
+          cause: "دالة تستدعي نفسها بدون شرط إيقاف.",
+          solution: {
+            before: "public int factorial(int n) {\n    return n * factorial(n - 1);\n}",
+            after: "public int factorial(int n) {\n    if (n <= 1) return 1;\n    return n * factorial(n - 1);\n}"
+          }
+        },
+        {
+          id: 7,
+          title: "ConcurrentModificationException",
+          category: "Concurrency",
+          difficulty: "Advanced",
+          description: "يحدث عند تعديل collection أثناء التكرار عليها.",
+          cause: "تعديل collection في حلقة for-each.",
+          solution: {
+            before: "List<String> list = new ArrayList<>();\nfor (String item : list) {\n    list.remove(item);\n}",
+            after: "List<String> list = new ArrayList<>();\nIterator<String> it = list.iterator();\nwhile (it.hasNext()) {\n    it.next();\n    it.remove();\n}"
+          }
+        },
+        {
+          id: 8,
+          title: "OutOfMemoryError",
+          category: "Memory",
+          difficulty: "Advanced",
+          description: "يحدث عند نفاد الذاكرة المتاحة.",
+          cause: "إنشاء كائنات كثيرة جداً أو عدم تحرير الذاكرة.",
+          solution: {
+            before: "List<String> list = new ArrayList<>();\nfor (int i = 0; i < Integer.MAX_VALUE; i++) {\n    list.add(\"item\" + i);\n}",
+            after: "// استخدم collections محدودة الحجم\n// أو قم بتحرير الذاكرة بانتظام\n// أو زد حجم heap: -Xmx2g"
+          }
+        },
+        {
+          id: 9,
+          title: "FileNotFoundException",
+          category: "File Error",
+          difficulty: "Beginner",
+          description: "يحدث عند محاولة فتح ملف غير موجود.",
+          cause: "مسار الملف خاطئ أو الملف غير موجود.",
+          solution: {
+            before: "FileReader fr = new FileReader(\"file.txt\");",
+            after: "try {\n    File file = new File(\"file.txt\");\n    if (file.exists()) {\n        FileReader fr = new FileReader(file);\n    }\n} catch (FileNotFoundException e) {\n    System.out.println(\"File not found\");\n}"
+          }
+        },
+        {
+          id: 10,
+          title: "IllegalStateException",
+          category: "Runtime Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند استدعاء method في حالة غير صحيحة.",
+          cause: "الكائن في حالة لا تسمح بهذه العملية.",
+          solution: {
+            before: "Scanner scanner = new Scanner(System.in);\nscanner.close();\nscanner.next();",
+            after: "Scanner scanner = new Scanner(System.in);\nif (scanner.hasNext()) {\n    String input = scanner.next();\n}\nscanner.close();"
+          }
+        },
+        {
+          id: 11,
+          title: "ClassCastException",
+          category: "Type Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند محاولة تحويل نوع إلى نوع غير متوافق.",
+          cause: "التحويل غير صحيح أو الكائن ليس من النوع المطلوب.",
+          solution: {
+            before: "Object obj = \"Hello\";\nInteger num = (Integer) obj;",
+            after: "Object obj = \"Hello\";\nif (obj instanceof Integer) {\n    Integer num = (Integer) obj;\n} else {\n    System.out.println(\"Cannot cast to Integer\");\n}"
+          }
+        },
+        {
+          id: 12,
+          title: "StringIndexOutOfBoundsException",
+          category: "Runtime Error",
+          difficulty: "Beginner",
+          description: "يحدث عند محاولة الوصول إلى حرف في موضع غير موجود.",
+          cause: "الموضع أكبر من أو يساوي طول السلسلة.",
+          solution: {
+            before: "String str = \"Hello\";\nchar c = str.charAt(10);",
+            after: "String str = \"Hello\";\nif (10 < str.length()) {\n    char c = str.charAt(10);\n} else {\n    System.out.println(\"Index out of bounds\");\n}"
+          }
+        },
+        {
+          id: 13,
+          title: "NoSuchMethodException",
+          category: "Reflection",
+          difficulty: "Advanced",
+          description: "يحدث عند محاولة الوصول إلى method غير موجود.",
+          cause: "اسم الـ method أو المعاملات خاطئة.",
+          solution: {
+            before: "Method m = MyClass.class.getMethod(\"nonExistentMethod\");",
+            after: "try {\n    Method m = MyClass.class.getMethod(\"existingMethod\");\n} catch (NoSuchMethodException e) {\n    System.out.println(\"Method not found\");\n}"
+          }
+        },
+        {
+          id: 14,
+          title: "UnsupportedOperationException",
+          category: "Runtime Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند محاولة تنفيذ عملية غير مدعومة.",
+          cause: "الـ collection غير قابلة للتعديل.",
+          solution: {
+            before: "List<String> list = Arrays.asList(\"a\", \"b\");\nlist.add(\"c\");",
+            after: "List<String> list = new ArrayList<>(Arrays.asList(\"a\", \"b\"));\nlist.add(\"c\");"
+          }
+        },
+        {
+          id: 15,
+          title: "ArithmeticException: division by zero",
+          category: "Runtime Error",
+          difficulty: "Beginner",
+          description: "يحدث عند القسمة على صفر.",
+          cause: "المقسوم عليه يساوي صفر.",
+          solution: {
+            before: "int result = 10 / 0;",
+            after: "int divisor = 0;\nif (divisor != 0) {\n    int result = 10 / divisor;\n} else {\n    System.out.println(\"Cannot divide by zero\");\n}"
+          }
+        },
+        {
+          id: 16,
+          title: "IOException when reading file",
+          category: "File Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند فشل قراءة الملف.",
+          cause: "مشكلة في الوصول للملف أو قراءته.",
+          solution: {
+            before: "FileReader fr = new FileReader(\"file.txt\");\nfr.read();",
+            after: "try (FileReader fr = new FileReader(\"file.txt\")) {\n    int data = fr.read();\n} catch (IOException e) {\n    System.out.println(\"Error reading file: \" + e.getMessage());\n}"
+          }
+        },
+        {
+          id: 17,
+          title: "InstantiationException",
+          category: "Reflection",
+          difficulty: "Advanced",
+          description: "يحدث عند محاولة إنشاء instance من abstract class أو interface.",
+          cause: "الكلاس abstract أو interface.",
+          solution: {
+            before: "Class<?> clazz = AbstractClass.class;\nObject obj = clazz.newInstance();",
+            after: "// استخدم concrete class بدلاً من abstract\nClass<?> clazz = ConcreteClass.class;\ntry {\n    Object obj = clazz.newInstance();\n} catch (InstantiationException e) {\n    System.out.println(\"Cannot instantiate\");\n}"
+          }
+        },
+        {
+          id: 18,
+          title: "InterruptedException in thread",
+          category: "Concurrency",
+          difficulty: "Advanced",
+          description: "يحدث عند مقاطعة thread أثناء انتظاره.",
+          cause: "Thread تمت مقاطعته أثناء sleep() أو wait().",
+          solution: {
+            before: "Thread.sleep(1000);",
+            after: "try {\n    Thread.sleep(1000);\n} catch (InterruptedException e) {\n    Thread.currentThread().interrupt();\n    System.out.println(\"Thread interrupted\");\n}"
+          }
+        },
+        {
+          id: 19,
+          title: "Missing return statement",
+          category: "Compile Error",
+          difficulty: "Beginner",
+          description: "يحدث عند عدم إرجاع قيمة في method يجب أن ترجع قيمة.",
+          cause: "عدم وجود return statement في جميع المسارات.",
+          solution: {
+            before: "public int getValue(boolean flag) {\n    if (flag) return 1;\n}",
+            after: "public int getValue(boolean flag) {\n    if (flag) return 1;\n    return 0;\n}"
+          }
+        },
+        {
+          id: 20,
+          title: "Cannot resolve symbol",
+          category: "Compile Error",
+          difficulty: "Beginner",
+          description: "يحدث عند استخدام متغير أو method غير معرف.",
+          cause: "عدم استيراد الـ class أو خطأ في الاسم.",
+          solution: {
+            before: "ArrayList list = new ArrayList();",
+            after: "import java.util.ArrayList;\nArrayList list = new ArrayList();\n// أو استخدم الاسم الكامل:\njava.util.ArrayList list = new java.util.ArrayList();"
+          }
+        }
+      ],
+      "C++": [
+        {
+          id: 1,
+          title: "Segmentation fault",
+          category: "Runtime Error",
+          difficulty: "Advanced",
+          description: "يحدث هذا الخطأ عند محاولة الوصول إلى ذاكرة غير مسموح بالوصول إليها.",
+          cause: "مؤشر غير مهيئ أو محاولة الوصول إلى عنصر خارج حدود المصفوفة.",
+          solution: {
+            before: "int *ptr;\n*ptr = 5;",
+            after: "int *ptr = new int;\n*ptr = 5;\n// تذكر تحرير الذاكرة لاحقاً\n// delete ptr;"
+          }
+        },
+        {
+          id: 2,
+          title: "Memory leak",
+          category: "Memory",
+          difficulty: "Advanced",
+          description: "يحدث عند عدم تحرير الذاكرة المخصصة ديناميكياً.",
+          cause: "استخدام new بدون delete.",
+          solution: {
+            before: "int *ptr = new int[100];\n// نسيان delete",
+            after: "int *ptr = new int[100];\n// استخدام الذاكرة\ndelete[] ptr;\n// أو استخدم smart pointers:\nstd::unique_ptr<int[]> ptr(new int[100]);"
+          }
+        },
+        {
+          id: 3,
+          title: "Array index out of bounds",
+          category: "Runtime Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند الوصول إلى فهرس خارج حدود المصفوفة.",
+          cause: "عدم التحقق من حدود المصفوفة قبل الوصول.",
+          solution: {
+            before: "int arr[5] = {1,2,3,4,5};\ncout << arr[10];",
+            after: "int arr[5] = {1,2,3,4,5};\nint index = 10;\nif (index >= 0 && index < 5) {\n    cout << arr[index];\n}"
+          }
+        },
+        {
+          id: 4,
+          title: "Dangling pointer",
+          category: "Memory",
+          difficulty: "Advanced",
+          description: "يحدث عند استخدام مؤشر يشير إلى ذاكرة تم تحريرها.",
+          cause: "استخدام مؤشر بعد delete.",
+          solution: {
+            before: "int *ptr = new int;\ndelete ptr;\n*ptr = 10;",
+            after: "int *ptr = new int;\ndelete ptr;\nptr = nullptr;\n// أو استخدم smart pointer:\nstd::unique_ptr<int> ptr(new int);"
+          }
+        },
+        {
+          id: 5,
+          title: "Double free error",
+          category: "Memory",
+          difficulty: "Advanced",
+          description: "يحدث عند محاولة تحرير الذاكرة مرتين.",
+          cause: "استدعاء delete على نفس المؤشر مرتين.",
+          solution: {
+            before: "int *ptr = new int;\ndelete ptr;\ndelete ptr;",
+            after: "int *ptr = new int;\ndelete ptr;\nptr = nullptr;\n// الآن delete nullptr آمن\nif (ptr != nullptr) delete ptr;"
+          }
+        },
+        {
+          id: 6,
+          title: "Undefined reference to function",
+          category: "Link Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند عدم ربط تعريف الدالة.",
+          cause: "الدالة معرّفة لكن غير مطبقة أو لم يتم ربط الملف.",
+          solution: {
+            before: "// header.h\nvoid myFunction();\n// main.cpp فقط\n#include \"header.h\"\nmyFunction();",
+            after: "// header.h\nvoid myFunction();\n// implementation.cpp\n#include \"header.h\"\nvoid myFunction() { /* implementation */ }\n// ربط الملفات: g++ main.cpp implementation.cpp"
+          }
+        },
+        {
+          id: 7,
+          title: "Use of uninitialized variable",
+          category: "Runtime Error",
+          difficulty: "Beginner",
+          description: "يحدث عند استخدام متغير قبل تهيئته.",
+          cause: "المتغير أعلن لكن لم يُعطى قيمة.",
+          solution: {
+            before: "int x;\ncout << x;",
+            after: "int x = 0;\ncout << x;\n// أو\nint x{};\ncout << x;"
+          }
+        },
+        {
+          id: 8,
+          title: "Division by zero",
+          category: "Runtime Error",
+          difficulty: "Beginner",
+          description: "يحدث عند القسمة على صفر.",
+          cause: "المقسوم عليه يساوي صفر.",
+          solution: {
+            before: "int result = 10 / 0;",
+            after: "int divisor = 0;\nif (divisor != 0) {\n    int result = 10 / divisor;\n} else {\n    cout << \"Cannot divide by zero\";\n}"
+          }
+        },
+        {
+          id: 9,
+          title: "Stack overflow",
+          category: "Runtime Error",
+          difficulty: "Advanced",
+          description: "يحدث عند تجاوز حجم الـ stack.",
+          cause: "استدعاءات متكررة كثيرة جداً أو مصفوفات كبيرة محلية.",
+          solution: {
+            before: "void recursive(int n) {\n    recursive(n-1);\n}",
+            after: "void recursive(int n) {\n    if (n <= 0) return;\n    recursive(n-1);\n}\n// أو استخدم iteration بدلاً من recursion"
+          }
+        },
+        {
+          id: 10,
+          title: "Null pointer dereference",
+          category: "Runtime Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند محاولة الوصول إلى مؤشر null.",
+          cause: "عدم التحقق من null قبل الاستخدام.",
+          solution: {
+            before: "int *ptr = nullptr;\ncout << *ptr;",
+            after: "int *ptr = nullptr;\nif (ptr != nullptr) {\n    cout << *ptr;\n} else {\n    cout << \"Pointer is null\";\n}"
+          }
+        },
+        {
+          id: 11,
+          title: "Buffer overflow",
+          category: "Security",
+          difficulty: "Advanced",
+          description: "يحدث عند الكتابة خارج حدود buffer.",
+          cause: "عدم التحقق من حجم البيانات قبل النسخ.",
+          solution: {
+            before: "char buffer[10];\nstrcpy(buffer, \"This is a very long string\");",
+            after: "char buffer[10];\nstrncpy(buffer, \"This is a very long string\", sizeof(buffer)-1);\nbuffer[sizeof(buffer)-1] = '\\0';\n// أو استخدم std::string:\nstd::string buffer = \"This is a very long string\";"
+          }
+        },
+        {
+          id: 12,
+          title: "Multiple definition error",
+          category: "Link Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند تعريف نفس المتغير أو الدالة في ملفات متعددة.",
+          cause: "تعريف في header file بدون inline أو static.",
+          solution: {
+            before: "// header.h\nint globalVar = 5;\n// multiple includes",
+            after: "// header.h\nextern int globalVar;\n// implementation.cpp\nint globalVar = 5;\n// أو استخدم static:\nstatic int localVar = 5;"
+          }
+        },
+        {
+          id: 13,
+          title: "Type mismatch in function call",
+          category: "Compile Error",
+          difficulty: "Beginner",
+          description: "يحدث عند تمرير نوع غير متوافق مع المعامل المتوقع.",
+          cause: "أنواع البيانات غير متطابقة.",
+          solution: {
+            before: "void func(int x) {}\nfunc(3.14);",
+            after: "void func(int x) {}\nfunc(static_cast<int>(3.14));\n// أو\nvoid func(double x) {}\nfunc(3.14);"
+          }
+        },
+        {
+          id: 14,
+          title: "Accessing private member",
+          category: "Compile Error",
+          difficulty: "Beginner",
+          description: "يحدث عند محاولة الوصول إلى عضو private من خارج الكلاس.",
+          cause: "المتغير أو الدالة private.",
+          solution: {
+            before: "class MyClass {\n    int privateVar;\n};\nMyClass obj;\nobj.privateVar = 5;",
+            after: "class MyClass {\npublic:\n    int publicVar;\nprivate:\n    int privateVar;\n};\nMyClass obj;\nobj.publicVar = 5;\n// أو أضف getter/setter"
+          }
+        },
+        {
+          id: 15,
+          title: "Missing return statement",
+          category: "Compile Error",
+          difficulty: "Beginner",
+          description: "يحدث عند عدم إرجاع قيمة في دالة يجب أن ترجع قيمة.",
+          cause: "عدم وجود return في جميع المسارات.",
+          solution: {
+            before: "int getValue(bool flag) {\n    if (flag) return 1;\n}",
+            after: "int getValue(bool flag) {\n    if (flag) return 1;\n    return 0;\n}"
+          }
+        },
+        {
+          id: 16,
+          title: "Using deleted copy constructor",
+          category: "Compile Error",
+          difficulty: "Advanced",
+          description: "يحدث عند محاولة نسخ كائن copy constructor محذوف.",
+          cause: "استخدام =delete على copy constructor.",
+          solution: {
+            before: "class MyClass {\n    MyClass(const MyClass&) = delete;\n};\nMyClass obj1;\nMyClass obj2 = obj1;",
+            after: "class MyClass {\n    MyClass(const MyClass&) = default;\n};\n// أو استخدم move semantics:\nMyClass obj2 = std::move(obj1);"
+          }
+        },
+        {
+          id: 17,
+          title: "Iterator invalidation",
+          category: "Runtime Error",
+          difficulty: "Advanced",
+          description: "يحدث عند استخدام iterator بعد تعديل الـ container.",
+          cause: "تعديل container أثناء التكرار.",
+          solution: {
+            before: "vector<int> vec = {1,2,3};\nfor (auto it = vec.begin(); it != vec.end(); ++it) {\n    vec.erase(it);\n}",
+            after: "vector<int> vec = {1,2,3};\nfor (auto it = vec.begin(); it != vec.end();) {\n    it = vec.erase(it);\n}\n// أو استخدم remove-erase idiom"
+          }
+        },
+        {
+          id: 18,
+          title: "Integer overflow",
+          category: "Logic",
+          difficulty: "Intermediate",
+          description: "يحدث عند تجاوز القيمة القصوى للعدد الصحيح.",
+          cause: "النتيجة أكبر من INT_MAX.",
+          solution: {
+            before: "int a = INT_MAX;\nint b = a + 1;",
+            after: "int a = INT_MAX;\nif (a > INT_MAX - 1) {\n    cout << \"Overflow detected\";\n} else {\n    int b = a + 1;\n}\n// أو استخدم long long"
+          }
+        },
+        {
+          id: 19,
+          title: "Uninitialized member in constructor",
+          category: "Runtime Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند عدم تهيئة أعضاء الكلاس في constructor.",
+          cause: "نسيان تهيئة المتغيرات في initialization list.",
+          solution: {
+            before: "class MyClass {\n    int value;\npublic:\n    MyClass() {}\n};",
+            after: "class MyClass {\n    int value;\npublic:\n    MyClass() : value(0) {}\n};"
+          }
+        },
+        {
+          id: 20,
+          title: "File not found error",
+          category: "File Error",
+          difficulty: "Beginner",
+          description: "يحدث عند محاولة فتح ملف غير موجود.",
+          cause: "مسار الملف خاطئ أو الملف غير موجود.",
+          solution: {
+            before: "ifstream file(\"nonexistent.txt\");\nstring line;\ngetline(file, line);",
+            after: "ifstream file(\"nonexistent.txt\");\nif (file.is_open()) {\n    string line;\n    getline(file, line);\n    file.close();\n} else {\n    cout << \"File not found\";\n}"
+          }
+        }
+      ],
+      "PHP": [
+        {
+          id: 1,
+          title: "Undefined variable",
+          category: "Runtime Error",
+          difficulty: "Beginner",
+          description: "يحدث هذا الخطأ عند استخدام متغير غير معرف.",
+          cause: "المتغير لم يتم تعريفه أو تمت الإشارة إليه قبل تعريفه.",
+          solution: {
+            before: "echo $undefinedVar;",
+            after: "$definedVar = 'Hello';\necho $definedVar;"
+          }
+        },
+        {
+          id: 2,
+          title: "Undefined index in array",
+          category: "Runtime Error",
+          difficulty: "Beginner",
+          description: "يحدث عند محاولة الوصول إلى مفتاح غير موجود في المصفوفة.",
+          cause: "المفتاح غير موجود في المصفوفة.",
+          solution: {
+            before: "$arr = ['a' => 1];\necho $arr['b'];",
+            after: "$arr = ['a' => 1];\necho isset($arr['b']) ? $arr['b'] : 'Not found';\n// أو\necho $arr['b'] ?? 'Not found';"
+          }
+        },
+        {
+          id: 3,
+          title: "Call to undefined function",
+          category: "Runtime Error",
+          difficulty: "Beginner",
+          description: "يحدث عند استدعاء دالة غير موجودة.",
+          cause: "الدالة غير معرفة أو لم يتم تحميل extension.",
+          solution: {
+            before: "myFunction();",
+            after: "function myFunction() {\n    echo 'Hello';\n}\nmyFunction();\n// أو تحقق من وجودها:\nif (function_exists('myFunction')) {\n    myFunction();\n}"
+          }
+        },
+        {
+          id: 4,
+          title: "Trying to get property of non-object",
+          category: "Runtime Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند محاولة الوصول إلى خاصية كائن null.",
+          cause: "المتغير ليس كائناً أو يساوي null.",
+          solution: {
+            before: "$obj = null;\necho $obj->property;",
+            after: "$obj = null;\nif (is_object($obj)) {\n    echo $obj->property;\n} else {\n    echo 'Not an object';\n}\n// أو في PHP 8:\necho $obj?->property;"
+          }
+        },
+        {
+          id: 5,
+          title: "SQL injection vulnerability",
+          category: "Security",
+          difficulty: "Advanced",
+          description: "ثغرة أمنية تسمح بتنفيذ استعلامات SQL غير مصرح بها.",
+          cause: "استخدام إدخال المستخدم مباشرة في SQL.",
+          solution: {
+            before: "$query = \"SELECT * FROM users WHERE id = \" . $_GET['id'];",
+            after: "$stmt = $pdo->prepare(\"SELECT * FROM users WHERE id = ?\");\n$stmt->execute([$_GET['id']]);\n$result = $stmt->fetchAll();"
+          }
+        },
+        {
+          id: 6,
+          title: "XSS (Cross-Site Scripting) vulnerability",
+          category: "Security",
+          difficulty: "Advanced",
+          description: "ثغرة أمنية تسمح بتنفيذ JavaScript في الصفحة.",
+          cause: "عدم تنظيف إدخال المستخدم قبل عرضه.",
+          solution: {
+            before: "echo $_GET['name'];",
+            after: "echo htmlspecialchars($_GET['name'], ENT_QUOTES, 'UTF-8');\n// أو\necho filter_var($_GET['name'], FILTER_SANITIZE_STRING);"
+          }
+        },
+        {
+          id: 7,
+          title: "Headers already sent error",
+          category: "Runtime Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند محاولة إرسال headers بعد إرسال output.",
+          cause: "وجود output (مسافات، echo) قبل header().",
+          solution: {
+            before: "echo 'Hello';\nheader('Location: page.php');",
+            after: "header('Location: page.php');\nexit;\n// أو تأكد من عدم وجود output قبل header()"
+          }
+        },
+        {
+          id: 8,
+          title: "Maximum execution time exceeded",
+          category: "Runtime Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند تجاوز وقت التنفيذ المسموح.",
+          cause: "سكريبت يستغرق وقتاً طويلاً.",
+          solution: {
+            before: "// سكريبت بطيء",
+            after: "set_time_limit(300); // زيادة الوقت\n// أو تحسين الكود\n// أو استخدام cron jobs للمهام الطويلة"
+          }
+        },
+        {
+          id: 9,
+          title: "Memory limit exceeded",
+          category: "Memory",
+          difficulty: "Intermediate",
+          description: "يحدث عند تجاوز حد الذاكرة المسموح.",
+          cause: "معالجة بيانات كبيرة جداً.",
+          solution: {
+            before: "// معالجة جميع البيانات دفعة واحدة",
+            after: "ini_set('memory_limit', '256M');\n// أو معالجة البيانات على دفعات\n// أو استخدام generators"
+          }
+        },
+        {
+          id: 10,
+          title: "Cannot modify header information",
+          category: "Runtime Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند محاولة تعديل headers بعد إرسالها.",
+          cause: "وجود output قبل header() أو headers أُرسلت بالفعل.",
+          solution: {
+            before: "echo 'Output';\nheader('Content-Type: application/json');",
+            after: "header('Content-Type: application/json');\necho json_encode($data);\n// تأكد من عدم وجود output قبل header()"
+          }
+        },
+        {
+          id: 11,
+          title: "Array to string conversion",
+          category: "Type Error",
+          difficulty: "Beginner",
+          description: "يحدث عند محاولة استخدام مصفوفة كسلسلة نصية.",
+          cause: "استخدام echo أو string operations على array.",
+          solution: {
+            before: "$arr = [1, 2, 3];\necho $arr;",
+            after: "$arr = [1, 2, 3];\necho implode(', ', $arr);\n// أو\nprint_r($arr);\n// أو\nvar_dump($arr);"
+          }
+        },
+        {
+          id: 12,
+          title: "Object of class could not be converted to string",
+          category: "Type Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند محاولة تحويل كائن إلى string بدون __toString().",
+          cause: "الكائن لا يحتوي على method __toString().",
+          solution: {
+            before: "class MyClass {}\n$obj = new MyClass();\necho $obj;",
+            after: "class MyClass {\n    public function __toString() {\n        return 'MyClass Object';\n    }\n}\n$obj = new MyClass();\necho $obj;"
+          }
+        },
+        {
+          id: 13,
+          title: "Fatal error: Class not found",
+          category: "Fatal Error",
+          difficulty: "Beginner",
+          description: "يحدث عند محاولة استخدام كلاس غير موجود.",
+          cause: "الكلاس غير معرف أو لم يتم تحميله.",
+          solution: {
+            before: "$obj = new NonExistentClass();",
+            after: "// استخدم autoloader:\nspl_autoload_register(function ($class) {\n    include 'classes/' . $class . '.php';\n});\n$obj = new MyClass();\n// أو استخدم require/include"
+          }
+        },
+        {
+          id: 14,
+          title: "Warning: Division by zero",
+          category: "Runtime Error",
+          difficulty: "Beginner",
+          description: "يحدث عند القسمة على صفر.",
+          cause: "المقسوم عليه يساوي صفر.",
+          solution: {
+            before: "$result = 10 / 0;",
+            after: "$divisor = 0;\nif ($divisor != 0) {\n    $result = 10 / $divisor;\n} else {\n    echo 'Cannot divide by zero';\n}"
+          }
+        },
+        {
+          id: 15,
+          title: "Notice: Undefined offset",
+          category: "Runtime Error",
+          difficulty: "Beginner",
+          description: "يحدث عند الوصول إلى فهرس غير موجود في المصفوفة.",
+          cause: "الفهرس غير موجود.",
+          solution: {
+            before: "$arr = [0 => 'a'];\necho $arr[5];",
+            after: "$arr = [0 => 'a'];\nif (isset($arr[5])) {\n    echo $arr[5];\n} else {\n    echo 'Index not found';\n}\n// أو\necho $arr[5] ?? 'Not found';"
+          }
+        },
+        {
+          id: 16,
+          title: "Parse error: syntax error",
+          category: "Parse Error",
+          difficulty: "Beginner",
+          description: "يحدث عند وجود خطأ في بناء الجملة.",
+          cause: "أقواس غير مغلقة أو فواصل منقوطة ناقصة.",
+          solution: {
+            before: "if ($condition {\n    echo 'Hello';\n}",
+            after: "if ($condition) {\n    echo 'Hello';\n}"
+          }
+        },
+        {
+          id: 17,
+          title: "Warning: Cannot modify header information",
+          category: "Runtime Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند محاولة إرسال headers بعد بدء output.",
+          cause: "وجود مسافات أو echo قبل header().",
+          solution: {
+            before: " ?>\n<?php\nheader('Location: page.php');",
+            after: "<?php\nheader('Location: page.php');\nexit;\n// تأكد من عدم وجود مسافات قبل <?php"
+          }
+        },
+        {
+          id: 18,
+          title: "Fatal error: Call to undefined method",
+          category: "Fatal Error",
+          difficulty: "Beginner",
+          description: "يحدث عند استدعاء method غير موجود في الكلاس.",
+          cause: "اسم الـ method خاطئ أو غير موجود.",
+          solution: {
+            before: "class MyClass {}\n$obj = new MyClass();\n$obj->nonExistentMethod();",
+            after: "class MyClass {\n    public function existingMethod() {\n        echo 'Hello';\n    }\n}\n$obj = new MyClass();\n$obj->existingMethod();"
+          }
+        },
+        {
+          id: 19,
+          title: "Warning: file_get_contents failed to open stream",
+          category: "File Error",
+          difficulty: "Intermediate",
+          description: "يحدث عند فشل قراءة الملف.",
+          cause: "الملف غير موجود أو لا توجد صلاحيات.",
+          solution: {
+            before: "$content = file_get_contents('file.txt');",
+            after: "$file = 'file.txt';\nif (file_exists($file) && is_readable($file)) {\n    $content = file_get_contents($file);\n} else {\n    echo 'File not found or not readable';\n}"
+          }
+        },
+        {
+          id: 20,
+          title: "CSRF (Cross-Site Request Forgery) vulnerability",
+          category: "Security",
+          difficulty: "Advanced",
+          description: "ثغرة أمنية تسمح بتنفيذ طلبات غير مصرح بها.",
+          cause: "عدم استخدام CSRF tokens في النماذج.",
+          solution: {
+            before: "// form بدون token\nif ($_POST['submit']) {\n    // process form\n}",
+            after: "// توليد token\n$_SESSION['csrf_token'] = bin2hex(random_bytes(32));\n// في النموذج:\n<input type=\"hidden\" name=\"csrf_token\" value=\"<?php echo $_SESSION['csrf_token']; ?>\">\n// التحقق:\nif ($_POST['csrf_token'] === $_SESSION['csrf_token']) {\n    // process form\n}"
+          }
+        }
+      ],
+   "SQL": [
+        {
+          id: 1,
+          title: "SQL Injection",
+          category: "Security",
+          difficulty: "Advanced",
+          description: "ثغرة أمنية تسمح بتنفيذ استعلامات SQL غير مصرح بها.",
+          cause: "استخدام إدخال المستخدم مباشرة في استعلامات SQL.",
+          solution: {
+            before: "query = \"SELECT * FROM users WHERE username = '\" + username + \"'\"",
+            after: "// استخدام Prepared Statements\nquery = \"SELECT * FROM users WHERE username = ?\"\nstmt.setString(1, username);"
+          }
+        },
+        {
+          id: 2,
+          title: "N+1 Query Problem",
+          category: "Performance",
+          difficulty: "Advanced",
+          description: "تنفيذ استعلامات كثيرة عند جلب بيانات مرتبطة.",
+          cause: "جلب البيانات في حلقة بدلاً من JOIN.",
+          solution: {
+            before: "SELECT * FROM users;\n// ثم في الكود:\nfor each user:\n    SELECT * FROM orders WHERE user_id = user.id",
+            after: "SELECT u.*, o.*\nFROM users u\nLEFT JOIN orders o ON u.id = o.user_id;\n// أو استخدام eager loading"
+          }
+        },
+        {
+          id: 3,
+          title: "Missing WHERE clause in UPDATE/DELETE",
+          category: "Logic",
+          difficulty: "Beginner",
+          description: "تحديث أو حذف جميع الصفوف بدلاً من صفوف محددة.",
+          cause: "نسيان إضافة WHERE clause.",
+          solution: {
+            before: "UPDATE users SET status = 'inactive';\nDELETE FROM orders;",
+            after: "UPDATE users SET status = 'inactive' WHERE id = 123;\nDELETE FROM orders WHERE order_date < '2020-01-01';"
+          }
+        },
+        {
+          id: 4,
+          title: "Cartesian Product (Cross Join)",
+          category: "Logic",
+          difficulty: "Intermediate",
+          description: "نتيجة ضخمة بسبب JOIN بدون شرط.",
+          cause: "نسيان شرط JOIN أو استخدام WHERE بدلاً من ON.",
+          solution: {
+            before: "SELECT * FROM users, orders;",
+            after: "SELECT * FROM users u\nINNER JOIN orders o ON u.id = o.user_id;"
+          }
+        },
+        {
+          id: 5,
+          title: "NULL comparison issues",
+          category: "Logic",
+          difficulty: "Intermediate",
+          description: "مقارنة NULL باستخدام = لا تعمل.",
+          cause: "NULL لا يساوي أي شيء حتى NULL نفسه.",
+          solution: {
+            before: "SELECT * FROM users WHERE email = NULL;",
+            after: "SELECT * FROM users WHERE email IS NULL;\n// أو\nSELECT * FROM users WHERE email IS NOT NULL;"
+          }
+        },
+        {
+          id: 6,
+          title: "Duplicate key error",
+          category: "Constraint",
+          difficulty: "Beginner",
+          description: "محاولة إدراج قيمة مكررة في عمود unique.",
+          cause: "القيمة موجودة بالفعل في عمود unique أو primary key.",
+          solution: {
+            before: "INSERT INTO users (email) VALUES ('test@example.com');\nINSERT INTO users (email) VALUES ('test@example.com');",
+            after: "INSERT INTO users (email) VALUES ('test@example.com')\nON DUPLICATE KEY UPDATE email = VALUES(email);\n// أو\nINSERT IGNORE INTO users (email) VALUES ('test@example.com');"
+          }
+        },
+        {
+          id: 7,
+          title: "Foreign key constraint violation",
+          category: "Constraint",
+          difficulty: "Intermediate",
+          description: "محاولة إدراج قيمة غير موجودة في الجدول المرجعي.",
+          cause: "القيمة في foreign key غير موجودة في الجدول المرجعي.",
+          solution: {
+            before: "INSERT INTO orders (user_id) VALUES (999);\n-- user_id 999 غير موجود",
+            after: "INSERT INTO orders (user_id) VALUES (\n    SELECT id FROM users WHERE id = 999\n);\n// أو التحقق أولاً:\nIF EXISTS (SELECT 1 FROM users WHERE id = 999)\n    INSERT INTO orders (user_id) VALUES (999);"
+          }
+        },
+        {
+          id: 8,
+          title: "Missing index on frequently queried column",
+          category: "Performance",
+          difficulty: "Intermediate",
+          description: "استعلامات بطيئة بسبب عدم وجود index.",
+          cause: "العمود يُستخدم في WHERE أو JOIN بدون index.",
+          solution: {
+            before: "SELECT * FROM users WHERE email = 'test@example.com';\n-- email بدون index",
+            after: "CREATE INDEX idx_email ON users(email);\nSELECT * FROM users WHERE email = 'test@example.com';"
+          }
+        },
+        {
+          id: 9,
+          title: "String comparison case sensitivity",
+          category: "Logic",
+          difficulty: "Beginner",
+          description: "مقارنة strings حساسة لحالة الأحرف.",
+          cause: "استخدام = بدلاً من LOWER() أو COLLATE.",
+          solution: {
+            before: "SELECT * FROM users WHERE name = 'JOHN';",
+            after: "SELECT * FROM users WHERE LOWER(name) = LOWER('JOHN');\n// أو\nSELECT * FROM users WHERE name COLLATE utf8_general_ci = 'JOHN';"
+          }
+        },
+        {
+          id: 10,
+          title: "Date format mismatch",
+          category: "Data Type",
+          difficulty: "Beginner",
+          description: "خطأ في تنسيق التاريخ.",
+          cause: "تنسيق التاريخ لا يطابق تنسيق قاعدة البيانات.",
+          solution: {
+            before: "SELECT * FROM orders WHERE order_date = '01-15-2024';",
+            after: "SELECT * FROM orders WHERE order_date = '2024-01-15';\n// أو استخدام STR_TO_DATE:\nSELECT * FROM orders WHERE order_date = STR_TO_DATE('01-15-2024', '%m-%d-%Y');"
+          }
+        },
+        {
+          id: 11,
+          title: "Division by zero in calculation",
+          category: "Runtime Error",
+          difficulty: "Intermediate",
+          description: "القسمة على صفر في استعلام.",
+          cause: "المقسوم عليه يساوي صفر.",
+          solution: {
+            before: "SELECT total / quantity AS unit_price FROM orders;",
+            after: "SELECT total / NULLIF(quantity, 0) AS unit_price FROM orders;\n// أو\nSELECT CASE WHEN quantity = 0 THEN 0 ELSE total / quantity END AS unit_price FROM orders;"
+          }
+        },
+        {
+          id: 12,
+          title: "Subquery returns more than one row",
+          category: "Logic",
+          difficulty: "Intermediate",
+          description: "استخدام subquery يعيد أكثر من صف في مكان يتوقع صف واحد.",
+          cause: "Subquery يعيد عدة صفوف بدلاً من صف واحد.",
+          solution: {
+            before: "SELECT * FROM users WHERE id = (SELECT user_id FROM orders);",
+            after: "SELECT * FROM users WHERE id IN (SELECT user_id FROM orders);\n// أو\nSELECT * FROM users WHERE id = (SELECT user_id FROM orders LIMIT 1);"
+          }
+        },
+        {
+          id: 13,
+          title: "Deadlock in transactions",
+          category: "Concurrency",
+          difficulty: "Advanced",
+          description: "تعارض في المعاملات يسبب deadlock.",
+          cause: "معاملتان تنتظران بعضهما البعض.",
+          solution: {
+            before: "BEGIN TRANSACTION;\nUPDATE table1 SET ... WHERE id = 1;\nUPDATE table2 SET ... WHERE id = 2;\nCOMMIT;",
+            after: "// ترتيب نفس الترتيب في جميع المعاملات:\nBEGIN TRANSACTION;\nUPDATE table1 SET ... WHERE id = 1;\nUPDATE table2 SET ... WHERE id = 2;\nCOMMIT;\n// أو استخدام timeout:\nSET LOCK_TIMEOUT 5000;"
+          }
+        },
+        {
+          id: 14,
+          title: "Missing GROUP BY with aggregate functions",
+          category: "Syntax",
+          difficulty: "Beginner",
+          description: "استخدام aggregate functions بدون GROUP BY.",
+          cause: "نسيان GROUP BY عند استخدام COUNT, SUM, etc.",
+          solution: {
+            before: "SELECT category, COUNT(*) FROM products;",
+            after: "SELECT category, COUNT(*) FROM products GROUP BY category;"
+          }
+        },
+        {
+          id: 15,
+          title: "Incorrect use of HAVING vs WHERE",
+          category: "Logic",
+          difficulty: "Intermediate",
+          description: "استخدام HAVING بدلاً من WHERE أو العكس.",
+          cause: "عدم فهم الفرق بين HAVING و WHERE.",
+          solution: {
+            before: "SELECT category, COUNT(*) FROM products HAVING price > 100 GROUP BY category;",
+            after: "SELECT category, COUNT(*) FROM products WHERE price > 100 GROUP BY category;\n-- HAVING للشروط على aggregate functions:\nSELECT category, COUNT(*) FROM products GROUP BY category HAVING COUNT(*) > 10;"
+          }
+        },
+        {
+          id: 16,
+          title: "Race condition in concurrent updates",
+          category: "Concurrency",
+          difficulty: "Advanced",
+          description: "تحديثات متزامنة تفقد البيانات.",
+          cause: "عدم استخدام locking أو optimistic locking.",
+          solution: {
+            before: "UPDATE accounts SET balance = balance - 100 WHERE id = 1;",
+            after: "BEGIN TRANSACTION;\nSELECT balance FROM accounts WHERE id = 1 FOR UPDATE;\nUPDATE accounts SET balance = balance - 100 WHERE id = 1;\nCOMMIT;\n// أو استخدام version column للـ optimistic locking"
+          }
+        },
+        {
+          id: 17,
+          title: "Incorrect JOIN type",
+          category: "Logic",
+          difficulty: "Intermediate",
+          description: "استخدام نوع JOIN خاطئ.",
+          cause: "عدم فهم الفرق بين INNER, LEFT, RIGHT JOIN.",
+          solution: {
+            before: "SELECT * FROM users INNER JOIN orders ON users.id = orders.user_id;\n-- يفقد المستخدمين بدون طلبات",
+            after: "SELECT * FROM users LEFT JOIN orders ON users.id = orders.user_id;\n-- يعرض جميع المستخدمين حتى بدون طلبات"
+          }
+        },
+        {
+          id: 18,
+          title: "String truncation error",
+          category: "Data Type",
+          difficulty: "Beginner",
+          description: "السلسلة أطول من حجم العمود.",
+          cause: "حجم البيانات أكبر من حجم العمود المحدد.",
+          solution: {
+            before: "CREATE TABLE users (name VARCHAR(5));\nINSERT INTO users VALUES ('Very Long Name');",
+            after: "CREATE TABLE users (name VARCHAR(255));\nINSERT INTO users VALUES ('Very Long Name');\n// أو استخدام TEXT type"
+          }
+        },
+        {
+          id: 19,
+          title: "Transaction not committed",
+          category: "Transaction",
+          difficulty: "Intermediate",
+          description: "التغييرات لا تُحفظ بسبب عدم COMMIT.",
+          cause: "نسيان COMMIT بعد BEGIN TRANSACTION.",
+          solution: {
+            before: "BEGIN TRANSACTION;\nINSERT INTO users (name) VALUES ('John');\n-- نسيان COMMIT",
+            after: "BEGIN TRANSACTION;\nINSERT INTO users (name) VALUES ('John');\nCOMMIT;\n// أو استخدام autocommit"
+          }
+        },
+        {
+          id: 20,
+          title: "Inefficient LIKE query with leading wildcard",
+          category: "Performance",
+          difficulty: "Intermediate",
+          description: "استعلامات بطيئة بسبب LIKE مع wildcard في البداية.",
+          cause: "استخدام % في بداية pattern يمنع استخدام index.",
+          solution: {
+            before: "SELECT * FROM users WHERE name LIKE '%john%';",
+            after: "SELECT * FROM users WHERE name LIKE 'john%';\n-- أو استخدام full-text search:\nSELECT * FROM users WHERE MATCH(name) AGAINST('john' IN NATURAL LANGUAGE MODE);"
+          }
+        }
+      ],
+    
+      
+    };
+
+    // عناصر DOM
+    const languagesGrid = document.getElementById('languagesGrid');
+    const sortLanguages = document.getElementById('sortLanguages');
+    const viewMode = document.getElementById('viewMode');
+    const viewAllProblems = document.getElementById('viewAllProblems');
+    const viewFavorites = document.getElementById('viewFavorites');
+    const globalSearch = document.getElementById('globalSearch');
+    const scrollToTop = document.getElementById('scrollToTop');
+    const suggestionForm = document.getElementById('suggestionForm');
+
+    // تهيئة الصفحة
+    function init() {
+      displayLanguages();
+      updateStatistics();
+      setupEventListeners();
+    }
+
+    // إعداد مستمعي الأحداث
+    function setupEventListeners() {
+      // التنقل
+      viewAllProblems.addEventListener('click', showAllProblems);
+      viewFavorites.addEventListener('click', showFavorites);
+      
+      // البحث الشامل
+      globalSearch.addEventListener('input', globalSearchProblems);
+      
+      // التمرير
+      scrollToTop.addEventListener('click', scrollToTopFunction);
+      window.addEventListener('scroll', handleScroll);
+      
+      // خيارات العرض
+      sortLanguages.addEventListener('click', toggleSortLanguages);
+      viewMode.addEventListener('click', toggleViewMode);
+      
+      // النماذج
+      suggestionForm.addEventListener('submit', handleSuggestionSubmit);
+      
+      // القائمة المتنقلة
+      document.getElementById('mobile-btn').addEventListener('click', toggleMobileMenu);
+    }
+
+    // عرض قائمة اللغات
+    function displayLanguages() {
+      languagesGrid.innerHTML = '';
+      
+      Object.keys(problemsData).forEach(language => {
+        const problemCount = problemsData[language].length;
+        const solvedCount = Math.floor(Math.random() * problemCount); // محاكاة لحل المشاكل
+        
+        const languageCard = document.createElement('div');
+        languageCard.className = 'language-card bg-gray-800 rounded-xl p-4 text-center cursor-pointer hover:bg-gray-700 transition-all duration-300 border border-gray-700';
+        languageCard.setAttribute('data-language', language);
+        
+        // أيقونة اللغة
+        let iconClass = 'fas fa-code text-3xl mb-3';
+        let textColor = 'text-blue-400';
+        
+        if (language === 'JavaScript') {
+          iconClass = 'fab fa-js-square text-3xl mb-3 text-yellow-400';
+          textColor = 'text-yellow-400';
+        } else if (language === 'Python') {
+          iconClass = 'fab fa-python text-3xl mb-3 text-blue-400';
+          textColor = 'text-blue-400';
+        } else if (language === 'Java') {
+          iconClass = 'fab fa-java text-3xl mb-3 text-red-400';
+          textColor = 'text-red-400';
+        } else if (language === 'C++') {
+          iconClass = 'fas fa-cogs text-3xl mb-3 text-pink-400';
+          textColor = 'text-pink-400';
+        } else if (language === 'PHP') {
+          iconClass = 'fab fa-php text-3xl mb-3 text-purple-400';
+          textColor = 'text-purple-400';
+        } else if (language === 'HTML/CSS') {
+          iconClass = 'fab fa-html5 text-3xl mb-3 text-orange-400';
+          textColor = 'text-orange-400';
+        } else if (language === 'SQL') {
+          iconClass = 'fas fa-database text-3xl mb-3 text-teal-400';
+          textColor = 'text-teal-400';
+        } else if (language === 'TypeScript') {
+          iconClass = 'fab fa-js-square text-3xl mb-3 text-blue-500';
+          textColor = 'text-blue-500';
+        } else if (language === 'Go') {
+          iconClass = 'fas fa-code text-3xl mb-3 text-cyan-400';
+          textColor = 'text-cyan-400';
+        } else if (language === 'Rust') {
+          iconClass = 'fas fa-cog text-3xl mb-3 text-orange-500';
+          textColor = 'text-orange-500';
+        } else if (language === 'Swift') {
+          iconClass = 'fab fa-swift text-3xl mb-3 text-orange-400';
+          textColor = 'text-orange-400';
+        } else if (language === 'Kotlin') {
+          iconClass = 'fas fa-code text-3xl mb-3 text-purple-500';
+          textColor = 'text-purple-500';
+        }
+        
+        // إنشاء رابط لكل لغة
+        const languageLink = document.createElement('a');
+        languageLink.href = getLanguagePage(language);
+        languageLink.className = 'block';
+        
+        languageLink.innerHTML = `
+          <div class="${iconClass}"></div>
+          <h3 class="text-lg font-bold mb-2 ${textColor}">${language}</h3>
+          <p class="text-gray-400 text-sm">${problemCount} مشكلة</p>
+          <div class="mt-2 bg-gray-700 rounded-full h-2">
+            <div class="bg-green-500 h-2 rounded-full" style="width: ${(solvedCount / problemCount) * 100}%"></div>
+          </div>
+          <p class="text-gray-400 text-xs mt-1">${solvedCount}/${problemCount} محلولة</p>
+        `;
+        
+        languageCard.appendChild(languageLink);
+        languagesGrid.appendChild(languageCard);
+      });
+    }
+
+    // الحصول على رابط صفحة اللغة
+    function getLanguagePage(language) {
+      // تحويل اسم اللغة إلى تنسيق مناسب لاسم الملف
+      const fileName = language.toLowerCase() +'.html';
+      return fileName;
+    }
+
+    // عرض جميع المشاكل
+    function showAllProblems() {
+      // في التطبيق الحقيقي، هنا سنفتح صفحة منفصلة لعرض جميع المشاكل
+      // لكن في هذا المثال، سنعرض رسالة
+      alert('سيتم فتح صفحة تحتوي على جميع المشاكل من جميع اللغات. هذه الصفحة قيد التطوير.');
+    }
+
+    // عرض المشاكل المفضلة
+    function showFavorites() {
+      // في التطبيق الحقيقي، هنا سنفتح صفحة منفصلة لعرض المفضلة
+      // لكن في هذا المثال، سنعرض رسالة
+      alert('سيتم فتح صفحة تحتوي على المشاكل المفضلة. هذه الصفحة قيد التطوير.');
+    }
+
+    // البحث الشامل
+    function globalSearchProblems() {
+      const searchTerm = globalSearch.value.toLowerCase();
+      
+      if (searchTerm.trim() === '') return;
+      
+      // في التطبيق الحقيقي، هنا سنفتح صفحة نتائج البحث
+      // لكن في هذا المثال، سنعرض رسالة
+      alert(`سيتم فتح صفحة تحتوي على نتائج البحث عن "${searchTerm}". هذه الصفحة قيد التطوير.`);
+    }
+
+    // تحديث الإحصائيات
+    function updateStatistics() {
+      const totalLanguages = Object.keys(problemsData).length;
+      const totalProblems = Object.values(problemsData).reduce((sum, problems) => sum + problems.length, 0);
+      const totalCategories = new Set();
+      Object.values(problemsData).forEach(problems => {
+        problems.forEach(problem => totalCategories.add(problem.category));
+      });
+      
+      document.getElementById('totalLanguages').textContent = totalLanguages;
+      document.getElementById('totalProblems').textContent = totalProblems;
+      document.getElementById('totalCategories').textContent = totalCategories.size;
+      document.getElementById('totalSolutions').textContent = totalProblems;
+    }
+
+    // التمرير إلى الأعلى
+    function scrollToTopFunction() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // التعامل مع التمرير
+    function handleScroll() {
+      if (window.pageYOffset > 300) {
+        scrollToTop.style.display = 'flex';
+      } else {
+        scrollToTop.style.display = 'none';
+      }
+    }
+
+    // تبديل ترتيب اللغات
+    function toggleSortLanguages() {
+      // تبديل بين الترتيب الأبجدي والترتيب بعدد المشاكل
+      const languages = Array.from(languagesGrid.children);
+      
+      languages.sort((a, b) => {
+        const aName = a.getAttribute('data-language');
+        const bName = b.getAttribute('data-language');
+        return aName.localeCompare(bName);
+      });
+      
+      // إعادة ترتيب العناصر في الشبكة
+      languages.forEach(lang => languagesGrid.appendChild(lang));
+    }
+
+    // تبديل وضع العرض
+    function toggleViewMode() {
+      // في هذا المثال، سنغير نمط العرض فقط
+      const isGridView = languagesGrid.classList.contains('grid-cols-2');
+      
+      if (isGridView) {
+        languagesGrid.className = 'grid grid-cols-1 gap-4';
+        viewMode.innerHTML = '<i class="fas fa-th-large ml-1"></i>عرض الشبكة';
+      } else {
+        languagesGrid.className = 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4';
+        viewMode.innerHTML = '<i class="fas fa-list ml-1"></i>عرض القائمة';
+      }
+    }
+
+    // التعامل مع إرسال الاقتراح
+    function handleSuggestionSubmit(e) {
+      e.preventDefault();
+      
+      const title = document.getElementById('problemTitle').value;
+      const language = document.getElementById('problemLanguage').value;
+      const description = document.getElementById('problemDescription').value;
+      const solution = document.getElementById('problemSolution').value;
+      
+      // في التطبيق الحقيقي، هنا سيتم إرسال البيانات للخادم
+      alert(`شكراً لك على اقتراحك!\n\nسيتم مراجعة المشكلة "${title}" للغة ${language} وإضافتها للموقع قريباً.`);
+      
+      // إعادة تعيين النموذج
+      suggestionForm.reset();
+    }
+
+    // تبديل القائمة المتنقلة
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    // بدء التطبيق
+    init();
+  </script>
+</body>
+</html>

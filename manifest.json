@@ -1,0 +1,58 @@
+{
+  "name": "TipsHub - منصة المبرمجين الشاملة",
+  "short_name": "TipsHub",
+  "description": "منصة شاملة تجمع كل ما يحتاجه المبرمج العربي لتطوير مهاراته - خرائط تعلم، نصائح برمجية، حلول للمشاكل، وأكثر",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "assets/images/tips.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/tips.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "developer", "programming"],
+  "screenshots": [
+    {
+      "src": "assets/images/tips.png",
+      "sizes": "1280x720",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "خرائط التعلم",
+      "short_name": "خرائط",
+      "description": "استكشف خرائط التعلم",
+      "url": "/roadmaps.html",
+      "icons": [{ "src": "assets/images/tips.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "المشاكل والحلول",
+      "short_name": "مشاكل",
+      "description": "ابحث عن حلول للمشاكل البرمجية",
+      "url": "/problems.html",
+      "icons": [{ "src": "assets/images/tips.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "نصائح برمجية",
+      "short_name": "نصائح",
+      "description": "اقرأ النصائح البرمجية",
+      "url": "/tips.html",
+      "icons": [{ "src": "assets/images/tips.png", "sizes": "96x96" }]
+    }
+  ]
+}
+

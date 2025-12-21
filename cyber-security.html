@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خارطة الأمن السيبراني - TipsHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .stack-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(75, 85, 99, 0.5);
+        }
+        
+        .stack-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .roadmap-step {
+            position: relative;
+            padding-right: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .roadmap-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: 15px;
+            height: calc(100% - 40px);
+            width: 2px;
+            background-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: rgb(59, 130, 246);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-weight: bold;
+            z-index: 2;
+            color: white;
+        }
+        
+        .skill-level {
+            height: 6px;
+            border-radius: 3px;
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-right: 30px;
+        }
+        
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: 10px;
+            height: calc(100% - 30px);
+            width: 2px;
+            background-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgb(59, 130, 246);
+            position: absolute;
+            right: 0;
+            top: 5px;
+        }
+        
+        .path-card {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .path-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 100%);
+        }
+        
+        .network-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .appsec-gradient {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .soc-gradient {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .forensics-gradient {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+        
+        .pentest-gradient {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        .governance-gradient {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-gray-800 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="index.html" class="text-2xl font-bold text-blue-400">
+                            <i class="fas fa-shield-alt mr-2"></i>TipsHub
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">الرئيسية</a>
+                        <a href="roadmaps.html" class="text-blue-400 px-3 py-2 rounded-md text-sm font-medium">خرائط التعلم</a>
+                        <a href="tips.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">نصائح</a>
+                        <a href="problems.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">المشاكل</a>
+                        <a href="interview.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">مقابلات العمل</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-br from-blue-900 via-purple-900 to-red-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="text-center md:text-right mb-6 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">خارطة الأمن السيبراني الشاملة</h1>
+                    <p class="text-xl text-gray-300 max-w-2xl">
+                        مسار شامل لتصبح خبير أمن سيبراني محترف تتقن الدفاع الإلكتروني، اختبار الاختراق، التحقيق الجنائي الرقمي، وإدارة المخاطر
+                    </p>
+                </div>
+                <div class="bg-gradient-to-br from-blue-600 to-red-600 w-20 h-20 rounded-full flex items-center justify-center">
+                    <i class="fas fa-shield-alt text-3xl text-white"></i>
+                </div>
+            </div>
+            
+            <!-- Roadmap Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+                <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">12-18</div>
+                    <div class="text-blue-300 text-sm">أشهر</div>
+                </div>
+                <div class="bg-purple-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">8+</div>
+                    <div class="text-purple-300 text-sm">مجالات تقنية</div>
+                </div>
+                <div class="bg-red-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">20+</div>
+                    <div class="text-red-300 text-sm">مشروع عملي</div>
+                </div>
+                <div class="bg-yellow-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">50+</div>
+                    <div class="text-yellow-300 text-sm">مهارة تقنية</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cybersecurity Specializations -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center">تخصصات الأمن السيبراني الرئيسية</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <!-- Network Security -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-blue-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-network-wired text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">أمن الشبكات</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">حماية البنية التحتية للشبكات والبيانات المنقولة</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التقنيات</span>
+                            <span class="tech-badge bg-blue-900 text-blue-300">Firewalls</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المهارات</span>
+                            <span class="tech-badge bg-blue-800 text-blue-200">IDS/IPS</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">الشهادات</span>
+                            <span class="tech-badge bg-blue-700 text-blue-100">CCNA Security</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-blue-400">مرتفع جداً</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Application Security -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-purple-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-code text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">أمن التطبيقات</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">تأمين التطبيقات والبرمجيات من الثغرات الأمنية</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التقنيات</span>
+                            <span class="tech-badge bg-purple-900 text-purple-300">SAST/DAST</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المهارات</span>
+                            <span class="tech-badge bg-purple-800 text-purple-200">OWASP Top 10</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">الشهادات</span>
+                            <span class="tech-badge bg-purple-700 text-purple-100">GWEB</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-purple-400">مرتفع جداً</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-purple-600 h-2 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SOC & Monitoring -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-green-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-desktop text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">مركز العمليات الأمنية</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">مراقبة وتحليل التهديدات الأمنية في الوقت الفعلي</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التقنيات</span>
+                            <span class="tech-badge bg-green-900 text-green-300">SIEM</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المهارات</span>
+                            <span class="tech-badge bg-green-800 text-green-200">Threat Hunting</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">الشهادات</span>
+                            <span class="tech-badge bg-green-700 text-green-100">CySA+</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-green-400">مرتفع</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-green-600 h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Digital Forensics -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-red-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-search text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">التحقيق الجنائي الرقمي</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">تحليل الأدلة الرقمية والتحقيق في الحوادث الأمنية</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التقنيات</span>
+                            <span class="tech-badge bg-red-900 text-red-300">FTK, EnCase</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المهارات</span>
+                            <span class="tech-badge bg-red-800 text-red-200">Memory Analysis</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">الشهادات</span>
+                            <span class="tech-badge bg-red-700 text-red-100">GCFA</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-red-400">مرتفع</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-red-600 h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Penetration Testing -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-yellow-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-user-secret text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">اختبار الاختراق</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">محاكاة هجمات القرصنة لتقييم نقاط الضعف</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التقنيات</span>
+                            <span class="tech-badge bg-yellow-900 text-yellow-300">Metasploit</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المهارات</span>
+                            <span class="tech-badge bg-yellow-800 text-yellow-200">Vulnerability Assessment</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">الشهادات</span>
+                            <span class="tech-badge bg-yellow-700 text-yellow-100">OSCP</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-yellow-400">متزايد</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-yellow-600 h-2 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Governance & Compliance -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-indigo-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-balance-scale text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">الحوكمة والامتثال</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">إدارة المخاطر والامتثال للمعايير واللوائح</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المعايير</span>
+                            <span class="tech-badge bg-indigo-900 text-indigo-300">ISO 27001</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المهارات</span>
+                            <span class="tech-badge bg-indigo-800 text-indigo-200">Risk Management</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">الشهادات</span>
+                            <span class="tech-badge bg-indigo-700 text-indigo-100">CISSP</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-indigo-400">متخصص</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-indigo-600 h-2 rounded-full" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Path -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center">مسار التعلم الشامل</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Technical Foundation -->
+                <div class="path-card">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-laptop-code text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">الأساسيات التقنية</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-blue-300 mb-2">المرحلة 1: الشبكات والأنظمة</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• أساسيات الشبكات (TCP/IP, DNS)</li>
+                                <li>• أنظمة التشغيل (Windows, Linux)</li>
+                                <li>• البرمجة الأساسية (Python, Bash)</li>
+                                <li>• إدارة الأنظمة والخوادم</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-blue-300 mb-2">المرحلة 2: أساسيات الأمن</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• مفاهيم التشفير</li>
+                                <li>• إدارة الهوية والوصول</li>
+                                <li>• الجدران النارية والأنظمة</li>
+                                <li>• أساسيات القرصنة الأخلاقية</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-blue-300 mb-2">المرحلة 3: الدفاع الأساسي</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• كشف التسلل والوقاية</li>
+                                <li>• مكافحة الفيروسات والبرمجيات الخبيثة</li>
+                                <li>• النسخ الاحتياطي والاسترداد</li>
+                                <li>• السياسات الأمنية الأساسية</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Advanced Specializations -->
+                <div class="path-card">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-rocket text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">التخصصات المتقدمة</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-green-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-300 mb-2">المرحلة 4: التخصصات الدفاعية</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• مركز العمليات الأمنية (SOC)</li>
+                                <li>• التحليل الجنائي الرقمي</li>
+                                <li>• الاستجابة للحوادث</li>
+                                <li>• الذكاء التهديدي</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-300 mb-2">المرحلة 5: التخصصات الهجومية</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• اختبار الاختراق المتقدم</li>
+                                <li>• هندسة Reverse</li>
+                                <li>• أمن التطبيقات والويب</li>
+                                <li>• أمن الشبكات اللاسلكية</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-300 mb-2">المرحلة 6: الإدارة والاستراتيجية</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• إدارة المخاطر الأمنية</li>
+                                <li>• الحوكمة والامتثال</li>
+                                <li>• الأمن السحابي</li>
+                                <li>• الأمن التشغيلي</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Roadmap -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <!-- Roadmap Steps -->
+                <div class="lg:col-span-2">
+                    <h2 class="text-2xl font-bold text-white mb-8">الخارطة التفصيلية - الأمن السيبراني</h2>
+                    
+                    <div class="roadmap-steps">
+                        <!-- Step 1 -->
+                        <div class="roadmap-step">
+                            <div class="step-number">1</div>
+                            <div class="mr-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-bold text-white">المرحلة الأولى: الأساسيات التقنية</h3>
+                                    <span class="bg-green-900 text-green-300 text-xs px-3 py-1 rounded-full">2-3 أشهر</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-blue-400 mb-2">🌐 أساسيات الشبكات</h4>
+                                        <ul class="text-gray-300 text-sm space-y-1">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>بروتوكولات TCP/IP</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>DNS و DHCP</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>توجيه الشبكات والتبديل</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>شبكات VLAN والواي فاي</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-green-400 mb-2">💻 أنظمة التشغيل</h4>
+                                        <ul class="text-gray-300 text-sm space-y-1">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>إدارة Windows Server</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>أساسيات Linux وإدارة الخوادم</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>سكريبتات Bash و PowerShell</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>إدارة المستخدمين والصلاحيات</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-blue-900 bg-opacity-30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-blue-300 mb-2">🎯 المشاريع العملية</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <span class="text-gray-300">• بناء شبكة محلية افتراضية</span>
+                                        <span class="text-gray-300">• إعداد خادم ويب على Linux</span>
+                                        <span class="text-gray-300">• كتابة سكريبتات أتمتة</span>
+                                        <span class="text-gray-300">• إعداد سياسات أمنية أساسية</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="roadmap-step">
+                            <div class="step-number">2</div>
+                            <div class="mr-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-bold text-white">المرحلة الثانية: أساسيات الأمن السيبراني</h3>
+                                    <span class="bg-yellow-900 text-yellow-300 text-xs px-3 py-1 rounded-full">3-4 أشهر</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-purple-400 mb-2">🔐 مفاهيم الأمن الأساسية</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">التشفير</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">AES</span>
+                                                    <span class="tech-badge bg-blue-800 text-blue-200">RSA</span>
+                                                    <span class="tech-badge bg-blue-700 text-blue-100">Hash Functions</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">المصادقة والتفويض</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">2FA</span>
+                                                    <span class="tech-badge bg-green-800 text-green-200">OAuth</span>
+                                                    <span class="tech-badge bg-green-700 text-green-100">SAML</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">الدفاع الأساسي</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-red-900 text-red-300">Firewalls</span>
+                                                    <span class="tech-badge bg-red-800 text-red-200">Antivirus</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-indigo-400 mb-2">🐍 البرمجة للأمن</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">Python للأمن:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-cyan-900 text-cyan-300">Requests</span>
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Scapy</span>
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">Cryptography</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">أدوات الأمن:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">Wireshark</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Nmap</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">إدارة الأنظمة:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">Active Directory</span>
+                                                    <span class="tech-badge bg-red-900 text-red-300">Group Policy</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-purple-900 bg-opacity-30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-purple-300 mb-2">🎯 المشاريع العملية</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <span class="text-gray-300">• بناء جدار ناري بسيط</span>
+                                        <span class="text-gray-300">• تحليل حركة الشبكة</span>
+                                        <span class="text-gray-300">• كتابة سكريبتات أمنية</span>
+                                        <span class="text-gray-300">• إعداد نظام كشف تسلل</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3 -->
+                        <div class="roadmap-step">
+                            <div class="step-number">3</div>
+                            <div class="mr-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-bold text-white">المرحلة الثالثة: التخصصات الدفاعية</h3>
+                                    <span class="bg-blue-900 text-blue-300 text-xs px-3 py-1 rounded-full">3-4 أشهر</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-orange-400 mb-2">🛡️ مركز العمليات الأمنية</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">مراقبة وتحليل</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">SIEM</span>
+                                                    <span class="tech-badge bg-green-800 text-green-200">Splunk</span>
+                                                    <span class="tech-badge bg-green-700 text-green-100">ELK Stack</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">التهديدات والهجمات</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Malware Analysis</span>
+                                                    <span class="tech-badge bg-blue-800 text-blue-200">Threat Intelligence</span>
+                                                    <span class="tech-badge bg-blue-700 text-blue-100">Incident Response</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">الأدوات المتقدمة</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">YARA</span>
+                                                    <span class="tech-badge bg-yellow-800 text-yellow-200">Volatility</span>
+                                                    <span class="tech-badge bg-yellow-700 text-yellow-100">Wireshark</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-red-400 mb-2">🔍 التحقيق الجنائي الرقمي</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">أدوات التحقيق</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">FTK Imager</span>
+                                                    <span class="tech-badge bg-blue-800 text-blue-200">Autopsy</span>
+                                                    <span class="tech-badge bg-blue-700 text-blue-100">EnCase</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">مجالات التحقيق</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">Memory Forensics</span>
+                                                    <span class="tech-badge bg-green-800 text-green-200">Network Forensics</span>
+                                                    <span class="tech-badge bg-green-700 text-green-100">Mobile Forensics</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">التقنيات المتقدمة</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-indigo-900 text-indigo-300">Timeline Analysis</span>
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">Data Carving</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-red-900 bg-opacity-30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-red-300 mb-2">🎯 المشاريع العملية</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <span class="text-gray-300">• إعداد نظام SIEM</span>
+                                        <span class="text-gray-300">• تحليل هجمة إلكترونية</span>
+                                        <span class="text-gray-300">• تحقيق في حادث أمني</span>
+                                        <span class="text-gray-300">• بناء نظام استجابة للحوادث</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 4 -->
+                        <div class="roadmap-step">
+                            <div class="step-number">4</div>
+                            <div class="mr-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-bold text-white">المرحلة الرابعة: التخصصات الهجومية</h3>
+                                    <span class="bg-purple-900 text-purple-300 text-xs px-3 py-1 rounded-full">4-5 أشهر</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-pink-400 mb-2">🎯 اختبار الاختراق</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">التخطيط والاستطلاع:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Reconnaissance</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">Scanning</span>
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">Enumeration</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">الاستغلال:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-red-900 text-red-300">Metasploit</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Burp Suite</span>
+                                                    <span class="tech-badge bg-indigo-900 text-indigo-300">SQL Injection</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">ما بعد الاستغلال:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-indigo-900 text-indigo-300">Privilege Escalation</span>
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">Lateral Movement</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-teal-400 mb-2">🌐 أمن التطبيقات والويب</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">ثغرات OWASP:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">XSS</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">CSRF</span>
+                                                    <span class="tech-badge bg-red-900 text-red-300">SQLi</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">أدوات التحليل:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">Burp Suite</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">OWASP ZAP</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">التأمين:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">Secure Coding</span>
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">WAF</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-orange-400 mb-2">🔧 هندسة Reverse</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">الأدوات:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">IDA Pro</span>
+                                                    <span class="tech-badge bg-blue-800 text-blue-200">Ghidra</span>
+                                                    <span class="tech-badge bg-blue-700 text-blue-100">OllyDbg</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">التقنيات:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">Disassembly</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Debugging</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-red-400 mb-2">📡 أمن الشبكات اللاسلكية</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">التقنيات:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">WEP/WPA</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">WPA2/WPA3</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">الأدوات:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-red-900 text-red-300">Aircrack-ng</span>
+                                                    <span class="tech-badge bg-orange-900 text-orange-300">Kismet</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-pink-900 bg-opacity-30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-pink-300 mb-2">🎯 المشاريع العملية</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <span class="text-gray-300">• اختبار اختراق شامل</span>
+                                        <span class="text-gray-300">• تحليل ثغرات تطبيق ويب</span>
+                                        <span class="text-gray-300">• هندسة عكسية لبرمجية</span>
+                                        <span class="text-gray-300">• اختبار أمن شبكة لاسلكية</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 5 -->
+                        <div class="roadmap-step">
+                            <div class="step-number">5</div>
+                            <div class="mr-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-bold text-white">المرحلة الخامسة: الإدارة والاستراتيجية</h3>
+                                    <span class="bg-indigo-900 text-indigo-300 text-xs px-3 py-1 rounded-full">2-3 أشهر</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-cyan-400 mb-2">🏛️ إدارة المخاطر والامتثال</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">الإطار التنظيمي:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">ISO 27001</span>
+                                                    <span class="tech-badge bg-blue-800 text-blue-200">NIST</span>
+                                                    <span class="tech-badge bg-blue-700 text-blue-100">PCI-DSS</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">إدارة المخاطر:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">Risk Assessment</span>
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Business Impact</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-orange-400 mb-2">☁️ الأمن السحابي</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">AWS</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">IAM</span>
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Security Groups</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">CloudTrail</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">Microsoft Azure</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Azure AD</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">Security Center</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">Google Cloud</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-indigo-900 text-indigo-300">Cloud IAM</span>
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">Security Command</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-green-400 mb-2">🔄 الأمن التشغيلي</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">الأتمتة:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">SOAR</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Ansible</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">Terraform</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">التكامل المستمر:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">DevSecOps</span>
+                                                    <span class="tech-badge bg-red-900 text-red-300">CI/CD Security</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-red-400 mb-2">📊 القيادة والاستراتيجية</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">الحوكمة:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">Security Policy</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Compliance</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">الإدارة:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-red-900 text-red-300">Team Leadership</span>
+                                                    <span class="tech-badge bg-orange-900 text-orange-300">Budget Planning</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-indigo-900 bg-opacity-30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-indigo-300 mb-2">🎯 المشاريع العملية</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <span class="text-gray-300">• بناء إطار أمني للمؤسسة</span>
+                                        <span class="text-gray-300">• تأمين بيئة سحابية</span>
+                                        <span class="text-gray-300">• أتمتة عمليات الأمن</span>
+                                        <span class="text-gray-300">• تطوير استراتيجية أمنية</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Projects Section -->
+                    <div class="mt-16">
+                        <h2 class="text-2xl font-bold text-white mb-8">مشاريع الأمن السيبراني متكاملة</h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-gray-800 rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-green-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-seedling text-white"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-white">مشاريع المبتدئين</h3>
+                                </div>
+                                <ul class="text-gray-300 space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">بناء شبكة آمنة</span>
+                                            <p class="text-xs text-gray-400 mt-1">تكوين جدار ناري وقواعد أمنية للشبكة</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تحليل الحزم الشبكية</span>
+                                            <p class="text-xs text-gray-400 mt-1">استخدام Wireshark لتحليل حركة الشبكة</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">سكريبتات الأتمتة</span>
+                                            <p class="text-xs text-gray-400 mt-1">كتابة سكريبتات Python لأتمتة المهام الأمنية</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تأمين خادم ويب</span>
+                                            <p class="text-xs text-gray-400 mt-1">تطبيق إجراءات أمنية على خادم Apache/Nginx</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-800 rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-rocket text-white"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-white">مشاريع متوسطة</h3>
+                                </div>
+                                <ul class="text-gray-300 space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-spinner text-yellow-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">بناء مختبر اختراق</span>
+                                            <p class="text-xs text-gray-400 mt-1">إعداد بيئة Kali Linux وأدوات الاختراق</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-spinner text-yellow-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تحليل البرمجيات الخبيثة</span>
+                                            <p class="text-xs text-gray-400 mt-1">تحليل عينات من الفيروسات والبرمجيات الضارة</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-spinner text-yellow-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">نظام كشف التسلل</span>
+                                            <p class="text-xs text-gray-400 mt-1">إعداد وتكوين نظام Snort للكشف عن التسلل</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-spinner text-yellow-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تحقيق جنائي رقمي</span>
+                                            <p class="text-xs text-gray-400 mt-1">تحليل صورة قرص وتحقيق في حادث أمني</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-800 rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-purple-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-gem text-white"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-white">مشاريع متقدمة</h3>
+                                </div>
+                                <ul class="text-gray-300 space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">مركز عمليات أمنية</span>
+                                            <p class="text-xs text-gray-400 mt-1">بناء نظام SIEM كامل لمراقبة التهديدات</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">اختبار اختراق متقدم</span>
+                                            <p class="text-xs text-gray-400 mt-1">تنفيذ اختبار اختراق شامل لمنظمة كاملة</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تأمين البنية السحابية</span>
+                                            <p class="text-xs text-gray-400 mt-1">تأمين بيئة AWS/Azure متعددة الطبقات</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">نظام استجابة للحوادث</span>
+                                            <p class="text-xs text-gray-400 mt-1">بناء فريق واستراتيجية استجابة للحوادث</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-800 rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-red-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-briefcase text-white"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-white">مشاريع احترافية</h3>
+                                </div>
+                                <ul class="text-gray-300 space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">إطار أمني مؤسسي</span>
+                                            <p class="text-xs text-gray-400 mt-1">تطبيق ISO 27001 أو NIST Cybersecurity Framework</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">برنامج التوعية الأمنية</span>
+                                            <p class="text-xs text-gray-400 mt-1">تصميم وتنفيذ برنامج توعية للموظفين</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">أمن سلسلة التوريد</span>
+                                            <p class="text-xs text-gray-400 mt-1">تقييم وإدارة مخاطر أمن سلسلة التوريد</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">استراتيجية الأمن السيبراني</span>
+                                            <p class="text-xs text-gray-400 mt-1">تطوير استراتيجية أمنية شاملة للمؤسسة</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    <!-- Skills Demand -->
+                    <div class="bg-gray-800 rounded-xl p-6 mb-8">
+                        <h3 class="text-xl font-bold text-white mb-4">مستوى الطلب على المهارات</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">أمن الشبكات</span>
+                                    <span class="text-green-400">مرتفع جداً</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-green-600 h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">مركز العمليات الأمنية</span>
+                                    <span class="text-blue-400">مرتفع جداً</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">اختبار الاختراق</span>
+                                    <span class="text-purple-400">مرتفع</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-purple-600 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">التحقيق الجنائي الرقمي</span>
+                                    <span class="text-blue-400">مرتفع</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">الحوكمة والامتثال</span>
+                                    <span class="text-yellow-400">متوسط</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-yellow-600 h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Learning Resources -->
+                    <div class="bg-gray-800 rounded-xl p-6 mb-8">
+                        <h3 class="text-xl font-bold text-white mb-4">موارد تعليمية مميزة</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start p-3 bg-gray-700 rounded-lg">
+                                <i class="fas fa-book text-blue-400 mt-1 ml-2"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Cybrary</h4>
+                                    <p class="text-xs text-gray-400">منصة شاملة لدورات الأمن السيبراني</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start p-3 bg-gray-700 rounded-lg">
+                                <i class="fas fa-graduation-cap text-green-400 mt-1 ml-2"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">SANS</h4>
+                                    <p class="text-xs text-gray-400">معهد متخصص في التدريب الأمني المتقدم</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start p-3 bg-gray-700 rounded-lg">
+                                <i class="fas fa-laptop-code text-purple-400 mt-1 ml-2"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">TryHackMe & HackTheBox</h4>
+                                    <p class="text-xs text-gray-400">منصات تدريب عملية على الاختراق والدفاع</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start p-3 bg-gray-700 rounded-lg">
+                                <i class="fas fa-university text-yellow-400 mt-1 ml-2"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">OWASP</h4>
+                                    <p class="text-xs text-gray-400">مصدر موثوق لأمن التطبيقات والويب</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Career Advice -->
+                    <div class="bg-gray-800 rounded-xl p-6 mb-8">
+                        <h3 class="text-xl font-bold text-white mb-4">نصائح مهنية احترافية</h3>
+                        <div class="space-y-4">
+                            <div class="bg-blue-900 bg-opacity-30 rounded-lg p-4">
+                                <h4 class="font-semibold text-blue-300 mb-2">🚀 بناء المحفظة التقنية</h4>
+                                <p class="text-sm text-gray-300">ركز على مشاريع عملية تعكس مهاراتك في الأمن السيبراني. المشاريع المعملية والتطبيقات العملية تزيد من فرصك الوظيفية.</p>
+                            </div>
+                            <div class="bg-green-900 bg-opacity-30 rounded-lg p-4">
+                                <h4 class="font-semibold text-green-300 mb-2">📚 الشهادات المهنية</h4>
+                                <p class="text-sm text-gray-300">الشهادات مثل Security+, CEH, CISSP تزيد من مصداقيتك وتفتح أبواباً وظيفية متقدمة في مجال الأمن السيبراني.</p>
+                            </div>
+                            <div class="bg-purple-900 bg-opacity-30 rounded-lg p-4">
+                                <h4 class="font-semibold text-purple-300 mb-2">🤝 بناء الشبكات المهنية</h4>
+                                <p class="text-sm text-gray-300">انضم لمجتمعات الأمن السيبراني وحضور المؤتمرات. التواصل مع المحترفين يوسع آفاقك ويفتح فرصاً جديدة.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Salary Ranges -->
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">المستويات الوظيفية والرواتب</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">مبتدئ (Junior)</span>
+                                    <span class="text-green-400">$60K - $90K</span>
+                                </div>
+                                <div class="text-xs text-gray-400">0-2 سنوات خبرة - أساسيات الأمن، مراقبة، دعم</div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">متوسط (Mid-level)</span>
+                                    <span class="text-blue-400">$90K - $130K</span>
+                                </div>
+                                <div class="text-xs text-gray-400">2-5 سنوات خبرة - تحليل، استجابة للحوادث، اختبار اختراق</div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">مستوى متقدم (Senior)</span>
+                                    <span class="text-purple-400">$130K - $180K</span>
+                                </div>
+                                <div class="text-xs text-gray-400">5+ سنوات خبرة - هندسة، إدارة، استشارة</div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">قائد (Lead/Manager)</span>
+                                    <span class="text-red-400">$180K+</span>
+                                </div>
+                                <div class="text-xs text-gray-400">8+ سنوات خبرة - إدارة فرق، استراتيجية، حوكمة</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="mb-4">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-2">
+                        <i class="fas fa-shield-alt ml-2"></i>TipsHub
+                    </h3>
+                    <p class="text-gray-400">منصة شاملة لكل ما يحتاجه المطورون</p>
+                </div>
+                <div class="border-t border-gray-700 pt-4">
+                    <p class="text-gray-500">© 2025 TipsHub. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

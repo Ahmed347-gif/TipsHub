@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خارطة iOS Development - TipsHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .stack-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(75, 85, 99, 0.5);
+        }
+        
+        .stack-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .roadmap-step {
+            position: relative;
+            padding-right: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .roadmap-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: 15px;
+            height: calc(100% - 40px);
+            width: 2px;
+            background-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: rgb(59, 130, 246);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-weight: bold;
+            z-index: 2;
+            color: white;
+        }
+        
+        .skill-level {
+            height: 6px;
+            border-radius: 3px;
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-right: 30px;
+        }
+        
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: 10px;
+            height: calc(100% - 30px);
+            width: 2px;
+            background-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgb(59, 130, 246);
+            position: absolute;
+            right: 0;
+            top: 5px;
+        }
+        
+        .path-card {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .path-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 100%);
+        }
+        
+        .swift-gradient {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+        }
+        
+        .ui-gradient {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+        }
+        
+        .architecture-gradient {
+            background: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 100%);
+        }
+        
+        .storage-gradient {
+            background: linear-gradient(135deg, #A1C4FD 0%, #C2E9FB 100%);
+        }
+        
+        .testing-gradient {
+            background: linear-gradient(135deg, #FFD1FF 0%, #FAD0C4 100%);
+        }
+        
+        .deployment-gradient {
+            background: linear-gradient(135deg, #D4FC79 0%, #96E6A1 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-gray-800 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="index.html" class="text-2xl font-bold text-blue-400">
+                            <i class="fab fa-apple mr-2"></i>TipsHub
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">الرئيسية</a>
+                        <a href="roadmaps.html" class="text-blue-400 px-3 py-2 rounded-md text-sm font-medium">خرائط التعلم</a>
+                        <a href="tips.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">نصائح</a>
+                        <a href="problems.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">المشاكل</a>
+                        <a href="interview.html" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">مقابلات العمل</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-br from-blue-900 via-gray-900 to-purple-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="text-center md:text-right mb-6 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">خارطة iOS Development الشاملة</h1>
+                    <p class="text-xl text-gray-300 max-w-2xl">
+                        مسار شامل لتصبح مطور تطبيقات iOS محترف تتقن Swift، UIKit، SwiftUI، Architecture، والنشر على App Store
+                    </p>
+                </div>
+                <div class="bg-gradient-to-br from-blue-600 to-gray-600 w-20 h-20 rounded-full flex items-center justify-center">
+                    <i class="fab fa-apple text-3xl text-white"></i>
+                </div>
+            </div>
+            
+            <!-- Roadmap Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+                <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">10-16</div>
+                    <div class="text-blue-300 text-sm">أشهر</div>
+                </div>
+                <div class="bg-gray-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">6+</div>
+                    <div class="text-gray-300 text-sm">مجالات تقنية</div>
+                </div>
+                <div class="bg-purple-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">15+</div>
+                    <div class="text-purple-300 text-sm">مشروع عملي</div>
+                </div>
+                <div class="bg-yellow-800 bg-opacity-50 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-white">45+</div>
+                    <div class="text-yellow-300 text-sm">مهارة تقنية</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- iOS Specializations -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center">تخصصات iOS Development الرئيسية</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <!-- Swift Development -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-blue-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fab fa-swift text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Swift Development</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">لغة Swift الحديثة لتطوير iOS</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المفاهيم</span>
+                            <span class="tech-badge bg-blue-900 text-blue-300">Optionals</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">الميزات</span>
+                            <span class="tech-badge bg-blue-800 text-blue-200">Protocols</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التقنيات</span>
+                            <span class="tech-badge bg-blue-700 text-blue-100">Concurrency</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-blue-400">مرتفع جداً</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- UIKit Framework -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-purple-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-layer-group text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">UIKit Framework</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">إطار العمل التقليدي لواجهات iOS</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المكونات</span>
+                            <span class="tech-badge bg-purple-900 text-purple-300">UIViewController</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التقنيات</span>
+                            <span class="tech-badge bg-purple-800 text-purple-200">Auto Layout</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التطبيقات</span>
+                            <span class="tech-badge bg-purple-700 text-purple-100">Legacy Apps</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-purple-400">مرتفع جداً</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-purple-600 h-2 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SwiftUI Framework -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-green-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-bolt text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">SwiftUI Framework</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">إطار العمل الحديث للواجهات التصريحية</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المفاهيم</span>
+                            <span class="tech-badge bg-green-900 text-green-300">Declarative</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">الميزات</span>
+                            <span class="tech-badge bg-green-800 text-green-200">State Management</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التطبيقات</span>
+                            <span class="tech-badge bg-green-700 text-green-100">Modern Apps</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-green-400">مرتفع</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-green-600 h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- iOS Architecture -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-red-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-sitemap text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">iOS Architecture</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">هندسة التطبيقات وأنماط التصميم</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">النماذج</span>
+                            <span class="tech-badge bg-red-900 text-red-300">MVVM</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التقنيات</span>
+                            <span class="tech-badge bg-red-800 text-red-200">Clean Architecture</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التطبيقات</span>
+                            <span class="tech-badge bg-red-700 text-red-100">Scalable Apps</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-red-400">مرتفع</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-red-600 h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Data & Storage -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-yellow-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-database text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Data & Storage</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">إدارة البيانات والتخزين المحلي</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التقنيات</span>
+                            <span class="tech-badge bg-yellow-900 text-yellow-300">Core Data</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">المهارات</span>
+                            <span class="tech-badge bg-yellow-800 text-yellow-200">Realm</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التطبيقات</span>
+                            <span class="tech-badge bg-yellow-700 text-yellow-100">Networking</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-yellow-400">متزايد</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-yellow-600 h-2 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testing & Deployment -->
+                <div class="stack-card bg-gray-800 rounded-xl p-6 border-t-4 border-t-indigo-500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-600 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-rocket text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Testing & Deployment</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">اختبار التطبيقات ونشرها على App Store</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">الاختبار</span>
+                            <span class="tech-badge bg-indigo-900 text-indigo-300">Unit Testing</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">النشر</span>
+                            <span class="tech-badge bg-indigo-800 text-indigo-200">App Store Connect</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300 text-sm">التطبيقات</span>
+                            <span class="tech-badge bg-indigo-700 text-indigo-100">CI/CD</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الطلب في السوق</span>
+                            <span class="text-indigo-400">متخصص</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-indigo-600 h-2 rounded-full" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Path -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center">مسار التعلم الشامل</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Technical Foundation -->
+                <div class="path-card">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-laptop-code text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">الأساسيات التقنية</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-blue-300 mb-2">المرحلة 1: أساسيات البرمجة وSwift</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• لغة Swift والأساسيات</li>
+                                <li>• Xcode وبيئة التطوير</li>
+                                <li>• Git والتحكم بالإصدارات</li>
+                                <li>• أساسيات iOS SDK</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-blue-300 mb-2">المرحلة 2: UIKit الأساسي</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• UIView و UIViewController</li>
+                                <li>• Auto Layout والقيود</li>
+                                <li>• UITableView و UICollectionView</li>
+                                <li>• Navigation و Delegation</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-blue-300 mb-2">المرحلة 3: البيانات والتخزين</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• UserDefaults و FileManager</li>
+                                <li>• Core Data الأساسي</li>
+                                <li>• Networking مع URLSession</li>
+                                <li>• JSON Parsing و Codable</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Advanced Specializations -->
+                <div class="path-card">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-rocket text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">التخصصات المتقدمة</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-green-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-300 mb-2">المرحلة 4: SwiftUI والهندسة</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• SwiftUI و Declarative UI</li>
+                                <li>• MVVM و Clean Architecture</li>
+                                <li>• Combine Framework</li>
+                                <li>• Dependency Injection</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-300 mb-2">المرحلة 5: التخصصات المتقدمة</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• Concurrency و Async/Await</li>
+                                <li>• Advanced Networking</li>
+                                <li>• Performance Optimization</li>
+                                <li>• Advanced Animations</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-800 bg-opacity-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-300 mb-2">المرحلة 6: النشر والتحسين</h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• TestFlight و App Store</li>
+                                <li>• App Store Connect</li>
+                                <li>• CI/CD للأجهزة Apple</li>
+                                <li>• Analytics و Monitoring</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Roadmap -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <!-- Roadmap Steps -->
+                <div class="lg:col-span-2">
+                    <h2 class="text-2xl font-bold text-white mb-8">الخارطة التفصيلية - iOS Development</h2>
+                    
+                    <div class="roadmap-steps">
+                        <!-- Step 1 -->
+                        <div class="roadmap-step">
+                            <div class="step-number">1</div>
+                            <div class="mr-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-bold text-white">المرحلة الأولى: أساسيات Swift وXcode</h3>
+                                    <span class="bg-green-900 text-green-300 text-xs px-3 py-1 rounded-full">2-3 أشهر</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-blue-400 mb-2">🐦 لغة Swift الأساسية</h4>
+                                        <ul class="text-gray-300 text-sm space-y-1">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>المتغيرات والثوابت</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>أنواع البيانات والمجموعات</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>الشروط والحلقات</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>الدوال والكلاسات</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-green-400 mb-2">🛠️ بيئة التطوير</h4>
+                                        <ul class="text-gray-300 text-sm space-y-1">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>Xcode وInterface Builder</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>Simulator وإدارة الأجهزة</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>Debugging وأدوات التطوير</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                                <span>Git وإدارة المشاريع</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-blue-900 bg-opacity-30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-blue-300 mb-2">🎯 المشاريع العملية</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <span class="text-gray-300">• تطبيق آلة حاسبة</span>
+                                        <span class="text-gray-300">• تطبيق قائمة مهام</span>
+                                        <span class="text-gray-300">• تطبيق تحويل الوحدات</span>
+                                        <span class="text-gray-300">• لعبة تخمين الأرقام</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="roadmap-step">
+                            <div class="step-number">2</div>
+                            <div class="mr-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-bold text-white">المرحلة الثانية: UIKit الأساسي</h3>
+                                    <span class="bg-yellow-900 text-yellow-300 text-xs px-3 py-1 rounded-full">3-4 أشهر</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-purple-400 mb-2">📱 أساسيات UIKit</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">المكونات الأساسية</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">UIView</span>
+                                                    <span class="tech-badge bg-blue-800 text-blue-200">UIViewController</span>
+                                                    <span class="tech-badge bg-blue-700 text-blue-100">UILabel</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">التخطيط</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">Auto Layout</span>
+                                                    <span class="tech-badge bg-green-800 text-green-200">Stack Views</span>
+                                                    <span class="tech-badge bg-green-700 text-green-100">Constraints</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">التفاعل</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-red-900 text-red-300">IBAction</span>
+                                                    <span class="tech-badge bg-red-800 text-red-200">IBOutlet</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-indigo-400 mb-2">🎨 واجهات متقدمة</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">عرض البيانات:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-cyan-900 text-cyan-300">UITableView</span>
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">UICollectionView</span>
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">Custom Cells</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">التنقل:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">UINavigation</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">UITabBar</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">التصميم:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">Storyboards</span>
+                                                    <span class="tech-badge bg-red-900 text-red-300">XIBs</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-purple-900 bg-opacity-30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-purple-300 mb-2">🎯 المشاريع العملية</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <span class="text-gray-300">• تطبيق مفكرة يومية</span>
+                                        <span class="text-gray-300">• تطبيق قائمة تسوق</span>
+                                        <span class="text-gray-300">• تطبيق الطقس</span>
+                                        <span class="text-gray-300">• تطبيق الأخبار</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3 -->
+                        <div class="roadmap-step">
+                            <div class="step-number">3</div>
+                            <div class="mr-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-bold text-white">المرحلة الثالثة: البيانات والتخزين</h3>
+                                    <span class="bg-blue-900 text-blue-300 text-xs px-3 py-1 rounded-full">2-3 أشهر</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-orange-400 mb-2">💾 التخزين المحلي</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">قواعد البيانات</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">Core Data</span>
+                                                    <span class="tech-badge bg-green-800 text-green-200">Realm</span>
+                                                    <span class="tech-badge bg-green-700 text-green-100">SQLite</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">التخزين البسيط</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">UserDefaults</span>
+                                                    <span class="tech-badge bg-blue-800 text-blue-200">FileManager</span>
+                                                    <span class="tech-badge bg-blue-700 text-blue-100">Keychain</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">إدارة البيانات</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Codable</span>
+                                                    <span class="tech-badge bg-yellow-800 text-yellow-200">JSON</span>
+                                                    <span class="tech-badge bg-yellow-700 text-yellow-100">Plist</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-red-400 mb-2">🌐 الشبكات والاتصال</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">مكتبات الشبكات</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">URLSession</span>
+                                                    <span class="tech-badge bg-blue-800 text-blue-200">Alamofire</span>
+                                                    <span class="tech-badge bg-blue-700 text-blue-100">REST APIs</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">تنسيقات البيانات</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">JSON</span>
+                                                    <span class="tech-badge bg-green-800 text-green-200">XML</span>
+                                                    <span class="tech-badge bg-green-700 text-green-100">Protobuf</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">التعامل مع الأخطاء</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-indigo-900 text-indigo-300">Error Handling</span>
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">Retry Mechanisms</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-red-900 bg-opacity-30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-red-300 mb-2">🎯 المشاريع العملية</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <span class="text-gray-300">• تطبيق مدونة شخصية</span>
+                                        <span class="text-gray-300">• تطبيق متابعة المصاريف</span>
+                                        <span class="text-gray-300">• تطبيق قائمة أفلام</span>
+                                        <span class="text-gray-300">• تطبيق متابعة الرياضة</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 4 -->
+                        <div class="roadmap-step">
+                            <div class="step-number">4</div>
+                            <div class="mr-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-bold text-white">المرحلة الرابعة: SwiftUI والهندسة</h3>
+                                    <span class="bg-purple-900 text-purple-300 text-xs px-3 py-1 rounded-full">3-4 أشهر</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-pink-400 mb-2">🚀 SwiftUI الأساسي</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">المفاهيم:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Views</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">Modifiers</span>
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">State</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">التخطيط:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-red-900 text-red-300">VStack</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">HStack</span>
+                                                    <span class="tech-badge bg-indigo-900 text-indigo-300">ZStack</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">إدارة الحالة:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-indigo-900 text-indigo-300">@State</span>
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">@Binding</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-teal-400 mb-2">🏗️ أنماط الهندسة</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">MVVM:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">ViewModel</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">@Published</span>
+                                                    <span class="tech-badge bg-red-900 text-red-300">ObservableObject</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">Clean Architecture:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">Layers</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Use Cases</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">الإدارة:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-green-900 text-green-300">Dependency Injection</span>
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Coordinators</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-orange-400 mb-2">🔄 Combine Framework</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">المفاهيم:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Publishers</span>
+                                                    <span class="tech-badge bg-blue-800 text-blue-200">Subscribers</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">المشغلات:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">Operators</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">Schedulers</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-red-400 mb-2">🧪 الاختبار</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">Unit Testing:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">XCTest</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Mocking</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">UI Testing:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-red-900 text-red-300">XCUITest</span>
+                                                    <span class="tech-badge bg-orange-900 text-orange-300">Accessibility</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-pink-900 bg-opacity-30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-pink-300 mb-2">🎯 المشاريع العملية</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <span class="text-gray-300">• تطبيق مدفوعات</span>
+                                        <span class="text-gray-300">• تطبيق طلبات طعام</span>
+                                        <span class="text-gray-300">• تطبيق محادثات</span>
+                                        <span class="text-gray-300">• تطبيق متابعة مشاريع</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 5 -->
+                        <div class="roadmap-step">
+                            <div class="step-number">5</div>
+                            <div class="mr-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h3 class="text-xl font-bold text-white">المرحلة الخامسة: التخصصات المتقدمة والنشر</h3>
+                                    <span class="bg-indigo-900 text-indigo-300 text-xs px-3 py-1 rounded-full">2-3 أشهر</span>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-cyan-400 mb-2">⚡ التخصصات المتقدمة</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">Concurrency:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Async/Await</span>
+                                                    <span class="tech-badge bg-blue-800 text-blue-200">Actors</span>
+                                                    <span class="tech-badge bg-blue-700 text-blue-100">Task</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">الأداء:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-purple-900 text-purple-300">Instruments</span>
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Memory Management</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-orange-400 mb-2">📱 ميزات النظام</h4>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">الإشعارات</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">Local</span>
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Remote</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">Push</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">الحساسات</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Core Location</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">Core Motion</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-white text-sm font-semibold">الوسائط</h5>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-indigo-900 text-indigo-300">AVFoundation</span>
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">Core Image</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-green-400 mb-2">🚀 النشر والتوزيع</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">App Store:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">App Store Connect</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">TestFlight</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">In-app Purchase</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">التوقيع:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-blue-900 text-blue-300">Code Signing</span>
+                                                    <span class="tech-badge bg-green-900 text-green-300">Provisioning</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-red-400 mb-2">🔄 CI/CD والمراقبة</h4>
+                                        <ul class="text-gray-300 text-sm space-y-2">
+                                            <li>
+                                                <span class="font-semibold text-white">الأتمتة:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-gray-700 text-gray-300">Fastlane</span>
+                                                    <span class="tech-badge bg-yellow-900 text-yellow-300">GitHub Actions</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span class="font-semibold text-white">المراقبة:</span>
+                                                <div class="flex flex-wrap gap-1 mt-1">
+                                                    <span class="tech-badge bg-red-900 text-red-300">Crashlytics</span>
+                                                    <span class="tech-badge bg-orange-900 text-orange-300">Analytics</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-indigo-900 bg-opacity-30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-indigo-300 mb-2">🎯 المشاريع العملية</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <span class="text-gray-300">• تطبيق اجتماعي كامل</span>
+                                        <span class="text-gray-300">• تطبيق تجارة إلكترونية</span>
+                                        <span class="text-gray-300">• تطبيق موسيقى</span>
+                                        <span class="text-gray-300">• تطبيق تعليمي تفاعلي</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Projects Section -->
+                    <div class="mt-16">
+                        <h2 class="text-2xl font-bold text-white mb-8">مشاريع iOS Development متكاملة</h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-gray-800 rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-green-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-seedling text-white"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-white">مشاريع المبتدئين</h3>
+                                </div>
+                                <ul class="text-gray-300 space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق آلة حاسبة</span>
+                                            <p class="text-xs text-gray-400 mt-1">UIKit - تطبيق آلة حاسبة مع واجهة بسيطة</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق قائمة مهام</span>
+                                            <p class="text-xs text-gray-400 mt-1">UserDefaults - إدارة المهام مع تخزين محلي</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق الطقس</span>
+                                            <p class="text-xs text-gray-400 mt-1">URLSession - عرض بيانات الطقس من API</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق مفكرة</span>
+                                            <p class="text-xs text-gray-400 mt-1">Core Data - تطبيق مفكرة مع تخزين محلي</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-800 rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-rocket text-white"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-white">مشاريع متوسطة</h3>
+                                </div>
+                                <ul class="text-gray-300 space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-spinner text-yellow-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق مدونة</span>
+                                            <p class="text-xs text-gray-400 mt-1">MVVM - تطبيق مدونة مع Clean Architecture</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-spinner text-yellow-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق متابعة مصاريف</span>
+                                            <p class="text-xs text-gray-400 mt-1">Charts - تطبيق مالي مع رسوم بيانية</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-spinner text-yellow-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق أفلام</span>
+                                            <p class="text-xs text-gray-400 mt-1">UICollectionView - تطبيق أفلام مع واجهة شبكية</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-spinner text-yellow-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق رياضة</span>
+                                            <p class="text-xs text-gray-400 mt-1">Background Tasks - تطبيق رياضة مع مزامنة خلفية</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-800 rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-purple-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-gem text-white"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-white">مشاريع متقدمة</h3>
+                                </div>
+                                <ul class="text-gray-300 space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق وسائل تواصل</span>
+                                            <p class="text-xs text-gray-400 mt-1">WebSockets - تطبيق محادثات في الوقت الحقيقي</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق طلبات طعام</span>
+                                            <p class="text-xs text-gray-400 mt-1">Maps - تطبيق توصيل مع خرائط وتتبع</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق مدفوعات</span>
+                                            <p class="text-xs text-gray-400 mt-1">Security - تطبيق مدفوعات مع تشفير متقدم</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق موسيقى</span>
+                                            <p class="text-xs text-gray-400 mt-1">AVFoundation - تطبيق موسيقى مع تشغيل محلي</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-800 rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-red-600 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-briefcase text-white"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-white">مشاريع احترافية</h3>
+                                </div>
+                                <ul class="text-gray-300 space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق تجارة إلكترونية</span>
+                                            <p class="text-xs text-gray-400 mt-1">Microservices - تطبيق متكامل مع نظام متعدد</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق اجتماعي</span>
+                                            <p class="text-xs text-gray-400 mt-1">Real-time - تطبيق اجتماعي مع تفاعل فوري</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">تطبيق تعليمي</span>
+                                            <p class="text-xs text-gray-400 mt-1">Offline-first - تطبيق تعليمي يعمل بدون إنترنت</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="far fa-circle text-gray-500 mt-1 ml-2"></i>
+                                        <div>
+                                            <span class="font-semibold">منصة متكاملة</span>
+                                            <p class="text-xs text-gray-400 mt-1">Multi-module - تطبيق كبير مع وحدات متعددة</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    <!-- Skills Demand -->
+                    <div class="bg-gray-800 rounded-xl p-6 mb-8">
+                        <h3 class="text-xl font-bold text-white mb-4">مستوى الطلب على المهارات</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">Swift للiOS</span>
+                                    <span class="text-green-400">مرتفع جداً</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-green-600 h-2 rounded-full" style="width: 98%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">SwiftUI</span>
+                                    <span class="text-blue-400">مرتفع جداً</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">iOS Architecture</span>
+                                    <span class="text-purple-400">مرتفع</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-purple-600 h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">Testing & CI/CD</span>
+                                    <span class="text-blue-400">مرتفع</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="text-gray-400">UIKit</span>
+                                    <span class="text-yellow-400">متوسط</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-yellow-600 h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Learning Resources -->
+                    <div class="bg-gray-800 rounded-xl p-6 mb-8">
+                        <h3 class="text-xl font-bold text-white mb-4">موارد تعليمية مميزة</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start p-3 bg-gray-700 rounded-lg">
+                                <i class="fas fa-book text-blue-400 mt-1 ml-2"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Apple Developer</h4>
+                                    <p class="text-xs text-gray-400">الموقع الرسمي مع أحدث المستندات</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start p-3 bg-gray-700 rounded-lg">
+                                <i class="fas fa-graduation-cap text-green-400 mt-1 ml-2"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Hacking with Swift</h4>
+                                    <p class="text-xs text-gray-400">دروس Swift وiOS مجانية</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start p-3 bg-gray-700 rounded-lg">
+                                <i class="fas fa-laptop-code text-purple-400 mt-1 ml-2"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Raywenderlich</h4>
+                                    <p class="text-xs text-gray-400">دروس عملية ومشاريع iOS</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start p-3 bg-gray-700 rounded-lg">
+                                <i class="fas fa-university text-yellow-400 mt-1 ml-2"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Stanford CS193p</h4>
+                                    <p class="text-xs text-gray-400">دورة Stanford الشهيرة لـ SwiftUI</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Career Advice -->
+                    <div class="bg-gray-800 rounded-xl p-6 mb-8">
+                        <h3 class="text-xl font-bold text-white mb-4">نصائح مهنية احترافية</h3>
+                        <div class="space-y-4">
+                            <div class="bg-blue-900 bg-opacity-30 rounded-lg p-4">
+                                <h4 class="font-semibold text-blue-300 mb-2">🚀 بناء المحفظة التقنية</h4>
+                                <p class="text-sm text-gray-300">ركز على مشاريع عملية تعكس مهاراتك في iOS. التطبيقات المنشورة على App Store تزيد من فرصك الوظيفية.</p>
+                            </div>
+                            <div class="bg-green-900 bg-opacity-30 rounded-lg p-4">
+                                <h4 class="font-semibold text-green-300 mb-2">📚 متابعة التحديثات</h4>
+                                <p class="text-sm text-gray-300">iOS يتطور بسرعة، حافظ على متابعة أحدث التقنيات مثل SwiftUI و Swift Concurrency.</p>
+                            </div>
+                            <div class="bg-purple-900 bg-opacity-30 rounded-lg p-4">
+                                <h4 class="font-semibold text-purple-300 mb-2">🤝 العمل الجماعي</h4>
+                                <p class="text-sm text-gray-300">انضم لمشاريع مفتوحة المصدر وتعاون مع المطورين. بناء الشبكات المهنية يفتح أبواباً كثيرة.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Salary Ranges -->
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">المستويات الوظيفية والرواتب</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">مبتدئ (Junior)</span>
+                                    <span class="text-green-400">$70K - $100K</span>
+                                </div>
+                                <div class="text-xs text-gray-400">0-2 سنوات خبرة - Swift، iOS أساسي، مشاريع بسيطة</div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">متوسط (Mid-level)</span>
+                                    <span class="text-blue-400">$100K - $140K</span>
+                                </div>
+                                <div class="text-xs text-gray-400">2-5 سنوات خبرة - Architecture، SwiftUI، Testing</div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">مستوى متقدم (Senior)</span>
+                                    <span class="text-purple-400">$140K - $180K</span>
+                                </div>
+                                <div class="text-xs text-gray-400">5+ سنوات خبرة - Performance، Leadership، Architecture</div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">قائد (Lead/Staff)</span>
+                                    <span class="text-red-400">$180K+</span>
+                                </div>
+                                <div class="text-xs text-gray-400">8+ سنوات خبرة - استراتيجية، إدارة فرق، تخطيط</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="mb-4">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-2">
+                        <i class="fab fa-apple ml-2"></i>TipsHub
+                    </h3>
+                    <p class="text-gray-400">منصة شاملة لكل ما يحتاجه المطورون</p>
+                </div>
+                <div class="border-t border-gray-700 pt-4">
+                    <p class="text-gray-500">© 2025 TipsHub. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

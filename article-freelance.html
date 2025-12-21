@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدليل الشامل للعمل الحر (الفري لانسينج) - TipsHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.8;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .article-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .highlight-box {
+            background: rgba(102, 126, 234, 0.1);
+            border-right: 4px solid #667eea;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .source-link {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+        
+        .source-link:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: #93c5fd;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: #93c5fd;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .stats-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(75, 85, 99, 0.5);
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: 2px;
+        }
+        
+        .skill-level {
+            height: 6px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-gray-800 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="index.html" class="text-2xl font-bold text-blue-400">
+                            <i class="fas fa-rocket mr-2"></i>TipsHub
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="nav-link text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">الرئيسية</a>
+                        <a href="roadmaps.html" class="nav-link text-blue-400 px-3 py-2 rounded-md text-sm font-medium">خرائط التعلم</a>
+                        <a href="articles.html" class="nav-link text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">المقالات</a>
+                        <a href="tips.html" class="nav-link text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">نصائح</a>
+                        <a href="problems.html" class="nav-link text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">المشاكل</a>
+                        <a href="interview.html" class="nav-link text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">مقابلات العمل</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-gradient-to-br from-blue-900 via-gray-900 to-purple-900 py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-800 text-blue-200 mb-4">
+                    <i class="fas fa-briefcase ml-1"></i> العمل الحر
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">الدليل الشامل للعمل الحر (الفري لانسينج): من البداية إلى الاحتراف</h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-6">
+                    دليل شامل للبدء في عالم العمل الحر، كيفية الحصول على العملاء، إدارة المشاريع، كتابة العقود، والنجاح في رحلة العمل الحر
+                </p>
+                <div class="text-gray-400 flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-6">
+                    <span class="flex items-center"><i class="far fa-calendar ml-1"></i> 15 يناير 2024</span>
+                    <span class="flex items-center"><i class="far fa-clock ml-1"></i> وقت القراءة: 18 دقيقة</span>
+                    <span class="flex items-center"><i class="far fa-eye ml-1"></i> 5.7K مشاهدة</span>
+                    <span class="flex items-center"><i class="far fa-comments ml-1"></i> 72 تعليق</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="py-8 bg-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="stats-card bg-gray-700 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-green-400">1.57B</div>
+                    <div class="text-gray-300 text-sm">عامل حر حول العالم</div>
+                </div>
+                <div class="stats-card bg-gray-700 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-blue-400">78%</div>
+                    <div class="text-gray-300 text-sm">من العاملين أحراراً أكثر سعادة</div>
+                </div>
+                <div class="stats-card bg-gray-700 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-purple-400">$1.2T</div>
+                    <div class="text-gray-300 text-sm">حجم اقتصاد العمل الحر عالمياً</div>
+                </div>
+                <div class="stats-card bg-gray-700 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-yellow-400">59%</div>
+                    <div class="text-gray-300 text-sm">زيادة في العمل الحر منذ جائحة كوفيد-19</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Table of Contents -->
+        <section class="bg-gray-800 rounded-xl p-6 mb-12">
+            <h2 class="text-xl font-bold text-white mb-4 flex items-center">
+                <i class="fas fa-list-ul ml-2"></i> محتويات المقال
+            </h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <ul class="text-gray-300 space-y-2">
+                    <li class="flex items-start">
+                        <i class="fas fa-chevron-left text-blue-400 mt-1 ml-2"></i>
+                        <a href="#introduction" class="hover:text-blue-400 transition-colors">مقدمة شاملة عن العمل الحر</a>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-chevron-left text-blue-400 mt-1 ml-2"></i>
+                        <a href="#fields" class="hover:text-blue-400 transition-colors">مجالات وتخصصات العمل الحر</a>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-chevron-left text-blue-400 mt-1 ml-2"></i>
+                        <a href="#get-clients" class="hover:text-blue-400 transition-colors">كيفية الحصول على العملاء</a>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-chevron-left text-blue-400 mt-1 ml-2"></i>
+                        <a href="#manage-projects" class="hover:text-blue-400 transition-colors">إدارة المشاريع والوقت</a>
+                    </li>
+                </ul>
+                <ul class="text-gray-300 space-y-2">
+                    <li class="flex items-start">
+                        <i class="fas fa-chevron-left text-blue-400 mt-1 ml-2"></i>
+                        <a href="#deal" class="hover:text-blue-400 transition-colors">كيفية عمل صفقة ناجحة</a>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-chevron-left text-blue-400 mt-1 ml-2"></i>
+                        <a href="#contract" class="hover:text-blue-400 transition-colors">كتابة عقد احترافي مع العميل</a>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-chevron-left text-blue-400 mt-1 ml-2"></i>
+                        <a href="#success-tips" class="hover:text-blue-400 transition-colors">نصائح للنجاح في العمل الحر</a>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-chevron-left text-blue-400 mt-1 ml-2"></i>
+                        <a href="#future" class="hover:text-blue-400 transition-colors">مستقبل العمل الحر</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Introduction -->
+        <section id="introduction" class="article-section">
+            <div class="flex items-start mb-6">
+                <div class="bg-blue-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-star text-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white">مقدمة شاملة عن العمل الحر</h2>
+                    <p class="text-gray-400 text-sm mt-1">في عصر التحول الرقمي والاقتصاد الجديد</p>
+                </div>
+            </div>
+            
+            <p class="text-gray-300 mb-4">
+                في عصر <span class="text-blue-400 font-semibold">التحول الرقمي والاقتصاد الجديد</span>، أصبح العمل الحر (الفري لانسينج) خياراً مهنياً جذاباً للملايين حول العالم. العمل الحر يعني تقديم خدماتك بشكل مستقل للعملاء دون الارتباط بعلاقة عمل دائمة مع جهة واحدة.
+            </p>
+            
+            <p class="text-gray-300 mb-4">
+                مع تزايد الاعتماد على التكنولوجيا وتطور منصات العمل الحر، ازدادت فرص العمل المستقل بشكل ملحوظ. تشير الإحصاءات إلى أن <span class="font-semibold text-white">59% من الشركات</span> تستخدم خدمات العاملين المستقلين، وأن 78% من العاملين أحراراً يشعرون بسعادة أكبر مقارنة بالوظائف التقليدية.
+            </p>
+            
+            <div class="highlight-box">
+                <div class="flex items-start">
+                    <i class="fas fa-quote-right text-blue-400 mt-1 ml-2"></i>
+                    <div>
+                        <p class="text-gray-300">
+                            "العمل الحر لم يعد مجرد خيار بديل، بل أصبح نمط حياة ومساراً مهنياً مستقلاً. مع تزايد فرص العمل عن بعد والتحول الرقمي، أصبحت الحاجة إلى مهارات العاملين المستقلين أكثر إلحاحاً من أي وقت مضى."
+                        </p>
+                        <p class="text-blue-400 text-sm mt-2">- تقرير مستقبل العمل 2023</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">لماذا أصبح العمل الحر مهماً جداً؟</h3>
+            
+            <div class="grid md:grid-cols-2 gap-6 my-6">
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-user-clock text-red-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">المرونة والحرية</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        القدرة على تحديد ساعات العمل، مكان العمل، واختيار المشاريع التي تتناسب مع مهاراتك واهتماماتك.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-chart-line text-green-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">تحقيق دخل أفضل</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        إمكانية تحقيق دخل أعلى من الوظيفة التقليدية، خاصة مع اكتساب الخبرة وبناء سمعة جيدة.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-globe text-blue-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">العمل مع عملاء عالميين</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        فرصة العمل مع عملاء من مختلف أنحاء العالم والتعرف على ثقافات ومشاريع متنوعة.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-gem text-purple-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">تطوير المهارات باستمرار</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        العمل على مشاريع متنوعة يتيح فرصة تطوير مهارات جديدة واكتساب خبرات متنوعة.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Freelancing Fields -->
+        <section id="fields" class="article-section">
+            <div class="flex items-start mb-6">
+                <div class="bg-green-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-network-wired text-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white">مجالات وتخصصات العمل الحر</h2>
+                    <p class="text-gray-400 text-sm mt-1">استكشاف التخصصات المختلفة في عالم العمل الحر</p>
+                </div>
+            </div>
+            
+            <p class="text-gray-300 mb-4">
+                ينقسم العمل الحر إلى عدة تخصصات رئيسية، كل منها يركز على مجال محدد من الخدمات. هذه التخصصات تتيح للمهنيين التخصص في مجال معين يتناسب مع مهاراتهم واهتماماتهم.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">1. التصميم والجرافيكس</h3>
+            
+            <p class="text-gray-300 mb-4">
+                يُعد التصميم من أكثر مجالات العمل الحر طلباً، حيث تحتاج جميع الشركات إلى خدمات التصميم لمواقعها، تطبيقاتها، وموادها التسويقية.
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-6 my-6">
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-palette text-yellow-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">خدمات التصميم</h4>
+                    </div>
+                    <ul class="text-gray-300 space-y-2 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>تصميم الشعارات والهوية البصرية</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>تصميم واجهات المستخدم (UI)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>تصميم تجربة المستخدم (UX)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>تصميم المواد التسويقية</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>تصميم الرسوم المتحركة</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-tasks text-blue-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">المهارات المطلوبة</h4>
+                    </div>
+                    <ul class="text-gray-300 space-y-2 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-cog text-gray-500 mt-1 ml-2"></i>
+                            <span>إتقان برامج Adobe (Photoshop, Illustrator)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-cog text-gray-500 mt-1 ml-2"></i>
+                            <span>فهم مبادئ التصميم والألوان</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-cog text-gray-500 mt-1 ml-2"></i>
+                            <span>القدرة على الإبداع وحل المشكلات</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-cog text-gray-500 mt-1 ml-2"></i>
+                            <span>فهم احتياجات العملاء</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">2. البرمجة والتطوير</h3>
+            
+            <p class="text-gray-300 mb-4">
+                مع التحول الرقمي المتسارع، تزداد الحاجة إلى مطورين مستقلين لبناء التطبيقات والمواقع والحلول التقنية.
+            </p>
+            
+            <div class="bg-gray-800 rounded-lg p-6 mb-6">
+                <h4 class="font-semibold text-white mb-4">أنواع التطوير</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <h5 class="text-blue-400 font-semibold mb-2">تطوير الويب</h5>
+                        <p class="text-gray-300 text-sm">بناء وتصميم مواقع الويب باستخدام HTML, CSS, JavaScript</p>
+                    </div>
+                    <div>
+                        <h5 class="text-green-400 font-semibold mb-2">تطوير التطبيقات</h5>
+                        <p class="text-gray-300 text-sm">بناء تطبيقات الهواتف والكمبيوتر</p>
+                    </div>
+                    <div>
+                        <h5 class="text-purple-400 font-semibold mb-2">تطوير البرمجيات</h5>
+                        <p class="text-gray-300 text-sm">بناء أنظمة وبرامج متكاملة للشركات</p>
+                    </div>
+                    <div>
+                        <h5 class="text-yellow-400 font-semibold mb-2">تطوير الألعاب</h5>
+                        <p class="text-gray-300 text-sm">تصميم وبرمجة الألعاب الإلكترونية</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">3. التسويق الرقمي</h3>
+            
+            <p class="text-gray-300 mb-4">
+                مع تحول الشركات إلى العالم الرقمي، أصبح التسويق الإلكتروني من أكثر المجالات طلباً في سوق العمل الحر.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">4. الكتابة والترجمة</h3>
+            
+            <p class="text-gray-300 mb-4">
+                تحتاج الشركات إلى محتوى مكتوب بجودة عالية بلغات مختلفة، مما يجعل الكتابة والترجمة من المجالات المربحة في العمل الحر.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">5. الاستشارات</h3>
+            
+            <p class="text-gray-300 mb-4">
+                تقديم الخبرة والمعرفة للشركات والأفراد في مجالات متخصصة مثل الإدارة، التسويق، التكنولوجيا، وغيرها.
+            </p>
+            
+            <div class="highlight-box">
+                <div class="flex items-start">
+                    <i class="fas fa-lightbulb text-yellow-400 mt-1 ml-2"></i>
+                    <div>
+                        <p class="text-gray-300">
+                            "التخصص في مجال محدد من العمل الحر يسمح للمهنيين بتطوير خبرة عميقة ومهارات متقدمة، مما يزيد من قيمتهم في سوق العمل ويفتح أمامهم فرصاً أفضل وأجوراً أعلى."
+                        </p>
+                        <p class="text-blue-400 text-sm mt-2">- خبير العمل الحر أحمد السيد</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Getting Clients -->
+        <section id="get-clients" class="article-section">
+            <div class="flex items-start mb-6">
+                <div class="bg-purple-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-user-friends text-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white">كيفية الحصول على العملاء</h2>
+                    <p class="text-gray-400 text-sm mt-1">استراتيجيات عملية للعثور على العملاء وبناء قاعدة عملاء دائمة</p>
+                </div>
+            </div>
+            
+            <p class="text-gray-300 mb-4">
+                العثور على العملاء هو التحدي الأكبر الذي يواجه العاملين المستقلين، خاصة في بداية رحلتهم. إليك استراتيجيات فعالة للحصول على العملاء.
+            </p>
+            
+            <div class="bg-gray-800 rounded-lg p-6 mb-6">
+                <h4 class="font-semibold text-white mb-4">جدول استراتيجيات الحصول على العملاء</h4>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-700">
+                        <thead>
+                            <tr>
+                                <th class="px-4 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">الاستراتيجية</th>
+                                <th class="px-4 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">التكلفة</th>
+                                <th class="px-4 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">الفعالية</th>
+                                <th class="px-4 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">الوقت المطلوب</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-700">
+                            <tr>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-white">منصات العمل الحر</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">منخفضة</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">عالية للمبتدئين</td>
+                                <td class="px-4 py-3 text-sm text-green-400">1-2 أسبوع</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-white">التسويق عبر وسائل التواصل</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">مجانية</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">متوسطة إلى عالية</td>
+                                <td class="px-4 py-3 text-sm text-green-400">3-6 أشهر</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-white">الشبكات المهنية</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">منخفضة</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">عالية</td>
+                                <td class="px-4 py-3 text-sm text-green-400">6-12 شهر</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-white">التسويق عبر المحتوى</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">منخفضة</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">عالية على المدى الطويل</td>
+                                <td class="px-4 py-3 text-sm text-green-400">6-12 شهر</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-white">الإحالات والتوصيات</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">مجانية</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">عالية جداً</td>
+                                <td class="px-4 py-3 text-sm text-green-400">مستمر</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">الاستراتيجيات الأكثر فعالية</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-6">
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-blue-500 w-8 h-8 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-laptop text-white text-sm"></i>
+                        </div>
+                        <h4 class="font-semibold text-white">منصات العمل الحر</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">البداية المثالية للمبتدئين للعثور على أول عملاء</p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-green-500 w-8 h-8 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-network-wired text-white text-sm"></i>
+                        </div>
+                        <h4 class="font-semibold text-white">الشبكات المهنية</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">بناء علاقات مع محترفين في مجالك يمكن أن يؤدي إلى فرص عمل</p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-purple-500 w-8 h-8 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-bullhorn text-white text-sm"></i>
+                        </div>
+                        <h4 class="font-semibold text-white">التسويق الشخصي</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">التسويق لنفسك ومهاراتك عبر وسائل التواصل الاجتماعي</p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-yellow-500 w-8 h-8 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-blog text-white text-sm"></i>
+                        </div>
+                        <h4 class="font-semibold text-white">التسويق بالمحتوى</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">إنشاء محتوى قيم يظهر خبرتك ويجذب العملاء</p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-red-500 w-8 h-8 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-handshake text-white text-sm"></i>
+                        </div>
+                        <h4 class="font-semibold text-white">الإحالات</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">العملاء السعداء هم أفضل وسيلة تسويقية لك</p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-indigo-500 w-8 h-8 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-envelope text-white text-sm"></i>
+                        </div>
+                        <h4 class="font-semibold text-white">التواصل المباشر</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">التواصل المباشر مع الشركات التي قد تحتاج خدماتك</p>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <div class="flex items-start">
+                    <i class="fas fa-chart-line text-purple-400 mt-1 ml-2"></i>
+                    <div>
+                        <p class="text-gray-300">
+                            "في العالم العربي، تبدأ أسعار الخدمات للمبتدئين من 5 إلى 15 دولاراً للساعة، وتزداد مع الخبرة لتصل إلى 50 دولاراً وأكثر، خاصة في التخصصات التقنية مثل البرمجة والتصميم المتقدم."
+                        </p>
+                        <p class="text-blue-400 text-sm mt-2">- تقرير سوق العمل الحر العربي 2023</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Management -->
+        <section id="manage-projects" class="article-section">
+            <div class="flex items-start mb-6">
+                <div class="bg-yellow-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-tasks text-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white">إدارة المشاريع والوقت</h2>
+                    <p class="text-gray-400 text-sm mt-1">اكتشاف استراتيجيات فعالة لإدارة المشاريع والوقت في العمل الحر</p>
+                </div>
+            </div>
+            
+            <p class="text-gray-300 mb-4">
+                النجاح في العمل الحر يتطلب أكثر من مجرد مهارات تقنية، بل يحتاج إلى إدارة فعالة للمشاريع والوقت لضمان إنجاز العمل في الوقت المحدد وبالجودة المطلوبة.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">إدارة المشاريع</h3>
+            
+            <div class="grid md:grid-cols-2 gap-6 my-6">
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-project-diagram text-blue-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">تحديد نطاق المشروع</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-3">
+                        قبل البدء في أي مشروع، يجب تحديد نطاق العمل بوضوح:
+                    </p>
+                    <ul class="text-gray-300 space-y-2 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-caret-left text-gray-500 mt-1 ml-2"></i>
+                            <span>تحديد المهام المطلوبة بدقة</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-caret-left text-gray-500 mt-1 ml-2"></i>
+                            <span>وضع جدول زمني واقعي</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-caret-left text-gray-500 mt-1 ml-2"></i>
+                            <span>تحديد المعايير والمتطلبات</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-caret-left text-gray-500 mt-1 ml-2"></i>
+                            <span>وضع آلية للمراجعة والتعديلات</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-comments text-green-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">التواصل مع العميل</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-3">
+                        التواصل الفعال مع العميل هو مفتاح نجاح أي مشروع:
+                    </p>
+                    <ul class="text-gray-300 space-y-2 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-caret-left text-gray-500 mt-1 ml-2"></i>
+                            <span>تحديد قنوات التواصل المفضلة</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-caret-left text-gray-500 mt-1 ml-2"></i>
+                            <span>تحديد مواعيد للتحديثات المنتظمة</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-caret-left text-gray-500 mt-1 ml-2"></i>
+                            <span>الاستماع جيداً لاحتياجات العميل</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-caret-left text-gray-500 mt-1 ml-2"></i>
+                            <span>التعامل باحترافية مع الانتقادات</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">إدارة الوقت</h3>
+            
+            <div class="grid md:grid-cols-2 gap-6 my-6">
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-clock text-blue-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">تقنيات إدارة الوقت</h4>
+                    </div>
+                    <ul class="text-gray-300 space-y-2 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>تقنية بومودورو (25 دقيقة عمل، 5 دقائق راحة)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>تحديد الأولويات باستخدام مصفوفة أيزنهاور</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>تخطيط المهام اليومية مسبقاً</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>تجنب تعدد المهام</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-tools text-yellow-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">أدوات إدارة الوقت</h4>
+                    </div>
+                    <ul class="text-gray-300 space-y-2 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>Trello لإدارة المهام والمشاريع</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>Google Calendar لجدولة المواعيد</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>RescueTime لتتبع استخدام الوقت</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>Focus@Will للمساعدة في التركيز</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">التوازن بين العمل والحياة</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-6">
+                <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <i class="fas fa-calendar text-blue-400 text-2xl mb-2"></i>
+                    <h4 class="font-semibold text-white mb-2">حدد ساعات العمل</h4>
+                    <p class="text-gray-300 text-sm">ضع حدوداً واضحة بين وقت العمل ووقت الراحة</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <i class="fas fa-walking text-green-400 text-2xl mb-2"></i>
+                    <h4 class="font-semibold text-white mb-2">خذ فترات راحة</h4>
+                    <p class="text-gray-300 text-sm">لا تهمل فترات الراحة فهي تعزز الإنتاجية</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <i class="fas fa-dumbbell text-purple-400 text-2xl mb-2"></i>
+                    <h4 class="font-semibold text-white mb-2">اهتم بصحتك</h4>
+                    <p class="text-gray-300 text-sm">مارس الرياضة وتناول طعاماً صحياً</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <i class="fas fa-plane text-yellow-400 text-2xl mb-2"></i>
+                    <h4 class="font-semibold text-white mb-2">خذ إجازات</h4>
+                    <p class="text-gray-300 text-sm">خطط لإجازات منتظمة لتجديد الطاقة</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Making a Deal -->
+        <section id="deal" class="article-section">
+            <div class="flex items-start mb-6">
+                <div class="bg-red-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-handshake text-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white">كيفية عمل صفقة ناجحة</h2>
+                    <p class="text-gray-400 text-sm mt-1">دليل شامل للتفاوض وإبرام الصفقات الناجحة في العمل الحر</p>
+                </div>
+            </div>
+            
+            <p class="text-gray-300 mb-4">
+                إبرام الصفقات الناجحة هو فن يحتاج إلى مهارات التفاوض والفهم العميق لاحتياجات العميل وقيمة خدماتك.
+            </p>
+            
+            <div class="bg-gray-800 rounded-lg p-6 mb-6">
+                <h4 class="font-semibold text-white mb-4">خطوات إبرام الصفقة الناجحة</h4>
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="bg-blue-500 w-8 h-8 rounded-full flex items-center justify-center mr-3 mt-1">
+                            <span class="text-white text-sm font-bold">1</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">فهم احتياجات العميل</h4>
+                            <ul class="text-gray-300 space-y-2 text-sm mt-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>استمع جيداً لشرح العميل عن مشكلته</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>اطرح أسئلة توضيحية</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>حدد الأهداف والنتائج المتوقعة</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-green-500 w-8 h-8 rounded-full flex items-center justify-center mr-3 mt-1">
+                            <span class="text-white text-sm font-bold">2</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">تقديم الحل المناسب</h4>
+                            <ul class="text-gray-300 space-y-2 text-sm mt-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>قدم مقترحاً واضحاً وشاملاً</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>اشرح كيف سيحل مقترحك مشكلة العميل</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>أبرز الفوائد والقيمة المضافة</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-purple-500 w-8 h-8 rounded-full flex items-center justify-center mr-3 mt-1">
+                            <span class="text-white text-sm font-bold">3</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">التفاوض على الشروط</h4>
+                            <ul class="text-gray-300 space-y-2 text-sm mt-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>كن مرناً ولكن ضمن حدود معقولة</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>ركز على القيمة وليس السعر فقط</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>ضع خيارات متعددة للعميل</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-yellow-500 w-8 h-8 rounded-full flex items-center justify-center mr-3 mt-1">
+                            <span class="text-white text-sm font-bold">4</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">إبرام الاتفاق</h4>
+                            <ul class="text-gray-300 space-y-2 text-sm mt-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>وثق كل البنود المتفق عليها</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>ضع جدولاً زمنياً واقعياً</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>حدد آلية الدفع ومواعيده</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">نصائح للتفاوض الناجح</h3>
+            
+            <div class="grid md:grid-cols-3 gap-4 my-6">
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-blue-500 w-10 h-10 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-search text-white"></i>
+                        </div>
+                        <h4 class="font-semibold text-white">افهم السوق</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        تعرف على الأسعار السائدة في السوق لخدمات مشابهة لخدماتك لتحديد سعر مناسب ومنافس.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-green-500 w-10 h-10 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-dollar-sign text-white"></i>
+                        </div>
+                        <h4 class="font-semibold text-white">ركز على القيمة</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        لا تتفاوض على السعر فقط، بل ركز على القيمة التي تقدمها للعميل والفوائد التي سيحصل عليها.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-purple-500 w-10 h-10 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-heart text-white"></i>
+                        </div>
+                        <h4 class="font-semibold text-white">ابنِ علاقة جيدة</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        التفاوض الناجح يبني علاقات عمل قوية ومستدامة، وليس مجرد إبرام صفقة واحدة.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <div class="flex items-start">
+                    <i class="fas fa-graduation-cap text-red-400 mt-1 ml-2"></i>
+                    <div>
+                        <p class="text-gray-300">
+                            "العاملون المستقلون الذين يتقنون مهارات التفاوض يحققون دخلاً أعلى بنسبة 30% في المتوسط مقارنة بمن لا يمتلكون هذه المهارات. النجاح في التفاوض لا يعني الحصول على أعلى سعر فحسب، بل يعني إبرام صفقة عادلة ترضي جميع الأطراف وتؤسس لعلاقة عمل مستدامة."
+                        </p>
+                        <p class="text-blue-400 text-sm mt-2">- خبير التفاوض في العمل الحر</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contract Writing -->
+        <section id="contract" class="article-section">
+            <div class="flex items-start mb-6">
+                <div class="bg-indigo-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-file-contract text-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white">كتابة عقد احترافي مع العميل</h2>
+                    <p class="text-gray-400 text-sm mt-1">دليل عملي لكتابة عقود عمل تحمي حقوقك وتوضح التزامات الطرفين</p>
+                </div>
+            </div>
+            
+            <p class="text-gray-300 mb-4">
+                العقد هو وثيقة قانونية تحمي حقوقك وتوضح التزاماتك والتزامات العميل. كتابة عقد واضح وشامل يمنع النزاعات ويضمن علاقة عمل سلسة.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">عناصر العقد الأساسية</h3>
+            
+            <div class="bg-gray-800 rounded-lg p-6 mb-6">
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="bg-blue-500 w-8 h-8 rounded-full flex items-center justify-center mr-3 mt-1">
+                            <span class="text-white text-sm font-bold">1</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">معلومات الطرفين</h4>
+                            <ul class="text-gray-300 space-y-2 text-sm mt-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>الاسم الكامل للطرفين</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>العناوين والبريد الإلكتروني</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>أرقام الهواتف</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>أي معلومات اتصال أخرى ضرورية</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-green-500 w-8 h-8 rounded-full flex items-center justify-center mr-3 mt-1">
+                            <span class="text-white text-sm font-bold">2</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">وصف الخدمات</h4>
+                            <ul class="text-gray-300 space-y-2 text-sm mt-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>وصف مفصل للخدمات المطلوبة</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>المخرجات المتوقعة (Deliverables)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>معايير الجودة المطلوبة</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>أي مواد أو موارد سيتم توفيرها</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-purple-500 w-8 h-8 rounded-full flex items-center justify-center mr-3 mt-1">
+                            <span class="text-white text-sm font-bold">3</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">الجداول الزمنية</h4>
+                            <ul class="text-gray-300 space-y-2 text-sm mt-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>تاريخ البدء</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>تاريخ الانتهاء المتوقع</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>مواعيد تسليم المراحل (إن وجدت)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>آلية التعامل مع التأخيرات</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-yellow-500 w-8 h-8 rounded-full flex items-center justify-center mr-3 mt-1">
+                            <span class="text-white text-sm font-bold">4</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">التعويض والدفع</h4>
+                            <ul class="text-gray-300 space-y-2 text-sm mt-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>القيمة الإجمالية للعقد</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>جدول الدفع (دفعة مقدمة، دفعات مرحلية، etc.)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>طريقة الدفع المقبولة</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>الرسوم الإضافية (إن وجدت)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">بنود إضافية مهمة</h3>
+            
+            <div class="bg-gray-800 rounded-lg p-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-white mb-3">الملكية الفكرية</h4>
+                        <ul class="text-gray-300 space-y-2 text-sm">
+                            <li class="flex items-start">
+                                <i class="fas fa-copyright text-blue-400 mt-1 ml-2"></i>
+                                <span>تحديد ملكية الحقوق الفكرية</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-user-secret text-green-400 mt-1 ml-2"></i>
+                                <span>بنود السرية والخصوصية</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-share-alt text-yellow-400 mt-1 ml-2"></i>
+                                <span>حقوق استخدام المحفظة (Portfolio)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-white mb-3">إنهاء العقد</h4>
+                        <ul class="text-gray-300 space-y-2 text-sm">
+                            <li class="flex items-start">
+                                <i class="fas fa-ban text-red-400 mt-1 ml-2"></i>
+                                <span>شروط الإنهاء المبكر</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-exclamation-triangle text-purple-400 mt-1 ml-2"></i>
+                                <span>عواقب الإخلال بالعقد</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-gavel text-indigo-400 mt-1 ml-2"></i>
+                                <span>آلية حل النزاعات</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Tips -->
+        <section id="success-tips" class="article-section">
+            <div class="flex items-start mb-6">
+                <div class="bg-pink-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-trophy text-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white">نصائح للنجاح في العمل الحر</h2>
+                    <p class="text-gray-400 text-sm mt-1">استراتيجيات عملية للتميز والنجاح في رحلة العمل الحر</p>
+                </div>
+            </div>
+            
+            <p class="text-gray-300 mb-4">
+                النجاح في العمل الحر يتطلب أكثر من مجرد مهارات تقنية. إليك مجموعة من النصائح العملية التي ستساعدك على التميز في سوق العمل والنجاح في مسيرتك المهنية.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">بناء سمعة قوية</h3>
+            
+            <div class="grid md:grid-cols-2 gap-6 my-6">
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-star text-blue-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">الجودة أولاً</h4>
+                    </div>
+                    <ul class="text-gray-300 space-y-2 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>لا تقبل بعمل أكثر مما تستطيع إنجازه بجودة عالية</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>اهتم بالتفاصيل والدقة</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>التزم بالمواعيد النهائية</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>قدم أعلى مستوى من الجودة في كل مشروع</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-comment-dots text-green-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">التواصل الفعال</h4>
+                    </div>
+                    <ul class="text-gray-300 space-y-2 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>كن مستجيباً وسريع الرد على العملاء</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>اشرح الأمور التقنية بلغة بسيطة</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>استمع جيداً لاحتياجات العميل</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>قدم تحديثات منتظمة عن تقدم العمل</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">التطوير المستمر</h3>
+            
+            <div class="bg-gray-800 rounded-lg p-6 mb-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-white mb-3">التعلم المستمر</h4>
+                        <ul class="text-gray-300 space-y-2 text-sm">
+                            <li class="flex items-start">
+                                <i class="fas fa-book text-blue-400 mt-1 ml-2"></i>
+                                <span>تابع أحدث التطورات في مجالك</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-video text-green-400 mt-1 ml-2"></i>
+                                <span>شارك في دورات تدريبية</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-tools text-yellow-400 mt-1 ml-2"></i>
+                                <span>تعلم أدوات وتقنيات جديدة</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-certificate text-purple-400 mt-1 ml-2"></i>
+                                <span>احصل على شهادات متخصصة</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-white mb-3">التطوير الشخصي</h4>
+                        <ul class="text-gray-300 space-y-2 text-sm">
+                            <li class="flex items-start">
+                                <i class="fas fa-brain text-red-400 mt-1 ml-2"></i>
+                                <span>طور مهاراتك في إدارة الوقت</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-comments text-indigo-400 mt-1 ml-2"></i>
+                                <span>حسن مهاراتك في التواصل</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-chart-line text-teal-400 mt-1 ml-2"></i>
+                                <span>تعلم أساسيات إدارة الأعمال</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-handshake text-pink-400 mt-1 ml-2"></i>
+                                <span>طور مهاراتك في التفاوض</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">إدارة الأعمال</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-6">
+                <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <i class="fas fa-money-bill-wave text-blue-400 text-2xl mb-2"></i>
+                    <h4 class="font-semibold text-white mb-2">إدارة المال</h4>
+                    <p class="text-gray-300 text-sm">ضع ميزانية وادخر للضرائب والفترات الضعيفة</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <i class="fas fa-chart-pie text-green-400 text-2xl mb-2"></i>
+                    <h4 class="font-semibold text-white mb-2">تنويع الدخل</h4>
+                    <p class="text-gray-300 text-sm">لا تعتمد على عميل واحد فقط</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <i class="fas fa-network-wired text-purple-400 text-2xl mb-2"></i>
+                    <h4 class="font-semibold text-white mb-2">بناء الشبكات</h4>
+                    <p class="text-gray-300 text-sm">انضم إلى مجتمعات العمل الحر</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <i class="fas fa-heart text-yellow-400 text-2xl mb-2"></i>
+                    <h4 class="font-semibold text-white mb-2">العناية بالنفس</h4>
+                    <p class="text-gray-300 text-sm">لا تهمل صحتك النفسية والجسدية</p>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <div class="flex items-start">
+                    <i class="fas fa-lightbulb text-teal-400 mt-1 ml-2"></i>
+                    <div>
+                        <p class="text-gray-300">
+                            "العمل الحر ليس مجرد وسيلة لكسب المال، بل هو نمط حياة يتطلب الانضباط والالتزام. النجاح في هذا المجال لا يأتي بين ليلة وضحاها، بل هو رحلة مستمرة من التعلم والتطوير. المفتاح هو الموازنة بين العمل والحياة، والاستمرار في التعلم، وبناء علاقات قوية مع العملاء."
+                        </p>
+                        <p class="text-blue-400 text-sm mt-2">- خبيرة النجاح في العمل الحر</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Future of Freelancing -->
+        <section id="future" class="article-section">
+            <div class="flex items-start mb-6">
+                <div class="bg-teal-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-crystal-ball text-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white">مستقبل العمل الحر</h2>
+                    <p class="text-gray-400 text-sm mt-1">اتجاهات وتوقعات مجال العمل الحر في السنوات القادمة</p>
+                </div>
+            </div>
+            
+            <p class="text-gray-300 mb-4">
+                مع تزايد الاعتماد على التكنولوجيا وتغير طبيعة العمل، يستمر مجال العمل الحر في التطور والنمو. فيما يلي أبرز الاتجاهات المستقبلية التي ستشكل هذا المجال في السنوات القادمة.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">اتجاهات عام 2025</h3>
+            
+            <div class="grid md:grid-cols-2 gap-6 my-6">
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-robot text-blue-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">الذكاء الاصطناعي في العمل الحر</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        سيظل استخدام الذكاء الاصطناعي أحد أبرز اتجاهات العمل الحر، حيث سيساعد في أتمتة المهام الروتينية وتحسين الكفاءة. سيزداد الطلب على العاملين المستقلين الذين يجيدون استخدام أدوات الذكاء الاصطناعي.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-globe text-green-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">العولمة والحدود المفتوحة</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        مع تزايد قبول العمل عن بعد، ستزداد فرص العمل الحر عبر الحدود. سيكون العاملون المستقلون قادرين على العمل مع عملاء من مختلف أنحاء العالم بسهولة أكبر.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-users text-purple-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">فرق العمل عن بعد</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        ستزداد شعبية فرق العمل المكونة من عاملين مستقلين يعملون معاً على مشاريع مشتركة. ستعمل منصات العمل الحر على تطوير أدوات أفضل للتعاون عن بعد.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-gem text-yellow-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">التخصص الدقيق</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        سيزداد الطلب على العاملين المستقلين المتخصصين في مجالات دقيقة ومحددة. التخصص سيمكنهم من تقديم قيمة أكبر ويساعدهم في التميز في سوق تنافسي.
+                    </p>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">توقعات نمو المجال</h3>
+            
+            <div class="bg-gray-800 rounded-lg p-6">
+                <h4 class="font-semibold text-white mb-4">إحصائيات ونسب نمو متوقعة</h4>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">عدد العاملين أحراراً عالمياً</span>
+                            <span class="text-blue-400">+25%</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الاستثمار في منصات العمل الحر</span>
+                            <span class="text-green-400">+35%</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-green-600 h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الشركات التي تستخدم خدمات العاملين أحراراً</span>
+                            <span class="text-purple-400">+42%</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-purple-600 h-2 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">التحول إلى نماذج العمل الهجين</span>
+                            <span class="text-yellow-400">+55%</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-yellow-600 h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <div class="flex items-start">
+                    <i class="fas fa-chart-line text-pink-400 mt-1 ml-2"></i>
+                    <div>
+                        <p class="text-gray-300">
+                            "من المتوقع أن يصل سوق العمل الحر العالمي إلى 1.5 تريليون دولار بحلول عام 2030، مع نمو سنوي مركب يبلغ 15%. ستشهد المنطقة العربية، وخاصة دول الخليج، نمواً أسرع بسبب الاستثمارات الكبيرة في التحول الرقمي وتبني نماذج العمل المرن."
+                        </p>
+                        <p class="text-blue-400 text-sm mt-2">- تقرير مستقبل العمل الحر 2023</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="mb-12">
+            <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 border-l-4 border-blue-500">
+                <h2 class="text-2xl font-bold text-white mb-4">خلاصة شاملة</h2>
+                <p class="text-gray-300 mb-4">
+                    يمثل العمل الحر مجالاً حيوياً ومتطوراً يقدم فرصاً مهنية ممتازة للمهتمين بالاستقلالية والمرونة في العمل. مع تزايد قبول العمل عن بعد والتحول الرقمي، تزداد فرص العمل المستقل بشكل ملحوظ.
+                </p>
+                <p class="text-gray-300 mb-4">
+                    البدء في هذا المجال يتطلب بناء أساس متين من المهارات التقنية والشخصية، يليه تطوير استراتيجيات فعالة للعثور على العملاء وإدارة المشاريع. كتابة العقود الواضحة وإتقان مهارات التفاوض تلعب دوراً مهماً في حماية حقوقك وبناء علاقات عمل مستدامة.
+                </p>
+                <p class="text-gray-300 mb-4">
+                    النجاح في العمل الحر لا يعتمد فقط على المهارات التقنية، بل أيضاً على المهارات الشخصية مثل التواصل الفعال، إدارة الوقت، والقدرة على التعلم المستمر. بناء شبكة مهنية قوية والمشاركة في المجتمعات المتخصصة يمكن أن يسرع بشكل كبير من التطور المهني.
+                </p>
+                <p class="text-gray-300">
+                    مستقبل العمل الحر مشرق ومليء بالفرص، مع توقعات بنمو مستمر في الطلب على الخدمات المستقلة وزيادة في الاستثمارات في هذا القطاع. للمهتمين بدخول هذا المجال، الآن هو الوقت المثالي للبدء في رحلة التعلم وبناء المهارات اللازمة للنجاح في واحدة من أكثر نماذج العمل شيوعاً في القرن الحادي والعشرين.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sources -->
+        <section class="bg-gray-800 rounded-xl p-6 mb-8">
+            <h2 class="text-2xl font-bold text-white mb-6">المصادر والمراجع</h2>
+            
+            <div class="grid md:grid-cols-2 gap-4">
+                <a href="https://www.upwork.com/research/freelance-forward" target="_blank" class="source-link bg-gray-700 rounded-lg p-4 flex items-start">
+                    <i class="fas fa-external-link-alt text-blue-400 mt-1 ml-2"></i>
+                    <div>
+                        <h4 class="font-semibold text-white">Upwork Freelance Forward Report</h4>
+                        <p class="text-gray-400 text-sm mt-1">أحدث التقارير حول اتجاهات العمل الحر ونمو السوق</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.fiverr.com/news" target="_blank" class="source-link bg-gray-700 rounded-lg p-4 flex items-start">
+                    <i class="fas fa-external-link-alt text-green-400 mt-1 ml-2"></i>
+                    <div>
+                        <h4 class="font-semibold text-white">Fiverr News & Insights</h4>
+                        <p class="text-gray-400 text-sm mt-1">أخبار ورؤى حول سوق العمل الحر والاقتصاد الإبداعي</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.freelancersunion.org/" target="_blank" class="source-link bg-gray-700 rounded-lg p-4 flex items-start">
+                    <i class="fas fa-external-link-alt text-purple-400 mt-1 ml-2"></i>
+                    <div>
+                        <h4 class="font-semibold text-white">Freelancers Union</h4>
+                        <p class="text-gray-400 text-sm mt-1">منظمة دعم العاملين المستقلين ومصادر مفيدة</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.forbes.com/sites/elainepofeldt/" target="_blank" class="source-link bg-gray-700 rounded-lg p-4 flex items-start">
+                    <i class="fas fa-external-link-alt text-yellow-400 mt-1 ml-2"></i>
+                    <div>
+                        <h4 class="font-semibold text-white">Forbes - Elaine Pofeldt</h4>
+                        <p class="text-gray-400 text-sm mt-1">مقالات متخصصة حول العمل الحر وريادة الأعمال</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.sba.gov/business-guide/launch-your-business/choose-business-structure/sole-proprietorship" target="_blank" class="source-link bg-gray-700 rounded-lg p-4 flex items-start">
+                    <i class="fas fa-external-link-alt text-red-400 mt-1 ml-2"></i>
+                    <div>
+                        <h4 class="font-semibold text-white">U.S. Small Business Administration</h4>
+                        <p class="text-gray-400 text-sm mt-1">دليل شامل لإدارة الأعمال الصغيرة والعمل الحر</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.contracttemplate.org/" target="_blank" class="source-link bg-gray-700 rounded-lg p-4 flex items-start">
+                    <i class="fas fa-external-link-alt text-indigo-400 mt-1 ml-2"></i>
+                    <div>
+                        <h4 class="font-semibold text-white">Contract Template</h4>
+                        <p class="text-gray-400 text-sm mt-1">قوالب عقود جاهزة للعمل الحر بمختلف المجالات</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Related Articles -->
+        <section class="bg-gray-800 rounded-xl p-6">
+            <h2 class="text-2xl font-bold text-white mb-6">مقالات ذات صلة</h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <a href="#" class="bg-gray-700 rounded-lg p-4 flex items-start transition-all hover:bg-gray-600">
+                    <div class="bg-blue-500 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-file-invoice-dollar text-white"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-white">دليل شامل للضرائب والتأمينات للعاملين أحراراً</h4>
+                        <p class="text-gray-400 text-sm mt-1">كل ما تحتاج معرفته عن الالتزامات الضريبية والتأمينية في العمل الحر</p>
+                    </div>
+                </a>
+                
+                <a href="#" class="bg-gray-700 rounded-lg p-4 flex items-start transition-all hover:bg-gray-600">
+                    <div class="bg-green-500 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-chart-line text-white"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-white">كيفية زيادة دخلك في العمل الحر: استراتيجيات متقدمة</h4>
+                        <p class="text-gray-400 text-sm mt-1">استكشاف طرق لزيادة الدخل وتطوير مسارك المهني في العمل الحر</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="mb-4">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-2">
+                        <i class="fas fa-rocket ml-2"></i>TipsHub
+                    </h3>
+                    <p class="text-gray-400">منصة شاملة لكل ما يحتاجه المطورون والمبرمجون</p>
+                </div>
+                <div class="flex justify-center space-x-6 mb-4">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+                <div class="border-t border-gray-700 pt-4">
+                    <p class="text-gray-500">© 2024 TipsHub. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

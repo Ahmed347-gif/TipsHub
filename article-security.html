@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدليل الشامل للأمن السيبراني - TipsHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.8;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .article-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .highlight-box {
+            background: rgba(102, 126, 234, 0.1);
+            border-right: 4px solid #667eea;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .source-link {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+        
+        .source-link:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: #93c5fd;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: #93c5fd;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .stats-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(75, 85, 99, 0.5);
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: 2px;
+        }
+        
+        .skill-level {
+            height: 6px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-gray-800 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="index.html" class="text-2xl font-bold text-blue-400">
+                            <i class="fas fa-shield-alt mr-2"></i>TipsHub
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="nav-link text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">الرئيسية</a>
+                        <a href="roadmaps.html" class="nav-link text-blue-400 px-3 py-2 rounded-md text-sm font-medium">خرائط التعلم</a>
+                        <a href="articles.html" class="nav-link text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">المقالات</a>
+                        <a href="tips.html" class="nav-link text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">نصائح</a>
+                        <a href="problems.html" class="nav-link text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">المشاكل</a>
+                        <a href="interview.html" class="nav-link text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">مقابلات العمل</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+              
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-gradient-to-br from-blue-900 via-gray-900 to-purple-900 py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-800 text-blue-200 mb-4">
+                    <i class="fas fa-shield-alt ml-1"></i> الأمن السيبراني
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">الدليل الشامل للأمن السيبراني: من المبتدئ إلى المحترف</h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-6">
+                    استكشاف شامل لمجال الأمن السيبراني، تخصصاته، مساراته المهنية، والمهارات المطلوبة للنجاح في هذا المجال الحيوي
+                </p>
+                <div class="text-gray-400 flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-6">
+                    <span class="flex items-center"><i class="far fa-calendar ml-1"></i> 20 ديسمبر 2023</span>
+                    <span class="flex items-center"><i class="far fa-clock ml-1"></i> وقت القراءة: 15 دقيقة</span>
+                    <span class="flex items-center"><i class="far fa-eye ml-1"></i> 4.2K مشاهدة</span>
+                    <span class="flex items-center"><i class="far fa-comments ml-1"></i> 58 تعليق</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="py-8 bg-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="stats-card bg-gray-700 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-green-400">3.5M</div>
+                    <div class="text-gray-300 text-sm">وظيفة شاغرة في الأمن السيبراني عالمياً</div>
+                </div>
+                <div class="stats-card bg-gray-700 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-blue-400">35%</div>
+                    <div class="text-gray-300 text-sm">نمو الطلب على متخصصي الأمن سنوياً</div>
+                </div>
+                <div class="stats-card bg-gray-700 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-purple-400">$6T</div>
+                    <div class="text-gray-300 text-sm">خسائر الجرائم الإلكترونية المتوقعة عام 2025</div>
+                </div>
+                <div class="stats-card bg-gray-700 rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-yellow-400">4,200</div>
+                    <div class="text-gray-300 text-sm">هجوم إلكتروني يومياً منذ جائحة كوفيد-19</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Table of Contents -->
+        <section class="bg-gray-800 rounded-xl p-6 mb-12">
+            <h2 class="text-xl font-bold text-white mb-4 flex items-center">
+                <i class="fas fa-list-ul ml-2"></i> محتويات المقال
+            </h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <ul class="text-gray-300 space-y-2">
+                    <li class="flex items-start">
+                        <i class="fas fa-chevron-left text-blue-400 mt-1 ml-2"></i>
+                        <a href="#introduction" class="hover:text-blue-400 transition-colors">مقدمة شاملة عن الأمن السيبراني</a>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-chevron-left text-blue-400 mt-1 ml-2"></i>
+                        <a href="#fields" class="hover:text-blue-400 transition-colors">مجالات وتخصصات الأمن السيبراني</a>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-chevron-left text-blue-400 mt-1 ml-2"></i>
+                        <a href="#careers" class="hover:text-blue-400 transition-colors">المسارات المهنية في الأمن السيبراني</a>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-chevron-left text-blue-400 mt-1 ml-2"></i>
+                        <a href="#skills" class="hover:text-blue-400 transition-colors">المهارات المطلوبة في الأمن السيبراني</a>
+                    </li>
+                </ul>
+                <ul class="text-gray-300 space-y-2">
+                    <li class="flex items-start">
+                        <i class="fas fa-chevron-left text-blue-400 mt-1 ml-2"></i>
+                        <a href="#certifications" class="hover:text-blue-400 transition-colors">الشهادات المهنية في الأمن السيبراني</a>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-chevron-left text-blue-400 mt-1 ml-2"></i>
+                        <a href="#roadmap" class="hover:text-blue-400 transition-colors">خريطة التعلم الشاملة</a>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-chevron-left text-blue-400 mt-1 ml-2"></i>
+                        <a href="#future" class="hover:text-blue-400 transition-colors">مستقبل الأمن السيبراني</a>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-chevron-left text-blue-400 mt-1 ml-2"></i>
+                        <a href="#tips" class="hover:text-blue-400 transition-colors">نصائح للحصول على وظيفة</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Introduction -->
+        <section id="introduction" class="article-section">
+            <div class="flex items-start mb-6">
+                <div class="bg-blue-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-star text-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white">مقدمة شاملة عن الأمن السيبراني</h2>
+                    <p class="text-gray-400 text-sm mt-1">في عالم يشهد تحولاً رقمياً متسارعاً</p>
+                </div>
+            </div>
+            
+            <p class="text-gray-300 mb-4">
+                في عالم يشهد <span class="text-blue-400 font-semibold">تحولاً رقمياً متسارعاً</span>، أصبح الأمن السيبراني من المجالات الأكثر طلباً ونمواً في سوق العمل التقني. يعتبر الأمن السيبراني عملية حماية الأنظمة الحاسوبية، والشبكات، والبرمجيات، والبيانات من الهجمات الرقمية التي تهدف إلى السرقة أو التدمير أو التعديل غير المصرح به.
+            </p>
+            
+            <p class="text-gray-300 mb-4">
+                مع تزايد الاعتماد على التكنولوجيا في مختلف القطاعات، ازدادت الحاجة إلى متخصصين في هذا المجال بشكل ملحوظ. تشير الإحصاءات إلى أنه يتم الإبلاغ عن <span class="font-semibold text-white">4,200 هجوم إلكتروني يومياً</span> منذ جائحة كوفيد-19، وأن 48% من الشركات أبلغت عن زيادة الهجمات الإلكترونية على أساس سنوي.
+            </p>
+            
+            <div class="highlight-box">
+                <div class="flex items-start">
+                    <i class="fas fa-quote-right text-blue-400 mt-1 ml-2"></i>
+                    <div>
+                        <p class="text-gray-300">
+                            "الأمن السيبراني لم يعد مجرد خيار تقني، بل أصبح ضرورة استراتيجية للأفراد والمنظمات والحكومات. مع تزايد التهديدات الإلكترونية وتعقيدها، أصبحت الحاجة إلى متخصصين مؤهلين في هذا المجال أكثر إلحاحاً من أي وقت مضى."
+                        </p>
+                        <p class="text-blue-400 text-sm mt-2">- تقرير Cybersecurity Ventures 2023</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">لماذا أصبح الأمن السيبراني مهماً جداً؟</h3>
+            
+            <div class="grid md:grid-cols-2 gap-6 my-6">
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-bug text-red-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">تزايد التهديدات الإلكترونية</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        أصبحت الهجمات السيبرانية أكثر تعقيداً وانتشاراً، مع تطور أساليب المهاجمين وتنوع أهدافهم من الأفراد إلى المؤسسات الكبرى والحكومات.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-digital-tachograph text-green-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">التحول الرقمي</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        اعتماد الأفراد والمؤسسات على التكنولوجيا في العمليات اليومية زاد من مساحة الهجوم المحتملة، مما يستدعي تعزيز إجراءات الأمن السيبراني.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-database text-blue-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">حماية البيانات</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        البيانات أصبحت من أهم الأصول التي تحتاج للحماية، خاصة مع تزايد قيمة البيانات الشخصية والمالية والتجارية في العصر الرقمي.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-gavel text-purple-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">الامتثال التنظيمي</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        تشديد المتطلبات القانونية والتنظيمية لحماية البيانات مثل GDPR وHIPAA يفرض على المنظمات تبني إجراءات أمنية متقدمة.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cybersecurity Fields -->
+        <section id="fields" class="article-section">
+            <div class="flex items-start mb-6">
+                <div class="bg-green-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-network-wired text-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white">مجالات وتخصصات الأمن السيبراني</h2>
+                    <p class="text-gray-400 text-sm mt-1">استكشاف التخصصات المختلفة في عالم الأمن السيبراني</p>
+                </div>
+            </div>
+            
+            <p class="text-gray-300 mb-4">
+                ينقسم الأمن السيبراني إلى عدة تخصصات رئيسية، كل منها يركز على جانب محدد من حماية المعلومات والأنظمة. هذه التخصصات تتيح للمهنيين التخصص في مجال معين يتناسب مع مهاراتهم واهتماماتهم.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">1. أمن الشبكات (Network Security)</h3>
+            
+            <p class="text-gray-300 mb-4">
+                يُعد أمن الشبكة من أبرز عناصر الأمن السيبراني، لأن معظم الهجمات تحدث عبر الشبكة. وهو عملية تتضمن مجموعة من تقنيات البرامج والأجهزة لحماية البيانات من التهديدات والوصول غير المصرح به.
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-6 my-6">
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-shield-alt text-yellow-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">أدوات أمن الشبكات</h4>
+                    </div>
+                    <ul class="text-gray-300 space-y-2 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>جدران الحماية (Firewalls)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>أنظمة كشف التسلل (IDS)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>أنظمة منع التسلل (IPS)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>شبكات VPN الآمنة</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>أدوات مراقبة الشبكة</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-tasks text-blue-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">المهام الرئيسية</h4>
+                    </div>
+                    <ul class="text-gray-300 space-y-2 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-cog text-gray-500 mt-1 ml-2"></i>
+                            <span>تأمين البنية التحتية للشبكة</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-cog text-gray-500 mt-1 ml-2"></i>
+                            <span>مراقبة حركة الشبكة لاكتشاف الأنشطة المشبوهة</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-cog text-gray-500 mt-1 ml-2"></i>
+                            <span>إدارة سياسات الأمان للشبكة</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-cog text-gray-500 mt-1 ml-2"></i>
+                            <span>تنفيذ شبكات التجزئة (Segmentation)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">2. أمن المعلومات (Information Security)</h3>
+            
+            <p class="text-gray-300 mb-4">
+                هو عملية تصميم ونشر أدوات لحماية معلومات الأعمال الهامة من التدمير والتعطيل والتعديل. يهدف إلى التأكد من أن المستخدمين المعتمدين أو التطبيقات أو الأنظمة فقط هم من يمكنهم الوصول إلى معلومات معينة.
+            </p>
+            
+            <div class="bg-gray-800 rounded-lg p-6 mb-6">
+                <h4 class="font-semibold text-white mb-4">أنواع أمن المعلومات</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <h5 class="text-blue-400 font-semibold mb-2">الأمن السحابي</h5>
+                        <p class="text-gray-300 text-sm">حماية البيانات والتطبيقات والبنية التحتية المرتبطة بالحوسبة السحابية</p>
+                    </div>
+                    <div>
+                        <h5 class="text-green-400 font-semibold mb-2">التشفير</h5>
+                        <p class="text-gray-300 text-sm">تحويل البيانات إلى تنسيق غير قابل للقراءة لحمايتها من الوصول غير المصرح به</p>
+                    </div>
+                    <div>
+                        <h5 class="text-purple-400 font-semibold mb-2">إدارة الضعف</h5>
+                        <p class="text-gray-300 text-sm">اكتشاف وتقييم ومعالجة نقاط الضعف في الأنظمة والتطبيقات</p>
+                    </div>
+                    <div>
+                        <h5 class="text-yellow-400 font-semibold mb-2">الاستجابة للحوادث</h5>
+                        <p class="text-gray-300 text-sm">معالجة和管理 الحوادث الأمنية وتقليل آثارها على المنظمة</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">3. أمن التطبيقات (Application Security)</h3>
+            
+            <p class="text-gray-300 mb-4">
+                يُعد أمن التطبيقات من أبرز أنواع الأمن السيبراني، لأن تطبيقات الويب المتصلة مباشرة بالإنترنت تُعتبر دوماً من أهداف القائمين بالهجمات الإلكترونية.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">4. أمن السحابة (Cloud Security)</h3>
+            
+            <p class="text-gray-300 mb-4">
+                زاد اعتماد جميع المؤسسات على الحوسبة السحابية خلال السنوات الأخيرة، الأمر الذي جعل من تأمين السحابة ضرورة لا غنى عنها.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">5. الأمن التشغيلي (Operational Security)</h3>
+            
+            <p class="text-gray-300 mb-4">
+                يُعرف الأمن التشغيلي أو الأمن الإجرائي بأنه العملية التي تشجع المديرين على رؤية الأنشطة وفقاً لوجهة نظر المتسلل، لحماية البيانات الحساسة من مختلف التهديدات.
+            </p>
+            
+            <div class="highlight-box">
+                <div class="flex items-start">
+                    <i class="fas fa-lightbulb text-yellow-400 mt-1 ml-2"></i>
+                    <div>
+                        <p class="text-gray-300">
+                            "التخصص في مجال محدد من الأمن السيبراني يسمح للمهنيين بتطوير خبرة عميقة ومهارات متقدمة، مما يزيد من قيمتهم في سوق العمل ويفتح أمامهم فرصاً وظيفية أفضل ورواتب أعلى."
+                        </p>
+                        <p class="text-blue-400 text-sm mt-2">- خبير الأمن السيبراني د. أحمد السيد</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Paths -->
+        <section id="careers" class="article-section">
+            <div class="flex items-start mb-6">
+                <div class="bg-purple-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-briefcase text-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white">المسارات المهنية في الأمن السيبراني</h2>
+                    <p class="text-gray-400 text-sm mt-1">اكتشاف الفرص الوظيفية المتنوعة في مجال الأمن السيبراني</p>
+                </div>
+            </div>
+            
+            <p class="text-gray-300 mb-4">
+                يقدم مجال الأمن السيبراني مجموعة واسعة من المسارات المهنية، تتراوح من الأدوار التقنية المتخصصة إلى المناصب الإدارية والاستراتيجية. كل مسار يتطلب مجموعة فريدة من المهارات والمعرفة.
+            </p>
+            
+            <div class="bg-gray-800 rounded-lg p-6 mb-6">
+                <h4 class="font-semibold text-white mb-4">جدول المسارات المهنية الرئيسية</h4>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-700">
+                        <thead>
+                            <tr>
+                                <th class="px-4 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">المسار الوظيفي</th>
+                                <th class="px-4 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">المهام الرئيسية</th>
+                                <th class="px-4 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">المهارات المطلوبة</th>
+                                <th class="px-4 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">الراتب المتوسط</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-700">
+                            <tr>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-white">مهندس الأمن السيبراني</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">تصميم وتنفيذ أنظمة الأمن</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">شبكات، برمجة، أنظمة تشغيل</td>
+                                <td class="px-4 py-3 text-sm text-green-400">$95,000</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-white">محلل الأمن السيبراني</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">مراقبة الشبكات، تحليل التهديدات</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">تحليل البيانات، أدوات المراقبة</td>
+                                <td class="px-4 py-3 text-sm text-green-400">$75,000</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-white">مختبر اختراق</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">محاكاة الهجمات لاكتشاف الثغرات</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">أدوات الاختراق، البرمجة</td>
+                                <td class="px-4 py-3 text-sm text-green-400">$85,000</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-white">محقق جرائم رقمية</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">جمع الأدلة الرقمية، تحليل الهجمات</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">أدوات التحقيق، التحليل الجنائي</td>
+                                <td class="px-4 py-3 text-sm text-green-400">$80,000</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-white">مدير أمن المعلومات</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">تطوير استراتيجيات الأمن، الإشراف</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">قيادة، إدارة، تخطيط استراتيجي</td>
+                                <td class="px-4 py-3 text-sm text-green-400">$120,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">الوظائف الأكثر طلباً في 2025</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-6">
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-blue-500 w-8 h-8 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-user-secret text-white text-sm"></i>
+                        </div>
+                        <h4 class="font-semibold text-white">مهندس الأمن السيبراني</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">تصميم وتنفيذ أنظمة الأمن وحلول الحماية للمؤسسات</p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-green-500 w-8 h-8 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-search text-white text-sm"></i>
+                        </div>
+                        <h4 class="font-semibold text-white">مختبر الاختراق</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">محاكاة هجمات إلكترونية لاكتشاف الثغرات الأمنية في الأنظمة</p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-purple-500 w-8 h-8 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-laptop-code text-white text-sm"></i>
+                        </div>
+                        <h4 class="font-semibold text-white">محقق الجرائم الرقمية</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">تحليل الأدلة الرقمية والتحقيق في الجرائم الإلكترونية</p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-yellow-500 w-8 h-8 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-user-tie text-white text-sm"></i>
+                        </div>
+                        <h4 class="font-semibold text-white">مدير أمن المعلومات</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">تطوير وتنفيذ استراتيجيات الأمن الشاملة للمؤسسات</p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-red-500 w-8 h-8 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-first-aid text-white text-sm"></i>
+                        </div>
+                        <h4 class="font-semibold text-white">محلل الاستجابة للحوادث</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">الاستجابة للحوادث الأمنية وتقليل آثارها على المؤسسة</p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-indigo-500 w-8 h-8 rounded-full flex items-center justify-center mr-2">
+                            <i class="fas fa-cloud text-white text-sm"></i>
+                        </div>
+                        <h4 class="font-semibold text-white">مهندس الأمن السحابي</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">تأمين البنية التحتية السحابية والتطبيقات المستضافة عليها</p>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <div class="flex items-start">
+                    <i class="fas fa-chart-line text-purple-400 mt-1 ml-2"></i>
+                    <div>
+                        <p class="text-gray-300">
+                            "في المملكة العربية السعودية، تبدأ رواتب المبتدئين من 8,000 إلى 12,000 ريال سعودي شهرياً، وتزداد مع الخبرة لتصل إلى 20,000 ريال سعودي وأكثر، خاصة في المناصب المتقدمة أو التخصصات الدقيقة مثل الأمن السحابي وأمن البيانات."
+                        </p>
+                        <p class="text-blue-400 text-sm mt-2">- تقرير سوق العمل السعودي 2023</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Required -->
+        <section id="skills" class="article-section">
+            <div class="flex items-start mb-6">
+                <div class="bg-yellow-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-tools text-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white">المهارات المطلوبة في الأمن السيبراني</h2>
+                    <p class="text-gray-400 text-sm mt-1">اكتشاف المهارات التقنية والشخصية اللازمة للنجاح في هذا المجال</p>
+                </div>
+            </div>
+            
+            <p class="text-gray-300 mb-4">
+                النجاح في مجال الأمن السيبراني يتطلب مزيجاً متوازناً من المهارات التقنية المتخصصة والمهارات الشخصية التي تمكن المهنيين من العمل بفعالية في بيئات متعددة التخصصات.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">المهارات التقنية الأساسية</h3>
+            
+            <div class="grid md:grid-cols-2 gap-6 my-6">
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-network-wired text-blue-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">فهم الشبكات</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-3">
+                        فهم الشبكات هو أحد أهم المهارات في الأمن السيبراني. يجب أن تتعرف على:
+                    </p>
+                    <ul class="text-gray-300 space-y-2 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-caret-left text-gray-500 mt-1 ml-2"></i>
+                            <span>عناوين IP وأنواعها</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-caret-left text-gray-500 mt-1 ml-2"></i>
+                            <span>البروتوكولات الأساسية مثل TCP/IP وUDP</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-caret-left text-gray-500 mt-1 ml-2"></i>
+                            <span>كيفية عمل أجهزة التوجيه (Routers) والمحولات (Switches)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-caret-left text-gray-500 mt-1 ml-2"></i>
+                            <span>مفاهيم مثل الجدران النارية (Firewalls) وشبكات DMZ</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-code text-green-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">أساسيات البرمجة</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-3">
+                        لا تحتاج لأن تكون مبرمجاً محترفاً، لكن تعلم لغة برمجة واحدة على الأقل يساعدك كثيراً، خاصة في:
+                    </p>
+                    <ul class="text-gray-300 space-y-2 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-caret-left text-gray-500 mt-1 ml-2"></i>
+                            <span>أتمتة المهام اليومية</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-caret-left text-gray-500 mt-1 ml-2"></i>
+                            <span>كتابة سكربتات لتحليل الثغرات</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-caret-left text-gray-500 mt-1 ml-2"></i>
+                            <span>فهم البرمجيات الضارة (Malware) وطرق تحليلها</span>
+                        </li>
+                    </ul>
+                    <div class="mt-3 p-3 bg-gray-700 rounded-lg">
+                        <p class="text-yellow-400 text-sm font-semibold">ملاحظة:</p>
+                        <p class="text-gray-300 text-sm">أكثر لغة شائعة للمبتدئين في هذا المجال هي Python، نظراً لبساطتها وقوتها في الأمن السيبراني.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">أنظمة التشغيل والأمن</h3>
+            
+            <div class="grid md:grid-cols-2 gap-6 my-6">
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fab fa-windows text-blue-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">نظام Windows</h4>
+                    </div>
+                    <ul class="text-gray-300 space-y-2 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>فهم إعدادات الأمان وإدارة الصلاحيات</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>إدارة المستخدمين والمجموعات</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>تحليل سجلات الأحداث (Event Logs)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>تأمين خدمات النظام</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fab fa-linux text-yellow-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">نظام Linux</h4>
+                    </div>
+                    <ul class="text-gray-300 space-y-2 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>إتقان سطر الأوامر وإدارة الخدمات</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>إدارة صلاحيات الملفات والمستخدمين</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>تكوين جدران الحماية (iptables/ufw)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>مراقبة العمليات والخدمات</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">المهارات الشخصية</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-6">
+                <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <i class="fas fa-brain text-blue-400 text-2xl mb-2"></i>
+                    <h4 class="font-semibold text-white mb-2">التفكير النقدي</h4>
+                    <p class="text-gray-300 text-sm">تحليل المشكلات المعقدة وإيجاد حلول مبتكرة</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <i class="fas fa-comments text-green-400 text-2xl mb-2"></i>
+                    <h4 class="font-semibold text-white mb-2">التواصل</h4>
+                    <p class="text-gray-300 text-sm">شرح المفاهيم التقنية لأصحاب المصلحة غير التقنيين</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <i class="fas fa-graduation-cap text-purple-400 text-2xl mb-2"></i>
+                    <h4 class="font-semibold text-white mb-2">التعلم المستمر</h4>
+                    <p class="text-gray-300 text-sm">مواكبة التطورات المستمرة في المجال</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <i class="fas fa-users text-yellow-400 text-2xl mb-2"></i>
+                    <h4 class="font-semibold text-white mb-2">العمل الجماعي</h4>
+                    <p class="text-gray-300 text-sm">التعاون مع فرق متعددة التخصصات</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section id="certifications" class="article-section">
+            <div class="flex items-start mb-6">
+                <div class="bg-red-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-certificate text-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white">الشهادات المهنية في الأمن السيبراني</h2>
+                    <p class="text-gray-400 text-sm mt-1">دليل شامل للشهادات المعتمدة في مجال الأمن السيبراني</p>
+                </div>
+            </div>
+            
+            <p class="text-gray-300 mb-4">
+                الشهادات المهنية تلعب دوراً مهماً في تطوير المسيرة المهنية في مجال الأمن السيبراني، حيث تثبت كفاءة حاملها وتوفر له ميزة تنافسية في سوق العمل.
+            </p>
+            
+            <div class="bg-gray-800 rounded-lg p-6 mb-6">
+                <h4 class="font-semibold text-white mb-4">جدول الشهادات للمبتدئين والمتوسطين</h4>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-700">
+                        <thead>
+                            <tr>
+                                <th class="px-4 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">الشهادة</th>
+                                <th class="px-4 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">الجهة المانحة</th>
+                                <th class="px-4 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">المستوى</th>
+                                <th class="px-4 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">التكلفة التقريبية</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-700">
+                            <tr>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-white">CompTIA Security+</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">CompTIA</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">مبتدئ</td>
+                                <td class="px-4 py-3 text-sm text-green-400">370 دولاراً</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-white">CompTIA CySA+</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">CompTIA</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">مبتدئ إلى متوسط</td>
+                                <td class="px-4 py-3 text-sm text-green-400">392 دولاراً</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-white">eJPT</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">eLearnSecurity</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">مبتدئ</td>
+                                <td class="px-4 py-3 text-sm text-green-400">200 دولار</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-white">CEH</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">EC-Council</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">متوسط</td>
+                                <td class="px-4 py-3 text-sm text-green-400">1,199 دولاراً</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-white">CISSP</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">(ISC)²</td>
+                                <td class="px-4 py-3 text-sm text-gray-300">متقدم</td>
+                                <td class="px-4 py-3 text-sm text-green-400">749 دولاراً</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">شهادات متقدمة</h3>
+            
+            <div class="grid md:grid-cols-3 gap-4 my-6">
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-blue-500 w-10 h-10 rounded-full flex items-center justify-center mr-2">
+                            <span class="text-white font-bold">CISSP</span>
+                        </div>
+                        <h4 class="font-semibold text-white">شهادة محترف الأمن السيبراني</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        شهادة متقدمة تغطي ثمانية مجالات رئيسية في الأمن السيبراني، وتعتبر من أكثر الشهادات طلباً في المناصب القيادية.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-green-500 w-10 h-10 rounded-full flex items-center justify-center mr-2">
+                            <span class="text-white font-bold">CISM</span>
+                        </div>
+                        <h4 class="font-semibold text-white">شهادة مدير أمن المعلومات</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        تركز على الجوانب الإدارية والاستراتيجية لأمن المعلومات، وتستهدف المهنيين في المناصب القيادية.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-purple-500 w-10 h-10 rounded-full flex items-center justify-center mr-2">
+                            <span class="text-white font-bold">CISA</span>
+                        </div>
+                        <h4 class="font-semibold text-white">مدقق نظم المعلومات المعتمد</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        تركز على تدقيق ومراقبة أنظمة المعلومات، وتعتبر أساسية للمهنيين العاملين في مجال تدقيق الأمن.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <div class="flex items-start">
+                    <i class="fas fa-graduation-cap text-red-400 mt-1 ml-2"></i>
+                    <div>
+                        <p class="text-gray-300">
+                            "الحصول على الشهادات المهنية يزيد من فرص الحصول على وظيفة بنسبة 40% ويرفع الراتب بمتوسط 15% مقارنة بغير الحاصلين على شهادات معتمدة. ننصح المبتدئين بالبدء بشهادات مثل Security+ ثم التقدم للحصول على شهادات متخصصة حسب المسار المهني المختار."
+                        </p>
+                        <p class="text-blue-400 text-sm mt-2">- خبير التوظيف في مجال الأمن السيبراني</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Roadmap -->
+        <section id="roadmap" class="article-section">
+            <div class="flex items-start mb-6">
+                <div class="bg-indigo-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-map text-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white">خريطة التعلم الشاملة</h2>
+                    <p class="text-gray-400 text-sm mt-1">دليل عملي للبدء في مجال الأمن السيبراني من الصفر</p>
+                </div>
+            </div>
+            
+            <p class="text-gray-300 mb-4">
+                البدء في مجال الأمن السيبراني قد يبدو صعباً للمبتدئين، لكن باتباع خطة تعلم منظمة يمكن لأي شخص بناء المهارات اللازمة والانتقال إلى المستوى التالي في هذا المجال المثير.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">للمبتدئين: خطوات عملية</h3>
+            
+            <div class="bg-gray-800 rounded-lg p-6 mb-6">
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="bg-blue-500 w-8 h-8 rounded-full flex items-center justify-center mr-3 mt-1">
+                            <span class="text-white text-sm font-bold">1</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">بناء الأساس المعرفي</h4>
+                            <ul class="text-gray-300 space-y-2 text-sm mt-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>ابدأ بتعلم أساسيات الشبكات والأنظمة</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>تعرف على مفاهيم الأمن السيبراني الأساسية</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>تدرب على استخدام أنظمة Linux</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>تعلم أساسيات البرمجة بلغة Python</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-green-500 w-8 h-8 rounded-full flex items-center justify-center mr-3 mt-1">
+                            <span class="text-white text-sm font-bold">2</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">تطوير المهارات التقنية</h4>
+                            <ul class="text-gray-300 space-y-2 text-sm mt-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>تعلم لغة برمجة مثل Python</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>تدرب على أدوات الأمن الشائعة</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>انضم إلى منصات التدريب العملي</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>شارك في تحديات الأمن السيبراني</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-purple-500 w-8 h-8 rounded-full flex items-center justify-center mr-3 mt-1">
+                            <span class="text-white text-sm font-bold">3</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">الحصول على الشهادات</h4>
+                            <ul class="text-gray-300 space-y-2 text-sm mt-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>ابدأ بالشهادات الأساسية مثل Security+</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>تدرب على امتحانات الشهادات</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>احصل على شهادات متخصصة حسب مسارك</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>تابع متطلبات التجديد للشهادات</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-yellow-500 w-8 h-8 rounded-full flex items-center justify-center mr-3 mt-1">
+                            <span class="text-white text-sm font-bold">4</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">بناء الخبرة العملية</h4>
+                            <ul class="text-gray-300 space-y-2 text-sm mt-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>انضم إلى مشاريع مفتوحة المصدر</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>شارك في مسابقات الأمن السيبراني</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>أنشئ معمل افتراضي للتدريب</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                                    <span>قدم للحصول على تدريب عملي أو وظيفة مبتدئة</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">الجدول الزمني المقترح للتعلم</h3>
+            
+            <div class="bg-gray-800 rounded-lg p-6">
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="bg-blue-500 w-16 h-16 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">3 أشهر</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">المرحلة الأولى: الأساسيات</h4>
+                            <p class="text-gray-300 text-sm mt-1">
+                                تعلم أساسيات الشبكات، أنظمة التشغيل، ومفاهيم الأمن السيبراني الأساسية. ابدأ بتعلم لغة برمجة بسيطة مثل Python.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-green-500 w-16 h-16 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">6 أشهر</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">المرحلة الثانية: التخصص</h4>
+                            <p class="text-gray-300 text-sm mt-1">
+                                اختر مساراً تخصصياً (أمن الشبكات، أمن التطبيقات، etc.) وابدأ في تعلم الأدوات والتقنيات المتخصصة. احصل على أول شهادة مهنية.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-purple-500 w-16 h-16 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">12 شهر</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">المرحلة الثالثة: التطوير العملي</h4>
+                            <p class="text-gray-300 text-sm mt-1">
+                                انخرط في مشاريع عملية، شارك في مسابقات الأمن السيبراني، وابحث عن فرص تدريب أو وظيفة مبتدئة. احصل على شهادات متقدمة.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Future of Cybersecurity -->
+        <section id="future" class="article-section">
+            <div class="flex items-start mb-6">
+                <div class="bg-pink-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-crystal-ball text-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white">مستقبل الأمن السيبراني</h2>
+                    <p class="text-gray-400 text-sm mt-1">اتجاهات وتوقعات مجال الأمن السيبراني في السنوات القادمة</p>
+                </div>
+            </div>
+            
+            <p class="text-gray-300 mb-4">
+                مع تزايد الاعتماد على التكنولوجيا وتطور التهديدات الإلكترونية، يستمر مجال الأمن السيبراني في التطور والنمو. فيما يلي أبرز الاتجاهات المستقبلية التي ستشكل هذا المجال في السنوات القادمة.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">اتجاهات عام 2025</h3>
+            
+            <div class="grid md:grid-cols-2 gap-6 my-6">
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-robot text-blue-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">الذكاء الاصطناعي في الأمن السيبراني</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        سيظل استخدام الذكاء الاصطناعي التوليدي أحد أبرز اتجاهات الأمن السيبراني مع إطلاق منصات متطورة في المستقبل. سيساعد في اكتشاف التهديدات وتحليل الأنماط وتوقع الهجمات.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-cloud text-green-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">الأمن السحابي</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        مع زيادة اعتماد المؤسسات على الحوسبة السحابية، أصبح تأمين السحابة ضرورة لا غنى عنها. سيزداد الطلب على متخصصي الأمن السحابي بشكل ملحوظ.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-wifi text-purple-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">أمن إنترنت الأشياء</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        هناك الكثير من الأجهزة التي تعمل على برامج قديمة، مما يجعلها عرضة لنقاط الضعف الأمنية. سيزداد التركيز على تأمين أجهزة إنترنت الأشياء المنزلية والصناعية.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-briefcase text-yellow-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">التخطيط لاستمرارية الأعمال</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        يرتبط تخطيط استمرارية الأعمال بالاستعداد للخطر السيبراني من خلال تمييز المخاطر في الموعد المحدد، ودراسة مدى تأثيرها على الأنشطة، وكيفية التغلب عليها.
+                    </p>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">توقعات نمو المجال</h3>
+            
+            <div class="bg-gray-800 rounded-lg p-6">
+                <h4 class="font-semibold text-white mb-4">إحصائيات ونسب نمو متوقعة</h4>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الوظائف الشاغرة عالمياً</span>
+                            <span class="text-blue-400">+35%</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">الاستثمار في الأمن السيبراني</span>
+                            <span class="text-green-400">+28%</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-green-600 h-2 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">التهديدات الإلكترونية الجديدة</span>
+                            <span class="text-red-400">+42%</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-red-600 h-2 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">التحول إلى الحلول السحابية</span>
+                            <span class="text-purple-400">+55%</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-purple-600 h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <div class="flex items-start">
+                    <i class="fas fa-chart-line text-pink-400 mt-1 ml-2"></i>
+                    <div>
+                        <p class="text-gray-300">
+                            "من المتوقع أن يصل سوق الأمن السيبراني العالمي إلى 500 مليار دولار بحلول عام 2030، مع نمو سنوي مركب يبلغ 12%. ستشهد المنطقة العربية، وخاصة دول الخليج، نمواً أسرع بسبب الاستثمارات الكبيرة في التحول الرقمي والبنية التحتية للأمن السيبراني."
+                        </p>
+                        <p class="text-blue-400 text-sm mt-2">- تقرير Cybersecurity Market Trends 2023</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Tips -->
+        <section id="tips" class="article-section">
+            <div class="flex items-start mb-6">
+                <div class="bg-teal-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-user-tie text-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white">نصائح للحصول على وظيفة في الأمن السيبراني</h2>
+                    <p class="text-gray-400 text-sm mt-1">استراتيجيات عملية للنجاح في سوق العمل التنافسي</p>
+                </div>
+            </div>
+            
+            <p class="text-gray-300 mb-4">
+                الحصول على وظيفة في مجال الأمن السيبراني يتطلب أكثر من مجرد معرفة تقنية. إليك مجموعة من النصائح العملية التي ستساعدك على التميز في سوق العمل والنجاح في مسيرتك المهنية.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">بناء الشبكات المهنية</h3>
+            
+            <div class="grid md:grid-cols-2 gap-6 my-6">
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-users text-blue-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">المشاركة في المجتمعات</h4>
+                    </div>
+                    <ul class="text-gray-300 space-y-2 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>انضم إلى مجتمعات الأمن السيبراني المحلية والعالمية</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>شارك في المؤتمرات والفعاليات</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>تواصل مع محترفين في المجال</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>انضم إلى مجموعات LinkedIn المتخصصة</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-handshake text-green-400 ml-2"></i>
+                        <h4 class="font-semibold text-white">التواصل الفعال</h4>
+                    </div>
+                    <ul class="text-gray-300 space-y-2 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>ابني علاقات مهنية حقيقية وطويلة الأمد</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>شارك معرفتك وخبراتك مع الآخرين</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>اطلب النصح والإرشاد من الخبراء</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 ml-2"></i>
+                            <span>احضر فعاليات Networking بشكل منتظم</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">تطوير المهارات باستمرار</h3>
+            
+            <div class="bg-gray-800 rounded-lg p-6 mb-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-white mb-3">التعلم المستمر</h4>
+                        <ul class="text-gray-300 space-y-2 text-sm">
+                            <li class="flex items-start">
+                                <i class="fas fa-book text-blue-400 mt-1 ml-2"></i>
+                                <span>اقرأ المدونات والمقالات المتخصصة</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-video text-green-400 mt-1 ml-2"></i>
+                                <span>شاهد دروس وفيديوهات تعليمية</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-tools text-yellow-400 mt-1 ml-2"></i>
+                                <span>جرب أدوات وتقنيات جديدة</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-certificate text-purple-400 mt-1 ml-2"></i>
+                                <span>احصل على شهادات جديدة باستمرار</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-white mb-3">التطبيق العملي</h4>
+                        <ul class="text-gray-300 space-y-2 text-sm">
+                            <li class="flex items-start">
+                                <i class="fas fa-laptop-code text-red-400 mt-1 ml-2"></i>
+                                <span>أنشئ معمل افتراضي للتدريب</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-trophy text-indigo-400 mt-1 ml-2"></i>
+                                <span>شارك في مسابقات وتحديات الأمن</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-project-diagram text-teal-400 mt-1 ml-2"></i>
+                                <span>انضم إلى مشاريع مفتوحة المصدر</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-blog text-pink-400 mt-1 ml-2"></i>
+                                <span>أنشئ مدونة أو قناة لنشر معرفتك</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-white mt-8 mb-4">إعداد السيرة الذاتية</h3>
+            
+            <div class="grid md:grid-cols-3 gap-4 my-6">
+                <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <i class="fas fa-project-diagram text-blue-400 text-2xl mb-2"></i>
+                    <h4 class="font-semibold text-white mb-2">أبرز المشاريع العملية</h4>
+                    <p class="text-gray-300 text-sm">اذكر المشاريع التي قمت بها والمعامل التي أنشأتها</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <i class="fas fa-certificate text-green-400 text-2xl mb-2"></i>
+                    <h4 class="font-semibold text-white mb-2">اذكر الشهادات والدورات</h4>
+                    <p class="text-gray-300 text-sm">أدرج الشهادات المهنية والدورات التدريبية</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <i class="fas fa-link text-purple-400 text-2xl mb-2"></i>
+                    <h4 class="font-semibold text-white mb-2">ضع روابط للحسابات</h4>
+                    <p class="text-gray-300 text-sm">أضف روابط لحساباتك في منصات التدريب والشبكات المهنية</p>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <div class="flex items-start">
+                    <i class="fas fa-lightbulb text-teal-400 mt-1 ml-2"></i>
+                    <div>
+                        <p class="text-gray-300">
+                            "الأمن السيبراني ليس مجرد وظيفة، بل هو مهنة مليئة بالتحديات والفرص، حيث يمكنك المساهمة في حماية الأفراد والمنظمات من التهديدات الإلكترونية المتزايدة في عالمنا الرقمي. النجاح في هذا المجال يتطلب شغفاً حقيقياً بالتعلم والتطوير المستمر."
+                        </p>
+                        <p class="text-blue-400 text-sm mt-2">- خبيرة التوظيف والتطوير المهني</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="mb-12">
+            <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 border-l-4 border-blue-500">
+                <h2 class="text-2xl font-bold text-white mb-4">خلاصة شاملة</h2>
+                <p class="text-gray-300 mb-4">
+                    يمثل الأمن السيبراني مجالاً حيوياً ومتطوراً يقدم فرصاً مهنية ممتازة للمهتمين بالتكنولوجيا والأمن. مع تزايد التهديدات الإلكترونية وتعقيدها، تزداد الحاجة إلى متخصصين مؤهلين قادرين على حماية الأنظمة والبيانات من الهجمات المتطورة.
+                </p>
+                <p class="text-gray-300 mb-4">
+                    البدء في هذا المجال يتطلب بناء أساس متين من المعرفة التقنية، يليه التخصص في مسار محدد يتناسب مع المهارات والاهتمامات الشخصية. الشهادات المهنية تلعب دوراً مهماً في إثبات الكفاءة وفتح أبواب وظيفية جديدة.
+                </p>
+                <p class="text-gray-300 mb-4">
+                    النجاح في الأمن السيبراني لا يعتمد فقط على المهارات التقنية، بل أيضاً على المهارات الشخصية مثل التواصل الفعال، العمل الجماعي، والقدرة على التعلم المستمر. بناء شبكة مهنية قوية والمشاركة في المجتمعات المتخصصة يمكن أن يسرع بشكل كبير من التطور المهني.
+                </p>
+                <p class="text-gray-300">
+                    مستقبل الأمن السيبراني مشرق ومليء بالفرص، مع توقعات بنمو مستمر في الطلب على المتخصصين وزيادة في الاستثمارات في هذا القطاع. للمهتمين بدخول هذا المجال، الآن هو الوقت المثالي للبدء في رحلة التعلم وبناء المهارات اللازمة للنجاح في واحدة من أكثر المهن طلباً في القرن الحادي والعشرين.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sources -->
+        <section class="bg-gray-800 rounded-xl p-6 mb-8">
+            <h2 class="text-2xl font-bold text-white mb-6">المصادر والمراجع</h2>
+            
+            <div class="grid md:grid-cols-2 gap-4">
+                <a href="https://www.cybersecurityventures.com/cybersecurity-jobs-report/" target="_blank" class="source-link bg-gray-700 rounded-lg p-4 flex items-start">
+                    <i class="fas fa-external-link-alt text-blue-400 mt-1 ml-2"></i>
+                    <div>
+                        <h4 class="font-semibold text-white">Cybersecurity Ventures Jobs Report</h4>
+                        <p class="text-gray-400 text-sm mt-1">أحدث التقارير حول وظائف الأمن السيبراني ونمو السوق</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.isc2.org/certifications" target="_blank" class="source-link bg-gray-700 rounded-lg p-4 flex items-start">
+                    <i class="fas fa-external-link-alt text-green-400 mt-1 ml-2"></i>
+                    <div>
+                        <h4 class="font-semibold text-white">(ISC)² الشهادات المهنية</h4>
+                        <p class="text-gray-400 text-sm mt-1">معلومات عن شهادات CISSP، CSSP، وغيرها من الشهادات المتقدمة</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.comptia.org/certifications/security" target="_blank" class="source-link bg-gray-700 rounded-lg p-4 flex items-start">
+                    <i class="fas fa-external-link-alt text-purple-400 mt-1 ml-2"></i>
+                    <div>
+                        <h4 class="font-semibold text-white">CompTIA Security+</h4>
+                        <p class="text-gray-400 text-sm mt-1">الدليل الرسمي لشهادة Security+ ومتطلباتها</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.sans.org/cyber-security-careers/" target="_blank" class="source-link bg-gray-700 rounded-lg p-4 flex items-start">
+                    <i class="fas fa-external-link-alt text-yellow-400 mt-1 ml-2"></i>
+                    <div>
+                        <h4 class="font-semibold text-white">SANS Cyber Security Careers</h4>
+                        <p class="text-gray-400 text-sm mt-1">دليل المهن في الأمن السيبراني ونصائح التطوير المهني</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.csoonline.com/article/568833/the-cybersecurity-career-path-6-ways-to-get-started.html" target="_blank" class="source-link bg-gray-700 rounded-lg p-4 flex items-start">
+                    <i class="fas fa-external-link-alt text-red-400 mt-1 ml-2"></i>
+                    <div>
+                        <h4 class="font-semibold text-white">CSO Online - Cybersecurity Career Path</h4>
+                        <p class="text-gray-400 text-sm mt-1">دليل شامل لبدء مسيرة مهنية في الأمن السيبراني</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.nist.gov/cybersecurity" target="_blank" class="source-link bg-gray-700 rounded-lg p-4 flex items-start">
+                    <i class="fas fa-external-link-alt text-indigo-400 mt-1 ml-2"></i>
+                    <div>
+                        <h4 class="font-semibold text-white">NIST Cybersecurity Framework</h4>
+                        <p class="text-gray-400 text-sm mt-1">الإطار الوطني الأمريكي للمعايير والتقنيات في الأمن السيبراني</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Related Articles -->
+        <section class="bg-gray-800 rounded-xl p-6">
+            <h2 class="text-2xl font-bold text-white mb-6">مقالات ذات صلة</h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <a href="#" class="bg-gray-700 rounded-lg p-4 flex items-start transition-all hover:bg-gray-600">
+                    <div class="bg-blue-500 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-user-secret text-white"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-white">دليل شامل لشهادة CEH (قرصان الأخلاقي المعتمد)</h4>
+                        <p class="text-gray-400 text-sm mt-1">كل ما تحتاج معرفته عن شهادة CEH ومتطلباتها وطريقة التحضير لها</p>
+                    </div>
+                </a>
+                
+                <a href="#" class="bg-gray-700 rounded-lg p-4 flex items-start transition-all hover:bg-gray-600">
+                    <div class="bg-green-500 w-12 h-12 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-cloud text-white"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-white">الأمن السحابي: مستقبل حماية البيانات في العصر الرقمي</h4>
+                        <p class="text-gray-400 text-sm mt-1">استكشاف تحديات وحلول الأمن السحابي في بيئات AWS، Azure، وGCP</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="mb-4">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-2">
+                        <i class="fas fa-shield-alt ml-2"></i>TipsHub
+                    </h3>
+                    <p class="text-gray-400">منصة شاملة لكل ما يحتاجه المطورون والمبرمجون</p>
+                </div>
+                <div class="flex justify-center space-x-6 mb-4">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+                <div class="border-t border-gray-700 pt-4">
+                    <p class="text-gray-500">© 2025 TipsHub. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
